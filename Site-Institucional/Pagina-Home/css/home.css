@@ -129,3 +129,18 @@ body {
     margin-left: 9.8%;
     height: 750px;
 }
+
+
+/* ------------------------------- vantagens ---------------------------- */
+
+.pontosGarantidos{
+    display: flex;
+    width: 95%;
+    justify-content: center;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
