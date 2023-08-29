@@ -319,4 +319,92 @@ body {
     font-weight: 550;
     height: 30px;
     width: 120%;
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------------------  */
+
+.conteudoQuemSomos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.TituloQuemSomos span{
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.conteudoQS{
+    font-size: large;
+}
+
+.pilares{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.pilar1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.tituloPilar1{
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.conteudoPilar1{
+    width: 60%;
+    text-align: center;
+    margin-top: 5%;
+    font-size: large; 
+}
+
+.pilar2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.tituloPilar2{
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.conteudoPilar2{
+    width: 60%;
+    text-align: center;
+    margin-top: 5%;
+    font-size: large; 
+}
+
+.pilar3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.tituloPilar3{
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.conteudoPilar3{
+    width: 60%;
+    text-align: center;
+    margin-top: 5%;
+    font-size: large; 
 }
