@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #052767;
+    height: 80px;
+}
+
+.containerHeader{
+    display: flex;
+    width: 92%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .logo-titulo-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+} */
+
+#navbar{
+    display: flex;
+    width: 24%;
+    
+}
+
+.lista_nav{
+    display: flex;
+    padding: 0%;
+    margin: 0%;
+    text-decoration: none;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav_item{
+    display: flex;
+    text-decoration: none;
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+}
+
+.bt_login{
+    background-color: #01C38E;
+    border: none;
+    border-radius: 6px;
+    color: #ffff;
+    height: 30px;
+    width: 70px;
+    /* font-weight: bolder; */
+    font-size: 15px;
+}
+
+/* 
+.vetor {
+    position: relative;
+}
+
+.imagem1,
+.imagem2 {
+    position: absolute;
+    top: 0;
+}
+
+.imagem1 {
+    z-index: 1; 
+}
+
+.imagem2 {
+    z-index: 2; 
+    left: 43vw; 
+} */
+
+
+.containerCorpo{
+    display: flex;
+    width: 92%;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.conteudo{
+    display: flex;
+    justify-content: center;
+    background-image: url("imgs/Background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 550px;
+}
+
+.box{
+    width: 92%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+h3{
+    margin: 0;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    justify-content: space-between;
+}
+
+.inputs {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .input {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    padding: 5px;
+    border: 1.6px solid #052767;
+    border-radius: 7px;
+    width: 100%;
+    justify-content: space-around;
+  }
+  input {
+    all: unset;
+    font-size: 15px;
+  }
+
+  #input_email{
+    width: 90%;
+  }
+
+  #input_senha{
+    width: 90%;
+  }
+
+.botao-login{
+    width: 100px;
+    padding: 5%;
+    background-color: #01C38E;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
