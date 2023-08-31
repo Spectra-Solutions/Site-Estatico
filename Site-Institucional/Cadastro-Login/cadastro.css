@@ -71,7 +71,7 @@ body{
 .conteudo{
     display: flex;
     justify-content: center;
-    background-image: url("imgs/Mask\ grouptentativa.png");
+    background-image: url("imgs/Background-cadastro.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 750px;

@@ -78,7 +78,7 @@ body{
 .conteudo{
     display: flex;
     justify-content: center;
-    background-image: url("imgs/Background.png");
+    background-image: url("imgs/Background-login.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 700px;
