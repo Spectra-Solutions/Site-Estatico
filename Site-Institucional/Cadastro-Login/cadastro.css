@@ -25,13 +25,6 @@ body{
     align-items: center;
 }
 
-/* .logo-titulo-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-} */
-
 #navbar{
     display: flex;
     width: 24%;
@@ -64,28 +57,8 @@ body{
     width: 70px;
     /* font-weight: bolder; */
     font-size: 15px;
+    cursor: pointer;
 }
-
-/* 
-.vetor {
-    position: relative;
-}
-
-.imagem1,
-.imagem2 {
-    position: absolute;
-    top: 0;
-}
-
-.imagem1 {
-    z-index: 1; 
-}
-
-.imagem2 {
-    z-index: 2; 
-    left: 43vw; 
-} */
-
 
 .containerCorpo{
     display: flex;
@@ -98,69 +71,93 @@ body{
 .conteudo{
     display: flex;
     justify-content: center;
-    background-image: url("imgs/Background.png");
+    background-image: url("imgs/Mask\ grouptentativa.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 550px;
+    height: 750px;
 }
 
 .box{
-    width: 92%;
+    width: 55%;
     height: 100%;
     display: flex;
-    justify-content: end;
     align-items: center;
+    justify-content: center;
+}
+
+.boxCadastro{
+    display: flex;
+    height: 450px;
+}
+
+.cadastro{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 470px;
+    justify-content: space-between;
 }
 
 h3{
     margin: 0;
 }
 
-.login{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 200px;
-    justify-content: space-between;
-}
-
 .inputs {
-    width: 75%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
   }
   .input {
     display: flex;
-    flex-direction: row;
-    gap: 15px;
-    align-items: center;
-    padding: 5px;
-    border: 1.6px solid #052767;
+    padding: 8px;
+    border: 1.9px solid #052767;
     border-radius: 7px;
-    width: 100%;
+    width: 250px;
     justify-content: space-around;
   }
   input {
     all: unset;
     font-size: 15px;
+    width: 240px;
   }
 
-  #input_email{
-    width: 90%;
-  }
-
-  #input_senha{
-    width: 90%;
-  }
-
-.botao-login{
-    width: 100px;
-    padding: 5%;
-    background-color: #01C38E;
-    color: white;
-    border: none;
-    border-radius: 6px;
+#div_input_uf, #input_uf{
+    width: 70px;
 }
 
+#div_input_cidade, #input_cidade{
+    width: 200px;
+}
+#div_input_contato, #input_contato{
+    width: 200px;
+}
+
+#div_input_email_empresa, #input_email_empresa{
+    width: 530px;
+}
+
+
+.bt_cadastro{
+    background-color: #01C38E;
+    border: none;
+    border-radius: 6px;
+    color: #ffff;
+    height: 30px;
+    width: 245px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.mensagem_conta{
+    width: 245px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.mensagem_conta a{
+    text-decoration: none;
+    color: #052767;
+    font-weight: bold;
+}
