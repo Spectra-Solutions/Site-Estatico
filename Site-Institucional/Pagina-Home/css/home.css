@@ -12,6 +12,14 @@ body {
     background-color: #e9e9e9;
 }
 
+.conteudoTotal{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /* -------------------- header -------------------- */
 
 .header {
@@ -86,15 +94,16 @@ body {
 
 .informacoes {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 90%;
-    height: 500px;
 }
 
 .parte1 {
     display: flex;
     flex-direction: column;
     margin-top: 10%;
+    justify-content: center;
+    height: 500px;
 }
 
 
@@ -130,12 +139,14 @@ body {
 }
 
 .imagem {
-    margin-top: 7%;
+    height: 850px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #ftdash {
-    margin-left: 9.8%;
-    height: 750px;
+    height: 550px;
 }
 
 
@@ -517,6 +528,36 @@ body {
     width: 100%;
 }
 
+.divDoBotao{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerBt{
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btSubir{
+    width: 40px;
+    height: 40px;
+    background-color: #01C38E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 8%;
+}
+
+.btSubir img {
+    width: 30px;
+}
+
 
 
 /* --------------------------- footer -------------------------------------  */
@@ -562,4 +603,147 @@ body {
 
 .logoFinal span {
     margin-top: 5%;
+}
+
+
+
+/* --------------------------------- responsividade ------------------------------------  */
+
+@media only screen and (max-width: 600px) {
+    /* -------------------- header -------------------- */
+
+.header {
+    width: 100%;
+    height: 2%;
+    background-color: #0059ff00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    /* Adicionado para tornar o menu flutuante */
+    top: 0;
+    /* Define a posição fixa no topo da página */
+    z-index: 999;
+}
+
+.containerHeader {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3%;
+}
+
+#imgLogo {
+    width: 120px;
+    height: 60px;
+}
+
+#imgLogo2 {
+    width: 100%;
+    height: 25px;
+}
+
+.lista_nav {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.lista_nav li {
+    margin-right: 6em;
+    font-size: 2.4vmax;
+    color: #ffff;
+}
+
+.bt_login {
+    background-color: #01C38E;
+    border: none;
+    border-radius: 10px;
+    color: #ffff;
+    height: 30px;
+    width: 70px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+/* ----------------------- conteudo --------------------  */
+
+
+@media only screen and (max-width: 600px) {
+    .banner {
+        width: 245%;
+        height: 900px;
+        background-image: url(../imgs/FUNDO.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+    
+    }
+    
+    .informacoes {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        height: 500px;
+    }
+    
+    .parte1 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10%;
+    }
+    
+    
+    .escrita1 {
+        width: 550px;
+    }
+    
+    .escrita2 {
+        width: 550px;
+    }
+    
+    .titulo_baner {
+        font-size: 64px;
+        font-weight: 600;
+        color: #ffff;
+    }
+    
+    .complemento_banner {
+        font-size: 20px;
+        color: #ffff;
+    }
+    
+    .bt_saber {
+        background-color: #01C38E;
+        border: none;
+        border-radius: 10px;
+        color: #ffff;
+        width: 120px;
+        height: 33px;
+        font-weight: bold;
+        font-size: 100%;
+        cursor: pointer;
+    }
+    
+    .imagem {
+        margin-top: 7%;
+    }
+    
+    #ftdash {
+        margin-left: 8%;
+        height: 750px;
+    
+    }
+    
+    
+    .conteudoTotal{
+        width: 245%;
+    }    
+
+}
 }
