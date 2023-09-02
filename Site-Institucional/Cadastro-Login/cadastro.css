@@ -4,6 +4,9 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+/* ------------------------- HEADER ------------------------- */
+
 body{
     padding: 0px;
     margin: 0px;
@@ -16,6 +19,10 @@ body{
     align-items: center;
     background-color: #052767;
     height: 80px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
 }
 
 .containerHeader{
@@ -60,6 +67,11 @@ body{
     cursor: pointer;
 }
 
+/* ------------------------- HEADER ------------------------- */
+
+
+/* ------------------------- BODY ------------------------- */
+
 .containerCorpo{
     display: flex;
     width: 92%;
@@ -71,7 +83,7 @@ body{
 .conteudo{
     display: flex;
     justify-content: center;
-    background-image: url("imgs/Background-cadastro.png");
+    background-image: url("imgs/Mask\ grouptentativa.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 750px;
@@ -87,19 +99,31 @@ body{
 
 .boxCadastro{
     display: flex;
-    height: 450px;
+    height: 380px;
+    flex-direction: column;
+    align-items: center;
+    gap: 23px;
 }
 
 .cadastro{
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 470px;
+    height: 300px;
     justify-content: space-between;
 }
 
+/* .gap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50px;
+} */
+
 h3{
     margin: 0;
+    text-align: center;
+    font-size: x-large;
 }
 
 .inputs {
@@ -116,27 +140,13 @@ h3{
     border-radius: 7px;
     width: 250px;
     justify-content: space-around;
+    /* padding: 12px 18px; */
   }
   input {
     all: unset;
     font-size: 15px;
     width: 240px;
   }
-
-#div_input_uf, #input_uf{
-    width: 70px;
-}
-
-#div_input_cidade, #input_cidade{
-    width: 200px;
-}
-#div_input_contato, #input_contato{
-    width: 200px;
-}
-
-#div_input_email_empresa, #input_email_empresa{
-    width: 530px;
-}
 
 
 .bt_cadastro{
@@ -161,3 +171,61 @@ h3{
     color: #052767;
     font-weight: bold;
 }
+
+/* ------------------------- BODY ------------------------- */
+
+
+
+/* ------------------------- FOOTER -------------------------*/
+
+/* .conteudoFooter {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("imgs/fundoFooter.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 530px;
+}
+
+.elementos{
+    margin-top: 18%;
+    width: 70%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.linha{
+    width: 100%;
+    border-top: 2px solid #ffff;
+    margin-top: 3%;
+}
+
+.logoFinal{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    color: #ffff;
+    align-items: center;
+}
+
+.logoFinal img {
+    width: 80%;
+}
+
+.logoFinal span {
+    margin-top: 5%;
+}
+
+.lista_nav li {
+    margin-right: 5em;
+    font-size: 1.1vmax;
+    color: #ffff;
+    list-style: none;
+} */
+
+/* ------------------------- FOOTER -------------------------*/
