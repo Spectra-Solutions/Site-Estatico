@@ -74,7 +74,7 @@ body{
 
 .corpo{
     display: flex;
-    height: 1200px;
+    height: auto;
     flex-direction: column;
 }
 
@@ -143,10 +143,125 @@ body{
     margin-top: 10px;
 }
 
-.checkbox{
+.centralizadora{
     margin-top: 60px;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.checkboxes{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.checkbox{
+    display: flex;
+    flex-direction: column;
+    height: 170px;
+    justify-content: space-between;
+}
+
+.bt_solucao{
+    background-color: #01C38E;
+    border: none;
+    border-radius: 6px;
+    color: #ffff;
+    height: 45px;
+    width: 40%;
+    /* font-weight: bolder; */
+    font-size: 15px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 3%;
+    /* padding: 20px 0px; */
+}
+
+
+.box_solucao{
+    margin-top: 70px;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+.mensagem_solucao{
+    background-color: rgb(187, 187, 187);
+    height: auto;
+    width: 50%;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.resposta{
+    text-align: center;
+}
+
+.bt_faca_parte{
+    background-color: #052767;
+    border: none;
+    border-radius: 6px;
+    color: #ffff;
+    height: 40px;
+    width: 20%;
+    font-size: 15px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 3%;
+}
+/* --------------------------- BODY ------------------------------ */
+
+
+/* ----------------------------FOOTER ----------------------------- */
+.conteudoFooter {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("imgs/fundoFooter.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 530px;
+}
+
+.elementos{
+    margin-top: 18%;
+    width: 70%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.linha{
+    width: 100%;
+    border-top: 2px solid #ffff;
+    margin-top: 3%;
+}
+
+.logoFinal{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    color: #ffff;
+    align-items: center;
+}
+
+.logoFinal img {
+    width: 80%;
+}
+
+.logoFinal span {
+    margin-top: 5%;
+}
+
+.lista_nav li {
+    margin-right: 5em;
+    font-size: 1.1vmax;
+    color: #ffff;
+    list-style: none;
+}
+
+/* -------------------------- FOOTER ----------------------------- */
