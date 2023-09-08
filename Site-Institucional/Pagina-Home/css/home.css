@@ -12,7 +12,7 @@ body {
     background-color: #e9e9e9;
 }
 
-.conteudoTotal{
+.conteudoTotal {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -68,6 +68,11 @@ body {
     color: #ffff;
 }
 
+a{
+    text-decoration: none;
+    color: #ffff;
+}
+
 .bt_login {
     background-color: #01C38E;
     border: none;
@@ -77,6 +82,68 @@ body {
     width: 70px;
     font-weight: bolder;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    /* -------------------- header -------------------- */
+
+    .header {
+        width: 100%;
+        height: 2%;
+        background-color: #0059ff00;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        /* Adicionado para tornar o menu flutuante */
+        top: 0;
+        /* Define a posição fixa no topo da página */
+        z-index: 999;
+    }
+
+    .containerHeader {
+        width: 85%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 3%;
+    }
+
+    #imgLogo {
+        width: 120px;
+        height: 60px;
+    }
+
+    #imgLogo2 {
+        width: 100%;
+        height: 25px;
+    }
+
+    .lista_nav {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .lista_nav li {
+        margin-right: 6em;
+        font-size: 2.4vmax;
+        color: #ffff;
+    }
+
+    .bt_login {
+        background-color: #01C38E;
+        border: none;
+        border-radius: 10px;
+        color: #ffff;
+        height: 30px;
+        width: 70px;
+        font-weight: bolder;
+        cursor: pointer;
+    }
 }
 
 /* ------------------ conteudo -----------------------  */
@@ -150,6 +217,86 @@ body {
 }
 
 
+@media only screen and (max-width: 600px) {
+
+    body {
+        width: 100%;
+
+    }
+
+    .banner {
+        width: 245%;
+        height: 900px;
+        background-image: url(../imgs/FUNDO.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .informacoes {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        height: 500px;
+    }
+
+    .parte1 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10%;
+    }
+
+
+    .escrita1 {
+        width: 550px;
+    }
+
+    .escrita2 {
+        width: 550px;
+    }
+
+    .titulo_baner {
+        font-size: 64px;
+        font-weight: 600;
+        color: #ffff;
+    }
+
+    .complemento_banner {
+        font-size: 20px;
+        color: #ffff;
+    }
+
+    .bt_saber {
+        background-color: #01C38E;
+        border: none;
+        border-radius: 10px;
+        color: #ffff;
+        width: 120px;
+        height: 33px;
+        font-weight: bold;
+        font-size: 100%;
+        cursor: pointer;
+    }
+
+    .imagem {
+        margin-top: 7%;
+    }
+
+    #ftdash {
+        margin-left: 8%;
+        height: 750px;
+
+    }
+
+
+    .conteudoTotal {
+        width: 245%;
+    }
+
+}
+
 /* ------------------------------- vantagens ---------------------------- */
 
 .pontosGarantidos {
@@ -160,11 +307,62 @@ body {
     height: 300px;
 }
 
+
 .flex {
     width: 90%;
     display: flex;
     justify-content: center;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .pontosGarantidos {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+    }
+
+    .flex {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .suporte {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 60%;
+        justify-content: center;
+        height: 200px;
+        margin-bottom: 5%;
+    }
+
+    .imgSuporte img {
+        height: 100px;
+    }
+
+    .tituloSuporte span {
+        font-size: 800%;
+        font-weight: 600;
+    }
+
+    .conteudoSuporte {
+        width: 60%;
+        text-align: center;
+        margin-top: 5%;
+    }
+
+    .conteudoSuporte span {
+        font-size: large;
+    }
+}
+
 
 .suporte {
     display: flex;
@@ -255,7 +453,7 @@ body {
 /* -------------------- soluçao ------------------  */
 
 
-.conteudoSolucao {
+#conteudoSolucao {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -298,7 +496,7 @@ body {
     margin-bottom: 3%;
 }
 
-.imgDashSolucao{
+.imgDashSolucao {
     width: 100%;
 }
 
@@ -318,10 +516,11 @@ body {
     margin-top: 2%;
 }
 
-.img_check{
+.img_check {
     width: 11.3%;
     margin-right: 2%;
 }
+
 /* -------------------------fazer parte---------------------------------  */
 
 .fzerParte {
@@ -383,13 +582,13 @@ body {
     width: 100%;
 }
 
-.imgPilar{
+.imgPilar {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.imgPilar img{
+.imgPilar img {
     width: 40%;
 }
 
@@ -528,20 +727,20 @@ body {
     width: 100%;
 }
 
-.divDoBotao{
+.divDoBotao {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.containerBt{
+.containerBt {
     width: 90%;
     display: flex;
     justify-content: flex-end;
 }
 
-.btSubir{
+.btSubir {
     width: 40px;
     height: 40px;
     background-color: #01C38E;
@@ -574,7 +773,7 @@ body {
     height: 530px;
 }
 
-.elementos{
+.elementos {
     margin-top: 18%;
     width: 70%;
     justify-content: center;
@@ -583,13 +782,13 @@ body {
     align-items: center;
 }
 
-.linha{
+.linha {
     width: 100%;
     border-top: 2px solid #ffff;
     margin-top: 3%;
 }
 
-.logoFinal{
+.logoFinal {
     display: flex;
     flex-direction: column;
     margin-top: 5%;
@@ -607,143 +806,4 @@ body {
 
 
 
-/* --------------------------------- responsividade ------------------------------------  */
 
-@media only screen and (max-width: 600px) {
-    /* -------------------- header -------------------- */
-
-.header {
-    width: 100%;
-    height: 2%;
-    background-color: #0059ff00;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    /* Adicionado para tornar o menu flutuante */
-    top: 0;
-    /* Define a posição fixa no topo da página */
-    z-index: 999;
-}
-
-.containerHeader {
-    width: 85%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 3%;
-}
-
-#imgLogo {
-    width: 120px;
-    height: 60px;
-}
-
-#imgLogo2 {
-    width: 100%;
-    height: 25px;
-}
-
-.lista_nav {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    text-decoration: none;
-    cursor: pointer;
-    text-align: center;
-}
-
-.lista_nav li {
-    margin-right: 6em;
-    font-size: 2.4vmax;
-    color: #ffff;
-}
-
-.bt_login {
-    background-color: #01C38E;
-    border: none;
-    border-radius: 10px;
-    color: #ffff;
-    height: 30px;
-    width: 70px;
-    font-weight: bolder;
-    cursor: pointer;
-}
-
-/* ----------------------- conteudo --------------------  */
-
-
-@media only screen and (max-width: 600px) {
-    .banner {
-        width: 245%;
-        height: 900px;
-        background-image: url(../imgs/FUNDO.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        display: flex;
-        justify-content: center;
-    
-    }
-    
-    .informacoes {
-        display: flex;
-        justify-content: space-between;
-        width: 90%;
-        height: 500px;
-    }
-    
-    .parte1 {
-        display: flex;
-        flex-direction: column;
-        margin-top: 10%;
-    }
-    
-    
-    .escrita1 {
-        width: 550px;
-    }
-    
-    .escrita2 {
-        width: 550px;
-    }
-    
-    .titulo_baner {
-        font-size: 64px;
-        font-weight: 600;
-        color: #ffff;
-    }
-    
-    .complemento_banner {
-        font-size: 20px;
-        color: #ffff;
-    }
-    
-    .bt_saber {
-        background-color: #01C38E;
-        border: none;
-        border-radius: 10px;
-        color: #ffff;
-        width: 120px;
-        height: 33px;
-        font-weight: bold;
-        font-size: 100%;
-        cursor: pointer;
-    }
-    
-    .imagem {
-        margin-top: 7%;
-    }
-    
-    #ftdash {
-        margin-left: 8%;
-        height: 750px;
-    
-    }
-    
-    
-    .conteudoTotal{
-        width: 245%;
-    }    
-
-}
-}

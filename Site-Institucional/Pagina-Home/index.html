@@ -17,14 +17,16 @@
                 <img src="imgs/LOGO_SPECTRA2 1.svg" alt="" id="imgLogo">
 
             </div>
-            <ul class="lista_nav">
-                <li onclick="produto()">Produto</li>
-                <li onclick="">Dúvidas</li>
-                <li onclick="qmSomos()">Quem Somos</li>
-                <li onclick="fzrParte()">Fazer Parte</li>
-                <li onclick="">Suporte</li>
-                <button class="bt_login" onclick="fzrLogin">Login</button>
-            </ul>
+            <nav>
+                <ul class="lista_nav">
+                    <li><a href="#conteudoSolucao" onclick="rolagemAnimada()">Produto</a></li>
+                    <li><a>Dúvidas</a></li>
+                    <li><a href="#timeSpectra" onclick="rolagemAnimada()">Quem Somos</a></li>
+                    <li onclick="fzrParte()">Fazer Parte</li>
+                    <li onclick="">Suporte</li>
+                    <button class="bt_login" onclick="fzrLogin()">Login</button>
+                </ul>
+            </nav>
         </div>
     </div>
 
@@ -38,7 +40,8 @@
                 </div>
                 <div class="escrita2">
 
-                    <span class="complemento_banner">Solução para servidores de empresas ETL para o processamento em tempo real.</span>
+                    <span class="complemento_banner">Solução para servidores de empresas ETL para o processamento em
+                        tempo real.</span>
 
                 </div>
                 <div class="btSaber">
@@ -46,7 +49,7 @@
                 </div>
             </div>
 
-           
+
         </div>
 
         <div class="imagem">
@@ -112,7 +115,7 @@
 
         <!-- -------------------------- solução ------------------------------  -->
 
-        <div class="conteudoSolucao">
+        <div id="conteudoSolucao">
             <div class="containerSolucao">
                 <div class="nomeSolucao">
                     <span>Monitoramento de Servidores</span>
@@ -181,60 +184,63 @@
 
         <!-- ------------------ nosso time parte 1 ----------------------  -->
 
-        <div class="conteudoQuemSomos">
-            <div class="TituloQuemSomos">
-                <span>Quem Somos?</span>
-            </div>
-            <div class="conteudoQS">
-                <span>Conheça nossos pilares que vivemos e defendemos diariamente</span>
-            </div>
-            <div class="pilares">
+        <div id="timeSpectra">
+            <div class="conteudoQuemSomos">
+                <div class="TituloQuemSomos">
+                    <span>Quem Somos?</span>
+                </div>
+                <div class="conteudoQS">
+                    <span>Conheça nossos pilares que vivemos e defendemos diariamente</span>
+                </div>
+                <div class="pilares">
 
-                <div class="pilar1">
-                    <div class="imgPilar">
-                        <img src="imgs/pilar1.svg" alt="">
+                    <div class="pilar1">
+                        <div class="imgPilar">
+                            <img src="imgs/pilar1.svg" alt="">
+                        </div>
+
+                        <div class="tituloPilar1">
+                            <span>Responsabilidade</span>
+                        </div>
+
+                        <div class="conteudoPilar1">
+                            <span>Compromisso e transparência
+                                em nossas ações e decisões.</span>
+                        </div>
                     </div>
 
-                    <div class="tituloPilar1">
-                        <span>Responsabilidade</span>
+                    <div class="pilar2">
+                        <div class="imgPilar">
+                            <img src="imgs/pilar2.svg" alt="">
+                        </div>
+
+                        <div class="tituloPilar2">
+                            <span>Confiança</span>
+                        </div>
+
+                        <div class="conteudoPilar2">
+                            <span>Construção de relacionamento
+                                com nossos parceiros.</span>
+                        </div>
                     </div>
 
-                    <div class="conteudoPilar1">
-                        <span>Compromisso e transparência
-                            em nossas ações e decisões.</span>
+                    <div class="pilar3">
+                        <div class="imgPilar">
+                            <img src="imgs/pilar3.svg" alt="">
+                        </div>
+
+                        <div class="tituloPilar3">
+                            <span>Resiliência</span>
+                        </div>
+
+                        <div class="conteudoPilar3">
+                            <span>Adaptação a desafios que
+                                nos impulsionam a crescer.</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="pilar2">
-                    <div class="imgPilar">
-                        <img src="imgs/pilar2.svg" alt="">
-                    </div>
-
-                    <div class="tituloPilar2">
-                        <span>Confiança</span>
-                    </div>
-
-                    <div class="conteudoPilar2">
-                        <span>Construção de relacionamento
-                            com nossos parceiros.</span>
-                    </div>
-                </div>
-
-                <div class="pilar3">
-                    <div class="imgPilar">
-                        <img src="imgs/pilar3.svg" alt="">
-                    </div>
-
-                    <div class="tituloPilar3">
-                        <span>Resiliência</span>
-                    </div>
-
-                    <div class="conteudoPilar3">
-                        <span>Adaptação a desafios que
-                            nos impulsionam a crescer.</span>
-                    </div>
-                </div>
             </div>
+
         </div>
 
 
@@ -303,9 +309,9 @@
 
         <div class="divDoBotao">
             <div class="containerBt">
-            <div class="btSubir" onclick="subir()">
-                <img src="imgs/seta-branca 1.svg" alt="">
-            </div>
+                <div class="btSubir" onclick="subir()">
+                    <img src="imgs/seta-branca 1.svg" alt="">
+                </div>
             </div>
         </div>
 
@@ -315,14 +321,15 @@
         <div class="conteudoFooter">
             <div class="elementos">
                 <div class="infoFooter">
-                    <ul class="lista_nav">
-                        <li>Produto</li>
-                        <li>Dúvidos</li>
-                        <li>Quem Somos</li>
-                        <li>Fazer Parte</li>
-                        <li>Suporte</li>
-                        <li>Login</li>
-                    </ul>
+                    <nav>
+                        <ul class="lista_nav">
+                            <li><a href="#conteudoSolucao" onclick="rolagemAnimada()">Produto</a></li>
+                            <li><a>Dúvidas</a></li>
+                            <li><a href="#timeSpectra" onclick="rolagemAnimada()">Quem Somos</a></li>
+                            <li onclick="fzrParte()">Fazer Parte</li>
+                            <li onclick="">Suporte</li>
+                        </ul>
+                    </nav>
                 </div>
                 <div class="linha"></div>
                 <div class="logoFinal">
@@ -345,4 +352,40 @@
             behavior: 'smooth'
         });
     }
+
+    function fzrParte() {
+        window.location.href = "../Cadastro-Login/cadastro.html"
+    }
+
+    function fzrLogin() {
+        window.location.href = "../Cadastro-Login/login.html"
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        function rolagemAnimada(event) {
+            event.preventDefault(); 
+
+            var idDiv = this.getAttribute('href'); 
+
+            var divDestino = document.querySelector(idDiv);
+
+            if (divDestino) {
+                var targetPosition = divDestino.offsetTop;
+
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        var links = document.querySelectorAll('nav a');
+
+        links.forEach(function (link) {
+            link.addEventListener('click', rolagemAnimada);
+        });
+    });
+
 </script>
