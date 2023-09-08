@@ -11,13 +11,13 @@
 <body>
     <!-- ------------------------ header ------------------------ -->
 
-    <div class="header">
+    <div id="header" class="fundoTransparente">
         <div class="containerHeader">
             <div>
                 <img src="imgs/LOGO_SPECTRA2 1.svg" alt="" id="imgLogo">
 
             </div>
-            <nav>
+            <nav id="navTopo">
                 <ul class="lista_nav">
                     <li><a href="#conteudoSolucao" onclick="rolagemAnimada()">Produto</a></li>
                     <li><a>Dúvidas</a></li>
@@ -387,5 +387,28 @@
             link.addEventListener('click', rolagemAnimada);
         });
     });
+
+
+
+
+// ---------------- função da nav -------------------- 
+
+
+const navbar = document.getElementById("header");
+
+const posicaoQueGanhaCor = 100; 
+
+window.addEventListener("scroll", () => {
+    
+    if (window.scrollY > posicaoQueGanhaCor) {
+        navbar.classList.add("colorirFundo");
+    } else {
+        navbar.classList.remove("colorirFundo");
+    }
+});
+
+
+
+
 
 </script>
