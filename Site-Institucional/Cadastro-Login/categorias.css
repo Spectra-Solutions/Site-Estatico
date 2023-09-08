@@ -214,6 +214,23 @@ body{
     align-self: center;
     margin-top: 3%;
 }
+
+#componentes_monitorados{
+    color: #052767;
+    text-align: center;
+}
+
+#solucoes_spectra{
+    text-align: center;
+}
+
+.componentes_nao_monitorados{
+    text-align: center;
+}
+
+/* .problemas_cliente{
+    list-style: circle;
+} */
 /* --------------------------- BODY ------------------------------ */
 
 
