@@ -17,7 +17,7 @@
                     <li class="nav_item">Dúvidas</li>
                     <li class="nav_item">Home</li>
                     <li class="nav_item">Suporte</li>
-                    <button class="bt_login" id="bt_login">Login</button>
+                    <li class="bt_login" onclick="bt_login()">Login</li>
                 </ul>
             </div>
         </div>
@@ -53,44 +53,44 @@
             </p>
         </div>
 
-        <div class="centralizadora">
+        <div class="centralizadora">    
             <div class="checkboxes">
                 <div class="checkbox">
                     <div>
-                        <input type="checkbox" id="input_lentidao"> Lentidão
+                        <input type="checkbox" id="check_lentidao"> Lentidão
                     </div>
 
                     <div>
-                        <input type="checkbox" id="input_atraso_resposta"> Atraso de respostas
+                        <input type="checkbox" id="check_atraso_resposta"> Atraso de respostas
                     </div>
 
                     <div>
-                        <input type="checkbox" id="input_Downtime"> Downtime
+                        <input type="checkbox" id="check_Downtime"> Downtime
                     </div>
 
                 </div>
                 <div class="checkbox">
                     <div>
-                        <input type="checkbox" id="input_perda_de_dados"> Perda de Dados
+                        <input type="checkbox" id="check_perda_de_dados"> Perda de Dados
                     </div>
 
                     <div>
-                        <input type="checkbox" id="input_armazenamento_insuficiente"> Armazenamento insuficiente
+                        <input type="checkbox" id="check_armazenamento_insuficiente"> Armazenamento insuficiente
                     </div>
 
                     <div>
-                        <input type="checkbox" id="input_rede_instavel"> Rede instável
+                        <input type="checkbox" id="check_rede_instavel"> Rede instável
                     </div>
 
                 </div>
             </div>
         </div>
         
-        <button id="bt_solucao" class="bt_solucao">
+        <button onclick="bt_solucao()" class="bt_solucao">
             Ver solução Spectra
         </button>
 
-        <div id="id_box_solucao" class="box_solucao">
+        <div id="id_box_solucao" class="box_solucao" style="display: none;">
             <div class="mensagem_solucao">
                 <p>Para o(s) problema(s):</p>
                 <div id="problemas_cliente"></div>
@@ -120,11 +120,11 @@
         <div class="elementos">
             <div class="infoFooter">
                 <ul class="lista_nav">
-                    <li>Produto</li>
-                    <li>Quem Somos</li>
-                    <li>Fazer Parte</li>
-                    <li>Suporte</li>
-                    <li>Login</li>
+                    <li class="nav_item_footer">Produto</li>
+                    <li class="nav_item_footer">Quem Somos</li>
+                    <li class="nav_item_footer">Fazer Parte</li>
+                    <li class="nav_item_footer">Suporte</li>
+                    <li class="nav_item_footer">Login</li>
                 </ul>
             </div>
             <div class="linha"></div>
@@ -145,42 +145,26 @@
 // id_box_solucao.style.display = "none"
     function bt_solucao(){
         id_box_solucao.style.display = "flex"
+        
+        var lentidao = document.getElementById("check_lentidao")
+        var atrasoDeRespostas = document.getElementById("check_atraso_resposta")
+        var downtime = document.getElementById("check_dowtime")
+        var perdaDeDados = document.getElementById("check_perda_de_dados")
+        var armazenamentoInsuficiente = document.getElementById("check_armazenamento_insuficiente")
+        var redeInstavel = document.getElementById("check_rede_instavel")
 
-        var lentidao = input_lentidao.value
-        var atrasoDeRespostas = input_atraso_resposta.value
-        var downtime = input_Downtime.value
-        var perdaDeDados = input_perda_de_dados.value
-        var armazenamentoInsuficiente = input_armazenamento_insuficiente.value
-        var redeInstavel = input_rede_instavel.value
+            
+        var vetorProblemas = [lentidao, atrasoDeRespostas, downtime, perdaDeDados,
+         armazenamentoInsuficiente, redeInstavel]
 
+         
         if(lentidao){
             solucoes_spectra.innerHTML = `CPU (Central Processing Unit)
-            Causa: sobrecarregada com muitos processos ou tarefas exigentes`
+            Causa: sobrecarregada com muitos processos ou tarefas exigentes.
+            `
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        // var vetorProblemas = [lentidao, atrasoDeRespostas, downtime, perdaDeDados, armazenamentoInsuficiente, redeInstavel]
-        
-        // for(var i = 0; i <= vetorProblemas; i++){
 
-        // }
+        
 
     }
 </script>

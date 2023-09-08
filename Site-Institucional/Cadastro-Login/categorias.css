@@ -19,10 +19,10 @@ body{
     align-items: center;
     background-color: #052767;
     height: 80px;
-    /* position: fixed;
+    position: fixed;
     top: 0;
     z-index: 999;
-    width: 100%; */
+    width: 100%;
 }
 
 .containerHeader{
@@ -56,16 +56,20 @@ body{
 }
 
 .bt_login{
+    display: flex;
     background-color: #01C38E;
     border: none;
     border-radius: 6px;
     color: #ffff;
     height: 30px;
     width: 70px;
-    /* font-weight: bolder; */
     font-size: 15px;
     cursor: pointer;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
 }
+
 
 /* ------------------------- HEADER ------------------------- */
 
@@ -257,7 +261,7 @@ body{
     margin-top: 5%;
 }
 
-.lista_nav li {
+.lista_nav .nav_item_footer {
     margin-right: 5em;
     font-size: 1.1vmax;
     color: #ffff;

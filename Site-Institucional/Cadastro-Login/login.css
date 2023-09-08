@@ -33,7 +33,7 @@ body{
 
 #navbar{
     display: flex;
-    width: 24%;
+    width: 30%;
     
 }
 
@@ -55,15 +55,18 @@ body{
 }
 
 .bt_login{
+    display: flex;
     background-color: #01C38E;
     border: none;
     border-radius: 6px;
     color: #ffff;
     height: 30px;
     width: 70px;
-    /* font-weight: bolder; */
     font-size: 15px;
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
 }
 /* ------------------------- HEADER -------------------------*/
 
