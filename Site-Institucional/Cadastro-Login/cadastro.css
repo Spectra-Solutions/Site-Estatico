@@ -34,7 +34,7 @@ body{
 
 #navbar{
     display: flex;
-    width: 30%;
+    width: 50%;
     
 }
 
@@ -53,6 +53,7 @@ body{
     justify-content: space-between;
     color: white;
     align-items: center;
+    cursor: pointer;
 }
 
 .bt_login{
@@ -86,18 +87,20 @@ body{
 .conteudo{
     display: flex;
     justify-content: center;
-    background-image: url("imgs/Mask\ grouptentativa.png");
+    background-image: url("imgs/fundo-cadastro.svg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 750px;
+    justify-content: center;
 }
 
 .box{
-    width: 55%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .boxCadastro{
@@ -106,6 +109,9 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 23px;
+    background-color: white;
+    padding: 3% 4%;
+    border-radius: 6px;
 }
 
 .cadastro{
