@@ -1,56 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Spectra | Login</title>
+    <link rel="shortcut icon" type="imagex/png" href="../Pagina-Home/imgs/icone.png">
     <link rel="stylesheet" href="login.css">
 </head>
+
 <body>
 
     <!-------------------------- HEADER ---------------------------->
-    <div id = "header" class="header">
-        <div id="containerHeader" class="containerHeader">
-            <!-- <div id="logo-titulo-header"> -->
-                <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" height="25px">
-            <!-- </div> -->
-            <div id="navbar">
-                <ul class="lista_nav">
-                    <li class="nav_item"><a href="../Pagina-Home/index.html"></a>Home</li>
-                    <li class="nav_item"><a href="categorias.html"></a>Dúvidas</li>
-                    <li class="nav_item"><a href=""></a>Suporte</li>
-                    <li class="bt_login"><a href="login.html"></a>Login</li>
-                </ul>
+    <div id="header-nav" class="header">
+
+        <div class="containerHeader">
+
+            <div class="logoNav">
+                <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo">
+
             </div>
+
+            <nav id="navTopo">
+                <ul class="lista_nav" id="lista_nav1">
+                    <li><a href="">Home</a></li>
+                    <li><a>Dúvidas</a></li>
+                    <li onclick="fzrParte()">Fazer parte</li>
+                    <li onclick="">Suporte</li>
+                    <button class="bt_login" onclick="fzrLogin()">Login</button>
+                </ul>
+            </nav>
         </div>
     </div>
-    <!-------------------------- HEADER ---------------------------->
-
 
     <!-------------------------- BODY ---------------------------->
-    
+
     <div class="conteudo">
         <div class="containerCorpo">
             <div class="box">
                 <div class="login">
 
-                <h3>Bem vindo</h3>
+                    <h3>Bem vindo</h3>
 
-                <img src="imgs/LOGO_SPECTRA3 font-black.svg" alt="" height="30px">
+                    <img src="imgs/LOGO_SPECTRA3 font-black.svg" alt="" height="30px">
 
-                <div class="inputs">
-                    <div id="div_input_email" class="input">
-                      <img src="imgs/login-usuario.svg" alt="">
-                      <input id="input_email" type="email" placeholder="Usuário">
+                    <div class="inputs">
+                        <div id="div_input_email" class="input">
+                            <img src="imgs/login-usuario.svg" alt="">
+                            <input id="input_email" type="email" placeholder="Usuário">
+                        </div>
+
+                        <div id="div_input_senha" class="input">
+                            <img src="imgs/login-senha.svg" alt="">
+                            <input id="input_senha" type="password" placeholder="Senha">
+                        </div>
+
                     </div>
-                    
-                    <div id="div_input_senha" class="input">
-                      <img src="imgs/login-senha.svg" alt="">
-                      <input id="input_senha" type="password" placeholder="Senha">
-                    </div>
-                    
-                  </div>
 
                     <button class="bt_login_corpo">
                         Login
@@ -59,38 +65,12 @@
                     <div class="mensagem_conta">
                         Ainda não tem uma conta? <a href="cadastro.html">Faça agora!</a>
                     </div>
-                
-            </div>
+
+                </div>
             </div>
         </div>
     </div>
-    <!-------------------------- BODY ---------------------------->
-
-
-
-    <!-------------------------- FOOTER ---------------------------->
-
-    <!-- <div class="conteudoFooter">
-        <div class="elementos">
-            <div class="infoFooter">
-                <ul class="lista_nav">
-                    <li>Produto</li>
-                    <li>Quem Somos</li>
-                    <li>Fazer Parte</li>
-                    <li>Suporte</li>
-                    <li>Login</li>
-                </ul>
-            </div>
-            <div class="linha"></div>
-            <div class="logoFinal">
-                <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="logoFooter">
-                <span>Copyright © 2023 Spectra</span>
-            </div>
-        </div>
-    </div> -->
-
-    <!-------------------------- FOOTER ---------------------------->
 
 </body>
-</html>
 
+</html>

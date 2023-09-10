@@ -6,93 +6,100 @@
 
 /* ------------------------- HEADER -------------------------*/
 
-body{
+body {
     padding: 0px;
     margin: 0px;
     padding: 0px;
 }
 
-.header{
+/* ------------------------- HEADER -------------------------*/
+
+
+.header {
+    width: 100%;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #052767;
-    height: 80px;
+    z-index: 999;
     position: fixed;
     top: 0;
-    z-index: 999;
-    width: 100%;
 }
 
-.containerHeader{
+
+.containerHeader {
+    width: 90%;
+    height: 10%;
     display: flex;
-    width: 92%;
     justify-content: space-between;
     align-items: center;
 }
 
-#navbar{
-    display: flex;
-    width: 50%;
-    
+
+#imgLogo {
+    width: 30%;
+    height: 10vh;
 }
 
-.lista_nav{
-    display: flex;
-    padding: 0%;
-    margin: 0%;
-    text-decoration: none;
-    justify-content: space-between;
-    width: 100%;
-}
 
-.nav_item{
+.lista_nav {
+    padding: 2vh;
     display: flex;
+    flex-direction: row;
+    list-style: none;
     text-decoration: none;
-    justify-content: space-between;
-    color: white;
-    align-items: center;
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
 }
 
-.bt_login{
-    display: flex;
+#lista_nav1 {
+    margin-top: 0;
+}
+
+.lista_nav li {
+    margin-right: 5em;
+    font-size: 1.1vmax;
+    color: #ffff;
+}
+
+a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+.bt_login {
     background-color: #01C38E;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     color: #ffff;
     height: 30px;
     width: 70px;
-    font-size: 15px;
+    font-weight: bolder;
     cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
 }
-/* ------------------------- HEADER -------------------------*/
-
 
 
 /* ------------------------- BODY -------------------------*/
 
-.containerCorpo{
+.containerCorpo {
     display: flex;
     width: 92%;
     justify-content: space-between;
     align-items: center;
-    
+
 }
 
-.conteudo{
+.conteudo {
     display: flex;
     justify-content: center;
     background-image: url("imgs/fundo-login.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 700px;
+    height: 100vh;
 }
 
-.box{
+.box {
     width: 100%;
     height: 100%;
     display: flex;
@@ -100,11 +107,11 @@ body{
     align-items: center;
 }
 
-h3{
+h3 {
     margin: 0;
 }
 
-.login{
+.login {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,29 +129,31 @@ h3{
     flex-direction: column;
     align-items: center;
     gap: 35px;
-  }
-  .input {
+}
+
+.input {
     display: flex;
     padding: 5px;
     border: 1.6px solid #052767;
     border-radius: 7px;
     width: 100%;
     justify-content: space-around;
-  }
-  input {
+}
+
+input {
     all: unset;
     font-size: 15px;
-  }
+}
 
-  #input_email{
+#input_email {
     width: 90%;
-  }
+}
 
-  #input_senha{
+#input_senha {
     width: 90%;
-  }
+}
 
-.bt_login_corpo{
+.bt_login_corpo {
     background-color: #01C38E;
     border: none;
     border-radius: 6px;
@@ -156,69 +165,131 @@ h3{
     cursor: pointer;
 }
 
-.mensagem_conta{
+.mensagem_conta {
     width: 245px;
     font-size: 12px;
 }
 
-.mensagem_conta a{
+.mensagem_conta a {
     text-decoration: none;
     color: #052767;
     font-weight: bold;
 }
-/* ------------------------- BODY -------------------------*/
+
+/* ------------------ responsividade -----------------------  */
+@media (min-width:100px) {
+
+    /*header*/
+    .logoNav {
+        margin-top: 0.2vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lista_nav1 {
+        margin-top: -5vh;
+    }
+
+    .containerHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
 
 
-/* ------------------------- FOOTER -------------------------*/
-
-/* .conteudoFooter {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url("imgs/fundoFooter.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 530px;
 }
 
-.elementos{
-    margin-top: 18%;
-    width: 70%;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@media (min-width:600px) {
+
+    /*header*/
+    .logoNav {
+        margin-top: 0.2vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lista_nav1 {
+        margin-top: -5vh;
+    }
+
+    .containerHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
 }
 
-.linha{
-    width: 100%;
-    border-top: 2px solid #ffff;
-    margin-top: 3%;
+@media (min-width:768px) {
+
+    /*header*/
+    .logoNav {
+        margin-top: 0.2vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lista_nav1 {
+        margin-top: 2vh;
+    }
+
+    .containerHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+
 }
 
-.logoFinal{
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
-    color: #ffff;
-    align-items: center;
+@media(min-width:992px) {
+
+    /*header*/
+    .logoNav {
+        margin-top: 0.2vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lista_nav1 {
+        margin-top: 2vh;
+    }
+
+    .containerHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+
 }
 
-.logoFinal img {
-    width: 80%;
+@media (min-width:1200px) {
+
+    /*header*/
+    .logoNav {
+        margin-top: 0.2vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lista_nav1 {
+        margin-top: 2vh;
+    }
+
+    .containerHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+
 }
-
-.logoFinal span {
-    margin-top: 5%;
-}
-
-.lista_nav li {
-    margin-right: 5em;
-    font-size: 1.1vmax;
-    color: #ffff;
-    list-style: none;
-} */
-
-/* ------------------------- FOOTER -------------------------*/

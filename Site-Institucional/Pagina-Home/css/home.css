@@ -42,6 +42,7 @@ html {
     align-items: center;
 }
 
+
 #imgLogo {
     width: 30%;
     height: 10vh;
@@ -119,12 +120,12 @@ a {
 .informacoes-01 {
     display: flex;
     margin-top: -70vh;
-    width: 100%;
+    width: 80%;
     position: absolute;
 }
 
 .informacoes-02 {
-    width: 100%;
+    width: 80%;
     position: absolute;
     display: none;
 }
