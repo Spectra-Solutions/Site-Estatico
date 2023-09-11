@@ -1,0 +1,25 @@
+Se não tiver esse usuário no seu banco de dados, criar via linha de comando:
+OBS: não é pra colocar os parenteses no comando.
+
+1°Passso: Entrar no root
+( Mysql -u root -p )
+( coloca a sua senha do root )
+
+2°Passo: criar o usuário
+( CREATE USER'Spectra'@'localhost'IDENTIFIED BY 'Spectra123'; )
+
+3°Passo: Dar permissões ao novo usuário.
+( GRANT ALL PRIVILEGES ON*.*TO'Spectra'@'localhost'; )
+
+4°Passo: Recarregar as permissões.
+( FLUSH PRIVILEGES; )
+
+
+Se ja tem o Usuário Criado, colocar no (database/confi.js).
+
+var mSqlConfig = {
+	host: "localhost",
+	database: "Spectra",
+	user: "Spectra",
+	password: "Spectra123,
+};
