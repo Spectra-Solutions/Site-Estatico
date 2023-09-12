@@ -330,6 +330,7 @@ a {
     display: flex;
     align-items: center;
     margin-bottom: 3%;
+    width: 100%;
 }
 
 .imgDashSolucao {
@@ -774,6 +775,10 @@ a {
 
     }
 
+    .divsMoni{
+        width: 35%;
+    }
+
     .img_check {
         width: 8%;
         margin-right: 2%;
@@ -955,6 +960,10 @@ a {
 
     }
 
+    .divsMoni{
+        width: 30%;
+    }
+
     .img_check {
         width: 8%;
         margin-right: 2%;
@@ -1072,6 +1081,10 @@ a {
     #lista_nav1 {
         margin-top: 0;
     }
+
+    .divsMoni{
+        width: 25%;
+    }
 }
 
 @media (min-width:992px) {
@@ -1148,6 +1161,10 @@ a {
 
     .monitoramentos {
         width: 20%;
+    }
+
+    .divsMoni{
+        width: 80%;
     }
 
     /*quem somos - pilares*/
