@@ -8,6 +8,8 @@
     <title>Spectra | Cadastro</title>
     <link rel="shortcut icon" type="imagex/png" href="imgs/icone.png">
     <link rel="stylesheet" href="css/cadastro.css">
+    <script src="./js/funcoes.js"></script>
+
 </head>
 
 <body>
@@ -87,7 +89,7 @@
                             </div>
                         </div>
 
-                        <button class="bt_cadastro">
+                        <button class="bt_cadastro" onclick="validar()">
                             Cadastrar
                         </button>
 
@@ -114,11 +116,70 @@
         window.location.href = "login.html"
     }
 
-    function fzrHome(){
+    function fzrHome() {
         window.location.href = "index.html"
     }
 
-    function fzrDuvida(){
+    function fzrDuvida() {
         window.location.href = "categorias.html"
+    }
+
+    function validar() {
+        var nomeEmpresa = input_nome_empresa.value;
+        var razaoSocial = input_razao_social.value;
+        var cnpj = input_cnpj.value;
+        var emailRepresentante = input_email_representante.value;
+        var senha = input_senha.value;
+        var confimarSenha = input_confirmar_senha.value;
+
+
+        if (nomeEmpresa != '' && emailRepresentante != '' && cnpj != '' && emailRepresentante != '' && senha != '' && confimarSenha != '') {
+
+            if (emailRepresentante.indexOf('@') != -1 || emailRepresentante.indexOf('.') != -1) {
+                if (cnpj.length == 18) {
+                    if (senha == confimarSenha) {
+                        cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha);
+                    } else {
+                        alert('As senhas não coincidem!')
+                    }
+                } else {
+                    alert('CNPJ inválido!')
+                }
+            } else {
+                alert('Email inválido!')
+            }
+        } else {
+            alert('Preencha todos os campos!')
+        }
+    }
+
+    function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha) {
+    
+        fetch("/empresa/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeEmpresaServer: nomeEmpresa,
+                razaoSocialServer: razaoSocial,
+                cnpjServer: cnpj,
+                emailRepresentanteServer: emailRepresentante,
+                senhaServer: senha
+            })
+        }).then(function (response) {
+
+            console.log("resposta: ", response);
+            if (response.status == 201) {
+                alert('Cadastro realizado com sucesso!')
+                window.location.href = "login.html"
+            } else {
+                alert('Erro ao cadastrar!')
+            }
+        }).catch(function (error) {
+            console.error('Erro na solicitação:', error);
+            alert('Erro na solicitação. Verifique a conexão ou tente novamente mais tarde.');
+        });
+
     }
 </script>

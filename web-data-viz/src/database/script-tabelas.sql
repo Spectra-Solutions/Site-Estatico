@@ -13,6 +13,7 @@ USE Spectra;
 CREATE TABLE Empresa (
 IdEmpresa INT PRIMARY KEY AUTO_INCREMENT,
 NomeEmpresa VARCHAR (50),
+RazaoSocial VARCHAR (50),
 CNPJ CHAR (18)
 );
 
@@ -26,3 +27,12 @@ constraint fkADM FOREIGN KEY (fkADM) REFERENCES usuario (IdUsuario),
 RepresentanteLegal CHAR (1),
 CONSTRAINT ChkRepresentanteLegal CHECK(RepresentanteLegal in('S','N'))
 );
+
+insert into empresa values
+	(null, 'mur','mur','mur');
+
+insert into usuario (emailUsuario,RepresentanteLegal, senhaUsuario) values
+	("murilo@gmail.com", "S","12345678");
+    
+select * from empresa;
+select * from usuario;
