@@ -7,27 +7,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Categorias</title>
   <link rel="stylesheet" href="css/categorias.css" />
+  <link rel="shortcut icon" type="imagex/png" href="imgs/icone.png">
 </head>
 
 <body>
   <!-------------------------- HEADER ---------------------------->
-  <div id="header" class="fundoTransparente">
-    <div class="containerHeader">
-      <div>
-        <img src="imgs/LOGO_SPECTRA2 1.svg" alt="" id="imgLogo">
+  <div id="header-nav" class="header">
 
-      </div>
-      <nav id="navTopo">
-        <ul class="lista_nav">
-          <li><a href="../Pagina-Home/index.html">Home</a></li>
-          <li><a href="#redirecionar" onclick="rolagemAnimada()">Dúvidas</a></li>
-          <li>Suporte</li>
-          <li><a href="cadastro.html">Fazer parte</a></li>
-          <button class="bt_login" onclick="fzrLogin()">Login</button>
-        </ul>
-      </nav>
+    <div class="containerHeader">
+
+        <div class="logoNav">
+            <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo">
+
+        </div>
+
+        <nav id="navTopo">
+            <ul class="lista_nav" id="lista_nav1">
+                <li onclick="fzrHome()">Home</li>
+                <li onclick="fzrDuvida()">Dúvidas</li>
+                <li onclick="fzrParte()">Fazer parte</li>
+                <li onclick="">Suporte</li>
+                <button class="bt_login" onclick="fzrLogin()">Login</button>
+            </ul>
+        </nav>
     </div>
-  </div>
+</div>
 
 
   <!-------------------------- HEADER ---------------------------->
@@ -149,6 +153,7 @@
         <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="logoFooter" />
         <span>Copyright © 2023 Spectra</span>
       </div>
+      <a href="login.html"></a>
     </div>
   </div>
 
@@ -303,7 +308,7 @@
 
 
   function fzrLogin() {
-    window.location.href = "../Cadastro-Login/login.html"
+    window.location.href = "login.html"
   }
 
   document.addEventListener("DOMContentLoaded", function () {
