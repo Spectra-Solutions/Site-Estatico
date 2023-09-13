@@ -1,13 +1,5 @@
 var database = require('../database/config');
 
-function cadastrar (nomeEmpresa,razaoSocial, cnpj, emailRepresentante, senha){
-    var instrucao = `
-    INSERT INTO empresa values
-    (null, ${nomeEmpresa}, ${razaoSocial}, ${cnpj});`;
-    
-    return database.executar(instrucao);
-}
-
 function listar() {
     var instrucao = `
         SELECT * FROM empresa;
@@ -16,7 +8,7 @@ function listar() {
     return database.executar(instrucao);
 }
 
-function cadastrar(nomeEmpresa,razaoSocial, cnpj, emailRepresentante, senha) {
+function cadastrar(nomeEmpresa,razaoSocial, cnpj) {
     var instrucao = `
         INSERT INTO empresa VALUES 
         (null, '${nomeEmpresa}', '${razaoSocial}', '${cnpj}');

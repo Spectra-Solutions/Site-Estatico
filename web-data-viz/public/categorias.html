@@ -163,6 +163,23 @@
 </html>
 
 <script>
+
+  function fzrHome() {
+    window.location.href = "./index.html"
+  }
+
+  function fzrLogin() {
+    window.location.href = "./login.html"
+  }
+
+  function fzrDuvida() {
+    window.location.href = "./categorias.html"
+  }
+
+  function fzrParte() {
+    window.location.href = "./cadastro.html"
+  }
+
   function criarMensagem() {
     mensagem_solucao.innerHTML = `<p id="problemas">Para o(s) problema(s):</p>
           <div id="problemas_cliente"></div>
@@ -305,11 +322,6 @@
       navbar.classList.remove("colorirFundo");
     }
   });
-
-
-  function fzrLogin() {
-    window.location.href = "login.html"
-  }
 
   document.addEventListener("DOMContentLoaded", function () {
 
