@@ -31,8 +31,11 @@ CONSTRAINT ChkRepresentanteLegal CHECK(RepresentanteLegal in('S','N'))
 insert into empresa values
 	(null, 'mur','mur','mur');
 
-insert into usuario (emailUsuario,RepresentanteLegal, senhaUsuario) values
-	("murilo@gmail.com", "S","12345678");
+INSERT INTO usuario (emailUsuario, senhaUsuario ,RepresentanteLegal) VALUES
+        ('${emailRepresentante}', '${senha}', 'S');
     
 select * from empresa;
 select * from usuario;
+
+TRUNCATE TABLE EMPRESA;
+truncate TABLE USUARIO;

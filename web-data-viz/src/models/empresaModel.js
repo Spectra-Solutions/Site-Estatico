@@ -8,7 +8,7 @@ function listar() {
     return database.executar(instrucao);
 }
 
-function cadastrar(nomeEmpresa,razaoSocial, cnpj) {
+function cadastrar(nomeEmpresa,razaoSocial, cnpj, emailRepresentante, senha) {
     var instrucao = `
         INSERT INTO empresa VALUES 
         (null, '${nomeEmpresa}', '${razaoSocial}', '${cnpj}');
@@ -21,4 +21,4 @@ function cadastrar(nomeEmpresa,razaoSocial, cnpj) {
 module.exports = {
     listar,
     cadastrar,
-}
+}   

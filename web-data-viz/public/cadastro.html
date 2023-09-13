@@ -8,7 +8,6 @@
     <title>Spectra | Cadastro</title>
     <link rel="shortcut icon" type="imagex/png" href="imgs/icone.png">
     <link rel="stylesheet" href="css/cadastro.css">
-    <script src="./js/funcoes.js"></script>
 
 </head>
 
@@ -108,6 +107,8 @@
 </html>
 
 <script>
+
+    // ---------------- função das linkagens --------------------
     function fzrParte() {
         window.location.href = "cadastro.html"
     }
@@ -124,6 +125,8 @@
         window.location.href = "categorias.html"
     }
 
+
+    // ---------------- função de validação --------------------
     function validar() {
         var nomeEmpresa = input_nome_empresa.value;
         var razaoSocial = input_razao_social.value;
@@ -138,8 +141,7 @@
             if (emailRepresentante.indexOf('@') != -1 || emailRepresentante.indexOf('.') != -1) {
                 if (cnpj.length == 18) {
                     if (senha == confimarSenha) {
-                        cadastrarEmpresa(nomeEmpresa, razaoSocial, cnpj);
-                        cadastrarEmailUser(emailRepresentante, senha);
+                        cadastrarEmpresa(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha);
                     } else {
                         alert('As senhas não coincidem!')
                     }
@@ -154,7 +156,9 @@
         }
     }
 
-    function cadastrarEmpresa(nomeEmpresa, razaoSocial, cnpj) {
+    // ---------------- função de cadastro --------------------
+
+    function cadastrarEmpresa(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha) {
     
         fetch("/empresa/cadastrar", {
             method: "POST",
@@ -164,7 +168,9 @@
             body: JSON.stringify({
                 nomeEmpresaServer: nomeEmpresa,
                 razaoSocialServer: razaoSocial,
-                cnpjServer: cnpj
+                cnpjServer: cnpj,
+                emailRepresentanteServer: emailRepresentante,
+                senhaServer: senha
             })
         }).then(function (response) {
 
@@ -181,28 +187,4 @@
         });
 
     }
-
-    // function cadastrarEmailUser(emailRepresentante, senha){
-    //     fetch("/usuarios/cadastrar", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             emailServer: emailRepresentante,
-    //             senhaServer: senha
-    //         })
-    //     }).then(function(response) {
-    //         console.log("resposta: ", response);
-    //         if (response.status == 201) {
-    //             alert('Cadastro realizado com sucesso!')
-    //             window.location.href = "login.html"
-    //         } else {
-    //             alert('Erro ao cadastrar!')
-    //         }
-    //     }).catch(function(error) {
-    //         console.error('Erro na solicitação:', error);
-    //         alert('Erro na solicitação. Verifique a conexão ou tente novamente mais tarde.');
-    //     });
-    // }
 </script>
