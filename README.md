@@ -1,6 +1,5 @@
 # Spectra
   Este projeto tem como objetivo o monitoramento em tempo real de servidores utilizados por empresas e consultorias especializadas em integração de dados. Esses servidores são utilizados por analistas, visando evitar atrasos nas respostas, redução de clientes e aumentar a disponibilidade 24/7. Além disso, busca promover a credibilidade e fornecer dados atualizados para embasar a tomada de decisões.
-<img src="Apresentacao/logo.png">
 
 ## Como funciona
   Atuamos no monitoramento de servidores como suporte para empresas e consultorias de integrações de dados que dependem do processamento em tempo real, sendo crucial para que o negócio não sofra danos que
@@ -20,6 +19,6 @@ Além de garantirmos um serviço que contenha:
 
 
 ## Ferramentas utilizadas
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original-wordmark.svg" height="100px" width="100px" /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain-wordmark.svg" height="100px" width="100px" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" height="100px" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" height="100px"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" height="100px"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain-wordmark.svg" height="100px" width="100px" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" height="100px" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" height="100px"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" height="100px"/>
           
           
