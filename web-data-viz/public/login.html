@@ -8,6 +8,9 @@
     <title>Spectra | Login</title>
     <link rel="shortcut icon" type="imagex/png" href="imgs/icone.png">
     <link rel="stylesheet" href="css/login.css">
+
+    <!-- toast - alerta -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
 </head>
 
 <body>
@@ -18,17 +21,23 @@
         <div class="containerHeader">
 
             <div class="logoNav">
-                <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo">
+                <a href="/home"><img src="imgs/LOGO_SPECTRA2 1.svg" alt="" id="imgLogo"></a>
 
             </div>
 
             <nav id="navTopo">
                 <ul class="lista_nav" id="lista_nav1">
-                    <li onclick="fzrHome()">Home</li>
-                    <li onclick="fzrDuvida()">Dúvidas</li>
-                    <li onclick="fzrParte()">Fazer parte</li>
-                    <li onclick="">Suporte</li>
-                    <button class="bt_login" onclick="fzrLogin()">Login</button>
+                    <a href="/home">
+                        <li>Home</li>
+                    </a>
+                    <a href="/duvidas">
+                        <li>Dúvidas</li>
+                    </a>
+                    <a href="/cadastro">
+                        <li>Fazer parte</li>
+                    </a>
+                    <li>Suporte</li>
+                    <a href="/login"><button class="bt_login">Login</button></a>
                 </ul>
             </nav>
         </div>
@@ -58,38 +67,116 @@
 
                     </div>
 
-                    <button class="bt_login_corpo">
+                    <button onclick="VerificarUsuario()" class="bt_login_corpo">
                         Login
                     </button>
 
                     <div class="mensagem_conta">
-                        Ainda não tem uma conta? <a href="cadastro.html">Faça agora!</a>
+                        Ainda não tem uma conta? <a href="/cadastro">Faça agora!</a>
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
 </body>
 
 </html>
 <script>
 
-    // ---------------- função das linkagens --------------------
-    function fzrParte() {
-        window.location.href = "cadastro.html"
+    // configuracao alerta
+    // ALERTA
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        customClass: {
+            popup: 'swal2-show-custom-shadow'
+        },
+        didOpen: (toast) => {
+            const popup = Swal.getPopup();
+            popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    function VerificarUsuario() {
+
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Preencha todos os campos!'
+            })
+
+            return false;
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        // fetch("/usuarios/autenticar", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //         emailServer: emailVar,
+        //         senhaServer: senhaVar,
+        //     }),
+        // })
+        //     .then(function (resposta) {
+
+        //         console.log("ESTOU NO THEN DO entrar()!");
+
+        //         if (resposta.ok) {
+        //             console.log(resposta);
+
+        //             resposta.json().then((json) => {
+        //                 console.log(json);
+        //                 console.log(JSON.stringify(json));
+
+        //                 if (json.emailEmpresa != null) {
+        //                     console.log(json);
+        //                     sessionStorage.EMAIL_EMPRESA = json.emailEmpresa;
+        //                     sessionStorage.NOME_EMPRESA = json.razaoSocial;
+        //                     sessionStorage.ID_EMPRESA = json.fkEmpresa;
+        //                     sessionStorage.FUNCAO = "Administrador";
+        //                 } else {
+        //                     console.log(json);
+        //                     sessionStorage.EMAIL_EMPRESA = json.emailUsuario; 
+        //                     sessionStorage.NOME_EMPRESA = json.nomeUsuario; 
+        //                     sessionStorage.ID_EMPRESA = json.idUsuario; 
+        //                     sessionStorage.FUNCAO = json.nivelUsuario; 
+        //                 }
+
+        //                 setTimeout(function () {
+        //                     window.location = `/dashboard`
+        //                 }, 1000); // apenas para exibir o loading
+        //             });
+        //         } else {
+
+        //             resposta.text().then((texto) => {
+
+        //                 Toast.fire({
+        //                     icon: 'error',
+        //                     title: texto
+        //                 })
+        //             });
+        //         }
+        //     })
+        //     .catch(function (erro) {
+        //         console.log(erro);
+        //     });
+
+        // return false;
     }
 
-    function fzrLogin() {
-        window.location.href = "login.html"
-    }
-
-    function fzrHome(){
-        window.location.href = "index.html"
-    }
-
-    function fzrDuvida(){
-        window.location.href = "categorias.html"
-    }
 </script>

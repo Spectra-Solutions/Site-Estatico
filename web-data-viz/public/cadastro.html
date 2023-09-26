@@ -9,6 +9,12 @@
     <link rel="shortcut icon" type="imagex/png" href="imgs/icone.png">
     <link rel="stylesheet" href="css/cadastro.css">
 
+    <!-- toast - alerta -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+
+    <!-- validacao cnpj -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
 </head>
 
 <body>
@@ -19,18 +25,22 @@
         <div class="containerHeader">
 
             <div class="logoNav">
-                <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo">
+                <a href="/home"><img src="imgs/LOGO_SPECTRA2 1.svg" alt="" id="imgLogo"></a>
 
-            </div>
-
-            <nav id="navTopo">
-                <ul class="lista_nav" id="lista_nav1">
-                    <li onclick="fzrHome()">Home</li>
-                    <li onclick="fzrDuvida()">Dúvidas</li>
-                    <li onclick="fzrParte()">Fazer parte</li>
-                    <li onclick="">Suporte</li>
-                    <button class="bt_login" onclick="fzrLogin()">Login</button>
-                </ul>
+            </div <nav id="navTopo">
+            <ul class="lista_nav" id="lista_nav1">
+                <a href="/home">
+                    <li>Home</li>
+                </a>
+                <a href="/duvidas">
+                    <li>Dúvidas</li>
+                </a>
+                <a href="/cadastro">
+                    <li>Fazer parte</li>
+                </a>
+                <li>Suporte</li>
+                <a href="/login"><button class="bt_login">Login</button></a>
+            </ul>
             </nav>
         </div>
     </div>
@@ -78,11 +88,11 @@
                         <div class="linha3">
                             <div class="inputs">
                                 <div id="div_input_senha" class="input">
-                                    <input id="input_senha" placeholder="senha">
+                                    <input id="input_senha" placeholder="senha" type="password">
                                 </div>
 
                                 <div id="div_input_confirmar_senha" class="input">
-                                    <input id="input_confirmar_senha" placeholder="confirmar senha">
+                                    <input id="input_confirmar_senha" placeholder="confirmar senha" type="password">
                                 </div>
 
                             </div>
@@ -93,7 +103,7 @@
                         </button>
 
                         <div class="mensagem_conta">
-                            Já tem uma conta? <a href="login.html">Faça Login!</a>
+                            Já tem uma conta? <a href="/login">Faça Login!</a>
                         </div>
                     </div>
                 </div>
@@ -101,30 +111,37 @@
 
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
 </body>
 
 </html>
 
 <script>
 
-    // ---------------- função das linkagens --------------------
-    function fzrParte() {
-        window.location.href = "cadastro.html"
-    }
+    // mascara cnpj
+    $(document).ready(function () {
+        $('#input_cnpj').inputmask('99.999.999/9999-99');
+    });
 
-    function fzrLogin() {
-        window.location.href = "login.html"
-    }
 
-    function fzrHome() {
-        window.location.href = "index.html"
-    }
-
-    function fzrDuvida() {
-        window.location.href = "categorias.html"
-    }
-
+    // configuracao alerta
+    // ALERTA
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        customClass: {
+            popup: 'swal2-show-custom-shadow'
+        },
+        didOpen: (toast) => {
+            const popup = Swal.getPopup();
+            popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
 
     // ---------------- função de validação --------------------
     function validar() {
@@ -139,52 +156,73 @@
         if (nomeEmpresa != '' && emailRepresentante != '' && cnpj != '' && emailRepresentante != '' && senha != '' && confimarSenha != '') {
 
             if (emailRepresentante.indexOf('@') != -1 || emailRepresentante.indexOf('.') != -1) {
-                if (cnpj.length == 18) {
+                if (cnpj.length == 14) {
+
                     if (senha == confimarSenha) {
                         cadastrarEmpresa(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha);
                     } else {
-                        alert('As senhas não coincidem!')
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'As senhas não coincidem!'
+                        })
+
+                        return false;
                     }
                 } else {
-                    alert('CNPJ inválido!')
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'CNPJ inválido!'
+                    })
+
+                    return false;
                 }
             } else {
-                alert('Email inválido!')
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Email inválido!'
+                })
+
+                return false;
             }
         } else {
-            alert('Preencha todos os campos!')
+            Toast.fire({
+                icon: 'warning',
+                title: 'Preencha todos os campos!'
+            })
+
+            return false;
         }
     }
 
     // ---------------- função de cadastro --------------------
 
-    function cadastrarEmpresa(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha) {
-    
-        fetch("/empresa/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                nomeEmpresaServer: nomeEmpresa,
-                razaoSocialServer: razaoSocial,
-                cnpjServer: cnpj,
-                emailRepresentanteServer: emailRepresentante,
-                senhaServer: senha
-            })
-        }).then(function (response) {
+    // function cadastrarEmpresa(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha) {
 
-            console.log("resposta: ", response);
-            if (response.status == 201) {
-                alert('Cadastro realizado com sucesso!')
-                window.location.href = "login.html"
-            } else {
-                alert('Erro ao cadastrar!')
-            }
-        }).catch(function (error) {
-            console.error('Erro na solicitação:', error);
-            alert('Erro na solicitação. Verifique a conexão ou tente novamente mais tarde.');
-        });
+    //     fetch("/empresa/cadastrar", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             nomeEmpresaServer: nomeEmpresa,
+    //             razaoSocialServer: razaoSocial,
+    //             cnpjServer: cnpj,
+    //             emailRepresentanteServer: emailRepresentante,
+    //             senhaServer: senha
+    //         })
+    //     }).then(function (response) {
 
-    }
+    //         console.log("resposta: ", response);
+    //         if (response.status == 201) {
+    //             alert('Cadastro realizado com sucesso!')
+    //             window.location.href = "login.html"
+    //         } else {
+    //             alert('Erro ao cadastrar!')
+    //         }
+    //     }).catch(function (error) {
+    //         console.error('Erro na solicitação:', error);
+    //         alert('Erro na solicitação. Verifique a conexão ou tente novamente mais tarde.');
+    //     });
+
+    // }
 </script>

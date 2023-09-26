@@ -16,31 +16,29 @@
 
     <div class="containerHeader">
 
-        <div class="logoNav">
-            <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo">
+      <div class="logoNav">
+        <a href="/home"><img src="imgs/LOGO_SPECTRA2 1.svg" alt="" id="imgLogo"></a>
 
-        </div>
-
-        <nav id="navTopo">
-            <ul class="lista_nav" id="lista_nav1">
-                <li onclick="fzrHome()">Home</li>
-                <li onclick="fzrDuvida()">Dúvidas</li>
-                <li onclick="fzrParte()">Fazer parte</li>
-                <li onclick="">Suporte</li>
-                <button class="bt_login" onclick="fzrLogin()">Login</button>
-            </ul>
-        </nav>
+      </div <nav id="navTopo">
+      <ul class="lista_nav" id="lista_nav1">
+        <li onclick="fzrHome()">Home</li>
+        <li onclick="fzrDuvida()">Dúvidas</li>
+        <li onclick="fzrParte()">Fazer parte</li>
+        <li onclick="">Suporte</li>
+        <button class="bt_login" onclick="fzrLogin()">Login</button>
+      </ul>
+      </nav>
     </div>
-</div>
+  </div>
 
 
   <!-------------------------- HEADER ---------------------------->
 
   <!-------------------------- BODY ---------------------------->
-  <div class="corpo" >
+  <div class="corpo">
     <div class="background_imagem">
-      <div class="box_background_imagem" >
-        <h1 >
+      <div class="box_background_imagem">
+        <h1>
           Descubra se o nosso monitoramento de servidores pode te ajudar!
         </h1>
         <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" height="40px" />
@@ -180,6 +178,8 @@
   function fzrParte() {
     window.location.href = "./cadastro.html"
   }
+
+
 
   function criarMensagem() {
     mensagem_solucao.innerHTML = `<p id="problemas">Para o(s) problema(s):</p>
