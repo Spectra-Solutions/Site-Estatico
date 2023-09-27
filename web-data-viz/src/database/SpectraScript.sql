@@ -14,8 +14,14 @@ USE Spectra;
 CREATE TABLE Empresa (
 IdEmpresa INT PRIMARY KEY AUTO_INCREMENT,
 NomeEmpresa VARCHAR (50),
+RazaoSocial VARCHAR (50),
 CNPJ CHAR (18)
 );
+
+INSERT INTO Empresa VALUES
+	(null, 'Murilo', 'Murilo SOluctions', '12.361.273/8123-12');
+    
+SELECT * FROM Empresa;
 
 CREATE TABLE Funcionario(
 idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
@@ -26,6 +32,11 @@ FuncionarioADM INT, CONSTRAINT FOREIGN KEY (FuncionarioADM) REFERENCES Funcionar
 fkRepresentante INT, CONSTRAINT FOREIGN KEY (FkRepresentante) REFERENCES Funcionario (IdFuncionario),
 fkEmpresaFuncionario INT, CONSTRAINT FOREIGN KEY (fkEmpresaFuncionario) REFERENCES Empresa (idEmpresa)
 );
+
+INSERT INTO Funcionario (idFuncionario, Emailfuncionario, Senha) VALUES 
+	(null, 'murilo@gmail.com', '12345678');
+    
+SELECT * FROM Funcionario;
 
 CREATE TABLE Rede (
 idRede INT PRIMARY KEY AUTO_INCREMENT, 

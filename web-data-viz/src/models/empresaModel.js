@@ -2,16 +2,18 @@ var database = require('../database/config');
 
 function listar() {
     var instrucao = `
-        SELECT * FROM empresa;
+        SELECT * FROM Empresa;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
 function cadastrar(nomeEmpresa,razaoSocial, cnpj, emailRepresentante, senha) {
-    var instrucao = `
-        INSERT INTO empresa VALUES 
-        (null, '${nomeEmpresa}', '${razaoSocial}', '${cnpj}');
+    var instrucao = `INSERT INTO Empresa VALUES
+	(null, '${nomeEmpresa}', '${razaoSocial}', '${cnpj}');
+
+    INSERT INTO Funcionario (idFuncionario, Emailfuncionario, Senha) VALUES 
+	(null, '${emailRepresentante}', '${senha}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

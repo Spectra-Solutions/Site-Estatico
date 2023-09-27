@@ -31,6 +31,8 @@ function cadastrar(req, res) {
                 res.status(201).send("Empresa criada com sucesso");
             }).catch(function(erro){
                 res.status(500).json(erro.sqlMessage);
+                console.log(erro);
+                console.log("TO TRAVANDO NO CONTROLLER")
             })
         }
     }

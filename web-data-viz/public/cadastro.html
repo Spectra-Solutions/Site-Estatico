@@ -156,7 +156,7 @@
         if (nomeEmpresa != '' && emailRepresentante != '' && cnpj != '' && emailRepresentante != '' && senha != '' && confimarSenha != '') {
 
             if (emailRepresentante.indexOf('@') != -1 || emailRepresentante.indexOf('.') != -1) {
-                if (cnpj.length == 14) {
+                if (cnpj.length == 18) {
 
                     if (senha == confimarSenha) {
                         cadastrarEmpresa(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha);
