@@ -18,8 +18,9 @@
 
       <div class="logoNav">
         <a href="/home"><img src="imgs/LOGO_SPECTRA2 1.svg" alt="" id="imgLogo"></a>
-
-      </div <nav id="navTopo">
+      </div> 
+      
+      <nav id="navTopo">
       <ul class="lista_nav" id="lista_nav1">
         <li onclick="fzrHome()">Home</li>
         <li onclick="fzrDuvida()">Dúvidas</li>
@@ -311,18 +312,18 @@
   }
 
 
-  const navbar = document.getElementById("header");
+  const navbar = document.getElementById("header-nav");
 
   const posicaoQueGanhaCor = 100;
 
   window.addEventListener("scroll", () => {
 
     if (window.scrollY > posicaoQueGanhaCor) {
-      navbar.classList.add("colorirFundo");
+        navbar.classList.add("colorirFundo");
     } else {
-      navbar.classList.remove("colorirFundo");
+        navbar.classList.remove("colorirFundo");
     }
-  });
+});
 
   document.addEventListener("DOMContentLoaded", function () {
 

@@ -33,12 +33,19 @@ body {
     align-items: center;
 }
 
+.colorirFundo {
+    background-color: #052767e5;
+}
+
 
 #imgLogo {
     width: 30%;
     height: 10vh;
 }
 
+ul{
+    margin: 0%;
+}
 
 .lista_nav {
     padding: 2vh;
@@ -75,6 +82,10 @@ a {
     width: 70px;
     font-weight: bolder;
     cursor: pointer;
+}
+
+.logoNav{
+    margin-top: 1.5vh;
 }
 
 /* ------------------ responsividade ----------------------------------  */
