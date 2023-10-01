@@ -197,33 +197,33 @@
 
     // ---------------- função de cadastro --------------------
 
-    // function cadastrarEmpresa(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha) {
+    function cadastrarEmpresa(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha) {
 
-    //     fetch("/empresa/cadastrar", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             nomeEmpresaServer: nomeEmpresa,
-    //             razaoSocialServer: razaoSocial,
-    //             cnpjServer: cnpj,
-    //             emailRepresentanteServer: emailRepresentante,
-    //             senhaServer: senha
-    //         })
-    //     }).then(function (response) {
+        fetch("/empresa/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeEmpresaServer: nomeEmpresa,
+                razaoSocialServer: razaoSocial,
+                cnpjServer: cnpj,
+                emailRepresentanteServer: emailRepresentante,
+                senhaServer: senha
+            })
+        }).then(function (response) {
 
-    //         console.log("resposta: ", response);
-    //         if (response.status == 201) {
-    //             alert('Cadastro realizado com sucesso!')
-    //             window.location.href = "login.html"
-    //         } else {
-    //             alert('Erro ao cadastrar!')
-    //         }
-    //     }).catch(function (error) {
-    //         console.error('Erro na solicitação:', error);
-    //         alert('Erro na solicitação. Verifique a conexão ou tente novamente mais tarde.');
-    //     });
+            console.log("resposta: ", response);
+            if (response.status == 201) {
+                alert('Cadastro realizado com sucesso!')
+                window.location.href = "login.html"
+            } else {
+                alert('Erro ao cadastrar!')
+            }
+        }).catch(function (error) {
+            console.error('Erro na solicitação:', error);
+            alert('Erro na solicitação. Verifique a conexão ou tente novamente mais tarde.');
+        });
 
-    // }
+    }
 </script>

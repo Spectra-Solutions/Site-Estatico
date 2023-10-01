@@ -27,7 +27,8 @@ function cadastrar(req, res) {
         } else if (senha == undefined) {
             res.status(400).send("Sua senha está undefined!");
         } else {
-            empresaModel.cadastrar(nomeEmpresa,razaoSocial,cnpj, emailRepresentante, senha).then(function(resposta){
+            empresaModel.cadastrar(nomeEmpresa,razaoSocial,cnpj, emailRepresentante, senha)
+            .then(function(resposta){
                 res.status(201).send("Empresa criada com sucesso");
             }).catch(function(erro){
                 res.status(500).json(erro.sqlMessage);
