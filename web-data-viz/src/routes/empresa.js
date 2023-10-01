@@ -7,7 +7,6 @@ router.get("/listar",function(req,res) {
     empresaController.listar(req,res)
 })
 
-
 router.post("/cadastrar", function(req,res) {
     empresaController.cadastrar(req,res)
 })

@@ -122,61 +122,61 @@
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
 
-        // fetch("/usuarios/autenticar", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //         emailServer: emailVar,
-        //         senhaServer: senhaVar,
-        //     }),
-        // })
-        //     .then(function (resposta) {
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+            }),
+        })
+            .then(function (resposta) {
 
-        //         console.log("ESTOU NO THEN DO entrar()!");
+                console.log("ESTOU NO THEN DO entrar()!");
 
-        //         if (resposta.ok) {
-        //             console.log(resposta);
+                if (resposta.ok) {
+                    console.log(resposta);
 
-        //             resposta.json().then((json) => {
-        //                 console.log(json);
-        //                 console.log(JSON.stringify(json));
+                    resposta.json().then((json) => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
 
-        //                 if (json.emailEmpresa != null) {
-        //                     console.log(json);
-        //                     sessionStorage.EMAIL_EMPRESA = json.emailEmpresa;
-        //                     sessionStorage.NOME_EMPRESA = json.razaoSocial;
-        //                     sessionStorage.ID_EMPRESA = json.fkEmpresa;
-        //                     sessionStorage.FUNCAO = "Administrador";
-        //                 } else {
-        //                     console.log(json);
-        //                     sessionStorage.EMAIL_EMPRESA = json.emailUsuario; 
-        //                     sessionStorage.NOME_EMPRESA = json.nomeUsuario; 
-        //                     sessionStorage.ID_EMPRESA = json.idUsuario; 
-        //                     sessionStorage.FUNCAO = json.nivelUsuario; 
-        //                 }
+                        if (json.emailEmpresa != null) {
+                            console.log(json);
+                            sessionStorage.EMAIL_EMPRESA = json.emailEmpresa;
+                            sessionStorage.NOME_EMPRESA = json.razaoSocial;
+                            sessionStorage.ID_EMPRESA = json.fkEmpresa;
+                            sessionStorage.FUNCAO = "Administrador";
+                        } else {
+                            console.log(json);
+                            sessionStorage.EMAIL_EMPRESA = json.emailUsuario; 
+                            sessionStorage.NOME_EMPRESA = json.nomeUsuario; 
+                            sessionStorage.ID_EMPRESA = json.idUsuario; 
+                            sessionStorage.FUNCAO = json.nivelUsuario; 
+                        }
 
-        //                 setTimeout(function () {
-        //                     window.location = `/dashboard`
-        //                 }, 1000); // apenas para exibir o loading
-        //             });
-        //         } else {
+                        setTimeout(function () {
+                            window.location = `/dashboard`
+                        }, 1000); // apenas para exibir o loading
+                    });
+                } else {
 
-        //             resposta.text().then((texto) => {
+                    resposta.text().then((texto) => {
 
-        //                 Toast.fire({
-        //                     icon: 'error',
-        //                     title: texto
-        //                 })
-        //             });
-        //         }
-        //     })
-        //     .catch(function (erro) {
-        //         console.log(erro);
-        //     });
+                        Toast.fire({
+                            icon: 'error',
+                            title: texto
+                        })
+                    });
+                }
+            })
+            .catch(function (erro) {
+                console.log(erro);
+            });
 
-        // return false;
+        return false;
     }
 
 </script>

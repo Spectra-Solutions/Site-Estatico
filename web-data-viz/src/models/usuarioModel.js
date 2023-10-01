@@ -8,16 +8,12 @@ function listar() {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function entrar(email, senha) {
+
+
+
+function entrar(emailRepresentante, senha ) {
     var instrucao = `
-    SELECT usuario.*,  empresa.emailEmpresa, empresa.razaoSocial, empresa.cnpjEmpresa
-    FROM usuario
-    LEFT JOIN empresa ON empresa.idEmpresa = usuario.fkEmpresa
-    WHERE usuario.emailUsuario = '${email}' AND usuario.senhaUsuario = '${senha}'
-    UNION
-    SELECT NULL AS idUsuario, NULL AS nomeUsuario, NULL AS senhaUsuario, NULL AS emailUsuario, NULL AS nivelUsuario, NULL AS cpfUsuario, NULL AS dtNascUsuario, empresa.idEmpresa, empresa.emailEmpresa, empresa.razaoSocial, empresa.cnpjEmpresa
-    FROM empresa
-    WHERE empresa.emailEmpresa = '${email}' AND empresa.senhaEmpresa = '${senha}';
+        select * from Funcionario where EmailFuncionario = '${emailRepresentante}' and Senha = '${senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -39,5 +35,5 @@ function cadastrar(email, senha) {
 module.exports = {
     entrar,
     cadastrar,
-    listar,
+    listar
 };

@@ -40,5 +40,5 @@ function cadastrar(req, res) {
 
 module.exports ={
     listar,
-    cadastrar
+    cadastrar,
 }

@@ -21,8 +21,8 @@ var sqlServerConfig = {
 var mySqlConfig = {
     host: "localhost",
     database: "Spectra",
-    user: "Spectra",
-    password: "Spectra123",
+    user: "root",
+    password: "123456789",
 };
 
 function executar(instrucao) {
