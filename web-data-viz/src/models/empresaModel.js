@@ -13,12 +13,12 @@ function cadastrar(nomeEmpresa,razaoSocial, cnpj, emailRepresentante, senha) {
 	(null, '${nomeEmpresa}', '${razaoSocial}', '${cnpj}');
     `;
 
-    var instrucao = `
+    var instrucao2 = `
     INSERT INTO Funcionario (idFuncionario, Emailfuncionario, Senha) VALUES 
 	(null, '${emailRepresentante}', '${senha}');
     `
     console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
+    return database.executar(instrucao, instrucao2);
 }
 
 function entrar(emailRepresentante, senha ) {

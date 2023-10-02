@@ -25,12 +25,13 @@ var mySqlConfig = {
     password: "123456789",
 };
 
-function executar(instrucao) {
+function executar(instrucao, instrucao2) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         return new Promise(function (resolve, reject) {
             sql.connect(sqlServerConfig).then(function () {
                 return sql.query(instrucao);
+                return sql.query(instrucao2);
             }).then(function (resultados) {
                 console.log(resultados);
                 resolve(resultados.recordset);
@@ -46,7 +47,7 @@ function executar(instrucao) {
         return new Promise(function (resolve, reject) {
             var conexao = mysql.createConnection(mySqlConfig);
             conexao.connect();
-            conexao.query(instrucao, function (erro, resultados) {
+            conexao.query(instrucao, instrucao2, function (erro, resultados) {
                 conexao.end();
                 if (erro) {
                     reject(erro);
