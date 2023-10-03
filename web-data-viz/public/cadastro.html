@@ -215,8 +215,18 @@
 
             console.log("resposta: ", response);
             if (response.status == 201) {
-                alert('Cadastro realizado com sucesso!')
+
+                Toast.fire({
+                icon: 'success',
+                title: 'Cadastro realizado com sucesso!'
+
+            })
+        
+            setTimeout(() => {
                 window.location.href = "login.html"
+            }, 2000);
+
+             
             } else {
                 alert('Erro ao cadastrar!')
             }
