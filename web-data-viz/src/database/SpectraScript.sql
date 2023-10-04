@@ -33,8 +33,8 @@ fkRepresentante INT, CONSTRAINT FOREIGN KEY (FkRepresentante) REFERENCES Funcion
 fkEmpresaFuncionario INT, CONSTRAINT FOREIGN KEY (fkEmpresaFuncionario) REFERENCES Empresa (idEmpresa)
 );
 
-INSERT INTO Funcionario (idFuncionario, Emailfuncionario, Senha) VALUES 
-	(null, 'murilo@gmail.com', '12345678');
+INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha) VALUES 
+	(null, 'murilo', 'murilo@gmail.com', '12345678');
     
 SELECT * FROM Funcionario;
 

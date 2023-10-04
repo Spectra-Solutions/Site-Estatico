@@ -8,26 +8,27 @@ function listar() {
     return database.executar(instrucao);
 }
 
-function cadastrar(nomeEmpresa,razaoSocial, cnpj, emailRepresentante, senha) {
+function cadastrar(nomeEmpresa,razaoSocial, cnpj, emailRepresentante, senha, nomeRepresentante) {
     var instrucao = `INSERT INTO Empresa VALUES
 	(null, '${nomeEmpresa}', '${razaoSocial}', '${cnpj}');
     `;
 
     var instrucao2 = `
-    INSERT INTO Funcionario (idFuncionario, Emailfuncionario, Senha) VALUES 
-	(null, '${emailRepresentante}', '${senha}');
+    INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha) VALUES 
+	(null, '${nomeRepresentante}', '${emailRepresentante}', '${senha}');
     `
     console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao, instrucao2);
+    database.executar(instrucao);
+    return database.executar(instrucao2);
 }
 
-function entrar(emailRepresentante, senha ) {
-    var instrucao = `
-        select * from Funcionario where EmailFuncionario = '${emailRepresentante}' and Senha = '${senha}';
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
+// function entrar(emailRepresentante, senha ) {
+//     var instrucao = `
+//         select * from Funcionario where EmailFuncionario = '${emailRepresentante}' and Senha = '${senha}';
+//     `;
+//     console.log("Executando a instrução SQL: \n" + instrucao);
+//     return database.executar(instrucao);
+// }
 
 
 module.exports = {

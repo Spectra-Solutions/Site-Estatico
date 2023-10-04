@@ -11,7 +11,7 @@ function listar() {
 
 
 
-function entrar(emailRepresentante, senha ) {
+function entrar(emailRepresentante, senha) {
     var instrucao = `
         select * from Funcionario where EmailFuncionario = '${emailRepresentante}' and Senha = '${senha}';
     `;
