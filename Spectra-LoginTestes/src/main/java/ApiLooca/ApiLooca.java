@@ -70,5 +70,7 @@ public class ApiLooca {
 //        System.out.println(cpu.getNumeroPacotesFisicos()); // qtd de numero de pacotes fisicos
 //        System.out.println(cpu.getNumeroCpusLogicas()); // qtd de numeros de cpus logicos
 //        System.out.println(cpu.getUso()); // uso da cpu
+        System.out.println(cpu.getUso());
+        System.out.println(cpu);
     }
 }
