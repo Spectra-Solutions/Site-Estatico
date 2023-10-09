@@ -46,19 +46,21 @@
 
             <div class="configuracoes">
                 <div class="configurarMaquina">
-                    <img src="imgs/icon-config.svg" alt="" class="iconConfig">
-                    <div id="configurar_maquina">Configurar Máquinas</div>
+                    <img src="imgs/icon-config.svg" onclick="configurarMaquina()" class="iconConfig">
+                    <div id="configurar_maquina" onclick="configurarMaquina()">Configurar Máquinas</div>
                 </div>
 
                 <div class="cadastrarUsuario">
-                    <img src="imgs/icon-usuario2.svg" alt="" class="iconUsuario2">
-                    <div id="cadastrar_usuario">Cadastrar Usuário</div>
+                    <img src="imgs/icon-usuario2.svg" onclick="cadastrarUsuario()" class="iconUsuario2">
+                    <div id="cadastrar_usuario" onclick="cadastrarUsuario()">Cadastrar Usuário</div>
                 </div>
             </div>
 
         </div>
             <div id="sair" class="sair">
-                <img src="imgs/sair.svg" alt="" class="iconSair">
+                <a href="./index.html">
+                    <img src="imgs/sair.svg" alt="" class="iconSair">
+                </a>
                 <div>Sair</div>
             </div>
         
@@ -140,54 +142,6 @@
                             
                         </div>
 
-
-
-    
-                            <!-- <div class="linha2">
-
-                                <div class="labels">
-                                    <div class="label2">
-                                        <span>EMAIL</span>
-                                    </div>
-                                    <div class="label3">
-                                        <span>NÍVEL DE AVISO</span>
-                                    </div>
-                                </div>
-
-                                <div class="inputs">
-                                    <div id="div_input_email" class="input">
-                                        <input id="input_email" placeholder="Email">
-                                    </div>
-                                
-                                
-                                    
-                                </div>
-                                <div id="div_input_nivel_aviso" class="input">
-                                    <select id="select_nivel_aviso" placeholder="critico">
-                                </div>
-                            </div>
-
-                            <div class="linha3">
-
-                                <div class="labels">
-                                    <div class="label4">
-                                        <span>SENHA</span>
-                                    </div>
-                                    <div class="label5">
-                                        <span>NÍVEL DE ACESSO</span>
-                                    </div>
-                                </div>
-
-                                <div class="inputs">
-                                    <div id="div_input_senha" class="input">
-                                        <input id="input_senha" placeholder="senha">
-                                    </div>
-    
-                                    
-    
-                                </div>
-                            </div> -->
-
                             <div class="botoes">
                                 <button onclick="pesquisar()" class="bt_pesquisar">PESQUISAR</button>
                                 <button onclick="salvar()" class="bt_salvar">SALVAR</button>
@@ -208,3 +162,26 @@
 
 </body>
 </html>
+
+<script>
+    function configurarMaquina(){
+        window.location.href = "index.html"
+    }
+
+    function cadastrarUsuario(){
+        window.location.href = "index.html"
+    }
+
+    function pesquisar(){
+        
+    }
+
+    function salvar(){
+        
+    }
+
+    function excluir(){
+        
+    }
+    
+</script>

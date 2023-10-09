@@ -53,6 +53,7 @@
     display: flex;
 }
 
+/* ----- sideBar ----- */
 .sideBar{
     background-color: #202020;
     height: 100vh;
@@ -112,6 +113,7 @@
     display: flex;
     font-size: 11px;
     align-items: center;
+    cursor: pointer;
 }
 
 .iconConfig{
@@ -124,6 +126,7 @@
     display: flex;
     font-size: 11px;
     align-items: center;
+    cursor: pointer;
 }
 
 .iconUsuario2 {
@@ -135,6 +138,7 @@
 
 .iconSair{
     height: 7vh;
+    cursor: pointer;
 }
 
 .sair{
@@ -144,7 +148,15 @@
     margin-bottom: 5vh;
 }
 
+a{
+    text-decoration: none;
+}
 
+/* ----- sideBar ----- */
+
+
+
+/* ----- conteudo ----- */
 .conteudo{
     display: flex;
     flex-direction: column;
@@ -178,10 +190,6 @@
     height: 70%;
     background-color: #F4F4F4;
     border-radius: 5px;
-    /* justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column; */
 }
 
 .tituloCadastro{
@@ -200,7 +208,6 @@
 
 .centralizadora{
     display: flex;
-    /* width: 80%; */
     height: 90%;
     justify-content: center;
 }
@@ -227,7 +234,6 @@
     border-radius: 7px;
     width: 90%;
     justify-content: space-around;
-    /* padding: 12px 18px; */
     background-color: white;
 }
 
@@ -236,19 +242,6 @@ input {
     font-size: 12px;
     width: 240px;
 
-}
-/* 
-select{
-    font-size: 12px;
-    width: 240px;
-} */
-
-#input_nome_funcionario{
-    width: 100%;
-}
-
-.linha1 .inputs .input{
-    width: 100%;
 }
 
 span{
@@ -262,37 +255,13 @@ span{
     width: 100%;
 }
 
-
-.botoes{
-    margin-top: 5%;
-    display: flex;
+#input_nome_funcionario{
     width: 100%;
-    justify-content: space-evenly;
 }
 
-button{
-    color: white;
-    border-radius: 7px;
-    border: none;
-    padding: 10px;
-    font-size: 12px;
-    width: 20%;
+.linha1 .inputs .input{
+    width: 100%;
 }
-
-.bt_pesquisar{
-    background-color: #052767;
-}
-
-.bt_salvar{
-    background-color: #01C38E;
-}
-
-.bt_excluir{
-    background-color: #202020;
-}
-
-
-
 
 .colunas{
     display: flex;
@@ -314,3 +283,37 @@ select{
     border-radius: 7px;
     font-size: 13px
 }
+
+.botoes{
+    margin-top: 5%;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+button{
+    color: white;
+    border-radius: 7px;
+    border: none;
+    padding: 10px;
+    font-size: 12px;
+    width: 20%;
+    cursor: pointer;
+}
+
+.bt_pesquisar{
+    background-color: #052767;
+}
+
+.bt_salvar{
+    background-color: #01C38E;
+}
+
+.bt_excluir{
+    background-color: #202020;
+}
+
+/* ----- conteudo ----- */
+
+
+/* --------------------------------- body ---------------------------------- */
