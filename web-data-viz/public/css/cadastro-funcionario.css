@@ -11,12 +11,12 @@
 
 .header {
     width: 100%;
-    height: 8%;
+    height: 40px;
     display: flex;
     justify-content: center;
-    z-index: 999;
+    /* z-index: 999;
     position: fixed;
-    top: 0;
+    top: 0; */
     background-color: #052767;
 }
 
@@ -49,23 +49,27 @@
 
 /* --------------------------------- body ---------------------------------- */
 
+.corpo{
+    display: flex;
+}
+
 .sideBar{
     background-color: #202020;
     height: 100vh;
     width: 13vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .sideContainer{
     display: flex;
     flex-direction: column;
-    height: 100%;
-    margin-top: 15vh;
+    height: 70%;
     align-items: center;
     width: 100%;
+    justify-content: center;
 }
 
 .sideBox{
@@ -85,12 +89,12 @@
     text-align: center;
 }
 
-#nomeUsuario{
+#nome_usuario{
     color: white;
     font-size: 15px;
 }
 
-#tipoAcesso{
+#tipo_acesso{
     color: white;
     font-size: 11px;
 }
@@ -130,11 +134,183 @@
 
 
 .iconSair{
-    height: 8vh;
+    height: 7vh;
 }
 
 .sair{
     color: white;
     font-size: 11px;
     text-align: center;
+    margin-bottom: 5vh;
+}
+
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    width: 86vw;
+    align-items: center;
+}
+
+.containerConteudo{
+    width: 92%;
+    height: 100%;
+}
+
+.titulo{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    height: 13%;
+    justify-content: end;
+}
+
+.containerCadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 87%;
+}
+
+.boxCadastro{
+    width: 60%;
+    height: 70%;
+    background-color: #F4F4F4;
+    border-radius: 5px;
+    /* justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column; */
+}
+
+.tituloCadastro{
+    display: flex;
+    align-items: center;
+    background-color: #052767;
+    color: white;
+    height: 10%;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.tituloCadastro h4{
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.centralizadora{
+    display: flex;
+    /* width: 80%; */
+    height: 90%;
+    justify-content: center;
+}
+
+.cadastroFuncionario{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+}
+
+.inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input {
+    display: flex;
+    padding: 8px;
+    border: 1px solid #052767;
+    border-radius: 7px;
+    width: 90%;
+    justify-content: space-around;
+    /* padding: 12px 18px; */
+    background-color: white;
+}
+
+input {
+    all: unset;
+    font-size: 12px;
+    width: 240px;
+
+}
+/* 
+select{
+    font-size: 12px;
+    width: 240px;
+} */
+
+#input_nome_funcionario{
+    width: 100%;
+}
+
+.linha1 .inputs .input{
+    width: 100%;
+}
+
+span{
+    font-weight: bold;
+}
+
+.labels{
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.botoes{
+    margin-top: 5%;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+button{
+    color: white;
+    border-radius: 7px;
+    border: none;
+    padding: 10px;
+    font-size: 12px;
+    width: 20%;
+}
+
+.bt_pesquisar{
+    background-color: #052767;
+}
+
+.bt_salvar{
+    background-color: #01C38E;
+}
+
+.bt_excluir{
+    background-color: #202020;
+}
+
+
+
+
+.colunas{
+    display: flex;
+}
+
+.coluna1{
+    width: 50%;
+}
+
+.coluna2{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+select{
+    width: auto;
+    padding: 7px;
+    border-radius: 7px;
+    font-size: 13px
 }

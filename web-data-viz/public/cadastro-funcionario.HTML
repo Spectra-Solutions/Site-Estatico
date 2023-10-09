@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuário</title>
-    <link rel="stylesheet" href="css/cadastro.css">
-    <link rel="stylesheet" href="cadastro-funcionario.css">
+    <link rel="shortcut icon" type="imagex/png" href="imgs/icone.png">
+    <link rel="stylesheet" href="./css/cadastro-funcionario.css">
 </head>
 <body>
 <!-- ------------------------ HEADER ------------------------ -->
@@ -32,27 +32,27 @@
 
 
 <!-- ------------------------ BODY ------------------------ -->
-
+<div class="corpo">
     <div id="sideBar" class="sideBar">
         <div class="sideContainer">
             <div class="sideBox">
                 <img src="imgs/icon-usuario.svg" alt="" class="iconUsuario">
 
                 <div class="dadosUsuario">
-                    <div id="nomeUsuario" class="nomeUsuario">Nome do Usuário</div>
-                    <div id="tipoAcesso" class="tipoAcesso">Tipo de Acesso</div>
+                    <div id="nome_usuario" class="nomeUsuario">Nome do Usuário</div>
+                    <div id="tipo_acesso" class="tipoAcesso">Tipo de Acesso</div>
                 </div>
             </div>
 
             <div class="configuracoes">
                 <div class="configurarMaquina">
                     <img src="imgs/icon-config.svg" alt="" class="iconConfig">
-                    <div id="configurarMaquina">Configurar Máquinas</div>
+                    <div id="configurar_maquina">Configurar Máquinas</div>
                 </div>
 
                 <div class="cadastrarUsuario">
                     <img src="imgs/icon-usuario2.svg" alt="" class="iconUsuario2">
-                    <div id="cadastrarUsuario">Cadastrar Usuário</div>
+                    <div id="cadastrar_usuario">Cadastrar Usuário</div>
                 </div>
             </div>
 
@@ -64,7 +64,144 @@
         
     </div>
 
+    <div class="conteudo">
+       <div class="containerConteudo">
+            <div class="titulo">
+                <h3>Cadastre mais usuários para monitorar</h3>
+                <img src="imgs/retangulo-azul.png" alt="" width="10%">
+            </div>
 
+            <div class="containerCadastro">
+                <div class="boxCadastro">
+                    <div class="tituloCadastro">
+                        <h4>CADASTRO DE USUÁRIO</h4>
+                    </div>
+
+                    <div class="centralizadora">
+                        <div class="cadastroFuncionario">
+                            
+                            <div class="linha1">
+                                <span>NOME</span>
+                                <div class="inputs">
+                                    <div id="div_input_nome_funcionario" class="input">
+                                        <input id="input_nome_funcionario">
+                                    </div>
+                                </div>
+                            </div>
+
+                        <div class="colunas">
+
+                            <div class="coluna1">
+
+                                <div class="labels">
+                                    <span>EMAIL</span>
+                                </div>
+
+                                <div class="inputs">
+                                    <div id="div_input_email" class="input">
+                                        <input id="input_email">
+                                    </div>
+                                </div>
+
+                                <div class="labels">
+                                    <span>SENHA</span>
+                                </div>
+
+                                <div class="inputs">
+                                    <div id="div_input_senha" class="input">
+                                        <input id="input_senha">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="coluna2">
+                                
+                                <div class="labels">
+                                    <span>NÍVEL DE AVISO</span>
+                                </div>
+
+                                <select name="nivel aviso" id="select_nivel_de_aviso">
+                                    <option value="">Crítico</option>
+                                    <option value="">Alerta</option>
+                                </select>
+
+                                <div class="labels">
+                                    <span>NÍVEL DE AVISO</span>
+                                </div>
+
+                                <select name="nivel acesso" id="select_nivel_de_acesso">
+                                    <option value="">ADM</option>
+                                    <option value="">Funcionario</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+
+
+
+    
+                            <!-- <div class="linha2">
+
+                                <div class="labels">
+                                    <div class="label2">
+                                        <span>EMAIL</span>
+                                    </div>
+                                    <div class="label3">
+                                        <span>NÍVEL DE AVISO</span>
+                                    </div>
+                                </div>
+
+                                <div class="inputs">
+                                    <div id="div_input_email" class="input">
+                                        <input id="input_email" placeholder="Email">
+                                    </div>
+                                
+                                
+                                    
+                                </div>
+                                <div id="div_input_nivel_aviso" class="input">
+                                    <select id="select_nivel_aviso" placeholder="critico">
+                                </div>
+                            </div>
+
+                            <div class="linha3">
+
+                                <div class="labels">
+                                    <div class="label4">
+                                        <span>SENHA</span>
+                                    </div>
+                                    <div class="label5">
+                                        <span>NÍVEL DE ACESSO</span>
+                                    </div>
+                                </div>
+
+                                <div class="inputs">
+                                    <div id="div_input_senha" class="input">
+                                        <input id="input_senha" placeholder="senha">
+                                    </div>
+    
+                                    
+    
+                                </div>
+                            </div> -->
+
+                            <div class="botoes">
+                                <button onclick="pesquisar()" class="bt_pesquisar">PESQUISAR</button>
+                                <button onclick="salvar()" class="bt_salvar">SALVAR</button>
+                                <button onclick="excluir()" class="bt_excluir">EXCLUIR</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+       </div>
+    </div>
+
+</div>
 
 
 <!-- ------------------------ BODY ------------------------ -->
