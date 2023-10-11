@@ -37,15 +37,8 @@ public class Maquina {
         Cpu cpu = new Cpu();
         cpu.setConsumoAtualCPU(processador.getUso());
         cpu.setEspecificacaoCPU(processador.getNome());
+        System.out.println();
         return cpu;
-    }
-    public MemoriaRam getMemoriaRam(){
-        Memoria memoria = looca.getMemoria();
-        MemoriaRam memoriaRam = new MemoriaRam();
-        memoriaRam.setConsumoAtualRAM(memoria.getEmUso());
-        memoriaRam.setArmazenamentoTotalRAM(memoria.getTotal());
-        memoriaRam.setArmazenamentoDisponivel(memoria.getDisponivel());
-        return memoriaRam;
     }
 
     public List<RedeInterface> getRedes(){

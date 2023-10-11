@@ -1,27 +1,21 @@
 package SpectraSprint02.Maquina;
 
-import java.util.Map;
+import com.github.britooo.looca.api.core.Looca;
+import com.github.britooo.looca.api.group.memoria.Memoria;
 
 public class MemoriaRam {
-    private String tipoMemoria;
     private Long armazenamentoTotalRAM;
     private Long consumoAtualRAM;
     private Long armazenamentoDisponivel;
-
-    public String getTipoMemoria() {
-        return tipoMemoria;
-    }
-
-    public void setTipoMemoria(String tipoMemoria) {
-        this.tipoMemoria = tipoMemoria;
-    }
+    private Looca looca = new Looca();
+    Memoria memoriaRam = looca.getMemoria();
 
     public Long getArmazenamentoTotalRAM() {
         return armazenamentoTotalRAM;
     }
 
     public void setArmazenamentoTotalRAM(Long armazenamentoTotalRAM) {
-        this.armazenamentoTotalRAM = armazenamentoTotalRAM;
+        this.armazenamentoTotalRAM = memoriaRam.getTotal();
     }
 
     public Long getConsumoAtualRAM() {
@@ -29,7 +23,7 @@ public class MemoriaRam {
     }
 
     public void setConsumoAtualRAM(Long consumoAtualRAM) {
-        this.consumoAtualRAM = consumoAtualRAM;
+        this.consumoAtualRAM = memoriaRam.getEmUso();
     }
 
     public Long getArmazenamentoDisponivel() {
@@ -37,7 +31,7 @@ public class MemoriaRam {
     }
 
     public void setArmazenamentoDisponivel(Long armazenamentoDisponivel) {
-        this.armazenamentoDisponivel = armazenamentoDisponivel;
+        this.armazenamentoDisponivel = memoriaRam.getDisponivel();
     }
 
 }

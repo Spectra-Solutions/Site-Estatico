@@ -1,13 +1,12 @@
 package SpectraSprint02.Maquina;
 
-import java.util.Map;
+import com.github.britooo.looca.api.core.Looca;
 
 public class Cpu {
     private String especificacaoCPU;
     private Double consumoAtualCPU;
-    private Double consumoPorCoreCPU;
-    private Map<String, Double> consumoPorProcessoCPU;
     private long tempoAtividade;
+
 
     public String getEspecificacaoCPU() {
         return especificacaoCPU;
@@ -25,22 +24,6 @@ public class Cpu {
         this.consumoAtualCPU = consumoAtualCPU;
     }
 
-    public Double getConsumoPorCoreCPU() {
-        return consumoPorCoreCPU;
-    }
-
-    public void setConsumoPorCoreCPU(Double consumoPorCoreCPU) {
-        this.consumoPorCoreCPU = consumoPorCoreCPU;
-    }
-
-    public Map<String, Double> getConsumoPorProcessoCPU() {
-        return consumoPorProcessoCPU;
-    }
-
-    public void setConsumoPorProcessoCPU(Map<String, Double> consumoPorProcessoCPU) {
-        this.consumoPorProcessoCPU = consumoPorProcessoCPU;
-    }
-
     public long getTempoAtividade() {
         return tempoAtividade;
     }
@@ -48,4 +31,12 @@ public class Cpu {
     public void setTempoAtividade(long tempoAtividade) {
         this.tempoAtividade = tempoAtividade;
     }
+
+//    public Cpu getCpu(){
+//        Processador processador = looca.getProcessador();
+//        Cpu cpu = new Cpu();
+//        cpu.setConsumoAtualCPU(processador.getUso());
+//        cpu.setEspecificacaoCPU(processador.getNome());
+//        return cpu;
+//    }
 }

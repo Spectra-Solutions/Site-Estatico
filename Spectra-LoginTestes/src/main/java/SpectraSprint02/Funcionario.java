@@ -44,7 +44,7 @@ public class Funcionario {
     public void exibirFuncionario(){
         System.out.println(String.format("""
                 Olá %s, seu login foi realizado com sucesso!!
-                agora você será redirecionado para o sistema interno da Spectra!!
+                Iniciando serviçoes Spectra!!
                 """, nome));
     }
 

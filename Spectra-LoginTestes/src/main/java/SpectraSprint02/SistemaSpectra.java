@@ -6,7 +6,7 @@ public class SistemaSpectra {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Scanner inText = new Scanner(System.in);
-        Funcionario funcionario01 = new Funcionario("Murilo");
+        Funcionario func01 = new Funcionario("Murilo");
 
         Integer opcao;
         String emailDigitado;
@@ -34,7 +34,7 @@ public class SistemaSpectra {
                             Digite sua senha:""");
                     senhaDigitada = inText.nextLine();
 
-                    funcionario01.validarLogin(emailDigitado, senhaDigitada);
+                    func01.validarLogin(emailDigitado, senhaDigitada);
                 }
 
                 case 2 -> {

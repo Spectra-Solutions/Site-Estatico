@@ -6,6 +6,8 @@
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
 
+/* CRIEM O USUARIO  SPECTRA PARA NÃO FICAR TROCANDO AS CONFIGURAÇÕES DO BANCO DE DADOS NO CONFIG.JS, VAMOS PADRONIZAR O USO */
+
 DROP DATABASE Spectra;
 CREATE DATABASE Spectra;
 
@@ -20,62 +22,86 @@ CNPJ CHAR (18)
 
 INSERT INTO Empresa VALUES
 	(null, 'Murilo', 'Murilo SOluctions', '12.361.273/8123-12');
-    
 SELECT * FROM Empresa;
+
+CREATE TABLE Funcao(
+idFuncao INT PRIMARY KEY AUTO_INCREMENT,
+tipoFuncao VARCHAR (45), CONSTRAINT CHECK (tipoFuncao in("ADM", "Representante", "Comum"))
+);
 
 CREATE TABLE Funcionario(
 idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
-NomeFuncionario VARCHAR (50),
-EmailFuncionario VARCHAR (50),
-Senha CHAR (18),
-FuncionarioADM INT, CONSTRAINT FOREIGN KEY (FuncionarioADM) REFERENCES Funcionario (IdFuncionario),
-fkRepresentante INT, CONSTRAINT FOREIGN KEY (FkRepresentante) REFERENCES Funcionario (IdFuncionario),
-fkEmpresaFuncionario INT, CONSTRAINT FOREIGN KEY (fkEmpresaFuncionario) REFERENCES Empresa (idEmpresa)
+NomeFunc VARCHAR (50),
+EmailFunc VARCHAR (50),
+SenhaFunc CHAR (18),
+fkEmpresa INT, CONSTRAINT FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa),
+fkFuncao INT, CONSTRAINT FOREIGN KEY (fkFuncao) REFERENCES Funcao(idFuncao)
 );
 
-INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha) VALUES 
-	(null, 'murilo', 'murilo@gmail.com', '12345678');
-    
-SELECT * FROM Funcionario;
+CREATE TABLE TipoAviso (
+idTipoAviso INT PRIMARY KEY AUTO_INCREMENT,
+nomeAviso VARCHAR (15)
+);
 
-CREATE TABLE Rede (
-idRede INT PRIMARY KEY AUTO_INCREMENT, 
-Latencia CHAR (6),
-ConsumoUpload DECIMAL (10,2),
-ConsumoDownload DECIMAL (10,2)
+CREATE TABLE Chamado (
+idChamado INT,
+dtChamado DATETIME DEFAULT CURRENT_TIMESTAMP,
+fkFuncionario INT, CONSTRAINT FOREIGN KEY (fkFuncionario) REFERENCES Funcionario(idFuncionario),
+FKTipoAviso INT, CONSTRAINT FOREIGN KEY (fkTipoAviso) REFERENCES tipoAviso(idTipoAviso),
+CONSTRAINT PRIMARY KEY (idChamado ,fkFuncionario, fkTipoAviso)  
 );
 
 CREATE TABLE Maquina(
-idMaquina INT AUTO_INCREMENT,
-NumeroIP CHAR (32),
-Secao VARCHAR (50),
-FkEmpresaMaquina INT, CONSTRAINT FOREIGN KEY (FkEmpresaMaquina) REFERENCES Empresa (idEmpresa),
-CONSTRAINT PRIMARY KEY (IdMaquina, FkEmpresaMaquina),
-fkRedeMaquina INT, CONSTRAINT FOREIGN KEY (fkRedeMaquina) REFERENCES Rede (idRede)
+idMaquina INT,
+hostName VARCHAR (255),
+nome VARCHAR (50),
+sistemaOperacional VARCHAR (50),
+secao VARCHAR (50),
+qtdDisco INT,
+fkEmpresaMaquina INT, CONSTRAINT FOREIGN KEY (fkEmpresaMaquina) REFERENCES Empresa (idEmpresa),
+PRIMARY KEY (idMaquina, fkEmpresaMaquina)
 );
 
-CREATE TABLE CPU(
-idCPU INT AUTO_INCREMENT,
-ConsumoAtual DECIMAL (5,2),
-ConsumoPorCore DECIMAL (5,2),
-TempoPorAtividade DATETIME DEFAULT CURRENT_TIMESTAMP,
-fkMaquinaCPU INT, CONSTRAINT FOREIGN KEY (fkMaquinaCPU) REFERENCES Maquina (idMaquina),
-CONSTRAINT PRIMARY KEY (idCPU, fkMaquinaCPU)
+CREATE TABLE Processo(
+idProcesso INT, 
+nomeProcesso VARCHAR (50),
+status VARCHAR(20),
+dtProcesso DATETIME DEFAULT CURRENT_TIMESTAMP,
+fkMaquinaProcesso INT, CONSTRAINT FOREIGN KEY (fkMaquinaProcesso) REFERENCES Maquina (idMaquina),
+PRIMARY KEY (idProcesso, fkMaquinaProcesso)
 );
 
-CREATE TABLE MemoriaRam(
-idMemoriaRam INT AUTO_INCREMENT,
-ConsumoAtual INT,
-ConsumoPorProcesso DECIMAL (5,2),
-MemoriaDisponivel INT,
-fkMaquinaMemoriaRam INT, CONSTRAINT FOREIGN KEY (fkMaquinaMemoriaRam) REFERENCES Maquina (idMaquina),
-CONSTRAINT PRIMARY KEY (idMemoriaRam, fkMaquinaMemoriaRam)
+CREATE TABLE TaxaAviso(
+idTaxaAviso INT PRIMARY KEY AUTO_INCREMENT,
+porcentagemCritico DECIMAL (4,2),
+porcentagemAlerta DECIMAL (4,2)
 );
 
-CREATE TABLE Disco(
-idDisco INT AUTO_INCREMENT,
-ConsumoAtual FLOAT,
-MemoriaDisponivel FLOAT,
-fkMaquinaDisco INT, CONSTRAINT FOREIGN KEY (fkMaquinaDisco) REFERENCES Maquina  (idMaquina),
-CONSTRAINT PRIMARY KEY (idDisco, fkMaquinaDisco)
+CREATE TABLE Componente(
+idComponente INT PRIMARY KEY AUTO_INCREMENT,
+nomeComponente VARCHAR (45), CONSTRAINT CHECK (nomeComponente in("CPU", "Memoria RAM", "Disco", "Rede")),
+fkMaquinaComponente INT, CONSTRAINT FOREIGN KEY (fkMaquinaComponente) REFERENCES Maquina(idMaquina),
+fkTaxaAviso INT, CONSTRAINT FOREIGN KEY (fkTaxaAviso) REFERENCES TaxaAviso(idTaxaAviso)
+);
+
+CREATE TABLE registroAvisos(
+idRegistroAviso INT PRIMARY KEY AUTO_INCREMENT,
+registroAviso VARCHAR (70),
+fkComponente INT, CONSTRAINT FOREIGN KEY (fkComponente) REFERENCES Componente(idComponente),
+fkTaxaAviso INT, CONSTRAINT FOREIGN KEY (fkTaxaAviso) REFERENCES TaxaAviso(idTaxaAviso),
+fkTipoAviso INT, CONSTRAINT FOREIGN KEY (fkTipoAviso) REFERENCES TipoAviso(idTipoAviso)
+); 
+
+CREATE TABLE RegistroComponente(
+idRegistroComponente INT PRIMARY KEY AUTO_INCREMENT,
+registroComponente VARCHAR (45),
+latencia CHAR (6),
+consumoUpload DECIMAL (5,2),
+consumoDownload DECIMAL (5,2),
+nomeCpu VARCHAR (45),
+consumoAtual DECIMAL (4,2),
+tempoAtividade DATETIME DEFAULT CURRENT_TIMESTAMP,
+armazenamentoDisponivel DECIMAL (5,2),
+armazentamentoTotal DECIMAL (5,2),
+fkComponente INT, CONSTRAINT FOREIGN KEY (fkComponente) REFERENCES Componente(idComponente)
 );
