@@ -265,12 +265,20 @@
     font-weight: 700;
 }
 
-.caixaAlerta {
+/* .caixaAlerta {
     border: 1px solid #000;
     background: #FFF;
     width: 9vw;
     height: 4vh;
     border-radius: 7px;
+} */
+
+.inputTaxa{
+    border: 1px solid #000;
+    background: #FFF;
+    width: 9vw;
+    height: 4vh;
+    border-radius: 7px; 
 }
 
 .tituloCritico {
@@ -335,6 +343,9 @@
     background-color: #F09F24;
     border-radius: 7px;
 }
+
+
+
 .caixaDemonstracao2{
     width: 3vw;
     height: 3vh;
