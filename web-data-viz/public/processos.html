@@ -15,10 +15,7 @@
         <div class="containerHeader">
 
             <div class="logoNav">
-                <!-- <a href="/home"> -->
-                    <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo">
-                <!-- </a> -->
-
+                    <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo" onclick="voltar()">
             </div> 
             <nav id="navTopo">
                 <div id="nomeEmpresa" class="nomeEmpresa">
@@ -83,13 +80,14 @@
                     </div>
                 </div>
             
-                <button onclick="voltar()">
+                <button onclick="voltar()" class="bt_voltar">
                     Voltar
                 </button>
             </div>
 
             
             <div class="containerTable">
+                <div class="table-wrapper">
                 <table id="table_processos">
                     <tr>
                         <th class="nomeProcesso">Nome Processo</th>
@@ -97,44 +95,234 @@
                         <th class="dtHora">Data e Hora</th>
                     </tr> 
 
-                    <tr>
-                        <td>Programa</td>
-                        <td class="status">execução</td>
-                        <td>DD/MM/YYYY hh:mm:ss</td>
-                    </tr>
-                    <tr>
-                        <td>Programa</td>
-                        <td class="status">execução</td>
-                        <td>DD/MM/YYYY hh:mm:ss</td>
-                    </tr>
-                    <tr>
-                        <td>Programa</td>
-                        <td class="status">execução</td>
-                        <td>DD/MM/YYYY hh:mm:ss</td>
-                    </tr>
-                    <tr>
-                        <td>Programa</td>
-                        <td class="status">execução</td>
-                        <td>DD/MM/YYYY hh:mm:ss</td>
-                    </tr>
-                    <tr>
-                        <td>Programa</td>
-                        <td class="status">execução</td>
-                        <td>DD/MM/YYYY hh:mm:ss</td>
-                    </tr>
-                    <tr>
-                        <td>Programa</td>
-                        <td class="status">execução</td>
-                        <td>DD/MM/YYYY hh:mm:ss</td>
-                    </tr>
-                    <tr>
-                        <td>Programa</td>
-                        <td class="status">execução</td>
-                        <td>DD/MM/YYYY hh:mm:ss</td>
-                    </tr>
+            <!-- <div class="pai">
+                <div class="filho"> -->
+
                     
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                    <tr>
+                        <td>Programa</td>
+                        <td class="status">execução</td>
+                        <td>DD/MM/YYYY hh:mm:ss</td>
+                    </tr>
+                
+                    
+                <!-- </div>
+            </div> -->
                     
                 </table>
+            </div>
+
+
             </div>
         </div>
 
