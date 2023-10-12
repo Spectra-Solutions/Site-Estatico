@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* --------------------------------- header ---------------------------------- */
+
+.header {
+    width: 100%;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    background-color: #052767;
+}
+
+.containerHeader {
+    display: flex;
+    width: 98%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoNav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nomeEmpresa {
+    color: white;
+}
+
+
+#imgLogo {
+    width: 30%;
+    height: 10vh;
+}
+
+/* --------------------------------- header ---------------------------------- */
+
+
+
+/* --------------------------------- body ---------------------------------- */
+
+.conteudoTotal {
+    display: flex;
+}
+
+.sideBar {
+    background-color: #202020;
+    height: 94vh;
+    width: 13vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sideContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 10vh;
+    align-items: center;
+    width: 100%;
+}
+
+.sideBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 36%;
+    width: 90%;
+}
+
+.iconUsuario {
+    height: 10vh;
+}
+
+.dadosUsuario {
+    text-align: center;
+}
+
+#nomeUsuario {
+    color: white;
+    font-size: 15px;
+}
+
+#tipoAcesso {
+    color: white;
+    font-size: 11px;
+}
+
+.configuracoes {
+    display: flex;
+    flex-direction: column;
+    height: 20%;
+    width: 90%;
+    justify-content: space-around;
+}
+
+.configurarMaquina {
+    color: white;
+    display: flex;
+    font-size: 11px;
+    align-items: center;
+}
+
+.iconConfig {
+    height: 4vh;
+    margin-right: 1VH;
+}
+
+.cadastrarUsuario {
+    color: white;
+    display: flex;
+    font-size: 11px;
+    align-items: center;
+}
+
+.iconUsuario2 {
+    height: 3.5vh;
+    margin-right: 1.3VH;
+    margin-left: 1px;
+}
+
+
+.iconSair {
+    height: 7vh;
+}
+
+.sair {
+    color: white;
+    font-size: 11px;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+
+/* ----------------------- conteudo --------------------------  */
+
+.conteudo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.parteCima {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 71vh;
+}
+
+.visaoGeral {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    height: 22vh;
+    align-items: center;
+}
+
+.titulo {
+    width: 90%;
+    height: 2vh;
+}
+
+.titulo span {
+    color: #202020;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.partesGeral {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1%;
+}
+
+.disponibilidade {
+    width: 20%;
+    height: 20vh;
+    border-radius: 10px;
+    background: #F4F4F4;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.conteudoD {
+    display: flex;
+    flex-direction: column;
+}
+
+.porcentagemD {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.porcentagemD span {
+    font-size: 3.5rem;
+    color: #444445;
+    font-weight: 700;
+}
+
+.escritaD {
+    text-align: center;
+}
+
+.tituloD {
+    font-size: larger;
+    font-weight: 700;
+    color: #052767;
+}
+
+
+.avisos {
+    width: 20%;
+    height: 20vh;
+    border-radius: 10px;
+    background: #F4F4F4;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.conteudoA {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.porcentagemA span {
+    font-size: 3.5rem;
+    color: #444445;
+    font-weight: 700;
+}
+
+.escritaA {
+    text-align: center;
+}
+
+.tituloA {
+    font-size: larger;
+    font-weight: 700;
+    color: #052767;
+}
+
+.qntdAlertas {
+    width: 20%;
+    height: 20vh;
+    border-radius: 10px;
+    background: #F4F4F4;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.conteudoQ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.porcentagemQ span {
+    font-size: 3.5rem;
+    color: #444445;
+    font-weight: 700;
+}
+
+.escritaQ {
+    text-align: center;
+}
+
+.tituloQ {
+    font-size: larger;
+    font-weight: 700;
+    color: #052767;
+}
+
+.img {
+    width: 100%;
+}
+
+#iconsAlertas {
+    height: 6vh;
+    z-index: 999;
+    position: relative;
+}
+
+
+/* -----------------------------------------------------------------------------  */
+.maquinasCad {
+    width: 85%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background: #F3F3F3;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.tlt1 {
+    border-radius: 5px;
+    background: #01C38E;
+    width: 10vw;
+    height: 3vh;
+    text-align: center;
+    position: fixed;
+    font-size: 0.9rem;
+    font-weight: 800;
+    z-index: 2;
+    bottom: 64.9%;
+    right: 71%;
+}
+
+.tlt2 {
+    width: 93%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1%;
+}
+
+.maquinas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 29vh;
+}
+
+.maquinasColuna {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.quadrados {
+    width: 56px;
+    height: 35px;
+    border-radius: 5px;
+    background: #cbcecb;
+}
+
+#normal {
+    background: #1DB83F;
+}
+
+#alerta {
+    background: #F09F24;
+}
+
+#critico {
+    background: #FF1818;
+}
+
+
+.legendaMaquinas {
+    display: flex;
+    justify-content: space-around;
+    width: 65%;
+    height: 47vh;
+}
+
+.legendaMaquinas div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quadradosl {
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+/* ---------------------------------------------------------------------------------  */
+.notificacao {
+    width: 85%;
+    height: 22vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background: #F3F3F3;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.tltN {
+    border-radius: 5px;
+    background: #01C38E;
+    width: 10vw;
+    height: 3vh;
+    text-align: center;
+    font-weight: 800;
+    font-size: 0.9rem;
+    position: fixed;
+    z-index: 2;
+    right: 71%;
+    bottom: 22%;
+}
+
+.btsFiltrar {
+    display: flex;
+    align-items: center;
+    width: 75%;
+    height: 2vh;
+    justify-content: end; 
+    position: fixed;
+    z-index: 2;
+}
+
+.bt {
+    border-radius: 5px;
+    background: #7E7C7C;
+    color: white;
+    height: 4vh;
+    width: 6vw;
+    border: none;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.escrita{
+    margin-right: 1%;
+}
+
+
+.boxNotificacoes{
+    width: 96%;
+    display: flex;
+    align-items: center;
+    background-color: #202020;
+    border-radius: 5px;
+    height: 5vh;
+}
+
+.infosNotificacao{
+    display: flex;
+    width: 30%;
+    justify-content:space-evenly;
+}
+
+.bolaAviso{
+    width: 25px;
+    height: 25px;
+    background-color: #1DB83F;
+    border-radius: 50px;
+}
+
+.escritaInformacoes{
+    color: #F4F4F4;
+    align-items: center;
+}
+
+.verMaquina{
+    display: flex;
+
+}
