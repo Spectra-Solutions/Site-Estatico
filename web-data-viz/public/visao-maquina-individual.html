@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visão individual da máquina</title>
+    <link rel="shortcut icon" type="imagex/png" href="imgs/icone.png">
+    <link rel="stylesheet" href="css/visao-maquina-individual.css">
+</head>
+<body>
+    <!-- ------------------------ HEADER ------------------------ -->
+    <div id="header-nav" class="header">
+
+        <div class="containerHeader">
+
+            <div class="logoNav">
+                    <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo" onclick="voltar()">
+            </div> 
+            <nav id="navTopo">
+                <div id="nomeEmpresa" class="nomeEmpresa">
+                   Nome empresa 
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- ------------------------ HEADER ------------------------ -->
+
+
+    <!-- ------------------------ BODY ------------------------ -->
+<div class="corpo">
+    <div id="sideBar" class="sideBar">
+        <div class="sideContainer">
+            <div class="sideBox">
+                <img src="imgs/icon-usuario.svg" alt="" class="iconUsuario">
+
+                <div class="dadosUsuario">
+                    <div id="nome_usuario" class="nomeUsuario">Nome do Usuário</div>
+                    <div id="tipo_acesso" class="tipoAcesso">Tipo de Acesso</div>
+                </div>
+            </div>
+
+            <div class="configuracoes">
+                <div class="configurarMaquina">
+                    <img src="imgs/icon-config.svg" onclick="configurarMaquina()" class="iconConfig">
+                    <div id="configurar_maquina" onclick="configurarMaquina()">Configurar Máquinas</div>
+                </div>
+
+                <div class="cadastrarUsuario">
+                    <img src="imgs/icon-usuario2.svg" onclick="cadastrarUsuario()" class="iconUsuario2">
+                    <div id="cadastrar_usuario" onclick="cadastrarUsuario()">Cadastrar Usuário</div>
+                </div>
+            </div>
+
+        </div>
+            <div id="sair" class="sair">
+                <a href="./index.html">
+                    <img src="imgs/sair.svg" alt="" class="iconSair">
+                </a>
+                <div>Sair</div>
+            </div>
+        
+    </div>
+
+
+    <div class="conteudo">
+        <div class="containerConteudo">
+            <div class="titulo">
+                <h3>Monitoramento de Processos em Tempo Real</h3>
+            </div>
+
+            <div class="informacoes">
+                <div class="boxInfo">
+                    <div class="info">
+                        <div id="div_nome_maquina">Nome máquina</div>
+                        <div>|</div>
+                        <div id="div_sistema_operacional">Sistema Operacional</div>
+                        <div>|</div>
+                        <div id="div_secao">Seção</div>
+                    </div>
+                </div>
+            
+                <button onclick="verProcessos()" class="bt_verProcesso">
+                    Ver Processos
+                </button>
+            </div>
+
+            <!-------------------------------- DASHBOARD -------------------------------->
+
+            <div class="conteudoDadosMonitorados">
+
+                <div class="dashs1">
+                    <div class="boxCPU">
+                        <div class="statusComponente">
+                            <span class="componente">CPU</span>
+                            <div id="div_avisoCPU" class="aviso"></div>
+                            <span>Status</span>
+                        </div>
+
+                        <div class="dashCPU">
+                            
+                        </div>
+
+                        <div class="porcentagem">
+                            <div class="labelPorcentagem">
+                                <div>% de utilização</div>
+                            </div>
+
+                            <div class="dados"> 
+                                <b style="color: #052767;">Crítico:</b>
+                                <div>75%</div>
+                                <div>|</div>
+                                <b style="color: #052767;">Alerta:</b>
+                                <div>65%</div>
+                            </div>  
+                        </div>
+
+                    </div>
+
+                    <div class="boxDisco">
+                        <div class="statusComponente">
+                            <span class="componente">Disco</span>
+                            <div id="div_avisoDisco" class="aviso"></div>
+                            <span>Status</span>
+                        </div>
+
+                        <div class="dashDisco">
+                            
+                        </div>
+
+                        <div class="porcentagem">
+                            <div class="labelPorcentagem">
+                                <div>% de utilização</div>
+                            </div>
+
+                            <div class="dados"> 
+                                <b style="color: #202020;">Crítico:</b>
+                                <div>75%</div>
+                                <div>|</div>
+                                <b style="color: #202020;">Alerta:</b>
+                                <div>65%</div>
+                            </div>  
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="dashs2">
+                    <div class="boxRAM">
+                        <div class="statusComponente">
+                            <span class="componente">RAM</span>
+                            <div id="div_avisoRAM" class="aviso"></div>
+                            <span>Status</span>
+                        </div>
+
+                        <div class="dashRAM">
+                            
+                        </div>
+
+                        <div class="porcentagem">
+                            <div class="labelPorcentagem">
+                                <div>% de utilização</div>
+                            </div>
+
+                            <div class="dados"> 
+                                <b style="color: #01C38E;">Crítico:</b>
+                                <div>75%</div>
+                                <div>|</div>
+                                <b style="color: #01C38E;">Alerta:</b>
+                                <div>65%</div>
+                            </div>  
+                        </div>
+
+                    </div>
+
+                    <div class="boxRede">
+                        <div class="componente">Rede</div>
+                        <div class="dashRede">
+                            <div class="dadosRede">
+
+                                <div class="latencia">
+                                    <b>Latência</b>
+                                    <div id="div_mbps" class="mbps">9.5</div>
+                                    <div class="labelRede">mbps</div>
+                                </div>
+
+                                <div class="consumo">
+                                    <b>Consumo</b>
+
+                                    <div class="download">
+                                        <b class="labelRede">Download:</b>
+                                        <div id="div_download" style="color:#052767;">120kbps</div>
+                                    </div>
+
+                                    <div class="upload">
+                                        <b class="labelRede">Upload:</b>
+                                        <div id="div_upload" style="color:#052767">120kbps</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="dadosAdicionais">
+
+                </div>
+
+
+
+            </div>
+
+            <!-------------------------------- DASHBOARD -------------------------------->
+
+        </div>
+    </div>
+</div>
+<!-------------------------------- BODY -------------------------------->
+
+
+</body>
+</html>
+
