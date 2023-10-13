@@ -47,19 +47,21 @@
 
                 <div class="configuracoes">
                     <div class="configurarMaquina">
-                        <img src="imgs/icon-config.svg" alt="" class="iconConfig">
-                        <div id="configurarMaquina">Configurar Máquinas</div>
+                        <img src="imgs/icon-config.svg" onclick="configurarMaquina()"class="iconConfig">
+                        <div id="configurarMaquina" onclick="configurarMaquina()">Configurar Máquinas</div>
                     </div>
 
                     <div class="cadastrarUsuario">
-                        <img src="imgs/icon-usuario2.svg" alt="" class="iconUsuario2">
-                        <div id="cadastrarUsuario">Cadastrar Usuário</div>
+                        <img src="imgs/icon-usuario2.svg" onclick="cadastrarUsuario()" class="iconUsuario2">
+                        <div id="cadastrarUsuario" onclick="cadastrarUsuario()">Cadastrar Usuário</div>
                     </div>
                 </div>
 
             </div>
             <div id="sair" class="sair">
-                <img src="imgs/sair.svg" alt="" class="iconSair">
+                <a href="./index.html">
+                    <img src="imgs/sair.svg" alt="" class="iconSair">
+                </a>
                 <div>Sair</div>
             </div>
 
@@ -308,12 +310,17 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
     </div>
 </body>
 
 </html>
+
+<script>
+    function configurarMaquina(){
+        window.location.href = "pgControle.html"
+    }
+
+    function cadastrarUsuario(){
+        window.location.href = "cadastro-funcionario.html"
+    }
+</script>

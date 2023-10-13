@@ -189,12 +189,12 @@
 
                                     <div class="download">
                                         <b class="labelRede">Download:</b>
-                                        <div id="div_download" style="color:#052767;">120kbps</div>
+                                        <div id="div_download">120kbps</div>
                                     </div>
 
                                     <div class="upload">
                                         <b class="labelRede">Upload:</b>
-                                        <div id="div_upload" style="color:#052767">120kbps</div>
+                                        <div id="div_upload">120kbps</div>
                                     </div>
 
                                 </div>
@@ -209,23 +209,73 @@
 
                     <b>CPU</b>
                     <div class="boxDadoAdicionalCPU">
-                        <div>Nome:</div>
-                        <div>Tempo de atividade:</div>
+
+                        <div class="linhas">
+                            <span>Nome:</span>
+                            <div id="div_nome_cpu" class="estilizar">Intel(R) Core(TM) i7-4310U CPU @ 2.00GHz</div>
+                        </div>
+
+                        <div class="linhas">
+                            <span>Tempo de atividade:</span>
+                            <div id="div_tempo_de_atividade_cpu" class="estilizar">3:20:40:12</div>
+                        </div>
+
                     </div>
 
                     
                     <b>RAM</b>
                     <div class="boxDadoAdicionalRAM">
-                        <div>Armazenamento disponível:</div>
-                        <div>Armazenamento total:</div>
+
+                        <div class="linhas">
+                            <span>Armazenamento disponível:</span>
+                            <div id="div_armazenamento_disponivel_ram" class="estilizar">1 TB</div>
+                        </div>
+
+                        <div class="linhas">
+                            <span>Armazenamento total:</span>
+                            <div id="div_armazenamento_total_ram" class="estilizar">2 TB</div>
+                        </div>
+
                     </div>
 
                     
                     <b>Disco</b>
                     <div class="boxDadoAdicionalDisco">
-                        <div>Armazenamento Disponível:</div>
-                        <div>Armazenamento total:</div>
-                        <div>Quantidade discos:</div>
+
+                        <div class="linhas">
+                            <span>Armazenamento Disponível:</span>
+                            <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                        </div>
+
+                        <div class="linhas">
+                            <span>Armazenamento total:</span>
+                            <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                        </div>
+
+                        <div class="linhas">
+                            <span>Quantidade discos:</span>
+                            <div id="div_quantidade_disco" class="estilizar">1</div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="solucoes">
+                        <span style="display: flex; justify-content: center; font-size: 15px;">Teste nossas soluções</span>
+    
+                        <div class="imagensSolucao">
+
+                            <div class="imagemSolucao1">
+                                <img src="imgs/desligar.svg" onclick="desligarMaquina()">
+                                <span>Desligar</span>
+                            </div>
+
+                            <div class="imagemSolucao2">
+                                <img src="imgs/reiniciar.svg" onclick="reiniciarMaquina()">
+                                <span>Reiniciar</span>
+                            </div>
+
+                        </div>
+    
                     </div>
                 </div>
 
@@ -244,3 +294,16 @@
 </body>
 </html>
 
+<script>
+    function verProcessos(){
+        window.location.href = "processos-maquina.html"
+    }
+
+    function configurarMaquina(){
+        window.location.href = "pgControle.html"
+    }
+
+    function cadastrarUsuario(){
+        window.location.href = "cadastro-funcionario.html"
+    }
+</script>

@@ -246,6 +246,8 @@ a{
     background-color: #CDCDCD;
     width: 95%;
     height: 75%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgb(182, 182, 182);
 } 
 
 
@@ -256,6 +258,8 @@ a{
     background-color: #CDCDCD;
     width: 95%;
     height: 75%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgb(182, 182, 182);
 }
 
 .componente{
@@ -306,6 +310,7 @@ a{
     justify-content: space-between;
     flex-direction: column;
     margin-bottom: 2%;
+    margin-right: 7%;
 }
 
 
@@ -326,6 +331,11 @@ a{
     font-size: 11px;
 }
 
+#div_download, #div_upload{
+    font-weight: bold;
+    color: #052767;
+}
+
 
 .dadosAdicionais{
     width: 26%;
@@ -338,15 +348,44 @@ a{
 .boxDadoAdicionalDisco{
     background-color: #CDCDCD;
     width: 95%;
-    height: 17%;
+    height: 16%;
     margin-bottom: 4%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5%;
+    border-radius: 5px;
 
 }
 
+.estilizar{
+    font-weight: bold;
+    color: #052767;
+    margin-left: 3%;
+}
+
+.linhas{
+    display: flex;
+    margin-left: 3%;
+}
+
+
+.imagensSolucao{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3%;
+}
+
+.imagensSolucao img{
+    height: 10vh;
+}
+
+.imagemSolucao1, .imagemSolucao2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 
 

@@ -109,6 +109,7 @@
     display: flex;
     font-size: 11px;
     align-items: center;
+    cursor: pointer;
 }
 
 .iconConfig {
@@ -121,6 +122,7 @@
     display: flex;
     font-size: 11px;
     align-items: center;
+    cursor: pointer;
 }
 
 .iconUsuario2 {
