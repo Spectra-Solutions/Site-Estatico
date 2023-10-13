@@ -9,6 +9,7 @@ import com.github.britooo.looca.api.group.processos.Processo;
 import com.github.britooo.looca.api.group.processos.ProcessoGrupo;
 import com.github.britooo.looca.api.group.rede.Rede;
 import com.github.britooo.looca.api.group.rede.RedeInterface;
+import com.github.britooo.looca.api.group.rede.RedeParametros;
 import com.github.britooo.looca.api.group.servicos.Servico;
 import com.github.britooo.looca.api.group.servicos.ServicoGrupo;
 import com.github.britooo.looca.api.group.sistema.Sistema;
@@ -27,7 +28,7 @@ public class ApiLooca {
         Looca looca = new Looca();
 
 //         Sistema Operacional
-        System.out.println("Parte do Sistema Operacional -- ass: Murilo");
+//        System.out.println("Parte do Sistema Operacional -- ass: Murilo");
 //        Sistema sistema = looca.getSistema();
 //        System.out.println(sistema.getSistemaOperacional()); // Winsdows
 //        System.out.println(sistema.getArquitetura()); // X64
@@ -38,7 +39,7 @@ public class ApiLooca {
 
 
         // Serviços
-        System.out.println("Parte do serviços -- ass: Murilo");
+//        System.out.println("Parte do serviços -- ass: Murilo");
 //        ServicoGrupo servico = looca.getGrupoDeServicos();
 //        System.out.println(servico.getServicos());
 //        System.out.println(servico.getTotalServicosAtivos());
@@ -64,6 +65,10 @@ public class ApiLooca {
         //Memoria
 //        System.out.println("Memoria -- ass: Murilo");
 //        Memoria mem = looca.getMemoria();
+//
+//        Double memoriaTotal = (Double) mem.getTotal();
+//        Double memoriaDisponivel = (Double) (mem.getDisponivel() * 100) / mem.getTotal();
+//
 //        System.out.println(mem.getDisponivel()); // espaço disponivel na memoria ram
 //        System.out.println(mem.getEmUso()); // memoria em uso da memoria ram
 //        System.out.println(mem.getTotal()); // espaço total na memoria ram
@@ -74,8 +79,18 @@ public class ApiLooca {
         // Rede
 //        System.out.println("Rede -- ass: Murilo");
 //        Rede rede = looca.getRede();
-//        System.out.println(rede.getGrupoDeInterfaces()); // nao sei o que é;
-//        System.out.println(rede.getParametros()); // parametros da rede;
+//
+////        List<RedeInterface> redeInterfaces = looca.getRede().getGrupoDeInterfaces().getInterfaces();
+////        for (RedeInterface r: redeInterfaces){
+////            r.getBytesEnviados(); // pacote consumo Upload
+////        }
+//
+//        RedeParametros redeParametro = looca.getRede().getParametros();
+//        String hostName =  redeParametro.getHostName();
+//
+////        System.out.println(rede.getGrupoDeInterfaces()); // nao sei o que é;
+////        System.out.println(rede.getParametros()); // parametros da rede;
+//        System.out.println(hostName);
 
 
 
