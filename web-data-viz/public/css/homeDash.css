@@ -186,7 +186,7 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 1%;
+    margin-top: 2.5%;
 }
 
 .disponibilidade {
@@ -300,17 +300,36 @@
     width: 100%;
 }
 
+#iconsAlertaDisponibilidade {
+    height: 7vh;
+    z-index: 2;
+    position: fixed;
+    right: 76%;
+    top: 12%;
+}
+
+#iconsAlertaAvisos {
+    height: 7vh;
+    z-index: 2;
+    position: fixed;
+    right: 49.5%;
+    top: 12%;
+}
+
 #iconsAlertas {
     height: 6vh;
-    z-index: 999;
-    position: relative;
+    z-index: 2;
+    position: fixed;
+    right: 23.2%;
+    top: 12%;
 }
 
 
 /* -----------------------------------------------------------------------------  */
 .maquinasCad {
+    margin-top: 2%;
     width: 85%;
-    height: 40vh;
+    height: 36vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -329,7 +348,7 @@
     font-size: 0.9rem;
     font-weight: 800;
     z-index: 2;
-    bottom: 64.9%;
+    bottom: 61.5%;
     right: 71%;
 }
 
@@ -349,15 +368,15 @@
 }
 
 .maquinasColuna {
-    height: 30vh;
+    height: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
 .quadrados {
-    width: 56px;
-    height: 35px;
+    width: 52px;
+    height: 31px;
     border-radius: 5px;
     background: #cbcecb;
 }
@@ -425,7 +444,7 @@
     align-items: center;
     width: 75%;
     height: 2vh;
-    justify-content: end; 
+    justify-content: end;
     position: fixed;
     z-index: 2;
 }
@@ -441,39 +460,60 @@
     cursor: pointer;
 }
 
-.escrita{
+.escrita {
     margin-right: 1%;
 }
 
 
-.boxNotificacoes{
+.boxNotificacoes {
     width: 96%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #202020;
     border-radius: 5px;
     height: 5vh;
 }
 
-.infosNotificacao{
+.infosNotificacao {
     display: flex;
     width: 30%;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
 }
 
-.bolaAviso{
+.bolaAviso {
     width: 25px;
     height: 25px;
     background-color: #1DB83F;
     border-radius: 50px;
 }
 
-.escritaInformacoes{
+.escritaInformacoes {
     color: #F4F4F4;
     align-items: center;
 }
 
-.verMaquina{
+.verMaquina {
     display: flex;
+    width: 13%;
+    justify-content: space-evenly;
+    height: 5vh;
+    align-items: center;
+}
+
+.legendaMaq {
+    color: white;
+    font-size: 0.8rem;
+}
+
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon img {
+    width: 4vw;
+    height: 4vh;
 
 }
