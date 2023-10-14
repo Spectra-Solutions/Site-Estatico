@@ -217,7 +217,7 @@
 }
 
 .caixaEspecificando {
-    border-radius: 10px;
+    border-radius: 5px;
     background: #ECECEC;
     width: 70%;
     height: 26vh;
@@ -227,11 +227,11 @@
     height: 6vh;
     width: 100%;
     background-color: #052767;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
+    font-weight: 500;
     color: white;
     font-size: 1.0rem;
 }
@@ -279,9 +279,14 @@
 .inputTaxa{
     border: 1px solid #000;
     background: #FFF;
-    width: 9vw;
-    height: 4vh;
+    width: 8vw;
     border-radius: 7px; 
+    padding: 0.5vh 0.5vw;
+    font-size: 14px;
+}
+
+input{
+    all: unset;
 }
 
 .tituloCritico {

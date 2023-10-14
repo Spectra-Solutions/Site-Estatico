@@ -197,6 +197,7 @@ a{
     color: white;
     height: 10%;
     border-radius: 5px 5px 0px 0px;
+    box-shadow: 2px 0px 10px rgb(173, 173, 173);
 }
 
 .tituloCadastro h4{
@@ -208,6 +209,7 @@ a{
     display: flex;
     height: 90%;
     justify-content: center;
+    box-shadow: 2px 3px 10px rgb(173, 173, 173);
 }
 
 .cadastroFuncionario{
@@ -227,7 +229,7 @@ a{
 
 .input {
     display: flex;
-    padding: 8px;
+    padding: 6px;
     border: 1px solid #052767;
     border-radius: 7px;
     width: 80%;
@@ -237,7 +239,7 @@ a{
 
 input {
     all: unset;
-    font-size: 12px;
+    font-size: 14px;
     width: 240px;
 
 }

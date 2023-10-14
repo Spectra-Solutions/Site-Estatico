@@ -252,6 +252,7 @@ tr, td{
     height: 71vh;
     width: 80%;
     overflow-y: scroll;
+    box-shadow: 2px 3px 10px rgb(173, 173, 173);
 }
 
 .table-wrapper::-webkit-scrollbar{
