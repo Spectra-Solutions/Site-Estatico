@@ -229,6 +229,19 @@ a{
     align-self: center;
 }
 
+
+#normal {
+    background: #1DB83F;
+}
+
+#alerta {
+    background: #F09F24;
+}
+
+#critico {
+    background: #FF1818;
+}
+
 .statusComponente{
     display: flex;
     gap: 10px;
@@ -245,7 +258,7 @@ a{
 .dashRAM{
     background-color: #CDCDCD;
     width: 95%;
-    height: 75%;
+    height: 73.5%;
     border-radius: 5px;
     box-shadow: 0px 2px 4px rgb(182, 182, 182);
 } 
@@ -387,7 +400,18 @@ a{
     align-items: center;
 }
 
-
+#ChartCPU{
+    background-color: #052767;
+    border-radius: 5px;
+}
+#ChartRAM{
+    background-color: #01C38E;
+    border-radius: 5px;
+}
+#ChartDISCO{
+    background-color: #202020;
+    border-radius: 5px;
+}
 
 /* ------ dashboard ------ */
 

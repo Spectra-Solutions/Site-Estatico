@@ -10,13 +10,42 @@ new Chart(graficoCPU, {
         datasets: [{
             label: 'CPU',
             data: [20, 35, 30, 70, 45, 29],
-            borderWidth: 1
+            borderWidth: 3,
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)"
         }]
     },
     options: {
+    
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                ticks: {
+                    color: 'white'
+                },
+                grid: {
+                    color: 'rgba(255,255,255,0.2)'
+                }
+            },
+            x: {
+                ticks: {
+                    color: 'white'
+                },
+                grid: {
+                    color: 'rgba(255,255,255,0.2)'
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white' // Define a cor do texto da legenda
+                }
+            },
+            tooltip: {
+                backgroundColor: 'rgba(255,255,255,0.7)', // Define a cor do tooltip de fundo
+                bodyFontColor: 'white', // Define a cor do texto do tooltip
+                titleFontColor: 'white' // Define a cor do título do tooltip
             }
         }
     }
@@ -32,13 +61,41 @@ new Chart(graficoDISCO, {
         datasets: [{
             label: 'Disco',
             data: [20, 35, 30, 70, 45, 29],
-            borderWidth: 1
+            borderWidth: 3,
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)"
         }]
     },
     options: {
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                ticks: {
+                    color: 'white'
+                },
+                grid: {
+                    color: 'rgba(255,255,255,0.2)'
+                }
+            },
+            x: {
+                ticks: {
+                    color: 'white'
+                },
+                grid: {
+                    color: 'rgba(255,255,255,0.2)'
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white' // Define a cor do texto da legenda
+                }
+            },
+            tooltip: {
+                backgroundColor: 'rgba(255,255,255,0.7)', // Define a cor do tooltip de fundo
+                bodyFontColor: 'white', // Define a cor do texto do tooltip
+                titleFontColor: 'white' // Define a cor do título do tooltip
             }
         }
     }
@@ -55,13 +112,41 @@ new Chart(graficoRAM, {
         datasets: [{
             label: 'RAM',
             data: [20, 35, 30, 70, 45, 29],
-            borderWidth: 1
+            borderWidth: 3,
+            backgroundColor: "rgba(255,255,255)",
+            borderColor: "rgba(255,255,255)"
         }]
     },
     options: {
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                ticks: {
+                    color: 'white'
+                },
+                grid: {
+                    color: 'rgba(255,255,255,0.2)'
+                }
+            },
+            x: {
+                ticks: {
+                    color: 'white'
+                },
+                grid: {
+                    color: 'rgba(255,255,255,0.2)'
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white' // Define a cor do texto da legenda
+                }
+            },
+            tooltip: {
+                backgroundColor: 'rgba(255,255,255,0.7)', // Define a cor do tooltip de fundo
+                bodyFontColor: 'white', // Define a cor do texto do tooltip
+                titleFontColor: 'white' // Define a cor do título do tooltip
             }
         }
     }
