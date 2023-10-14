@@ -56,17 +56,17 @@
     width: 13vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .sideContainer {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    margin-top: 10vh;
+    height: 70%;
     align-items: center;
     width: 100%;
+    justify-content: center;
 }
 
 .sideBox {
@@ -134,6 +134,7 @@
 
 .iconSair {
     height: 7vh;
+    cursor: pointer;
 }
 
 .sair {

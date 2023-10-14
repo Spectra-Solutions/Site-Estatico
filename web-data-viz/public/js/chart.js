@@ -8,11 +8,11 @@ new Chart(graficoCPU, {
     data: {
         labels: ['11h10', '11h30', '11h50', '12h10', '12h30', '12h50'],
         datasets: [{
-            label: 'CPU',
+            label: '',
             data: [20, 35, 30, 70, 45, 29],
             borderWidth: 3,
             backgroundColor: "rgba(255,255,255)",
-            borderColor: "rgba(255,255,255)"
+            borderColor: "rgba(255,255,255)",
         }]
     },
     options: {
@@ -24,28 +24,33 @@ new Chart(graficoCPU, {
                     color: 'white'
                 },
                 grid: {
-                    color: 'rgba(255,255,255,0.2)'
-                }
+                    color: 'rgba(255,255,255,0.3)',
+                },
+                border: {
+                    display: false
+                },
+                
             },
             x: {
                 ticks: {
                     color: 'white'
                 },
                 grid: {
-                    color: 'rgba(255,255,255,0.2)'
+                    color: 'rgba(255,255,255,0)',
                 }
             }
         },
         plugins: {
             legend: {
-                labels: {
-                    color: 'white' // Define a cor do texto da legenda
-                }
+                display: false
+                // labels: {
+                //     color: 'white', // Define a cor do texto da legenda
+                // }
             },
             tooltip: {
-                backgroundColor: 'rgba(255,255,255,0.7)', // Define a cor do tooltip de fundo
-                bodyFontColor: 'white', // Define a cor do texto do tooltip
-                titleFontColor: 'white' // Define a cor do título do tooltip
+                backgroundColor: 'rgba(255,255,255,0.7)', 
+                bodyFontColor: 'white', 
+                titleFontColor: 'white' 
             }
         }
     }
@@ -74,28 +79,29 @@ new Chart(graficoDISCO, {
                     color: 'white'
                 },
                 grid: {
-                    color: 'rgba(255,255,255,0.2)'
-                }
+                    color: 'rgba(255,255,255,0.3)'
+                },
+                border: {
+                    display: false
+                },
             },
             x: {
                 ticks: {
                     color: 'white'
                 },
                 grid: {
-                    color: 'rgba(255,255,255,0.2)'
+                    color: 'rgba(255,255,255,0)'
                 }
             }
         },
         plugins: {
             legend: {
-                labels: {
-                    color: 'white' // Define a cor do texto da legenda
-                }
+                display: false
             },
             tooltip: {
-                backgroundColor: 'rgba(255,255,255,0.7)', // Define a cor do tooltip de fundo
-                bodyFontColor: 'white', // Define a cor do texto do tooltip
-                titleFontColor: 'white' // Define a cor do título do tooltip
+                backgroundColor: 'rgba(255,255,255,0.7)', 
+                bodyFontColor: 'white',
+                titleFontColor: 'white'
             }
         }
     }
@@ -125,28 +131,29 @@ new Chart(graficoRAM, {
                     color: 'white'
                 },
                 grid: {
-                    color: 'rgba(255,255,255,0.2)'
-                }
+                    color: 'rgba(255,255,255,0.4)'
+                },
+                border: {
+                    display: false
+                },
             },
             x: {
                 ticks: {
                     color: 'white'
                 },
                 grid: {
-                    color: 'rgba(255,255,255,0.2)'
+                    color: 'rgba(255,255,255,0)'
                 }
             }
         },
         plugins: {
             legend: {
-                labels: {
-                    color: 'white' // Define a cor do texto da legenda
-                }
+                display: false
             },
             tooltip: {
-                backgroundColor: 'rgba(255,255,255,0.7)', // Define a cor do tooltip de fundo
-                bodyFontColor: 'white', // Define a cor do texto do tooltip
-                titleFontColor: 'white' // Define a cor do título do tooltip
+                backgroundColor: 'rgba(255,255,255,0.7)',
+                bodyFontColor: 'white',
+                titleFontColor: 'white'
             }
         }
     }
