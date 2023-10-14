@@ -275,9 +275,9 @@
                         <div class="escritaInformacoes">ID MÁQUINA - COMPONENTE</div>
                     </div>
                     <div class="verMaquina">
-                        <div class="legendaMaq">Ver Máquina</div>
+                        <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
                         <div class="icon">
-                            <img src="imgs/icon-olho.svg" alt="">
+                            <img src="imgs/icon-olho.svg" alt="" onclick="visaoMaquina()">
                         </div>
                     </div>
                 </div>
@@ -287,9 +287,9 @@
                         <div class="escritaInformacoes">ID MÁQUINA - COMPONENTE</div>
                     </div>
                     <div class="verMaquina">
-                        <div class="legendaMaq">Ver Máquina</div>
+                        <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
                         <div class="icon">
-                            <img src="imgs/icon-olho.svg" alt="">
+                            <img src="imgs/icon-olho.svg" alt="" onclick="visaoMaquina()">
                         </div>
                     </div>
                 </div>
@@ -299,9 +299,9 @@
                         <div class="escritaInformacoes">ID MÁQUINA - COMPONENTE</div>
                     </div>
                     <div class="verMaquina">
-                        <div class="legendaMaq">Ver Máquina</div>
+                        <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
                         <div class="icon">
-                            <img src="imgs/icon-olho.svg" alt="">
+                            <img src="imgs/icon-olho.svg" alt="" onclick="visaoMaquina()">
                         </div>
                     </div>
                 </div>
@@ -313,6 +313,10 @@
 </html>
 
 <script>
+    function visaoMaquina() {
+        window.location.href = "visao-maquina-individual.html" 
+    }
+
     function configurarMaquina(){
         window.location.href = "pgControle.html"
     }

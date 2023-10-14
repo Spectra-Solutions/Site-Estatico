@@ -504,6 +504,7 @@
 .legendaMaq {
     color: white;
     font-size: 0.8rem;
+    cursor: pointer;
 }
 
 .icon{
@@ -515,5 +516,5 @@
 .icon img {
     width: 4vw;
     height: 4vh;
-
+    cursor: pointer;
 }

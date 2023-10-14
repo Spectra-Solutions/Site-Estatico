@@ -19,7 +19,7 @@
         <div class="containerHeader">
 
             <div class="logoNav">
-                <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo" onclick="voltar()">
+                <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo" onclick="voltar()" style="cursor: pointer;">
             </div>
             <nav id="navTopo">
                 <div id="nomeEmpresa" class="nomeEmpresa">
@@ -303,6 +303,10 @@
 <script src="js/chart.js"></script>
 
 <script>
+     function voltar(){
+        window.location.href = "homeDash.html"
+    }
+
     function verProcessos() {
         window.location.href = "processos-maquina.html"
     }

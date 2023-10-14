@@ -17,7 +17,7 @@
 
             <div class="logoNav">
                 <!-- <a href="/home"> -->
-                <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo">
+                <img src="imgs/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo" onclick="voltar()" style="cursor: pointer;">
                 <!-- </a> -->
 
             </div>
@@ -47,7 +47,7 @@
 
                 <div class="configuracoes">
                     <div class="configurarMaquina">
-                        <img src="imgs/icon-config.svg" onclick="configurarMaquina()"class="iconConfig">
+                        <img src="imgs/icon-config.svg" onclick="configurarMaquina()" class="iconConfig">
                         <div id="configurarMaquina" onclick="configurarMaquina()">Configurar Máquinas</div>
                     </div>
 
@@ -158,7 +158,7 @@
                                     <div class="tituloCritico">
                                         Taxa Crítico
                                     </div>
-                                    
+
                                     <input type="text" class="inputTaxa">
                                 </div>
                             </div>
@@ -206,11 +206,15 @@
 </html>
 
 <script>
-    function configurarMaquina(){
+    function voltar() {
+        window.location.href = "homeDash.html"
+    }
+
+    function configurarMaquina() {
         window.location.href = "pgControle.html"
     }
 
-    function cadastrarUsuario(){
+    function cadastrarUsuario() {
         window.location.href = "cadastro-funcionario.html"
     }
 </script>
