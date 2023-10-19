@@ -125,6 +125,21 @@ armazenamentoEmUso DECIMAL (5,2),
 fkComponente INT, CONSTRAINT FOREIGN KEY (fkComponente) REFERENCES Componente(idComponente)
 );
 
+CREATE TABLE proibicoesJanela (
+idProibicao INT PRIMARY KEY auto_increment,
+fkMaquinaProibida INT,
+janelaProibida VARCHAR(200),
+constraint FOREIGN KEY (fkMaquinaProibida) REFERENCES Maquina(idMaquina)
+);
+
+CREATE TABLE infracaoJanela(
+idInfracao INT PRIMARY KEY auto_increment,
+fkMaquinaInfratora INT,
+janelaProibidaAberta VARCHAR(45),
+constraint FOREIGN KEY (fkMaquinaInfratora) REFERENCES proibicoesJanela(fkMaquinaProibida)
+);
+
+
 /* INSERT INTO Registro (idRegistroComponente, consumoAtual, armazenamentoDisponivel, armazenamentoTotal, armazenamentoEmUso, fkComponente) VALUES 
 	(null, 37182, 3, 1, 2, 4, 2); */
     
