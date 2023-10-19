@@ -136,6 +136,7 @@ CREATE TABLE infracaoJanela(
 idInfracao INT PRIMARY KEY auto_increment,
 fkMaquinaInfratora INT,
 janelaProibidaAberta VARCHAR(45),
+dataDaInfracao DATETIME DEFAULT CURRENT_TIMESTAMP,
 constraint FOREIGN KEY (fkMaquinaInfratora) REFERENCES proibicoesJanela(fkMaquinaProibida)
 );
 
