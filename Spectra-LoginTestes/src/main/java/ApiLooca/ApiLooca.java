@@ -3,6 +3,7 @@ package ApiLooca;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.Disco;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
+import com.github.britooo.looca.api.group.discos.Volume;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.processos.Processo;
@@ -47,7 +48,14 @@ public class ApiLooca {
 
 
         // Disco
-//        System.out.println("Parte Discos -- ass: Murilo");
+        System.out.println("Parte Discos -- ass: Murilo");
+        List<Volume> volumes = looca.getGrupoDeDiscos().getVolumes();
+        for (Volume v: volumes){
+            System.out.println("Volume total do disco: " +  (v.getTotal() / 1024 * 1024 * 1024));
+            System.out.println("Volume disponível do disco: " + (int) (v.getDisponivel() / 1024 * 1024 * 1024));
+            System.out.println("Volume em uso do disco: " + (int) ((v.getTotal() - v.getDisponivel()) / 1024 * 1024 * 1024));
+        }
+
 //        DiscoGrupo grupoDeDiscos = looca.getGrupoDeDiscos();
 //        System.out.println(grupoDeDiscos.getDiscos()); // tras um grupo de informações
         // (nome: (\\.\PHYSICALDRIVE0), Modelo: NVMe WDC PC SN530 SDBPNPZ-512G-1114 (Unidades de disco padrão), Serial: (E823_8FA6_BF53_0001_001B_444A_49D8_2F33.),
@@ -79,17 +87,17 @@ public class ApiLooca {
         // Rede
 //        System.out.println("Rede -- ass: Murilo");
 //        Rede rede = looca.getRede();
-//
-////        List<RedeInterface> redeInterfaces = looca.getRede().getGrupoDeInterfaces().getInterfaces();
-////        for (RedeInterface r: redeInterfaces){
-////            r.getBytesEnviados(); // pacote consumo Upload
-////        }
-//
+
+//        List<RedeInterface> redeInterfaces = looca.getRede().getGrupoDeInterfaces().getInterfaces();
+//        for (RedeInterface r: redeInterfaces){
+//            System.out.println("Bytes enviados: "+ r.getBytesEnviados()); // UPLOAD
+//            System.out.println("Bytes recebidos: "+ r.getBytesRecebidos()); // DOWNLOAD
+
 //        RedeParametros redeParametro = looca.getRede().getParametros();
 //        String hostName =  redeParametro.getHostName();
-//
-////        System.out.println(rede.getGrupoDeInterfaces()); // nao sei o que é;
-////        System.out.println(rede.getParametros()); // parametros da rede;
+
+//        System.out.println(rede.getGrupoDeInterfaces()); // nao sei o que é;
+//        System.out.println(rede.getParametros()); // parametros da rede;
 //        System.out.println(hostName);
 
 
