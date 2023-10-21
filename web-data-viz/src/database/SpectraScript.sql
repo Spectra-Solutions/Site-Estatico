@@ -28,14 +28,14 @@ SELECT * FROM Empresa;
 
 CREATE TABLE Funcao(
 idFuncao INT PRIMARY KEY AUTO_INCREMENT,
-tipoFuncao VARCHAR (45), CONSTRAINT CHECK (tipoFuncao in("ADM", "Representante", "Comum"))
+tipoFuncao VARCHAR (45)
 );
 
 CREATE TABLE Funcionario(
 idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
 NomeFunc VARCHAR (50),
 EmailFunc VARCHAR (50),
-SenhaFunc CHAR (18),
+SenhaFunc CHAR (20),
 fkEmpresa INT, CONSTRAINT FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa),
 fkFuncao INT, CONSTRAINT FOREIGN KEY (fkFuncao) REFERENCES Funcao(idFuncao)
 );
@@ -70,16 +70,29 @@ qtdDisco INT,
 fkEmpresaMaquina INT, CONSTRAINT FOREIGN KEY (fkEmpresaMaquina) REFERENCES Empresa (idEmpresa)
 );
 
+CREATE TABLE Servico(
+idServico INT PRIMARY KEY AUTO_INCREMENT,
+Pid BIGINT,
+nomeServico VARCHAR (255),
+estado VARCHAR (255),
+fkMaquinaServico INT, CONSTRAINT FOREIGN KEY (fkMaquinaServico) REFERENCES Maquina(idMaquina)
+);
+
+SELECT idMaquina FROM Maquina;
+
 select * from Maquina;
 
 CREATE TABLE Processo(
-idProcesso INT, 
+idProcesso INT PRIMARY KEY AUTO_INCREMENT, 
+PidProcesso BIGINT,
 nomeProcesso VARCHAR (50),
-status VARCHAR(20),
+usoCpu DECIMAL (8,2),
+usoMemoria DECIMAL (8,2),
 dtProcesso DATETIME DEFAULT CURRENT_TIMESTAMP,
-fkMaquinaProcesso INT, CONSTRAINT FOREIGN KEY (fkMaquinaProcesso) REFERENCES Maquina (idMaquina),
-PRIMARY KEY (idProcesso, fkMaquinaProcesso)
+fkMaquinaProcesso INT, CONSTRAINT FOREIGN KEY (fkMaquinaProcesso) REFERENCES Maquina (idMaquina)
 );
+
+select * from Processo;
 
 CREATE TABLE TaxaAviso(
 idTaxaAviso INT PRIMARY KEY AUTO_INCREMENT,
@@ -89,16 +102,15 @@ porcentagemAlerta DECIMAL (4,2)
 
 CREATE TABLE Componente(
 idComponente INT PRIMARY KEY AUTO_INCREMENT,
-nomeComponente VARCHAR (45), CONSTRAINT CHECK (nomeComponente in("CPU", "Memoria RAM", "Disco", "Rede")),
-fkMaquinaComponente INT, CONSTRAINT FOREIGN KEY (fkMaquinaComponente) REFERENCES Maquina(idMaquina),
+nomeComponente VARCHAR (45),
 fkTaxaAviso INT, CONSTRAINT FOREIGN KEY (fkTaxaAviso) REFERENCES TaxaAviso(idTaxaAviso)
 );
 
 INSERT INTO Componente Values
-	(1, "CPU", null, null),
-	(2, "Memoria RAM", null, null),
-	(3, "Disco", null, null),
-	(4, "Rede", null, null);
+	(1, "CPU", null),
+	(2, "Memoria RAM", null),
+	(3, "Disco", null),
+	(4, "Rede",  null);
 
 select * from Componente;
 
@@ -115,15 +127,21 @@ idRegistroComponente INT PRIMARY KEY AUTO_INCREMENT,
 latencia CHAR (6),
 consumoUpload BIGINT,
 consumoDownload BIGINT,
-nomeCpu VARCHAR (45),
+especificacao VARCHAR (255),
 consumoAtual BIGINT,
-consumoAtualCpu DECIMAL (17,15),
-tempoAtividade DATETIME,
-armazenamentoDisponivel DECIMAL (5,2),
-armazenamentoTotal DECIMAL (5,2),
-armazenamentoEmUso DECIMAL (5,2),
-fkComponente INT, CONSTRAINT FOREIGN KEY (fkComponente) REFERENCES Componente(idComponente)
+tempoAtividade TIME,
+armazenamentoTotal DECIMAL (8,2),
+armazenamentoDisponivel DECIMAL (8,2),
+fkComponente INT, CONSTRAINT FOREIGN KEY (fkComponente) REFERENCES Componente(idComponente),
+fkMaquina INT, CONSTRAINT FOREIGN KEY (fkMaquina) REFERENCES Maquina(idMaquina)
 );
+
+SELECT * FROM RegistroComponente;
+
+SELECT idRegistroComponente, especificacao, tempoAtividade, fkComponente, fkMaquina FROM RegistroComponente WHERE fkComponente = 1;
+SELECT idRegistroComponente, consumoAtual, armazenamentoTotal, armazenamentoDisponivel, fkComponente, fkMaquina FROM RegistroComponente WHERE fkComponente = 2;
+SELECT idRegistroComponente, consumoAtual, armazenamentoTotal, armazenamentoDisponivel, fkComponente, fkMaquina FROM RegistroComponente WHERE fkComponente = 3;
+SELECT idRegistroComponente, latencia, consumoUpload, consumoDownload, fkComponente, fkMaquina FROM RegistroComponente WHERE fkComponente = 4;
 
 CREATE TABLE proibicoesJanela (
 idProibicao INT PRIMARY KEY auto_increment,
@@ -146,5 +164,3 @@ constraint FOREIGN KEY (fkMaquinaInfratora) REFERENCES proibicoesJanela(fkMaquin
     
 /* INSERT INTO RegistroComponente (idRegistroComponente, consumoUpload, consumoDownload, fkComponente) VALUES
 	(null, 35, 124314, 312321, 4); */
-
-select * from RegistroComponente;
