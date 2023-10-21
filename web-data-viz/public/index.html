@@ -33,7 +33,7 @@
                         <li onclick="categorias()"><a>Dúvidas</a></li>
                         <li><a href="#timeSpectra" onclick="rolagemAnimada()">Quem Somos</a></li>
                         <li onclick="fzrParte()">Fazer Parte</li>
-                        <li onclick="">Suporte</li>
+                        <li onclick="jira()">Suporte</li>
                         <button class="bt_login" onclick="fzrLogin()">Login</button>
                     </ul>
                 </nav>
@@ -386,6 +386,10 @@
 
     function bt_saber() {
         window.location.href = "categorias.html"
+    }
+
+    function jira(){
+        window.location.href = "https://spectra-consulting.atlassian.net/servicedesk/customer/user/login?destination=portals"
     }
 
     function subir() {

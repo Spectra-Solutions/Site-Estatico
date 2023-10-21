@@ -25,7 +25,7 @@
           <li onclick="fzrHome()">Home</li>
           <li><a href="#redirecionar" onclick="rolagemAnimada()">Dúvidas</a></li>
           <li onclick="fzrParte()">Fazer parte</li>
-          <li onclick="">Suporte</li>
+          <li onclick="jira()">Suporte</li>
           <button class="bt_login" onclick="fzrLogin()">Login</button>
         </ul>
       </nav>
@@ -190,6 +190,10 @@
 
   function fzrParte() {
     window.location.href = "./cadastro.html"
+  }
+
+  function jira(){
+    window.location.href = "https://spectra-consulting.atlassian.net/servicedesk/customer/user/login?destination=portals"
   }
 
   function subir() {

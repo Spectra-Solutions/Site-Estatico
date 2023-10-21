@@ -357,8 +357,7 @@ a{
 }
 
 
-.boxDadoAdicionalCPU, .boxDadoAdicionalRAM,
-.boxDadoAdicionalDisco{
+.boxDadoAdicionalCPU, .boxDadoAdicionalRAM{
     background-color: #CDCDCD;
     width: 95%;
     height: 16%;
@@ -369,13 +368,55 @@ a{
     gap: 5%;
     border-radius: 5px;
     box-shadow: 1px 2px 5px rgb(173, 173, 173);
+}
 
+.boxDadoAdicionalDisco{
+    background-color: #CDCDCD;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px rgb(173, 173, 173);
+    overflow-y: hidden;
+    padding: 10px 0px 0px 0px
+}
+
+.disco-wrapper{
+    overflow-y: scroll;
+    width: 96%;
+    height: 14vh;
+    border-radius: 5px;
+    margin-bottom: 4%;
+}
+
+.disco-wrapper::-webkit-scrollbar{
+    width: 10px;
+    background-color: #052767;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.disco-wrapper::-webkit-scrollbar-thumb{
+    background-color: rgb(240, 239, 239);
+    border-radius: 3px;
+    
 }
 
 .estilizar{
     font-weight: bold;
     color: #052767;
     margin-left: 3%;
+}
+
+#div_armazenamento_total_disco{
+    margin-bottom: 10px;
+}
+
+#qtd_disco{
+    margin-left: 2%;
+    color: #052767;
+    font-weight: bold;
 }
 
 .linhas{
@@ -392,6 +433,7 @@ a{
 
 .imagensSolucao img{
     height: 10vh;
+    cursor: pointer;
 }
 
 .imagemSolucao1, .imagemSolucao2{
@@ -406,18 +448,34 @@ canvas{
 }
 
 #ChartCPU{
-    background-color: #052767;
+    background-color: #202020;
     border-radius: 5px;
     border: 1px dashed;
 }
 #ChartRAM{
-    background-color: #01C38E;
+    background-color: #202020;
     border-radius: 5px;
 }
 #ChartDISCO{
     background-color: #202020;
     border-radius: 5px;
 }
+
+
+/* Exemplo de CSS personalizado para os botões */
+.swal2-confirm {
+    width: 10vw;
+  }
+  
+  .swal2-cancel {
+    width: 10vw;
+  }
+  
+  .swal2-popup .swal2-actions {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
 
 /* ------ dashboard ------ */
 
