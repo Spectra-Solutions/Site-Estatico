@@ -164,3 +164,9 @@ constraint FOREIGN KEY (fkMaquinaInfratora) REFERENCES proibicoesJanela(fkMaquin
     
 /* INSERT INTO RegistroComponente (idRegistroComponente, consumoUpload, consumoDownload, fkComponente) VALUES
 	(null, 35, 124314, 312321, 4); */
+
+INSERT INTO Maquina (idMaquina) VALUES (1);
+INSERT INTO proibicoesJanela VALUES (null, 1, 'Google');
+UPDATE proibicoesJanela SET fkMaquinaProibida = 2 WHERE idProibicao = 2;
+SELECT * FROM infracaoJanela;
+SELECT * FROM proibicoesJanela;
