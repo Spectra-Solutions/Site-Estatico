@@ -153,7 +153,7 @@ constraint FOREIGN KEY (fkMaquinaProibida) REFERENCES Maquina(idMaquina)
 CREATE TABLE infracaoJanela(
 idInfracao INT PRIMARY KEY auto_increment,
 fkMaquinaInfratora INT,
-janelaProibidaAberta VARCHAR(45),
+janelaProibidaAberta VARCHAR(300),
 dataDaInfracao DATETIME DEFAULT CURRENT_TIMESTAMP,
 constraint FOREIGN KEY (fkMaquinaInfratora) REFERENCES proibicoesJanela(fkMaquinaProibida)
 );
@@ -170,3 +170,5 @@ INSERT INTO proibicoesJanela VALUES (null, 1, 'Google');
 UPDATE proibicoesJanela SET fkMaquinaProibida = 2 WHERE idProibicao = 2;
 SELECT * FROM infracaoJanela;
 SELECT * FROM proibicoesJanela;
+SELECT * FROM funcionario;
+drop table infracaoJanela;
