@@ -384,14 +384,20 @@ button{
 .caixaPesquisa{
     height: 42vh;
     background-color: white;
-    width: 85%;
+    width: 100%;
     border-radius: 5px;
     overflow-y: scroll;
     box-shadow: 2px 3px 10px rgb(173, 173, 173);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: start;
     align-items: center;
+    gap: 2vh;
+}
+
+.caixaPesquisaWrapper{
+    height: 42vh;
+    width: 85%;
 }
 
 .caixaPesquisa::-webkit-scrollbar{
