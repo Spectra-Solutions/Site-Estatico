@@ -106,12 +106,11 @@
                         <div class="conteudoA">
 
                             <div class="porcentagemA">
-                                <span>-10</span>
+                                <span>6</span>
                             </div>
 
                             <div class="escritaA">
                                 <div class="tituloA">Avisos Críticos</div>
-
                                 <div class="complementoA">nas 2 últimas semanas</div>
                             </div>
 
@@ -125,13 +124,15 @@
                         <div class="conteudoQ">
 
                             <div class="porcentagemQ">
-                                <span>+10</span>
+                                <span>7</span>
                             </div>
 
                             <div class="escritaQ">
                                 <div class="tituloQ">Avisos Alertas</div>
 
-                                <div class="complementoQ">nas 2 últimas semanas</div>
+                                <div class="complementoQ">
+                                    nas 2 últimas semanas
+                                </div>
                             </div>
 
                         </div>
@@ -144,7 +145,7 @@
             <div class="maquinasCad">
                 <div class="tlt2">
                     <span>Ordenação por cadastro</span>
-                    <span>15 maquinas cadastradas</span>
+                    <span>23 maquinas cadastradas</span>
                 </div>
 
                 <div class="maquinas">
@@ -167,21 +168,21 @@
                         <div class="quadrados" id="normal"></div>
                     </div>
                     <div class="maquinasColuna">
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id="critico"></div>
+                        <div class="quadrados" id="normal"></div>
+                        <div class="quadrados" id="normal"></div>
+                        <div class="quadrados" id="alerta"></div>
                     </div>
                     <div class="maquinasColuna">
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id="alerta"></div>
+                        <div class="quadrados" id="normal"></div>
+                        <div class="quadrados" id="critico"></div>
+                        <div class="quadrados" id="critico"></div>
                     </div>
                     <div class="maquinasColuna">
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id="normal"></div>
+                        <div class="quadrados" id="alerta"></div>
+                        <div class="quadrados" id="alerta"></div>
                         <div class="quadrados" id=""></div>
                     </div>
                     <div class="maquinasColuna">
@@ -243,17 +244,17 @@
                 <div class="legendaMaquinas">
                     <div>
                         <div class="quadradosl" id="normal"></div>
-                        <span>-IDEAL (6 máquinas)</span>
+                        <span>-IDEAL (10 máquinas)</span>
                     </div>
 
                     <div>
                         <div class="quadradosl" id="alerta"></div>
-                        <span>-ALERTA (3 máquinas)</span>
+                        <span>-ALERTA (7 máquinas)</span>
                     </div>
 
                     <div>
                         <div class="quadradosl" id="critico"></div>
-                        <span>-CRÍTICO (3 máquinas)</span>
+                        <span>-CRÍTICO (6 máquinas)</span>
                     </div>
                 </div>
             </div>
@@ -264,15 +265,16 @@
                 <div class="btsFiltrar">
                     <div class="escrita">Filtrar</div>
                     <div class="botoes">
-                        <button class="bt">Alerta</button>
+                        <button class="btA">Alerta</button>
                         <button class="bt">Crítico</button>
                     </div>
                 </div>
 
                 <div class="boxNotificacoes" style="margin-top: 2.5%;">
                     <div class="infosNotificacao">
-                        <div class="bolaAviso"></div>
+                        <div class="bolaAviso" id="alerta"></div>
                         <div class="escritaInformacoes">ID MÁQUINA - COMPONENTE</div>
+                        <div class="horarioNotif">12:00:45</div>
                     </div>
                     <div class="verMaquina">
                         <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
@@ -285,6 +287,7 @@
                     <div class="infosNotificacao">
                         <div class="bolaAviso" id="alerta"></div>
                         <div class="escritaInformacoes">ID MÁQUINA - COMPONENTE</div>
+                        <div class="horarioNotif">10:00:45</div>
                     </div>
                     <div class="verMaquina">
                         <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
@@ -295,8 +298,9 @@
                 </div>
                 <div class="boxNotificacoes" style="margin-top: 0.5%;">
                     <div class="infosNotificacao">
-                        <div class="bolaAviso" id="critico"></div>
+                        <div class="bolaAviso" id="alerta"></div>
                         <div class="escritaInformacoes">ID MÁQUINA - COMPONENTE</div>
+                        <div class="horarioNotif">13:10:45</div>
                     </div>
                     <div class="verMaquina">
                         <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>

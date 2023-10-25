@@ -54,7 +54,7 @@
 /* ----- sideBar ----- */
 .sideBar{
     background-color: #202020;
-    height: 94.6vh;
+    height: 94vh;
     width: 13vw;
     display: flex;
     flex-direction: column;
@@ -164,7 +164,15 @@ a{
 
 .containerConteudo{
     width: 92%;
-    height: 100%;
+    height: 94vh;
+}
+
+.caixas{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 }
 
 .titulo{
@@ -180,11 +188,12 @@ a{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 87%;
+    height: 75vh;
+    width: 70%;
 }
 
 .boxCadastro{
-    width: 60%;
+    width: 80%;
     height: 70%;
     background-color: #F4F4F4;
     border-radius: 5px;
@@ -294,7 +303,7 @@ select{
     margin-top: 5%;
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: end;
 }
 
 button{
@@ -307,19 +316,284 @@ button{
     cursor: pointer;
 }
 
-.bt_pesquisar{
-    background-color: #052767;
-}
-
 .bt_salvar{
     background-color: #01C38E;
 }
 
-.bt_excluir{
-    background-color: #202020;
-}
-
 /* ----- conteudo ----- */
 
+.caixaVisualizarUsuario{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: #F4F4F4;
+    height: 60vh;
+    margin-right: 4%;
+    border-radius: 5px;
+}
 
+.tituloCaixa{
+   width: 100%;
+   background-color: #052767;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 5vh;
+   border-radius: 5px 5px 0px 0px;
+   box-shadow: 2px 0px 10px rgb(173, 173, 173);
+}
+
+.ConsultarUsuario{
+    width: 85%;
+    color: white;
+    font-weight: 700;
+}
+
+.conteudoUsuarios{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 60vh;
+}
+
+.pesquisarNome{
+    width: 80%;
+}
+
+.inputIcon{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.tituloInput{
+    font-weight: bolder;
+}
+
+.inp_nome{
+    background-color: white;
+    width: 80%;
+    padding: 6px;
+    border: 1px solid #052767;
+    border-radius: 7px;
+}
+
+.caixaPesquisa{
+    height: 42vh;
+    background-color: white;
+    width: 85%;
+    border-radius: 5px;
+    overflow-y: scroll;
+    box-shadow: 2px 3px 10px rgb(173, 173, 173);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.caixaPesquisa::-webkit-scrollbar{
+    width: 10px;
+    background-color: #01C38E;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.caixaPesquisa::-webkit-scrollbar-thumb{
+    background-color: rgb(240, 239, 239);
+    border-radius: 10px;
+}
+
+
+
+.funcionario{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    background-color: #F4F4F4;
+    height: 6vh;
+    border-radius: 5px;
+    box-shadow: 2px 3px 10px rgb(173, 173, 173);
+}
+
+.nome{
+    width: 70%;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.opcoes{
+    width: 25%;
+    height: 6vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.opcoes img {
+    width: 2vw;
+    cursor: pointer;
+}
 /* --------------------------------- body ---------------------------------- */
+
+/* #caixaEditarFuncionario{
+    display: block;
+   
+    width: 70%;
+    height: 1vh;
+} */
+
+.containerEditar{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    width: 80%;
+    z-index: 2;
+    position: relative;
+}
+
+.boxEditar{
+    width: 80%;
+    height: 70%;
+    background-color: #F4F4F4;
+    border-radius: 5px;
+}
+
+.tituloEditar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #052767;
+    color: white;
+    height: 10%;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 2px 0px 10px rgb(173, 173, 173);
+}
+
+.tituloEditar h4{
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.centralizadora{
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    box-shadow: 2px 3px 10px rgb(173, 173, 173);
+}
+
+.EditarFuncionario{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+}
+
+.inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input {
+    display: flex;
+    padding: 6px;
+    border: 1px solid #052767;
+    border-radius: 7px;
+    width: 80%;
+    justify-content: space-around;
+    background-color: white;
+}
+
+input {
+    all: unset;
+    font-size: 14px;
+    width: 240px;
+
+}
+
+span{
+    font-weight: bold;
+}
+
+.labels{
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#input_nome_funcionario{
+    width: 100%;
+}
+
+.linha1 .inputs .input{
+    width: 100%;
+}
+
+.colunas{
+    display: flex;
+}
+
+.coluna1{
+    width: 50%;
+}
+
+.gap{
+    display: flex;
+    justify-content: end;
+    width: 50%;
+}
+
+.coluna2{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+select{
+    width: auto;
+    padding: 7px;
+    border-radius: 7px;
+    font-size: 13px
+}
+
+.botoes{
+    margin-top: 5%;
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
+.final{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+
+button{
+    color: white;
+    border-radius: 7px;
+    border: none;
+    padding: 10px;
+    font-size: 12px;
+    width: 40%;
+    cursor: pointer;
+}
+
+.bt_salvar{
+    background-color: #01C38E;
+    font-weight: 700;
+}
+.bt_voltar{
+    background-color: #fff947;
+    color: #202020;
+    font-weight: 700;
+}
