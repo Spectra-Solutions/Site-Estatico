@@ -47,7 +47,7 @@
 
                 <div class="configuracoes">
                     <div class="configurarMaquina">
-                        <img src="imgs/icon-config.svg" onclick="configurarMaquina()"class="iconConfig">
+                        <img src="imgs/icon-config.svg" onclick="configurarMaquina()" class="iconConfig">
                         <div id="configurarMaquina" onclick="configurarMaquina()">Configurar Máquinas</div>
                     </div>
 
@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="partesGeral">
-                        <img src="imgs/icon-disponibilidae.svg" alt="" id="iconsAlertaDisponibilidade">
+                    <img src="imgs/icon-disponibilidae.svg" alt="" id="iconsAlertaDisponibilidade">
                     <div class="disponibilidade">
                         <div class="conteudoD">
                             <div class="porcentagemD">
@@ -99,9 +99,9 @@
 
                     </div>
 
-             
-                        <img src="imgs/icon-avisos.svg" alt="" id="iconsAlertaAvisos">
-                  
+
+                    <img src="imgs/icon-avisos.svg" alt="" id="iconsAlertaAvisos">
+
                     <div class="avisos">
                         <div class="conteudoA">
 
@@ -111,15 +111,15 @@
 
                             <div class="escritaA">
                                 <div class="tituloA">Avisos Críticos</div>
-                                <div class="complementoA"><b style="color: #FF1818;">+2</b>  nas 2 últimas semanas</div>
+                                <div class="complementoA"><b style="color: #FF1818;">+2</b> nas 2 últimas semanas</div>
                             </div>
 
                         </div>
                     </div>
 
-                  
-                        <img src="imgs/icon-alertas.svg" alt="" id="iconsAlertas">
-                 
+
+                    <img src="imgs/icon-alertas.svg" alt="" id="iconsAlertas">
+
                     <div class="qntdAlertas">
                         <div class="conteudoQ">
 
@@ -150,39 +150,39 @@
 
                 <div class="maquinas">
                     <div class="maquinasColuna">
-                        <div class="quadrados" id="normal"></div>
-                        <div class="quadrados" id="normal"></div>
-                        <div class="quadrados" id="critico"></div>
-                        <div class="quadrados" id="alerta"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
                     </div>
                     <div class="maquinasColuna">
-                        <div class="quadrados" id="normal"></div>
-                        <div class="quadrados" id="alerta"></div>
-                        <div class="quadrados" id="critico"></div>
-                        <div class="quadrados" id="normal"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
                     </div>
                     <div class="maquinasColuna">
-                        <div class="quadrados" id="critico"></div>
-                        <div class="quadrados" id="normal"></div>
-                        <div class="quadrados" id="alerta"></div>
-                        <div class="quadrados" id="normal"></div>
+                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
                     </div>
                     <div class="maquinasColuna">
-                        <div class="quadrados" id="critico"></div>
-                        <div class="quadrados" id="normal"></div>
-                        <div class="quadrados" id="normal"></div>
-                        <div class="quadrados" id="alerta"></div>
+                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
                     </div>
                     <div class="maquinasColuna">
-                        <div class="quadrados" id="alerta"></div>
-                        <div class="quadrados" id="normal"></div>
-                        <div class="quadrados" id="critico"></div>
-                        <div class="quadrados" id="critico"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
                     </div>
                     <div class="maquinasColuna">
-                        <div class="quadrados" id="normal"></div>
-                        <div class="quadrados" id="alerta"></div>
-                        <div class="quadrados" id="alerta"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
                         <div class="quadrados" id=""></div>
                     </div>
                     <div class="maquinasColuna">
@@ -318,14 +318,14 @@
 
 <script>
     function visaoMaquina() {
-        window.location.href = "visao-maquina-individual.html" 
+        window.location.href = "visao-maquina-individual.html"
     }
 
-    function configurarMaquina(){
+    function configurarMaquina() {
         window.location.href = "pgControle.html"
     }
 
-    function cadastrarUsuario(){
+    function cadastrarUsuario() {
         window.location.href = "cadastro-funcionario.html"
     }
 </script>

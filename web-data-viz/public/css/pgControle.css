@@ -237,11 +237,28 @@
 }
 
 .caixaPorcentagens {
-    height: 20vh;
+    height: 15vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.btParaSalvar{
+    width: 85%;
+    display: flex;
+    justify-content: end;
+}
+
+.btParaSalvar button{
+    border-radius: 5px;
+    background: #052767;
+    color: white;
+    height: 4vh;
+    width: 6vw;
+    border: none;
+    font-size: large;
+    cursor: pointer;
 }
 
 .taxaAlerta {
@@ -267,14 +284,6 @@
     font-weight: 700;
     font-weight: 700;
 }
-
-/* .caixaAlerta {
-    border: 1px solid #000;
-    background: #FFF;
-    width: 9vw;
-    height: 4vh;
-    border-radius: 7px;
-} */
 
 .inputTaxa{
     border: 1px solid #000;
