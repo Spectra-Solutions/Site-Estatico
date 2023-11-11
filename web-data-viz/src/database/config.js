@@ -13,7 +13,7 @@ var sqlServerConfig = {
         idleTimeoutMillis: 30000
     },
     options: {
-        encrypt: true, 
+        encrypt: false, 
     }
 }
 
