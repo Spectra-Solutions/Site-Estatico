@@ -5,5 +5,6 @@ public class SistemaSpectra {
         IniciarSistema novoSistema = new IniciarSistema();
 
         novoSistema.validarLogin();
+
     }
 }
