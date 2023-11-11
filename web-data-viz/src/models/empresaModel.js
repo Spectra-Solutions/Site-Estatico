@@ -14,6 +14,7 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
     GO
     INSERT INTO Empresa VALUES
 	(null, '${nomeEmpresa}', '${razaoSocial}', '${cnpj}');
+    GO
     SET IDENTITY_INSERT Empresa OFF;
     GO
     `;
@@ -23,6 +24,7 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
 
     var instrucao2 = `
     Select IdEmpresa from empresa where CNPJ = '${cnpj}';
+    GO
     `;
 
     console.log(instrucao2);
@@ -37,7 +39,8 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
         var instrucao3 = `
         SET IDENTITY_INSERT Empresa ON;
         GO
-        INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha, fkEmpresa, fkFuncao) VALUES (null, '${nomeRepresentante}', '${emailRepresentante}', '${senha}', ${idEmpresa}, 1)
+        INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha, fkEmpresa, fkFuncao) VALUES (null, '${nomeRepresentante}', '${emailRepresentante}', '${senha}', ${idEmpresa}, 1);
+        GO
         SET IDENTITY_INSERT Empresa OFF;
         GO`;
 
