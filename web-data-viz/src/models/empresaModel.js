@@ -10,13 +10,10 @@ function listar() {
 
 function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, nomeRepresentante) {
     var instrucao = `
-    SET IDENTITY_INSERT Empresa ON;
-    GO
+    
     INSERT INTO Empresa VALUES
-	(null, '${nomeEmpresa}', '${razaoSocial}', '${cnpj}');
-    GO
-    SET IDENTITY_INSERT Empresa OFF;
-    GO
+	('${nomeEmpresa}', '${razaoSocial}', '${cnpj}');
+   
     `;
 
     database.executar(instrucao);
@@ -24,7 +21,7 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
 
     var instrucao2 = `
     Select IdEmpresa from empresa where CNPJ = '${cnpj}';
-    GO
+
     `;
 
     console.log(instrucao2);
@@ -37,12 +34,9 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
         var idEmpresa = resultado[0].IdEmpresa;
 
         var instrucao3 = `
-        SET IDENTITY_INSERT Empresa ON;
-        GO
-        INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha, fkEmpresa, fkFuncao) VALUES (null, '${nomeRepresentante}', '${emailRepresentante}', '${senha}', ${idEmpresa}, 1);
-        GO
-        SET IDENTITY_INSERT Empresa OFF;
-        GO`;
+        
+        INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha, fkEmpresa, fkFuncao) VALUES ('${nomeRepresentante}', '${emailRepresentante}', '${senha}', ${idEmpresa}, 1);
+        `;
 
         return database.executar(instrucao3);
 
