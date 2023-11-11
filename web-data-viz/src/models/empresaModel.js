@@ -2,9 +2,7 @@ var database = require('../database/config');
 
 function listar() {
     var instrucao = `
-        SET IDENTITY_INSERT Empresa ON;
         SELECT * FROM Empresa;
-        SET IDENTITY_INSERT Empresa OFF;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -12,19 +10,18 @@ function listar() {
 
 function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, nomeRepresentante) {
     var instrucao = `
-    SET IDENTITY_INSERT Empresa ON;
+    
     INSERT INTO Empresa VALUES
-	(null, '${nomeEmpresa}', '${razaoSocial}', '${cnpj}');
-    SET IDENTITY_INSERT Empresa OFF;
+	('${nomeEmpresa}', '${razaoSocial}', '${cnpj}');
+   
     `;
 
     database.executar(instrucao);
 
 
     var instrucao2 = `
-    SET IDENTITY_INSERT Empresa ON;
     Select IdEmpresa from empresa where CNPJ = '${cnpj}';
-    SET IDENTITY_INSERT Empresa OFF;
+
     `;
 
     console.log(instrucao2);
@@ -37,9 +34,9 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
         var idEmpresa = resultado[0].IdEmpresa;
 
         var instrucao3 = `
-        SET IDENTITY_INSERT Empresa ON;
-        INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha, fkEmpresa, fkFuncao) VALUES (null, '${nomeRepresentante}', '${emailRepresentante}', '${senha}', ${idEmpresa}, 1)
-        SET IDENTITY_INSERT Empresa OFF;`;
+        
+        INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha, fkEmpresa, fkFuncao) VALUES ('${nomeRepresentante}', '${emailRepresentante}', '${senha}', ${idEmpresa}, 1);
+        `;
 
         return database.executar(instrucao3);
 

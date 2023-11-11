@@ -7,13 +7,14 @@ var sqlServerConfig = {
     database: "Spectra",
     user: "Spectra",
     password: "Spectra123",
+    port: 1433,
     pool: {
         max: 10,
         min: 0,
         idleTimeoutMillis: 30000
     },
     options: {
-        encrypt: false, 
+        encrypt: false,
     }
 }
 
@@ -31,7 +32,6 @@ function executar(instrucao, instrucao2) {
         return new Promise(function (resolve, reject) {
             sql.connect(sqlServerConfig).then(function () {
                 return sql.query(instrucao);
-                return sql.query(instrucao2);
             }).then(function (resultados) {
                 console.log(resultados);
                 resolve(resultados.recordset);
