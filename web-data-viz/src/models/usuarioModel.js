@@ -3,9 +3,7 @@ var database = require("../database/config")
 function listar() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
-        SET IDENTITY_INSERT Usuario ON;
         SELECT * FROM usuario;
-        SET IDENTITY_INSERT Usuario OFF;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -15,9 +13,7 @@ function listar() {
 
 function entrar(emailRepresentante, senha) {
     var instrucao = `
-        SET IDENTITY_INSERT Usuario ON;
         select * from Funcionario where EmailFuncionario = '${emailRepresentante}' and Senha = '${senha}'
-        SET IDENTITY_INSERT Usuario OFF;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

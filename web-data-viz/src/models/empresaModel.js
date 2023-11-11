@@ -2,9 +2,7 @@ var database = require('../database/config');
 
 function listar() {
     var instrucao = `
-        SET IDENTITY_INSERT Empresa ON;
         SELECT * FROM Empresa;
-        SET IDENTITY_INSERT Empresa OFF;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -13,18 +11,18 @@ function listar() {
 function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, nomeRepresentante) {
     var instrucao = `
     SET IDENTITY_INSERT Empresa ON;
+    GO
     INSERT INTO Empresa VALUES
 	(null, '${nomeEmpresa}', '${razaoSocial}', '${cnpj}');
     SET IDENTITY_INSERT Empresa OFF;
+    GO
     `;
 
     database.executar(instrucao);
 
 
     var instrucao2 = `
-    SET IDENTITY_INSERT Empresa ON;
     Select IdEmpresa from empresa where CNPJ = '${cnpj}';
-    SET IDENTITY_INSERT Empresa OFF;
     `;
 
     console.log(instrucao2);
@@ -38,8 +36,10 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
 
         var instrucao3 = `
         SET IDENTITY_INSERT Empresa ON;
+        GO
         INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha, fkEmpresa, fkFuncao) VALUES (null, '${nomeRepresentante}', '${emailRepresentante}', '${senha}', ${idEmpresa}, 1)
-        SET IDENTITY_INSERT Empresa OFF;`;
+        SET IDENTITY_INSERT Empresa OFF;
+        GO`;
 
         return database.executar(instrucao3);
 
