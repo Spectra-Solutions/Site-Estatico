@@ -26,24 +26,16 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
 
     console.log(instrucao2);
 
-    var resultado = database.executar(instrucao2);
 
-    console.log("resultado:" + JSON.stringify(resultado));
 
-    if (resultado && resultado.length > 0) {
-        var idEmpresa = resultado[0].IdEmpresa;
-
-        var instrucao3 = `
+    var instrucao3 = `
         
-        INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha, fkEmpresa, fkFuncao) VALUES ('${nomeRepresentante}', '${emailRepresentante}', '${senha}', ${idEmpresa}, 1);
+        INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha, fkEmpresa, fkFuncao) VALUES ('${nomeRepresentante}', '${emailRepresentante}', '${senha}', ${2}, ${1});
         `;
 
-        return database.executar(instrucao3);
+    return database.executar(instrucao3);
 
 
-    } else {
-        return null;
-    }
 }
 
 // function entrar(emailRepresentante, senha ) {
