@@ -30,7 +30,7 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
 
     var instrucao3 = `
         
-        INSERT INTO Funcionario (idFuncionario, NomeFuncionario, Emailfuncionario, Senha, fkEmpresa, fkFuncao) VALUES ('${nomeRepresentante}', '${emailRepresentante}', '${senha}', ${2}, ${1});
+        INSERT INTO Funcionario (idFuncionario, NomeFunc, EmailFunc, SenhaFunc, fkEmpresa, fkFuncao) VALUES ('${nomeRepresentante}', '${emailRepresentante}', '${senha}', ${2}, ${1});
         `;
 
     return database.executar(instrucao3);
