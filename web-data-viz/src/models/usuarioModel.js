@@ -13,7 +13,7 @@ function listar() {
 
 function entrar(emailRepresentante, senha) {
     var instrucao = `
-        select * from Funcionario where EmailFuncionario = '${emailRepresentante}' and Senha = '${senha}'
+        select * from Funcionario where EmailFunc = '${emailRepresentante}' and SenhaFunc = '${senha}'
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
