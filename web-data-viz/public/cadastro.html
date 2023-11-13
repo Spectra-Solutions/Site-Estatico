@@ -27,24 +27,25 @@
             <div class="logoNav">
                 <a href="./index.html"><img src="imgs/LOGO_SPECTRA2 1.svg" alt="" id="imgLogo"></a>
 
-            </div> 
+            </div>
             <nav id="navTopo">
-            <ul class="lista_nav" id="lista_nav1">
-                <a href="index.html">
-                    <li>Home</li>
-                </a>
-                <a href="categorias.html">
-                    <li>Dúvidas</li>
-                </a>
-                <a href="cadastro.html">
-                    <li>Fazer parte</li>
-                </a>
-                <a href="https://spectra-consulting.atlassian.net/servicedesk/customer/user/login?destination=portals">
-                    <li>Suporte</li>
-                </a>
+                <ul class="lista_nav" id="lista_nav1">
+                    <a href="index.html">
+                        <li>Home</li>
+                    </a>
+                    <a href="categorias.html">
+                        <li>Dúvidas</li>
+                    </a>
+                    <a href="cadastro.html">
+                        <li>Fazer parte</li>
+                    </a>
+                    <a
+                        href="https://spectra-consulting.atlassian.net/servicedesk/customer/user/login?destination=portals">
+                        <li>Suporte</li>
+                    </a>
 
-                <a href="login.html"><button class="bt_login">Login</button></a>
-            </ul>
+                    <a href="login.html"><button class="bt_login">Login</button></a>
+                </ul>
             </nav>
         </div>
     </div>
@@ -92,11 +93,13 @@
                         <div class="linha3">
                             <div class="inputs">
                                 <div id="div_input_senha" class="input">
-                                    <input id="input_senha" placeholder="senha" type="password" minlength="8" maxlength="8">
+                                    <input id="input_senha" placeholder="senha" type="password" minlength="8"
+                                        maxlength="8">
                                 </div>
 
                                 <div id="div_input_confirmar_senha" class="input">
-                                    <input id="input_confirmar_senha" placeholder="confirmar senha" type="password" minlength="8" maxlength="8">
+                                    <input id="input_confirmar_senha" placeholder="confirmar senha" type="password"
+                                        minlength="8" maxlength="8">
                                 </div>
 
                             </div>
@@ -230,16 +233,16 @@
             if (response.status == 201) {
 
                 Toast.fire({
-                icon: 'success',
-                title: 'Cadastro realizado com sucesso!'
+                    icon: 'success',
+                    title: 'Cadastro realizado com sucesso!'
 
-            })
-        
-            setTimeout(() => {
-                window.location.href = "login.html"
-            }, 2000);
+                })
 
-             
+                // setTimeout(() => {
+                //     window.location.href = "login.html"
+                // }, 2000);
+
+
             } else {
                 alert('Erro ao cadastrar!')
             }
