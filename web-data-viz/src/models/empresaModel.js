@@ -18,15 +18,25 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
 
     database.executar(instrucao);
 
-
     var instrucao2 = `
     Select IdEmpresa from empresa where CNPJ = '${cnpj}';
-
     `;
 
-    console.log(instrucao2);
+    const result = database.executar(instrucao2);
 
+    console.log("antes da consulta");
+    if (result.length > 0 && result[0].length > 0) {
 
+        console.log("dentro da consulta");
+        // Obtém o valor de IdEmpresa da primeira linha do resultado
+        var idEmpresa = result[0][0].IdEmpresa;
+
+        console.log("ID: " + idEmpresa);
+        console.log("RESULT: " + result[0][0].IdEmpresa);
+
+    } else {
+        console.log('Nenhum resultado encontrado para o CNPJ fornecido.');
+    }
 
     var instrucao3 = `
         
