@@ -26,7 +26,7 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
 
     console.log("consulta -------------");
 
-    console.log(result)
+    console.log(JSON.stringify(result))
 
     console.log(" fim consulta -------------");
 
