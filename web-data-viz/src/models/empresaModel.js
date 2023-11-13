@@ -29,6 +29,8 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
         var idEmpresa = result[0][0].IdEmpresa;
 
         console.log(idEmpresa);
+        console.log(result[0][0].IdEmpresa);
+
     } else {
         console.log('Nenhum resultado encontrado para o CNPJ fornecido.');
     }
