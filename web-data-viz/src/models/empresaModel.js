@@ -26,18 +26,12 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
 
     console.log("antes da consulta");
 
-    if (result.length > 0) {
+    console.log("dentro da consulta");
 
-        console.log("dentro da consulta");
+    var idEmpresa = result[2][0].IdEmpresa;
 
-        var idEmpresa = result[2][0].IdEmpresa;
-
-        console.log("ID: " + idEmpresa);
-        console.log("RESULT: " + result[2][0].IdEmpresa);
-
-    } else {
-        console.log('Nenhum resultado encontrado para o CNPJ fornecido.');
-    }
+    console.log("ID: " + idEmpresa);
+    console.log("RESULT: " + result[2][0].IdEmpresa);
 
     var instrucao3 = `
         
