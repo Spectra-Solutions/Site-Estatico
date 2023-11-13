@@ -24,7 +24,10 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
 
     const result = database.executar(instrucao2);
 
+    console.log("antes da consulta");
     if (result.length > 0 && result[0].length > 0) {
+
+        console.log("dentro da consulta");
         // Obtém o valor de IdEmpresa da primeira linha do resultado
         var idEmpresa = result[0][0].IdEmpresa;
 
