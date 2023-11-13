@@ -24,14 +24,16 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
 
     const result = database.executar(instrucao2);
 
-    console.log("antes da consulta");
+    console.log("consulta -------------");
 
-    console.log("dentro da consulta");
+    console.log(result)
 
-    var idEmpresa = result[2][0].IdEmpresa;
+    console.log(" fim consulta -------------");
 
-    console.log("ID: " + idEmpresa);
-    console.log("RESULT: " + result[2][0].IdEmpresa);
+    // var idEmpresa = result[2][0].IdEmpresa;
+
+    // console.log("ID: " + idEmpresa);
+    // console.log("RESULT: " + result[2][0].IdEmpresa);
 
     var instrucao3 = `
         
