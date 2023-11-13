@@ -28,8 +28,8 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
         // Obtém o valor de IdEmpresa da primeira linha do resultado
         var idEmpresa = result[0][0].IdEmpresa;
 
-        console.log(idEmpresa);
-        console.log(result[0][0].IdEmpresa);
+        console.log("ID: " + idEmpresa);
+        console.log("RESULT: " + result[0][0].IdEmpresa);
 
     } else {
         console.log('Nenhum resultado encontrado para o CNPJ fornecido.');
