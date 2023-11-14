@@ -33,7 +33,9 @@ function executar(instrucao, instrucao2) {
             sql.connect(sqlServerConfig).then(function () {
                 return sql.query(instrucao);
             }).then(function (resultados) {
+
                 console.log(resultados);
+
                 resolve(resultados.recordset);
             }).catch(function (erro) {
                 reject(erro);
