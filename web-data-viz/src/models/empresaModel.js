@@ -26,7 +26,8 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
 
     console.log("consulta -------------");
 
-    console.log(JSON.stringify(result))
+    const idEmpresa = result[1].recordset[0].IdEmpresa;
+    console.log(idEmpresa);
 
     console.log(" fim consulta -------------");
 
