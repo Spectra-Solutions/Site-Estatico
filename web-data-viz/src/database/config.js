@@ -70,5 +70,7 @@ function executar(instrucao, instrucao2) {
 }
 
 module.exports = {
-    executar
+    executar,
+    resultados
+
 }
