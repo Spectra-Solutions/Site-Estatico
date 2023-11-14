@@ -27,7 +27,7 @@ function cadastrar(nomeEmpresa, razaoSocial, cnpj, emailRepresentante, senha, no
 
     console.log("consulta -------------");
 
-    console.log(database.resultados.IdEmpresa);
+    console.log(database.resultados);
 
     console.log(" fim consulta -------------");
 
