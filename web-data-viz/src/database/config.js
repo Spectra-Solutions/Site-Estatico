@@ -1,5 +1,7 @@
 var mysql = require("mysql2");
 var sql = require('mssql');
+var resultadoID = [];
+
 
 // CONEXÃO DO SQL SERVER 
 var sqlServerConfig = {
@@ -36,6 +38,8 @@ function executar(instrucao, instrucao2) {
 
                 console.log(resultados);
 
+                resultadoID = resultados;
+
                 resolve(resultados.recordset);
             }).catch(function (erro) {
                 reject(erro);
@@ -71,6 +75,6 @@ function executar(instrucao, instrucao2) {
 
 module.exports = {
     executar,
-    resultados
+    resultadoID
 
 }
