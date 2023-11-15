@@ -16,7 +16,7 @@ new Chart(graficoCPU, {
         }]
     },
     options: {
-    
+
         scales: {
             y: {
                 beginAtZero: true,
@@ -29,7 +29,7 @@ new Chart(graficoCPU, {
                 border: {
                     display: false
                 },
-                
+
             },
             x: {
                 ticks: {
@@ -48,9 +48,9 @@ new Chart(graficoCPU, {
                 // }
             },
             tooltip: {
-                backgroundColor: 'rgba(255,255,255,0.7)', 
-                bodyFontColor: 'white', 
-                titleFontColor: 'white' 
+                backgroundColor: 'rgba(255,255,255,0.7)',
+                bodyFontColor: 'white',
+                titleFontColor: 'white'
             }
         }
     }
@@ -99,7 +99,7 @@ new Chart(graficoDISCO, {
                 display: false
             },
             tooltip: {
-                backgroundColor: 'rgba(255,255,255,0.7)', 
+                backgroundColor: 'rgba(255,255,255,0.7)',
                 bodyFontColor: 'white',
                 titleFontColor: 'white'
             }
