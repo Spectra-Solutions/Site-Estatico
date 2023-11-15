@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/pagMonitoramentoGeral.css">
+    <link rel="shortcut icon" type="imagex/png" href="img/icone.png">
+
+    <title>Spectra | Dashboard</title>
+</head>
+
+<body>
+    <!-- ------------------------ HEADER ------------------------ -->
+    <div id="header-nav" class="header">
+
+        <div class="containerHeader">
+
+            <div class="logoNav">
+                <a href="/monitoramentoGeral">
+                    <img src="img/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo">
+                </a>
+
+            </div>
+            <nav id="navTopo">
+                <div id="nomeEmpresa" class="nomeEmpresa">
+                    <p id="nomeEmp"></p>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- ------------------------ HEADER ------------------------ -->
+
+
+
+    <!-- ------------------------ BODY ------------------------ -->
+    <div class="conteudoTotal">
+        <div id="sideBar" class="sideBar">
+            <div class="sideContainer">
+                <div class="sideBox">
+                    <img src="img/icon-usuario.svg" alt="" class="iconUsuario">
+
+                    <div class="dadosUsuario">
+                        <div id="nomeUsuario" class="nomeUsuario">
+                            <p id="nomeUser"></p>
+                        </div>
+                        <div id="tipoAcesso" class="tipoAcesso">
+                            <p id="tipoUser"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="configuracoes">
+                    <a href="/configuracaoTaxas" style="text-decoration: none;">
+
+                        <div class="configurarMaquina">
+                            <img src="img/icon-config.svg" class="iconConfig">
+                            <div id="configurarMaquina">Configurar Máquinas</div>
+                        </div>
+
+                    </a>
+
+                    <a href="/cadastroFuncionario" style="text-decoration: none;">
+                        <div class="cadastrarUsuario">
+                            <img src="img/icon-usuario2.svg" class="iconUsuario2">
+                            <div id="cadastrarUsuario">Cadastrar Usuário</div>
+                        </div>
+                    </a>
+
+                    <a href="/monitoramentoGeral" style="text-decoration: none;">
+                        <div class="home">
+                            <img src="img/casa.svg" class="iconUsuario3">
+                            <div id="home">Home</div>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+            <div id="sair" class="sair">
+                <a onclick="limparSessao()">
+                    <img src="img/sair.svg" alt="" class="iconSair">
+                </a>
+                <div>Sair</div>
+            </div>
+
+        </div>
+
+        <!-- ------------------------ BODY ------------------------ -->
+
+
+        <!-- ------------------------ conteudo -------------------------  -->
+
+        <div class="conteudo">
+
+            <div class="visaoGeral">
+                <div class="titulo">
+                    <span>
+                        Visão geral das máquinas
+                    </span>
+                </div>
+
+                <div class="partesGeral">
+                    <img src="img/icon-disponibilidae.svg" alt="" id="iconsAlertaDisponibilidade">
+                    <div class="disponibilidade">
+                        <div class="conteudoD">
+                            <div class="porcentagemD">
+                                <span>99%</span>
+                            </div>
+
+                            <div class="escritaD">
+                                <div class="tituloD">Disponibilidade</div>
+
+                                <div class="complementoD">nas 2 últimas semanas</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <img src="img/icon-avisos.svg" alt="" id="iconsAlertaAvisos">
+
+                    <div class="avisos">
+                        <div class="conteudoA">
+
+                            <div class="porcentagemA">
+                                <span>6</span>
+                            </div>
+
+                            <div class="escritaA">
+                                <div class="tituloA">Avisos Críticos</div>
+                                <div class="complementoA"><b style="color: #FF1818;">+2</b> nas 2 últimas semanas</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <img src="img/icon-alertas.svg" alt="" id="iconsAlertas">
+
+                    <div class="qntdAlertas">
+                        <div class="conteudoQ">
+
+                            <div class="porcentagemQ">
+                                <span>7</span>
+                            </div>
+
+                            <div class="escritaQ">
+                                <div class="tituloQ">Avisos Alertas</div>
+
+                                <div class="complementoQ">
+                                    <b style="color: #1DB83F;">-5</b> nas 2 últimas semanas
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tlt1">Status Máquinas</div>
+            <div class="maquinasCad">
+                <div class="tlt2">
+                    <span>Ordenação por cadastro</span>
+                    <span>23 maquinas cadastradas</span>
+                </div>
+
+                <div class="maquinas">
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
+                        <div class="quadrados" id=""></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                    </div>
+                    <div class="maquinasColuna">
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                        <div class="quadrados" id=""></div>
+                    </div>
+                </div>
+
+                <div class="legendaMaquinas">
+                    <div>
+                        <div class="quadradosl" id="normal"></div>
+                        <span>-IDEAL (10 máquinas)</span>
+                    </div>
+
+                    <div>
+                        <div class="quadradosl" id="alerta"></div>
+                        <span>-ALERTA (7 máquinas)</span>
+                    </div>
+
+                    <div>
+                        <div class="quadradosl" id="critico"></div>
+                        <span>-CRÍTICO (6 máquinas)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notificacao">
+                <div class="tltN">Notificações</div>
+
+                <div class="btsFiltrar">
+                    <div class="escrita">Filtrar</div>
+                    <div class="botoes">
+                        <button class="btA">Alerta</button>
+                        <button class="bt">Crítico</button>
+                    </div>
+                </div>
+
+                <div class="boxNotificacoes" style="margin-top: 2.5%;">
+                    <div class="infosNotificacao">
+                        <div class="bolaAviso" id="alerta"></div>
+                        <div class="escritaInformacoes">ID MÁQUINA - COMPONENTE</div>
+                        <div class="horarioNotif">12:00:45</div>
+                    </div>
+                    <div class="verMaquina">
+                        <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
+                        <div class="icon">
+                            <img src="img/icon-olho.svg" alt="" onclick="visaoMaquina()">
+                        </div>
+                    </div>
+                </div>
+                <div class="boxNotificacoes" style="margin-top: 0.5%;">
+                    <div class="infosNotificacao">
+                        <div class="bolaAviso" id="alerta"></div>
+                        <div class="escritaInformacoes">ID MÁQUINA - COMPONENTE</div>
+                        <div class="horarioNotif">10:00:45</div>
+                    </div>
+                    <div class="verMaquina">
+                        <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
+                        <div class="icon">
+                            <img src="img/icon-olho.svg" alt="" onclick="visaoMaquina()">
+                        </div>
+                    </div>
+                </div>
+                <div class="boxNotificacoes" style="margin-top: 0.5%;">
+                    <div class="infosNotificacao">
+                        <div class="bolaAviso" id="alerta"></div>
+                        <div class="escritaInformacoes">ID MÁQUINA - COMPONENTE</div>
+                        <div class="horarioNotif">13:10:45</div>
+                    </div>
+                    <div class="verMaquina">
+                        <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
+                        <div class="icon">
+                            <img src="img/icon-olho.svg" alt="" onclick="visaoMaquina()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="js/pagMonitoramentoGeral"></script>
+<script src="js/loginDash.js"></script>
+
+<script>
+    valoresUsuario()
+</script>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectra | Dashboard</title>
+    <link rel="shortcut icon" type="imagex/png" href="img/icone.png">
+    <link rel="stylesheet" href="css/pagProcessosMaquina.css">
+
+</head>
+
+<body>
+    <!-- ------------------------ HEADER ------------------------ -->
+    <div id="header-nav" class="header">
+
+        <div class="containerHeader">
+
+            <div class="logoNav">
+                <a href="/monitoramentoGeral">
+                    <img src="img/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo">
+                </a>
+            </div>
+            <nav id="navTopo">
+                <div id="nomeEmpresa" class="nomeEmpresa">
+                    <p id="nomeEmp"></p>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- ------------------------ HEADER ------------------------ -->
+
+
+    <!-- ------------------------ BODY ------------------------ -->
+    <div class="corpo">
+        <div id="sideBar" class="sideBar">
+            <div class="sideContainer">
+                <div class="sideBox">
+                    <img src="img/icon-usuario.svg" alt="" class="iconUsuario">
+
+                    <div class="dadosUsuario">
+                        <div id="nomeUsuario" class="nomeUsuario">
+                            <p id="nomeUser"></p>
+                        </div>
+                        <div id="tipoAcesso" class="tipoAcesso">
+                            <p id="tipoUser"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="configuracoes">
+                    <a href="/configuracaoTaxas" style="text-decoration: none;">
+
+                        <div class="configurarMaquina">
+                            <img src="img/icon-config.svg" class="iconConfig">
+                            <div id="configurarMaquina">Configurar Máquinas</div>
+                        </div>
+
+                    </a>
+
+                    <a href="/cadastroFuncionario" style="text-decoration: none;">
+                        <div class="cadastrarUsuario">
+                            <img src="img/icon-usuario2.svg" class="iconUsuario2">
+                            <div id="cadastrarUsuario">Cadastrar Usuário</div>
+                        </div>
+                    </a>
+
+                    <a href="/monitoramentoGeral" style="text-decoration: none;">
+                        <div class="home">
+                            <img src="img/casa.svg" class="iconUsuario3">
+                            <div id="home">Home</div>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+            <div id="sair" class="sair">
+                <a onclick="limparSessao()">
+                    <img src="img/sair.svg" alt="" class="iconSair">
+                </a>
+                <div>Sair</div>
+            </div>
+
+        </div>
+
+
+        <div class="conteudo">
+            <div class="containerConteudo">
+                <div class="titulo">
+                    <h3>Monitoramento de Processos em Tempo Real</h3>
+                </div>
+
+                <div class="informacoes">
+                    <div class="boxInfo">
+                        <div class="info">
+                            <div id="div_nome_maquina">Nome máquina</div>
+                            <div>|</div>
+                            <div id="div_sistema_operacional">Sistema Operacional</div>
+                            <div>|</div>
+                            <div id="div_secao">Seção</div>
+                        </div>
+                    </div>
+
+                    <button class="bt_voltar">
+                        <a href="/monitoramentoMaquina" style="text-decoration: none; color: white;"> Voltar</a>
+                    </button>
+                </div>
+
+
+                <div class="containerTable">
+                    <div class="table-wrapper">
+                        <table id="table_processos">
+                            <tr>
+                                <th class="nomeProcesso">Nome Processo</th>
+                                <th class="status">Status</th>
+                                <th class="consumoCPU">Consumo CPU</th>
+                                <th class="consumoRAM">Consumo RAM</th>
+                                <th class="dtHora">Data e Hora</th>
+                            </tr>
+
+
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+                            <tr>
+                                <td>Programa</td>
+                                <td class="status">execução</td>
+                                <td class="consumo">5%</td>
+                                <td class="consumo">170,4 MB</td>
+                                <td>DD/MM/YYYY hh:mm:ss</td>
+                            </tr>
+
+
+
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ------------------------ BODY ------------------------ -->
+</body>
+
+</html>
+<script src="js/pagProcessosMaquina"></script>
+<script src="js/loginDash.js"></script>
+<script>
+    valoresUsuario()
+</script>
