@@ -316,12 +316,32 @@ class dashboard {
 
     listarMaquinas(idEmpresa, res) {
 
-        const idEmpresa = Number(idEmpresa);
+        const sql = `SELECT idMaquina, nome FROM Maquina 
+	        JOIN Empresa
+                ON fkEmpresaMaquina = IdEmpresa
+                    WHERE idEmpresa = ${Number(idEmpresa)};`
 
-        const sql = `SELECT * FROM colaborador 
-        WHERE colaborador.idColaborador NOT IN 
-          (SELECT desempenhoSemanal.fkColaboradorDesempenho FROM desempenhoSemanal WHERE desempenhoSemanal.dtSemana = WEEK(NOW())) 
-          AND colaborador.fkusuario = ${idUsuario}`;
+        conexao.query(sql, (erro, result) => {
+            if (erro) {
+                res.status(400).json(erro);
+            } else {
+                res.status(200).json(result);
+            }
+        });
+    }
+
+    listarInformacoesMaquina(idMaquina, res) {
+
+        const sql = `SELECT m.idMaquina, m.nome, m.secao, m.sistemaOperacional, m.qtdDisco, 
+                        r.especificacao
+                    FROM Maquina as m
+                        JOIN Empresa 
+                            ON fkEmpresaMaquina = IdEmpresa
+                                JOIN RegistroComponente as r
+                                    ON m.idMaquina = r.fkMaquina 
+                    WHERE r.fkComponente IN (1) AND m.idMaquina = ${idMaquina}
+                    ORDER BY idRegistroComponente DESC
+                    LIMIT 1;`;
 
         conexao.query(sql, (erro, result) => {
             if (erro) {
@@ -543,4 +563,4 @@ class dashboard {
     //   }
 }
 
-module.exports = new colaborador();
+module.exports = new dashboard();

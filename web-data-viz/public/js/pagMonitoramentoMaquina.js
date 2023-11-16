@@ -1,7 +1,3 @@
-function verProcessos() {
-    window.location.href = "processos-maquina.html"
-}
-
 function exibirAlertaDesligar() {
     const Toast = Swal.fire({
         title: 'Quer desligar a máquina?',
@@ -55,4 +51,48 @@ function desligarMaquina() {
 
 function reiniciarMaquina() {
     exibirAlertaReiniciar();
+}
+
+function atualizarDadosMaquina() {
+
+    const id = { id: sessionStorage.ID_MAQUINA };
+
+    console.log(id)
+
+    fetch('/buscarInformacoesMaquina', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(id)
+    })
+        .then((res) => { return res.json(); })
+        .then((infoMaquinas) => {
+
+            if (Array.isArray(infoMaquinas) && infoMaquinas.length > 0) {
+                var info = infoMaquinas[0];
+
+                console.log(info);
+
+                listarInformacoesMaquina(info);
+            } else {
+                console.error('Dados inválidos recebidos.');
+            }
+        })
+
+}
+
+function listarInformacoesMaquina(info) {
+
+    var nomeMaq = document.getElementById("nomeMaq");
+    nomeMaq.innerHTML = info.nome || 'N/A';
+
+    var sistMaq = document.getElementById("sistMaq");
+    sistMaq.innerHTML = info.sistemaOperacional || 'N/A';
+
+    var secaoMaq = document.getElementById("secaoMaq");
+    secaoMaq.innerHTML = info.secao || 'N/A';
+
+    var especCPU = document.getElementById("especificacaoCPU");
+    especCPU.innerHTML = info.especificacao || 'N/A';
+
+
 }
