@@ -1,57 +1,76 @@
-function visaoMaquina() {
-    window.location.href = "visao-maquina-individual.html"
-}
 
-function listarMaquina() {
+function buscarMaquina(idEmpresa) {
+
+    const id = { id: idEmpresa };
 
     fetch('/listarMaquinas', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(dadosUser),
+        body: JSON.stringify(id)
     })
-        .then((res) => {
+        .then((res) => { return res.json(); })
+        .then((listaMaquinas) => {
 
-            if (res.status === 200) {
+            listarMaquinas(listaMaquinas)
 
-                userValidado = true;
-
-                var body = res.json();
-
-                return body;
-
-            } else if (res.status === 422 || res.status == 400) {
-
-                return res.json().then((body) => {
-
-                    var configAlerta = {
-                        icon: 'warning',
-                        title: body.message,
-                        iconColor: '#3C8AFF'
-                    };
-                    body.configAlerta = configAlerta;
-                    return body;
-                });
-
-
-            }
         })
-        .then((body) => {
+}
 
-            if (userValidado) {
+function listarMaquinas(listaMaquinas) {
 
-                console.log(body)
+    console.log(listaMaquinas);
 
-                validarSessao(body)
+    maquinas.innerHTML = '';
 
-                window.location.href = '/monitoramentoGeral';
+    var listaTexto = '';
+
+    var totalMaquinas = listaMaquinas.length;
+
+    var colunasPorLinha = 15;
+
+    var contIndex = 0;
+
+    for (var contColuna = 0; contColuna < colunasPorLinha; contColuna++) {
+
+        listaTexto += '<div class="maquinasColuna">';
+
+        for (var contLinha = 0; contLinha < 4; contLinha++) {
+
+            if (contIndex < totalMaquinas) {
+
+                // Verifica se o índice está dentro dos limites da lista
+                var maquina = listaMaquinas[contIndex];
+                // var status = getStatusMaquina(); 
+
+                listaTexto += `<div class="quadrados" id="normal" title= "${maquina.nome}" style="cursor: pointer;" onclick="buscarMaquinaPorId(${maquina.idMaquina})"></div>`;
+
+                contIndex++;
 
             } else {
-                Toast.fire(body.configAlerta);
+                // Adiciona uma célula vazia se não houver mais itens na lista
+                listaTexto += '<div class="quadrados"></div>';
             }
+        }
 
-        })
-        .catch((err) => {
-            console.log("On the catch");
-            console.error('Erro inesperado: ', err);
-        });
+        listaTexto += '</div>';
+    }
+
+    maquinas.innerHTML = listaTexto;
+
+    atualizarLegendas(totalMaquinas);
+}
+
+function atualizarLegendas(totalMaquinas) {
+
+    var total = document.getElementById("totalMaquinas");
+    total.innerHTML = totalMaquinas + " máquinas cadastradas";
+
+}
+
+function buscarMaquinaPorId(idMaquina) {
+
+    sessionStorage.ID_MAQUINA = idMaquina;
+
+    window.location.href = "/monitoramentoMaquina"
+
 }

@@ -8,68 +8,75 @@ module.exports = app => {
     app.use(express.json());
 
 
-    app.get("/listarMaquinas", (req, res) => {
+    app.post("/listarMaquinas", (req, res) => {
 
-        const idEmpresa = sessionStorage.ID_EMPRESA;
+        const { id } = req.body;
 
-        dashboard.listarMaquinas(idEmpresa, res);
+        dashboard.listarMaquinas(id, res);
     });
 
-    app.post("/pesquisarColaboradores", (req, res) => {
+    app.post("/buscarInformacoesMaquina", (req, res) => {
 
-        const dados = req.body;
-        dashboard.pesquisarColaboradores(dados, res);
+        const { id } = req.body;
+
+        dashboard.listarInformacoesMaquina(id, res);
     });
 
-    app.post("/listarColaboradoresSemanal", (req, res) => {
+    // app.post("/pesquisarColaboradores", (req, res) => {
 
-        const idUsuario = req.body;
-        dashboard.listarColaboradoresSemanal(idUsuario, res);
-    });
+    //     const dados = req.body;
+    //     dashboard.pesquisarColaboradores(dados, res);
+    // });
 
-    app.post("/colaboradorBusca", (req, res) => {
+    // app.post("/listarColaboradoresSemanal", (req, res) => {
 
-        const id = req.body;
+    //     const idUsuario = req.body;
+    //     dashboard.listarColaboradoresSemanal(idUsuario, res);
+    // });
 
-        dashboard.buscaPorId(id, res);
-    });
+    // app.post("/colaboradorBusca", (req, res) => {
 
-    app.post("/avaliarColab", (req, res) => {
+    //     const id = req.body;
 
-        const dados = req.body;
+    //     dashboard.buscaPorId(id, res);
+    // });
 
-        dashboard.avaliarColab(dados, res);
-    });
+    // app.post("/avaliarColab", (req, res) => {
 
-    app.post("/contarColab", (req, res) => {
+    //     const dados = req.body;
 
-        const id = req.body;
+    //     dashboard.avaliarColab(dados, res);
+    // });
 
-        dashboard.contarColab(id, res);
-    });
+    // app.post("/contarColab", (req, res) => {
 
-    app.post("/contarLider", (req, res) => {
+    //     const id = req.body;
 
-        const id = req.body;
+    //     dashboard.contarColab(id, res);
+    // });
 
-        dashboard.contarLider(id, res);
-    });
+    // app.post("/contarLider", (req, res) => {
 
-    app.post("/desempenhoColab", (req, res) => {
+    //     const id = req.body;
 
-        const id = req.body;
+    //     dashboard.contarLider(id, res);
+    // });
 
-        console.log(id)
+    // app.post("/desempenhoColab", (req, res) => {
 
-        dashboard.desempenhoColab(id, res);
-    });
+    //     const id = req.body;
 
-    app.post("/calcularDesempenho", (req, res) => {
+    //     console.log(id)
 
-        const id = req.body;
+    //     dashboard.desempenhoColab(id, res);
+    // });
 
-        dashboard.calcularDesempenho(id, res);
-    });
+    // app.post("/calcularDesempenho", (req, res) => {
+
+    //     const id = req.body;
+
+    //     dashboard.calcularDesempenho(id, res);
+    // });
 
 }
 

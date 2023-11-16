@@ -11,7 +11,6 @@
 
     <link rel="shortcut icon" type="imagex/png" href="img/icone.png">
     <link rel="stylesheet" href="css/pagMonitoramentoMaquina.css">
-    <script src="js/pagMonitoramentoMaquina"></script>
 
     <!-- toast - alerta -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
@@ -99,11 +98,20 @@
                 <div class="informacoes">
                     <div class="boxInfo">
                         <div class="info">
-                            <div id="div_nome_maquina">Nome máquina</div>
+                            <div id="div_nome_maquina">
+                                <p class=tlt>Nome Máquina: </p>
+                                <p id="nomeMaq"></p>
+                            </div>
                             <div>|</div>
-                            <div id="div_sistema_operacional">Sistema Operacional</div>
+                            <div id="div_sistema_operacional">
+                                <p class=tlt>Sistema Operacional: </p>
+                                <p id="sistMaq"></p>
+                            </div>
                             <div>|</div>
-                            <div id="div_secao">Seção</div>
+                            <div id="div_secao">
+                                <p class=tlt>Seção Máquina: </p>
+                                <p id="secaoMaq"></p>
+                            </div>
                         </div>
                     </div>
 
@@ -239,7 +247,9 @@
 
                             <div class="linhas">
                                 <span>Nome:</span>
-                                <div id="div_nome_cpu" class="estilizar">Intel(R) Core(TM) i7-4310U CPU @ 2.00GHz</div>
+                                <div id="div_nome_cpu" class="estilizar">
+                                    <p id="especificacaoCPU"></p>
+                                </div>
                             </div>
 
                             <div class="linhas">
@@ -491,11 +501,12 @@
 
 </html>
 
-<script src="js/chart.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
-
+<script src="js/chart.js"></script>
 <script src="js/loginDash.js"></script>
+<script src="js/pagMonitoramentoMaquina.js"></script>
+
 <script>
     valoresUsuario()
+    atualizarDadosMaquina()
 </script>

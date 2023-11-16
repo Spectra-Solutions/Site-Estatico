@@ -164,100 +164,12 @@
             <div class="maquinasCad">
                 <div class="tlt2">
                     <span>Ordenação por cadastro</span>
-                    <span>23 maquinas cadastradas</span>
+                    <span id="totalMaquinas"></span>
                 </div>
 
-                <div class="maquinas">
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="critico" onclick="visaoMaquina()"></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id="normal" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id="alerta" onclick="visaoMaquina()"></div>
-                        <div class="quadrados" id=""></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                    </div>
-                    <div class="maquinasColuna">
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                        <div class="quadrados" id=""></div>
-                    </div>
+                <div class="maquinas" id="maquinas">
+
+
                 </div>
 
                 <div class="legendaMaquinas">
@@ -335,9 +247,13 @@
 
 </html>
 
-<script src="js/pagMonitoramentoGeral"></script>
+<script src="js/pagMonitoramentoGeral.js"></script>
 <script src="js/loginDash.js"></script>
 
 <script>
     valoresUsuario()
+
+    const idEmpresa = sessionStorage.ID_EMPRESA;
+    buscarMaquina(idEmpresa)
+
 </script>

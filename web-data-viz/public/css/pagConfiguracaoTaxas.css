@@ -223,6 +223,7 @@
     height: 26vh;
     display: flex;
     margin-top: 1.5%;
+
 }
 
 .imgIcone {
@@ -238,6 +239,7 @@
     background: #ECECEC;
     width: 70%;
     height: 26vh;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 .caixaTituloComponente {
@@ -337,6 +339,7 @@ input {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+
 }
 
 .caixas {
