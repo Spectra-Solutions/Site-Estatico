@@ -3,7 +3,7 @@ var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER 
 var sqlServerConfig = {
-    server: "localhost",
+    server: "54.204.254.152",
     database: "Spectra",
     user: "Spectra",
     password: "Spectra123",
