@@ -133,8 +133,6 @@ class usuario {
         ) {
             res.status(422).json({ message: "Preencha todos os campos!" });
 
-
-
         } else if (
             empresa["emailRepresentante"].indexOf("@") == -1 ||
             empresa["emailRepresentante"].indexOf(".") == -1
