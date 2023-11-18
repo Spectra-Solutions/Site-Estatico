@@ -49,7 +49,82 @@ function pesquisar() {
 }
 
 function salvar() {
-    mudarTitulo.innerHTML = `CADASTRO DE USUÁRIO`
+
+    var cadastroEfetuado = false;
+
+const form = document.getElementById("formCadastroFuncionario");
+
+form.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    const data = {
+        nomeFuncionario: form.nomeFuncionario.value,
+        emailFuncionario: form.emailFuncionario.value,
+        senha: form.senha.value,
+        nivelAviso: form.nivelAviso.value,
+        nivelAcesso: form.nivelAcesso.value
+    };
+
+    fetch("/cadastrarEmpresa", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+        .then((res) => {
+            if (res.status === 200) {
+
+                formCadastro.reset();
+
+                cadastroEfetuado = true;
+
+                return res.json().then((body) => {
+
+                    var configAlerta = {
+                        icon: 'success',
+                        title: body.message,
+                        iconColor: '#3C8AFF'
+                    };
+                    body.configAlerta = configAlerta;
+                    return body;
+
+                });
+
+            } else if (res.status === 422 || res.status == 400 || res.status == 203) {
+
+                return res.json().then((body) => {
+
+                    var configAlerta = {
+                        icon: 'warning',
+                        title: body.message,
+                        iconColor: '#3C8AFF'
+                    };
+                    body.configAlerta = configAlerta;
+                    return body;
+                });
+            }
+        })
+        .then((body) => {
+
+            Toast.fire(body.configAlerta);
+
+            if (cadastroEfetuado == true) {
+
+                // redireciona para o login
+                setTimeout(() => {
+
+                    window.location.href = "/login";
+
+                }, 2500);
+
+            }
+        })
+        .catch((err) => {
+            console.error("Erro inesperado: ", err);
+        });
+});
 }
 
 function excluir() {
