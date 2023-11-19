@@ -35,7 +35,7 @@ form.addEventListener('submit', (event) => {
         emailUser: form.emailUser.value,
         senhaUser: form.senhaUser.value,
     };
-
+    console.log(dadosUser);
     fetch('/autenticarUser', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -1,12 +1,14 @@
 const express = require("express");
 const path = require("path");
 const app = require("../index");
+const mssql = require('mssql');
 
 const conexao = require("../bd/connection");
 
 class usuario {
 
     autenticarUser(usuarioInfo, res) {
+        console.log(usuarioInfo);
 
         var email = usuarioInfo.emailUser;
         var senha = usuarioInfo.senhaUser;
@@ -17,26 +19,33 @@ class usuario {
 
         } else {
             const sql = `
-            SELECT func.idFuncionario, func.NomeFunc, func.EmailFunc, func.SenhaFunc, func.fkEmpresa, 
-		    func.fkFuncao, emp.IdEmpresa, emp.NomeEmpresa, funca.idFuncao, funca.tipoFuncao
-                FROM Funcionario as func
-                JOIN Empresa as emp
-                    ON func.fkEmpresa = emp.IdEmpresa
-                        JOIN Funcao as funca
-                            ON func.fkFuncao = funca.idFuncao
-                                WHERE func.EmailFunc = (?);
-            `;
+   SELECT func.idFuncionario, func.NomeFunc, func.EmailFunc, func.SenhaFunc, func.fkEmpresa, 
+   func.fkFuncao, emp.IdEmpresa, emp.NomeEmpresa, funca.idFuncao, funca.tipoFuncao
+   FROM Funcionario AS func
+   JOIN Empresa AS emp ON func.fkEmpresa = emp.IdEmpresa
+   JOIN Funcao AS funca ON func.fkFuncao = funca.idFuncao
+   WHERE func.EmailFunc = @email;
+`;
 
-            conexao.query(sql, [usuarioInfo.emailUser], (erro, result) => {
+            const request = conexao.request();
+            request.input('email', email);
+
+            request.query(sql, (erro, result) => {
+                console.log(result);
+                console.log(result.recordset.length)
+                console.log(result.recordset[0].SenhaFunc)
                 if (erro) {
+                    console.log("erro na query");
+                    console.log(erro);
                     res.status(400).json(erro);
-                } else if (result.length === 0 || result[0].SenhaFunc !== usuarioInfo.senhaUser) {
+                } else if (result.recordset.length === 0 || result.recordset[0].SenhaFunc.trim() !== usuarioInfo.senhaUser.trim()) {
+
                     // se achou o email já cadastrado
                     res.status(400).json({ message: "Email ou senha incorretos!" });
 
                 } else {
                     // usuario autenticado
-                    res.status(200).json({ message: "Bem vindo!", valores: result[0] });
+                    res.status(200).json({ message: "Bem vindo!", valores: result.recordset[0] });
 
                     // sessoes para identificacao do usuario
                 }
@@ -145,119 +154,101 @@ class usuario {
         } else if (senhaUser != senhaConfUser) {
             res.status(400).json({ message: "Senhas não coincidem!" });
         } else {
+            
+            // Check if CNPJ is already in use
+            const sqlSelectCnpj = "SELECT CNPJ FROM Empresa WHERE CNPJ = @cnpj";
+            const requestCnpj = conexao.request();
+            requestCnpj.input('cnpj', mssql.VarChar, empresa.cnpj);
 
-            const sql = `SELECT CNPJ FROM Empresa WHERE CNPJ = (?)`;
-            conexao.query(sql, [empresa.cnpj], (erro, result) => {
-                if (erro) {
-                    res.status(400).json(erro);
-                } else if (result[0]) {
-
-                    // se achou já cadastrado
+            requestCnpj.query(sqlSelectCnpj, (erroCnpj, resultCnpj) => {
+                if (erroCnpj) {
+                    res.status(400).json(erroCnpj);
+                } else if (resultCnpj.recordset[0]) {
+                    // If CNPJ is found, it's already registered
                     res.status(203).json({ message: "CNPJ já em uso!" });
-
                 } else {
+                    // Check if Email is already in use
+                    const sqlSelectEmail = "SELECT EmailFunc FROM Funcionario WHERE EmailFunc = @emailRepresentante";
+                    const requestEmail = conexao.request();
+                    requestEmail.input('emailRepresentante', mssql.VarChar, empresa.emailRepresentante);
 
-                    const sql = `SELECT EmailFunc FROM Funcionario WHERE EmailFunc = (?)`;
-                    conexao.query(sql, [empresa.emailRepresentante], (erro, result) => {
-
-                        if (erro) {
-                            res.status(400).json(erro);
-                        } else if (result[0]) {
-                            // se achou já cadastrado
+                    requestEmail.query(sqlSelectEmail, (erroEmail, resultEmail) => {
+                        if (erroEmail) {
+                            res.status(400).json(erroEmail);
+                        } else if (resultEmail.recordset[0]) {
+                            // If Email is found, it's already registered
                             res.status(203).json({ message: "Email já em uso!" });
-
                         } else {
+                            // Register the Empresa (Company)
+                            const sqlInsertEmpresa = "INSERT INTO Empresa(NomeEmpresa, RazaoSocial, CNPJ) VALUES (@nomeEmpresa, @razaoSocial, @cnpj)";
+                            const requestInsertEmpresa = conexao.request();
+                            requestInsertEmpresa.input('nomeEmpresa', mssql.VarChar, empresa.nomeEmpresa);
+                            requestInsertEmpresa.input('razaoSocial', mssql.VarChar, empresa.razaoSocial);
+                            requestInsertEmpresa.input('cnpj', mssql.VarChar, empresa.cnpj);
 
-                            // empresa pode ser cadastrado
-                            const sql =
-                                "INSERT INTO Empresa(NomeEmpresa, RazaoSocial, CNPJ) VALUES (?, ?, ?)";
+                            requestInsertEmpresa.query(sqlInsertEmpresa, (erroInsertEmpresa, resultsEmpresa) => {
+                                if (erroInsertEmpresa) {
+                                    res.status(400).json(erroInsertEmpresa);
+                                } else {
+                                    // Get the ID of the registered Empresa
+                                    const sqlSelectIdEmpresa = "SELECT IdEmpresa FROM Empresa WHERE CNPJ = @cnpj";
+                                    const requestSelectIdEmpresa = conexao.request();
+                                    requestSelectIdEmpresa.input('cnpj', mssql.VarChar, empresa.cnpj);
 
-                            conexao.query(
-                                sql,
-                                [
-                                    empresa.nomeEmpresa,
-                                    empresa.razaoSocial,
-                                    empresa.cnpj
-                                ],
-                                (erro, results) => {
-                                    if (erro) {
-                                        res.status(400).json(erro);
-                                    } else {
+                                    requestSelectIdEmpresa.query(sqlSelectIdEmpresa, (erroIdEmpresa, resultIdEmpresa) => {
+                                        if (erroIdEmpresa) {
+                                            res.status(400).json(erroIdEmpresa);
+                                        } else {
+                                            // Register the Funcionario (Representative)
+                                            const idEmpresa = resultIdEmpresa.recordset[0].IdEmpresa;
+                                            const sqlInsertFuncionario = "INSERT INTO Funcionario(NomeFunc, EmailFunc, SenhaFunc, fkEmpresa, fkFuncao) VALUES (@nomeRepresentante, @emailRepresentante, @senha, @idEmpresa, @funcao)";
+                                            const requestInsertFuncionario = conexao.request();
+                                            requestInsertFuncionario.input('nomeRepresentante', mssql.VarChar, empresa.nomeRepresentante);
+                                            requestInsertFuncionario.input('emailRepresentante', mssql.VarChar, empresa.emailRepresentante);
+                                            requestInsertFuncionario.input('senha', mssql.VarChar, empresa.senha);
+                                            requestInsertFuncionario.input('idEmpresa', mssql.Int, idEmpresa);
+                                            requestInsertFuncionario.input('funcao', mssql.Int, 1);
 
-                                        const sql = `SELECT IdEmpresa FROM Empresa WHERE CNPJ = (?)`;
+                                            requestInsertFuncionario.query(sqlInsertFuncionario, (erroInsertFuncionario, resultsFuncionario) => {
+                                                if (erroInsertFuncionario) {
+                                                    res.status(400).json(erroInsertFuncionario);
+                                                } else {
+                                                    // Get the ID of the registered Funcionario
+                                                    const sqlSelectIdFuncionario = "SELECT idFuncionario FROM Funcionario WHERE EmailFunc = @emailRepresentante";
+                                                    const requestSelectIdFuncionario = conexao.request();
+                                                    requestSelectIdFuncionario.input('emailRepresentante', mssql.VarChar, empresa.emailRepresentante);
 
-                                        conexao.query(sql, [empresa.cnpj], (erro, result) => {
-                                            if (erro) {
-                                                res.status(400).json(erro);
-                                            } else {
-
-                                                // cadastro do representante
-                                                const idEmpresa = result[0].IdEmpresa;
-
-                                                // empresa pode ser cadastrado
-                                                const sql =
-                                                    "INSERT INTO Funcionario(NomeFunc, EmailFunc, SenhaFunc, fkEmpresa, fkFuncao) VALUES (?, ?, ?, ?, ?)";
-
-                                                conexao.query(
-                                                    sql,
-                                                    [
-                                                        empresa.nomeRepresentante,
-                                                        empresa.emailRepresentante,
-                                                        empresa.senha,
-                                                        idEmpresa,
-                                                        1
-                                                    ],
-                                                    (erro, results) => {
-                                                        if (erro) {
-                                                            res.status(400).json(erro);
+                                                    requestSelectIdFuncionario.query(sqlSelectIdFuncionario, (erroIdFuncionario, resultIdFuncionario) => {
+                                                        if (erroIdFuncionario) {
+                                                            res.status(400).json(erroIdFuncionario);
                                                         } else {
+                                                            // Register the Chamado (Notification)
+                                                            const idFuncionario = resultIdFuncionario.recordset[0].idFuncionario;
+                                                            const sqlInsertChamado = "INSERT INTO Chamado(fkFuncionario, FKTipoAviso) VALUES (@idFuncionario, @tipoAviso)";
+                                                            const requestInsertChamado = conexao.request();
+                                                            requestInsertChamado.input('idFuncionario', mssql.Int, idFuncionario);
+                                                            requestInsertChamado.input('tipoAviso', mssql.Int, 1);
 
-                                                            const sql = `SELECT idFuncionario FROM Funcionario WHERE EmailFunc = (?)`;
-
-                                                            conexao.query(sql, [empresa.emailRepresentante], (erro, result) => {
-                                                                if (erro) {
-                                                                    res.status(400).json(erro);
+                                                            requestInsertChamado.query(sqlInsertChamado, (erroInsertChamado, resultsChamado) => {
+                                                                if (erroInsertChamado) {
+                                                                    res.status(400).json(erroInsertChamado);
                                                                 } else {
-
-                                                                    // cadastro na tebal
-                                                                    const idFuncionario = result[0].idFuncionario;
-
-                                                                    const sql =
-                                                                        "INSERT INTO Chamado(fkFuncionario, FKTipoAviso) VALUES (?, ?)";
-
-                                                                    conexao.query(
-                                                                        sql,
-                                                                        [
-                                                                            idFuncionario,
-                                                                            1
-                                                                        ],
-                                                                        (erro, results) => {
-                                                                            if (erro) {
-                                                                                res.status(400).json(erro);
-                                                                            } else {
-                                                                                res.status(200).json({ message: "Cadastrado com sucesso, faça seu login!" });
-                                                                            }
-                                                                        }
-                                                                    );
+                                                                    res.status(200).json({ message: "Cadastrado com sucesso, faça seu login!" });
                                                                 }
                                                             });
                                                         }
-                                                    }
-                                                );
-                                            }
-                                        });
-
-                                    }
-
+                                                    });
+                                                }
+                                            });
+                                        }
+                                    });
                                 }
-                            );
-
+                            });
                         }
-
-
                     });
                 }
             });
+
         }
     }
 

@@ -44,7 +44,7 @@ module.exports = app => {
         const usuarioInfo = {
             emailUser, senhaUser
         };
-
+        console.log(usuarioInfo);
         usuario.autenticarUser(usuarioInfo, res);
     });
 
