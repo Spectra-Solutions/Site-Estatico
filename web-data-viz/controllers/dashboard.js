@@ -352,6 +352,134 @@ class dashboard {
         });
     }
 
+
+    // ====================== alterar taxas ====================== 
+    atualizarTaxa(alterar, res) {
+
+        const fk = alterar.fkEmpresa
+        var valorAlerta = alterar.taxaAlerta
+        var valorCritico = alterar.taxaCritica
+
+        if (valorAlerta == "") {
+            valorAlerta = 0.0
+        }
+
+        if (valorCritico == "") {
+            valorCritico = 0.0
+        }
+
+        console.log(alterar)
+        const sql = `update TaxaAviso set porcentagemCritico = (?), porcentagemAlerta = (?) where fkComponente = 1 and fkEmpresa = (?)`;
+        conexao.query(sql,[valorCritico, valorAlerta, fk], (erro, result) => {
+            if (erro) {
+                res.status(400).json(erro);
+            } else {
+                res.status(200).json({ message: "Taxas de CPU Atualizadas" });
+            }
+        });
+    }
+
+    atualizarTaxaDisco(alterar, res) {
+
+        const fk = alterar.fkEmpresa
+        const valorAlerta = alterar.taxaAlerta
+        const valorCritico = alterar.taxaCritica
+
+        if (valorAlerta == "") {
+            valorAlerta = 0.0
+        }
+
+        if (valorCritico == "") {
+            valorCritico = 0.0
+        }
+
+        console.log(alterar)
+        const sql = `update TaxaAviso set porcentagemCritico = (?), porcentagemAlerta = (?) where fkComponente = 3 and fkEmpresa = (?)`;
+        conexao.query(sql,[valorCritico, valorAlerta, fk], (erro, result) => {
+            if (erro) {
+                res.status(400).json(erro);
+            } else {
+                res.status(200).json({ message: "Taxas de Disco Atualizadas" });
+            }
+        });
+    }
+
+    atualizarTaxaRAM(alterar, res) {
+
+        const fk = alterar.fkEmpresa
+        const valorAlerta = alterar.taxaAlerta
+        const valorCritico = alterar.taxaCritica
+
+        if (valorAlerta == "") {
+            valorAlerta = 0.0
+        }
+
+        if (valorCritico == "") {
+            valorCritico = 0.0
+        }
+
+        console.log(alterar)
+        const sql = `update TaxaAviso set porcentagemCritico = (?), porcentagemAlerta = (?) where fkComponente = 2 and fkEmpresa = (?)`;
+        conexao.query(sql,[valorCritico, valorAlerta, fk], (erro, result) => {
+            if (erro) {
+                res.status(400).json(erro);
+            } else {
+                res.status(200).json({ message: "Taxas de RAM Atualizadas" });
+            }
+        });
+    }
+
+
+
+    restaurarTaxaCpu(alterar, res) {
+
+        const fk = alterar.fkEmpresa
+
+        const sql = `update TaxaAviso set porcentagemCritico = 80.0, porcentagemAlerta = 60.0 where fkComponente = 1 and fkEmpresa = (?)`;
+        conexao.query(sql,[fk], (erro, result) => {
+            if (erro) {
+                res.status(400).json(erro);
+            } else {
+                res.status(200).json({ message: "Taxas de CPU restauradas!" });
+            }
+        });
+    }
+    
+    restaurarTaxaDisco(alterar, res) {
+
+        const fk = alterar.fkEmpresa
+
+        const sql = `update TaxaAviso set porcentagemCritico = 80.0, porcentagemAlerta = 60.0 where fkComponente = 3 and fkEmpresa = (?)`;
+        conexao.query(sql,[fk], (erro, result) => {
+            if (erro) {
+                res.status(400).json(erro);
+            } else {
+                res.status(200).json({ message: "Taxas de Disco restauradas!" });
+            }
+        });
+    }
+
+    restaurarTaxaRam(alterar, res) {
+
+        const fk = alterar.fkEmpresa
+
+        const sql = `update TaxaAviso set porcentagemCritico = 80.0, porcentagemAlerta = 60.0 where fkComponente = 2 and fkEmpresa = (?)`;
+        conexao.query(sql,[fk], (erro, result) => {
+            if (erro) {
+                res.status(400).json(erro);
+            } else {
+                res.status(200).json({ message: "Taxas de RAM restauradas!" });
+            }
+        });
+    }
+
+
+
+
+
+     // ============================================================
+
+
     //   buscaPorId(idColab, res) {
     //     const id = Number(idColab.id);
 
