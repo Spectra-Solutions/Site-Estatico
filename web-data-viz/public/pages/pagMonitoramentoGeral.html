@@ -105,7 +105,7 @@
                     <div class="disponibilidade">
                         <div class="conteudoD">
                             <div class="porcentagemD">
-                                <span>99%</span>
+                                <span id="valorDisp">0%</span>
                             </div>
 
                             <div class="escritaD">
@@ -125,12 +125,13 @@
                         <div class="conteudoA">
 
                             <div class="porcentagemA">
-                                <span>6</span>
+                                <span id="totalAvisosCriticos">0</span>
                             </div>
 
                             <div class="escritaA">
                                 <div class="tituloA">Avisos Críticos</div>
-                                <div class="complementoA"><b style="color: #FF1818;">+2</b> nas 2 últimas semanas</div>
+                                <div class="complementoA"><b style="color: #FF1818;" id="diferencaCriticos">0</b> nas 2
+                                    últimas semanas</div>
                             </div>
 
                         </div>
@@ -143,14 +144,14 @@
                         <div class="conteudoQ">
 
                             <div class="porcentagemQ">
-                                <span>7</span>
+                                <span id="totalAvisosAlertas">0</span>
                             </div>
 
                             <div class="escritaQ">
                                 <div class="tituloQ">Avisos Alertas</div>
 
                                 <div class="complementoQ">
-                                    <b style="color: #1DB83F;">-5</b> nas 2 últimas semanas
+                                    <b style="color: #1DB83F;" id="diferencaAlertas">0</b> nas 2 últimas semanas
                                 </div>
                             </div>
 
@@ -175,17 +176,21 @@
                 <div class="legendaMaquinas">
                     <div>
                         <div class="quadradosl" id="normal"></div>
-                        <span>-IDEAL (10 máquinas)</span>
+                        <span id="tltIdeal">-IDEAL (0 máquinas)</span>
                     </div>
 
                     <div>
                         <div class="quadradosl" id="alerta"></div>
-                        <span>-ALERTA (7 máquinas)</span>
+                        <span id="tltAlerta">-ALERTA (0 máquinas)</span>
                     </div>
 
                     <div>
                         <div class="quadradosl" id="critico"></div>
-                        <span>-CRÍTICO (6 máquinas)</span>
+                        <span id="tltCritico">-CRÍTICO (0 máquinas)</span>
+                    </div>
+                    <div>
+                        <div class="quadradosl" id="nula"></div>
+                        <span id="tltNula">-NULA (0 máquinas)</span>
                     </div>
                 </div>
             </div>
@@ -196,49 +201,13 @@
                 <div class="btsFiltrar">
                     <div class="escrita">Filtrar</div>
                     <div class="botoes">
-                        <button class="btA">Alerta</button>
-                        <button class="bt">Crítico</button>
+                        <button class="btA" onclick="buscarNotificacao(sessionStorage.ID_EMPRESA, 2)">Alerta</button>
+                        <button class="btC" onclick="buscarNotificacao(sessionStorage.ID_EMPRESA, 1)">Crítico</button>
                     </div>
                 </div>
 
-                <div class="boxNotificacoes" style="margin-top: 2.5%;">
-                    <div class="infosNotificacao">
-                        <div class="bolaAviso" id="alerta"></div>
-                        <div class="escritaInformacoes">ID MÁQUINA - COMPONENTE</div>
-                        <div class="horarioNotif">12:00:45</div>
-                    </div>
-                    <div class="verMaquina">
-                        <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
-                        <div class="icon">
-                            <img src="img/icon-olho.svg" alt="" onclick="visaoMaquina()">
-                        </div>
-                    </div>
-                </div>
-                <div class="boxNotificacoes" style="margin-top: 0.5%;">
-                    <div class="infosNotificacao">
-                        <div class="bolaAviso" id="alerta"></div>
-                        <div class="escritaInformacoes">ID MÁQUINA - COMPONENTE</div>
-                        <div class="horarioNotif">10:00:45</div>
-                    </div>
-                    <div class="verMaquina">
-                        <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
-                        <div class="icon">
-                            <img src="img/icon-olho.svg" alt="" onclick="visaoMaquina()">
-                        </div>
-                    </div>
-                </div>
-                <div class="boxNotificacoes" style="margin-top: 0.5%;">
-                    <div class="infosNotificacao">
-                        <div class="bolaAviso" id="alerta"></div>
-                        <div class="escritaInformacoes">ID MÁQUINA - COMPONENTE</div>
-                        <div class="horarioNotif">13:10:45</div>
-                    </div>
-                    <div class="verMaquina">
-                        <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
-                        <div class="icon">
-                            <img src="img/icon-olho.svg" alt="" onclick="visaoMaquina()">
-                        </div>
-                    </div>
+                <div id="divCentralNotificacao">
+
                 </div>
             </div>
         </div>
@@ -255,5 +224,7 @@
 
     const idEmpresa = sessionStorage.ID_EMPRESA;
     buscarMaquina(idEmpresa)
+    buscarNotificacao(idEmpresa, 1)
+    atualizarKPI(idEmpresa)
 
 </script>

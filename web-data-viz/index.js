@@ -1,8 +1,9 @@
 const express = require('express');
 const conexao = require('./bd/connection');
-const routes = require('./routes/usuarioRoute');
+const routesUser = require('./routes/usuarioRoute');
 const routesPages = require('./routes/pagesRoutes');
-const routesColab = require('./routes/dashboardRoutes');
+const routesDash = require('./routes/dashboardRoutes');
+const routesProcessos = require("./routes/processosRoutes");
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -30,9 +31,10 @@ conexao.connect(erro => {
 
         console.log('Banco conectado');
 
-        routes(app); // usuario
+        routesUser(app); // usuario
         routesPages(app);
-        routesColab(app);
+        routesDash(app);
+        routesProcessos(app);
 
         app.listen(port, () => {
             console.log(`Servidor conectado na porta ${port}`);
