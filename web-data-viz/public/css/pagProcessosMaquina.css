@@ -201,9 +201,9 @@ a {
 
 .info {
     display: flex;
-    width: 52%;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .bt_voltar {
@@ -290,6 +290,32 @@ td {
 .consumoCPU,
 .consumoRAM {
     width: 20%;
+}
+
+#div_sistema_operacional {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_nome_maquina {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_secao {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tlt {
+    font-size: 11px;
+    font-weight: bold;
 }
 
 

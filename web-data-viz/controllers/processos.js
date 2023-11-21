@@ -43,4 +43,5 @@ function buscarInfo(req, res) {
     });
 }
 
+
 module.exports = { buscarUltimosProcessos, buscarInfo };
