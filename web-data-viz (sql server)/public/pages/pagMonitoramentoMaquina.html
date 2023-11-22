@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectra | Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="shortcut icon" type="imagex/png" href="img/icone.png">
+    <link rel="stylesheet" href="css/pagMonitoramentoMaquina.css">
+
+    <!-- toast - alerta -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+</head>
+
+<body>
+    <!-- ------------------------ HEADER ------------------------ -->
+    <div id="header-nav" class="header">
+
+        <div class="containerHeader">
+
+            <div class="logoNav">
+                <a href="/monitoramentoGeral"><img src="img/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo"></a>
+            </div>
+            <nav id="navTopo">
+                <div id="nomeEmpresa" class="nomeEmpresa">
+                    <p id="nomeEmp"></p>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- ------------------------ HEADER ------------------------ -->
+
+
+    <!-- ------------------------ BODY ------------------------ -->
+    <div class="corpo">
+        <div id="sideBar" class="sideBar">
+            <div class="sideContainer">
+                <div class="sideBox">
+                    <img src="img/icon-usuario.svg" alt="" class="iconUsuario">
+
+                    <div class="dadosUsuario">
+                        <div id="nomeUsuario" class="nomeUsuario">
+                            <p id="nomeUser"></p>
+                        </div>
+                        <div id="tipoAcesso" class="tipoAcesso">
+                            <p id="tipoUser"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="configuracoes">
+                    <a href="/configuracaoTaxas" style="text-decoration: none;">
+
+                        <div class="configurarMaquina">
+                            <img src="img/icon-config.svg" class="iconConfig">
+                            <div id="configurarMaquina">Configurar Máquinas</div>
+                        </div>
+
+                    </a>
+
+                    <a href="/cadastroFuncionario" style="text-decoration: none;">
+                        <div class="cadastrarUsuario">
+                            <img src="img/icon-usuario2.svg" class="iconUsuario2">
+                            <div id="cadastrarUsuario">Cadastrar Usuário</div>
+                        </div>
+                    </a>
+
+                    <a href="/monitoramentoGeral" style="text-decoration: none;">
+                        <div class="home">
+                            <img src="img/casa.svg" class="iconUsuario3">
+                            <div id="home">Home</div>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+            <div id="sair" class="sair">
+                <a onclick="limparSessao()">
+                    <img src="img/sair.svg" alt="" class="iconSair">
+                </a>
+                <div>Sair</div>
+            </div>
+
+        </div>
+
+
+        <div class="conteudo">
+            <div class="containerConteudo">
+                <div class="titulo">
+                    <h3>Monitoramento de Processos em Tempo Real</h3>
+                </div>
+
+                <div class="informacoes">
+                    <div class="boxInfo">
+                        <div class="info">
+                            <div id="div_nome_maquina">
+                                <p class=tlt>Nome Máquina: </p>
+                                <p id="nomeMaq"></p>
+                            </div>
+                            <div>|</div>
+                            <div id="div_sistema_operacional">
+                                <p class=tlt>Sistema Operacional: </p>
+                                <p id="sistMaq"></p>
+                            </div>
+                            <div>|</div>
+                            <div id="div_secao">
+                                <p class=tlt>Seção Máquina: </p>
+                                <p id="secaoMaq"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="bt_verProcesso">
+                        <a href="/processosMaquina" style="text-decoration: none; color: white;">Ver Processos</a>
+                    </button>
+                </div>
+
+                <!-------------------------------- DASHBOARD -------------------------------->
+
+                <div class="conteudoDadosMonitorados">
+
+                    <div class="dashs1">
+                        <div class="boxCPU">
+                            <div class="statusComponente">
+                                <span class="componente">CPU</span>
+                                <div id="normal" class="aviso"></div>
+                                <span>Status</span>
+                            </div>
+
+                            <div class="dashCPU">
+                                <canvas id="ChartCPU"></canvas>
+                            </div>
+
+                            <div class="porcentagem">
+                                <div class="labelPorcentagem">
+                                    <div>% de utilização</div>
+                                </div>
+
+                                <div class="dados">
+                                    <b style="color: #052767;">Crítico:</b>
+                                    <div>75%</div>
+                                    <div>|</div>
+                                    <b style="color: #052767;">Alerta:</b>
+                                    <div>65%</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="boxDisco">
+                            <div class="statusComponente">
+                                <span class="componente">Disco</span>
+                                <div id="critico" class="aviso"></div>
+                                <span>Status</span>
+                            </div>
+
+                            <div class="dashDisco">
+                                <canvas id="ChartDISCO"></canvas>
+                            </div>
+
+                            <div class="porcentagem">
+                                <div class="labelPorcentagem">
+                                    <div>% de utilização</div>
+                                </div>
+
+                                <div class="dados">
+                                    <b style="color: #052767;">Crítico:</b>
+                                    <div>75%</div>
+                                    <div>|</div>
+                                    <b style="color: #052767;">Alerta:</b>
+                                    <div>65%</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="dashs2">
+                        <div class="boxRAM">
+                            <div class="statusComponente">
+                                <span class="componente">RAM</span>
+                                <div id="alerta" class="aviso"></div>
+                                <span>Status</span>
+                            </div>
+
+                            <div class="dashRAM">
+                                <canvas id="ChartRAM"></canvas>
+                            </div>
+
+                            <div class="porcentagem">
+                                <div class="labelPorcentagem">
+                                    <div>% de utilização</div>
+                                </div>
+
+                                <div class="dados">
+                                    <b style="color: #052767;">Crítico:</b>
+                                    <div>75%</div>
+                                    <div>|</div>
+                                    <b style="color: #052767;">Alerta:</b>
+                                    <div>65%</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="boxRede">
+                            <div class="componente">Rede</div>
+                            <div class="dashRede">
+                                <div class="dadosRede">
+
+                                    <div class="latencia">
+                                        <b>Latência</b>
+                                        <div id="div_mbps" class="mbps">9.5</div>
+                                        <div class="labelRede">mbps</div>
+                                    </div>
+
+                                    <div class="consumo">
+                                        <b>Consumo</b>
+
+                                        <div class="download">
+                                            <b class="labelRede">Download:</b>
+                                            <div id="div_download">120kbps</div>
+                                        </div>
+
+                                        <div class="upload">
+                                            <b class="labelRede">Upload:</b>
+                                            <div id="div_upload">120kbps</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dadosAdicionais">
+                        <div style="text-align: center; font-size: 15px;">Informações adicionais</div>
+
+                        <b>CPU</b>
+                        <div class="boxDadoAdicionalCPU">
+
+                            <div class="linhas">
+                                <span>Nome:</span>
+                                <div id="div_nome_cpu" class="estilizar">
+                                    <p id="especificacaoCPU"></p>
+                                </div>
+                            </div>
+
+                            <div class="linhas">
+                                <span>Tempo de atividade:</span>
+                                <div id="div_tempo_de_atividade_cpu" class="estilizar">3:20:40:12</div>
+                            </div>
+
+                        </div>
+
+
+                        <b>RAM</b>
+                        <div class="boxDadoAdicionalRAM">
+
+                            <div class="linhas">
+                                <span>Armazenamento disponível:</span>
+                                <div id="div_armazenamento_disponivel_ram" class="estilizar">1 TB</div>
+                                <div id="div_armazenamento_disponivel_ram_porcentagem" class="estilizar">(50%)</div>
+                            </div>
+
+                            <div class="linhas">
+                                <span>Armazenamento total:</span>
+                                <div id="div_armazenamento_total_ram" class="estilizar">2 TB</div>
+                            </div>
+
+                        </div>
+
+
+                        <b>Disco</b>
+                        <div class="disco-wrapper">
+                            <div class="boxDadoAdicionalDisco">
+
+                                <div class="linhas">
+                                    Disco: <span id="qtd_disco">1</span>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento Disponível:</span>
+                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
+                                    </div>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento total:</span>
+                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                                </div>
+
+                                <div class="linhas">
+                                    Disco: <span id="qtd_disco">2</span>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento Disponível:</span>
+                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
+                                    </div>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento total:</span>
+                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                                </div>
+                                <div class="linhas">
+                                    Disco: <span id="qtd_disco">3</span>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento Disponível:</span>
+                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
+                                    </div>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento total:</span>
+                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                                </div>
+                                <div class="linhas">
+                                    Disco: <span id="qtd_disco">4</span>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento Disponível:</span>
+                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
+                                    </div>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento total:</span>
+                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                                </div>
+                                <div class="linhas">
+                                    Disco: <span id="qtd_disco">5</span>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento Disponível:</span>
+                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
+                                    </div>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento total:</span>
+                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                                </div>
+                                <div class="linhas">
+                                    Disco: <span id="qtd_disco">6</span>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento Disponível:</span>
+                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
+                                    </div>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento total:</span>
+                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                                </div>
+                                <div class="linhas">
+                                    Disco: <span id="qtd_disco">7</span>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento Disponível:</span>
+                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
+                                    </div>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento total:</span>
+                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                                </div>
+                                <div class="linhas">
+                                    Disco: <span id="qtd_disco">8</span>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento Disponível:</span>
+                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
+                                    </div>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento total:</span>
+                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                                </div>
+                                <div class="linhas">
+                                    Disco: <span id="qtd_disco">9</span>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento Disponível:</span>
+                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
+                                    </div>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento total:</span>
+                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                                </div>
+                                <div class="linhas">
+                                    Disco: <span id="qtd_disco">10</span>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento Disponível:</span>
+                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
+                                    </div>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento total:</span>
+                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                                </div>
+                                <div class="linhas">
+                                    Disco: <span id="qtd_disco">11</span>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento Disponível:</span>
+                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
+                                    </div>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento total:</span>
+                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                                </div>
+                                <div class="linhas">
+                                    Disco: <span id="qtd_disco">12</span>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento Disponível:</span>
+                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
+                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
+                                    </div>
+                                </div>
+
+                                <div class="linhas">
+                                    <span>Armazenamento total:</span>
+                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="solucoes">
+                            <span style="display: flex; justify-content: center; font-size: 15px;">Teste nossas
+                                soluções</span>
+
+                            <div class="imagensSolucao">
+
+                                <div class="imagemSolucao1">
+                                    <img src="img/desligar.svg" onclick="desligarMaquina()">
+                                    <span>Desligar</span>
+                                </div>
+
+                                <div class="imagemSolucao2">
+                                    <img src="img/reiniciar.svg" onclick="reiniciarMaquina()">
+                                    <span>Reiniciar</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-------------------------------- DASHBOARD -------------------------------->
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-------------------------------- BODY -------------------------------->
+
+
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+<script src="js/chart.js"></script>
+<script src="js/loginDash.js"></script>
+<script src="js/pagMonitoramentoMaquina.js"></script>
+
+<script>
+    valoresUsuario()
+    atualizarDadosMaquina()
+</script>

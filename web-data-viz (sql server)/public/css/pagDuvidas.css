@@ -1,0 +1,810 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* ------------------------- HEADER ------------------------- */
+
+body {
+    padding: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+}
+
+
+.containerHeader {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.colorirFundo {
+    background-color: #052767e5;
+}
+
+
+#imgLogo {
+    width: 30%;
+    height: 10vh;
+}
+
+ul {
+    margin: 0%;
+}
+
+.lista_nav {
+    padding: 2vh;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+#lista_nav1 {
+    margin-top: 0;
+}
+
+.lista_nav li {
+    margin-right: 5em;
+    font-size: 1.1vmax;
+    color: #ffff;
+}
+
+a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+.bt_login {
+    background-color: #01C38E;
+    border: none;
+    border-radius: 10px;
+    color: #ffff;
+    height: 30px;
+    width: 70px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.logoNav {
+    margin-top: 1.5vh;
+}
+
+/* ------------------ responsividade ----------------------------------  */
+
+@media (max-width:100px) {
+
+    /*header*/
+    .logoNav {
+        margin-top: 0.2vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lista_nav1 {
+        margin-top: -5vh;
+    }
+
+    .containerHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+}
+
+@media (max-width:600px) {
+
+    /*header*/
+    .logoNav {
+        margin-top: 0.2vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lista_nav1 {
+        margin-top: -5vh;
+    }
+
+    .containerHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+}
+
+@media (max-width:768px) {
+
+    /*header*/
+    .logoNav {
+        margin-top: 0.2vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lista_nav1 {
+        margin-top: 2vh;
+    }
+
+    .containerHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+}
+
+@media(max-width:992px) {
+
+    /*header*/
+    .logoNav {
+        margin-top: 0.2vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lista_nav1 {
+        margin-top: 2vh;
+    }
+
+    .containerHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+}
+
+@media (max-width:1200px) {
+
+    /*header*/
+    .logoNav {
+        margin-top: 0.2vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lista_nav1 {
+        margin-top: 2vh;
+    }
+
+    .containerHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+}
+
+/* ------------------------- HEADER ------------------------- */
+
+
+/* ------------------------- BODY ------------------------- */
+
+.corpo {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+}
+
+.background_imagem {
+    background-image: url("../img/Background-Categorias.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 680px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.box_background_imagem h1 {
+    color: white;
+    text-align: center;
+    width: 50%;
+}
+
+.box_background_imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 560px;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%;
+}
+
+.conteudo h2 {
+    text-align: center;
+    width: 29%;
+}
+
+.conteudo img {
+    width: 27%;
+}
+
+.texto_conteudo {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.texto_conteudo2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.texto_p {
+    text-align: center;
+    width: 49%;
+    margin-top: 40px;
+}
+
+.texto_p2 {
+    text-align: center;
+    width: 49%;
+    margin-top: 10px;
+}
+
+.centralizadora {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkboxes {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: column;
+    height: 170px;
+    justify-content: space-between;
+}
+
+.bt_solucao {
+    background-color: #01C38E;
+    border: none;
+    border-radius: 6px;
+    color: #ffff;
+    height: 45px;
+    width: 40%;
+    /* font-weight: bolder; */
+    font-size: 15px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 3%;
+    /* padding: 20px 0px; */
+}
+
+
+.box_solucao {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mensagem_solucao {
+    background-color: rgb(187, 187, 187);
+    height: auto;
+    width: 50%;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.resposta {
+    text-align: center;
+}
+
+.bt_faca_parte {
+    background-color: #052767;
+    border: none;
+    border-radius: 6px;
+    color: #ffff;
+    height: 40px;
+    width: 20%;
+    font-size: 15px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 3%;
+}
+
+#componentes_monitorados {
+    color: #052767;
+    text-align: center;
+}
+
+#solucoes_spectra {
+    text-align: center;
+}
+
+.componentes_nao_monitorados {
+    text-align: center;
+}
+
+/* .problemas_cliente{
+    list-style: circle;
+} */
+/* --------------------------- BODY ------------------------------ */
+
+/* --------------------------- botao subir -------------------------------------  */
+
+.divDoBotao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerBt {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btSubir {
+    width: 40px;
+    background-color: #01C38E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 8%;
+    padding: 10px;
+}
+
+.btSubir img {
+    width: 30px;
+}
+
+/* ----------------------------FOOTER ----------------------------- */
+.conteudoFooter {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/fundoFooter.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 530px;
+}
+
+.elementos {
+    margin-top: 18%;
+    width: 70%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.linha {
+    width: 100%;
+    border-top: 2px solid #ffff;
+    margin-top: 3%;
+}
+
+.logoFinal {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    color: #ffff;
+    align-items: center;
+}
+
+.logoFinal img {
+    width: 80%;
+}
+
+.logoFinal span {
+    margin-top: 5%;
+}
+
+.lista_nav .nav_item_footer {
+    margin-right: 5em;
+    font-size: 1.1vmax;
+    color: #ffff;
+    list-style: none;
+}
+
+/* -------------------------- FOOTER ----------------------------- */
+
+
+@media only screen and (max-width: 600px) {
+    .box_background_imagem h1 {
+        width: 60%;
+    }
+
+    .conteudo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 5%;
+    }
+
+    .conteudo h2 {
+        text-align: center;
+        width: 70%;
+    }
+
+    .conteudo img {
+        width: 27%;
+    }
+
+
+
+    .texto_p {
+        text-align: center;
+        width: 70%;
+        margin-top: 40px;
+    }
+
+    .texto_p2 {
+        text-align: center;
+        width: 49%;
+        margin-top: 10px;
+    }
+
+
+    .bt_solucao {
+        background-color: #01C38E;
+        border: none;
+        border-radius: 6px;
+        color: #ffff;
+        height: 45px;
+        width: 60%;
+        font-size: 15px;
+        cursor: pointer;
+        align-self: center;
+        margin-top: 3%;
+    }
+
+    .bt_faca_parte {
+        background-color: #052767;
+        border: none;
+        border-radius: 6px;
+        color: #ffff;
+        height: 45px;
+        width: 40%;
+        font-size: 15px;
+        cursor: pointer;
+        align-self: center;
+        margin-top: 3%;
+    }
+
+
+    .centralizadora {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .checkboxes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+    }
+
+    .checkbox {
+        display: flex;
+        flex-direction: column;
+        height: 170px;
+        justify-content: space-between;
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .box_background_imagem h1 {
+        width: 80%;
+    }
+
+    .conteudo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 5%;
+    }
+
+    .conteudo h2 {
+        text-align: center;
+        width: 70%;
+    }
+
+    .conteudo img {
+        width: 27%;
+    }
+
+
+
+    .texto_p {
+        text-align: center;
+        width: 70%;
+        margin-top: 40px;
+    }
+
+    .texto_p2 {
+        text-align: center;
+        width: 49%;
+        margin-top: 10px;
+    }
+
+
+    .bt_solucao {
+        background-color: #01C38E;
+        border: none;
+        border-radius: 6px;
+        color: #ffff;
+        height: 45px;
+        width: 60%;
+        font-size: 15px;
+        cursor: pointer;
+        align-self: center;
+        margin-top: 3%;
+    }
+
+    .bt_faca_parte {
+        background-color: #052767;
+        border: none;
+        border-radius: 6px;
+        color: #ffff;
+        height: 45px;
+        width: 40%;
+        font-size: 15px;
+        cursor: pointer;
+        align-self: center;
+        margin-top: 3%;
+    }
+
+
+    .centralizadora {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .checkboxes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+    }
+
+    .checkbox {
+        display: flex;
+        flex-direction: column;
+        height: 170px;
+        justify-content: space-between;
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .box_background_imagem h1 {
+        width: 80%;
+    }
+
+    .conteudo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 5%;
+    }
+
+    .conteudo h2 {
+        text-align: center;
+        width: 70%;
+    }
+
+    .conteudo img {
+        width: 27%;
+    }
+
+
+
+    .texto_p {
+        text-align: center;
+        width: 70%;
+        margin-top: 40px;
+    }
+
+    .texto_p2 {
+        text-align: center;
+        width: 49%;
+        margin-top: 10px;
+    }
+
+
+    .bt_solucao {
+        background-color: #01C38E;
+        border: none;
+        border-radius: 6px;
+        color: #ffff;
+        height: 45px;
+        width: 60%;
+        font-size: 15px;
+        cursor: pointer;
+        align-self: center;
+        margin-top: 3%;
+    }
+
+    .bt_faca_parte {
+        background-color: #052767;
+        border: none;
+        border-radius: 6px;
+        color: #ffff;
+        height: 45px;
+        width: 35%;
+        font-size: 15px;
+        cursor: pointer;
+        align-self: center;
+        margin-top: 3%;
+    }
+
+
+    .centralizadora {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .checkboxes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+    }
+
+    .checkbox {
+        display: flex;
+        flex-direction: column;
+        height: 170px;
+        justify-content: space-between;
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .box_background_imagem h1 {
+        width: 60%;
+    }
+
+    .conteudo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 5%;
+    }
+
+    .conteudo h2 {
+        text-align: center;
+        width: 58.5%;
+    }
+
+    .conteudo img {
+        width: 27%;
+    }
+
+
+
+    .texto_p {
+        text-align: center;
+        width: 70%;
+        margin-top: 40px;
+    }
+
+    .texto_p2 {
+        text-align: center;
+        width: 49%;
+        margin-top: 10px;
+    }
+
+
+    .bt_solucao {
+        background-color: #01C38E;
+        border: none;
+        border-radius: 6px;
+        color: #ffff;
+        height: 45px;
+        width: 60%;
+        font-size: 15px;
+        cursor: pointer;
+        align-self: center;
+        margin-top: 3%;
+    }
+
+    .bt_faca_parte {
+        background-color: #052767;
+        border: none;
+        border-radius: 6px;
+        color: #ffff;
+        height: 45px;
+        width: 35%;
+        font-size: 15px;
+        cursor: pointer;
+        align-self: center;
+        margin-top: 3%;
+    }
+
+
+    .centralizadora {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .checkboxes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+    }
+
+    .checkbox {
+        display: flex;
+        flex-direction: column;
+        height: 170px;
+        justify-content: space-between;
+        width: 60%;
+    }
+}
