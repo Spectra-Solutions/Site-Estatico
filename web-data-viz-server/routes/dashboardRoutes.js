@@ -34,6 +34,13 @@ module.exports = app => {
         dashboard.atualizarTaxa(alterar, res);
     });
 
+    app.post("/atualizarTaxaTotal", (req, res) => {
+
+        const {id} = req.body;
+
+        dashboard.atualizarTaxaTotal(id, res);
+    });
+
 
     app.post("/atualizarTaxaDisco", (req, res) => {
 

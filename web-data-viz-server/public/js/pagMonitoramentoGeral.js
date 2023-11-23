@@ -42,7 +42,7 @@ function listarMaquinas(listaMaquinas) {
                 var maquina = listaMaquinas[contIndex];
                 // var status = getStatusMaquina(); 
 
-                listaTexto += `<div class="quadrados" id="normal" title= "${maquina.nome}" style="cursor: pointer;" onclick="buscarMaquinaPorId(${maquina.idMaquina})"></div>`;
+                listaTexto += `<div class="quadrados" id="nula" title= "${maquina.nome}" style="cursor: pointer;" onclick="buscarMaquinaPorId(${maquina.idMaquina})"></div>`;
 
                 listarTaxaMaquina(maquina.idMaquina, maquina.nome)
 

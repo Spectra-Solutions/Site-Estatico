@@ -143,6 +143,57 @@ function restaurarTaxaCpu() {
         });
 }
 
+function atualizarTaxaTotal(fkEmpresa) {
+
+    const data = {
+        id: fkEmpresa,
+    };
+
+    fetch("/atualizarTaxaTotal", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+        .then((res) => {
+            if (res.status === 200) {
+                return res.json().then((body) => {
+
+                    var configAlerta = {
+                        icon: 'success',
+                        title: body.message,
+                        iconColor: '#3C8AFF'
+                    };
+                    body.configAlerta = configAlerta;
+                    return body;
+
+                });
+
+            } else if (res.status === 422 || res.status == 400 || res.status == 203) {
+
+                return res.json().then((body) => {
+
+                    var configAlerta = {
+                        icon: 'warning',
+                        title: body.message,
+                        iconColor: '#3C8AFF'
+                    };
+                    body.configAlerta = configAlerta;
+                    return body;
+                });
+            }
+        })
+        .then((body) => {
+
+            Toast.fire(body.configAlerta);
+
+        })
+        .catch((err) => {
+            console.error("Erro inesperado: ", err);
+        });
+}
+
 
 
 // ----------------------- Disco -------------------------------- 

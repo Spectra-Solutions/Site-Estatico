@@ -6,42 +6,70 @@ const conexao = require("../bd/connection");
 
 
 function buscarUltimosProcessos(req, res) {
-
     const limite_linhas = 50;
-
     const idMaquina = req;
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+    console.log(`Recuperando as últimas ${limite_linhas} medidas`);
 
-    const instrucaoSql = `SELECT * FROM Processo
-        where fkMaquinaProcesso = ?
-        order by idProcesso desc limit ?;`;
+    // Query SQL com placeholders
+    const instrucaoSql = `
+        SELECT * FROM Processo
+        WHERE fkMaquinaProcesso = ${idMaquina}
+        ORDER BY idProcesso DESC
+        LIMIT ${limite_linhas};
+    `;
 
-    conexao.query(instrucaoSql, [idMaquina, limite_linhas], (erro, result) => {
-        if (erro) {
-            res.status(400).json(erro);
-        } else {
+    // Conectar ao banco de dados
+    conexao.connect()
+        .then(() => {
+            // Executar a consulta
+            return conexao.query(instrucaoSql);
+        })
+        .then((result) => {
+            // Enviar resposta com sucesso
             res.status(200).json(result);
-        }
-    });
+        })
+        .catch((erro) => {
+            // Enviar resposta de erro
+            res.status(400).json(erro);
+        })
+        .finally(() => {
+            // Fechar conexão
+            conexao.close();
+        });
 }
-function buscarInfo(req, res) {
 
+function buscarInfo(req, res) {
     const idMaquina = req;
 
     console.log(`Recuperando a info da máquina`);
 
-    const instrucaoSql = `SELECT * FROM Maquina
-        where idMaquina = ?;`;
+    // Query SQL com placeholders
+    const instrucaoSql = `
+        SELECT * FROM Maquina
+        WHERE idMaquina = ${idMaquina};
+    `;
 
-    conexao.query(instrucaoSql, [idMaquina], (erro, result) => {
-        if (erro) {
-            res.status(400).json(erro);
-        } else {
+    // Conectar ao banco de dados
+    conexao.connect()
+        .then(() => {
+            // Executar a consulta
+            return conexao.query(instrucaoSql);
+        })
+        .then((result) => {
+            // Enviar resposta com sucesso
             res.status(200).json(result);
-        }
-    });
+        })
+        .catch((erro) => {
+            // Enviar resposta de erro
+            res.status(400).json(erro);
+        })
+        .finally(() => {
+            // Fechar conexão
+            conexao.close();
+        });
 }
+
 
 
 module.exports = { buscarUltimosProcessos, buscarInfo };
