@@ -102,13 +102,16 @@
                                 </div>
 
                                 <div class="centralizadora">
+                                
+                                <form action="/cadastrarFuncionario" id="formCadastroFuncionario" method="POST">
+                                    
                                     <div class="cadastroFuncionario">
 
                                         <div class="linha1">
                                             <span>NOME</span>
                                             <div class="inputs">
                                                 <div id="div_input_nome_funcionario" class="input">
-                                                    <input id="input_nome_funcionario">
+                                                    <input id="input_nome_funcionario" name="nomeFuncionario">
                                                 </div>
                                             </div>
                                         </div>
@@ -123,7 +126,7 @@
 
                                                 <div class="inputs">
                                                     <div id="div_input_email" class="input">
-                                                        <input id="input_email">
+                                                        <input id="input_email" name="emailFuncionario">
                                                     </div>
                                                 </div>
 
@@ -133,7 +136,7 @@
 
                                                 <div class="inputs">
                                                     <div id="div_input_senha" class="input">
-                                                        <input id="input_senha">
+                                                        <input id="input_senha" name="senha">
                                                     </div>
                                                 </div>
 
@@ -147,7 +150,7 @@
                                                         <span>NÍVEL DE AVISO</span>
                                                     </div>
 
-                                                    <select name="nivel aviso" id="select_nivel_de_aviso">
+                                                    <select name="nivelAviso" id="select_nivel_de_aviso">
                                                         <option value="">Escolher...</option>
                                                         <option value="">Crítico</option>
                                                         <option value="">Alerta</option>
@@ -158,7 +161,7 @@
                                                         <span>NÍVEL DE ACESSO</span>
                                                     </div>
 
-                                                    <select name="nivel acesso" id="select_nivel_de_acesso">
+                                                    <select name="nivelAcesso" id="select_nivel_de_acesso">
                                                         <option value="">Escolher...</option>
                                                         <option value="">ADM</option>
                                                         <option value="">Funcionario</option>
@@ -174,6 +177,7 @@
                                             <!-- <button onclick="excluir()" class="bt_excluir">EXCLUIR</button> -->
                                         </div>
                                     </div>
+                                </form>
 
                                 </div>
                             </div>
@@ -206,140 +210,7 @@
                                                 <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
                                             </div>
                                         </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="img/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
-                                        </div>
-                                        <div class="funcionario">
-                                            <div class="nome">
-                                                <span>Matheus Vinicius Santiago</span>
-                                            </div>
-                                            <div class="opcoes">
-                                                <img src="imgs/editar.svg" alt="" onclick="editarFuncionario()">
-                                                <img src="imgs/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
-                                            </div>
+                                        
                                         </div>
 
 

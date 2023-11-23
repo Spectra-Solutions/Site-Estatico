@@ -133,8 +133,6 @@ class usuario {
         ) {
             res.status(422).json({ message: "Preencha todos os campos!" });
 
-
-
         } else if (
             empresa["emailRepresentante"].indexOf("@") == -1 ||
             empresa["emailRepresentante"].indexOf(".") == -1
@@ -213,7 +211,36 @@ class usuario {
                                                         if (erro) {
                                                             res.status(400).json(erro);
                                                         } else {
-                                                            res.status(200).json({ message: "Cadastrado com sucesso, faça seu login!" });
+
+                                                            const sql = `SELECT idFuncionario FROM Funcionario WHERE EmailFunc = (?)`;
+
+                                                            conexao.query(sql, [empresa.emailRepresentante], (erro, result) => {
+                                                                if (erro) {
+                                                                    res.status(400).json(erro);
+                                                                } else {
+
+                                                                    // cadastro na tebal
+                                                                    const idFuncionario = result[0].idFuncionario;
+
+                                                                    const sql =
+                                                                        "INSERT INTO Chamado(fkFuncionario, FKTipoAviso) VALUES (?, ?)";
+
+                                                                    conexao.query(
+                                                                        sql,
+                                                                        [
+                                                                            idFuncionario,
+                                                                            1
+                                                                        ],
+                                                                        (erro, results) => {
+                                                                            if (erro) {
+                                                                                res.status(400).json(erro);
+                                                                            } else {
+                                                                                res.status(200).json({ message: "Cadastrado com sucesso, faça seu login!" });
+                                                                            }
+                                                                        }
+                                                                    );
+                                                                }
+                                                            });
                                                         }
                                                     }
                                                 );

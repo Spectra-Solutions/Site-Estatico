@@ -128,7 +128,7 @@
                         <div class="boxCPU">
                             <div class="statusComponente">
                                 <span class="componente">CPU</span>
-                                <div id="normal" class="aviso"></div>
+                                <div id="default" class="aviso"></div>
                                 <span>Status</span>
                             </div>
 
@@ -143,10 +143,10 @@
 
                                 <div class="dados">
                                     <b style="color: #052767;">Crítico:</b>
-                                    <div>75%</div>
+                                    <div id="porcentCriticoCPU"></div>
                                     <div>|</div>
                                     <b style="color: #052767;">Alerta:</b>
-                                    <div>65%</div>
+                                    <div id="porcentAlertaCPU"></div>
                                 </div>
                             </div>
 
@@ -155,7 +155,7 @@
                         <div class="boxDisco">
                             <div class="statusComponente">
                                 <span class="componente">Disco</span>
-                                <div id="critico" class="aviso"></div>
+                                <div id="default" class="aviso"></div>
                                 <span>Status</span>
                             </div>
 
@@ -170,10 +170,10 @@
 
                                 <div class="dados">
                                     <b style="color: #052767;">Crítico:</b>
-                                    <div>75%</div>
+                                    <div id="porcentCriticoDisco"></div>
                                     <div>|</div>
                                     <b style="color: #052767;">Alerta:</b>
-                                    <div>65%</div>
+                                    <div id="porcentAlertaDisco"></div>
                                 </div>
                             </div>
 
@@ -184,7 +184,7 @@
                         <div class="boxRAM">
                             <div class="statusComponente">
                                 <span class="componente">RAM</span>
-                                <div id="alerta" class="aviso"></div>
+                                <div id="default" class="aviso"></div>
                                 <span>Status</span>
                             </div>
 
@@ -199,10 +199,10 @@
 
                                 <div class="dados">
                                     <b style="color: #052767;">Crítico:</b>
-                                    <div>75%</div>
+                                    <div id="porcentCriticoRAM"></div>
                                     <div>|</div>
                                     <b style="color: #052767;">Alerta:</b>
-                                    <div>65%</div>
+                                    <div id="porcentAlertaRAM"></div>
                                 </div>
                             </div>
 
@@ -215,7 +215,7 @@
 
                                     <div class="latencia">
                                         <b>Latência</b>
-                                        <div id="div_mbps" class="mbps">9.5</div>
+                                        <div id="div_mbps" class="mbps">0</div>
                                         <div class="labelRede">mbps</div>
                                     </div>
 
@@ -224,12 +224,12 @@
 
                                         <div class="download">
                                             <b class="labelRede">Download:</b>
-                                            <div id="div_download">120kbps</div>
+                                            <div id="div_download"></div>
                                         </div>
 
                                         <div class="upload">
                                             <b class="labelRede">Upload:</b>
-                                            <div id="div_upload">120kbps</div>
+                                            <div id="div_upload"></div>
                                         </div>
 
                                     </div>
@@ -254,7 +254,9 @@
 
                             <div class="linhas">
                                 <span>Tempo de atividade:</span>
-                                <div id="div_tempo_de_atividade_cpu" class="estilizar">3:20:40:12</div>
+                                <div id="div_tempo_de_atividade_cpu" class="estilizar">
+                                    <p id="atividadeCPU"></p>
+                                </div>
                             </div>
 
                         </div>
@@ -265,205 +267,21 @@
 
                             <div class="linhas">
                                 <span>Armazenamento disponível:</span>
-                                <div id="div_armazenamento_disponivel_ram" class="estilizar">1 TB</div>
-                                <div id="div_armazenamento_disponivel_ram_porcentagem" class="estilizar">(50%)</div>
+                                <div id="div_armazenamento_disponivel_ram" class="estilizar"></div>
+                                <div id="div_armazenamento_disponivel_ram_porcentagem" class="estilizar"></div>
                             </div>
 
                             <div class="linhas">
                                 <span>Armazenamento total:</span>
-                                <div id="div_armazenamento_total_ram" class="estilizar">2 TB</div>
+                                <div id="div_armazenamento_total_ram" class="estilizar"></div>
                             </div>
 
                         </div>
 
 
                         <b>Disco</b>
-                        <div class="disco-wrapper">
-                            <div class="boxDadoAdicionalDisco">
+                        <div class="disco-wrapper" id="divListaDisco">
 
-                                <div class="linhas">
-                                    Disco: <span id="qtd_disco">1</span>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento Disponível:</span>
-                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
-                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
-                                    </div>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento total:</span>
-                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
-                                </div>
-
-                                <div class="linhas">
-                                    Disco: <span id="qtd_disco">2</span>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento Disponível:</span>
-                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
-                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
-                                    </div>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento total:</span>
-                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
-                                </div>
-                                <div class="linhas">
-                                    Disco: <span id="qtd_disco">3</span>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento Disponível:</span>
-                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
-                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
-                                    </div>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento total:</span>
-                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
-                                </div>
-                                <div class="linhas">
-                                    Disco: <span id="qtd_disco">4</span>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento Disponível:</span>
-                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
-                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
-                                    </div>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento total:</span>
-                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
-                                </div>
-                                <div class="linhas">
-                                    Disco: <span id="qtd_disco">5</span>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento Disponível:</span>
-                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
-                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
-                                    </div>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento total:</span>
-                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
-                                </div>
-                                <div class="linhas">
-                                    Disco: <span id="qtd_disco">6</span>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento Disponível:</span>
-                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
-                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
-                                    </div>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento total:</span>
-                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
-                                </div>
-                                <div class="linhas">
-                                    Disco: <span id="qtd_disco">7</span>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento Disponível:</span>
-                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
-                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
-                                    </div>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento total:</span>
-                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
-                                </div>
-                                <div class="linhas">
-                                    Disco: <span id="qtd_disco">8</span>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento Disponível:</span>
-                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
-                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
-                                    </div>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento total:</span>
-                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
-                                </div>
-                                <div class="linhas">
-                                    Disco: <span id="qtd_disco">9</span>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento Disponível:</span>
-                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
-                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
-                                    </div>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento total:</span>
-                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
-                                </div>
-                                <div class="linhas">
-                                    Disco: <span id="qtd_disco">10</span>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento Disponível:</span>
-                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
-                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
-                                    </div>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento total:</span>
-                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
-                                </div>
-                                <div class="linhas">
-                                    Disco: <span id="qtd_disco">11</span>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento Disponível:</span>
-                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
-                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
-                                    </div>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento total:</span>
-                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
-                                </div>
-                                <div class="linhas">
-                                    Disco: <span id="qtd_disco">12</span>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento Disponível:</span>
-                                    <div id="div_armazenamento_disponivel_disco" class="estilizar">1 TB</div>
-                                    <div id="div_armazenamento_disponivel_disco_porcentagem" class="estilizar">(50%)
-                                    </div>
-                                </div>
-
-                                <div class="linhas">
-                                    <span>Armazenamento total:</span>
-                                    <div id="div_armazenamento_total_disco" class="estilizar">2 TB</div>
-                                </div>
-
-                            </div>
                         </div>
 
                         <div class="solucoes">
@@ -509,4 +327,5 @@
 <script>
     valoresUsuario()
     atualizarDadosMaquina()
+    atualizarTaxaComponente()
 </script>

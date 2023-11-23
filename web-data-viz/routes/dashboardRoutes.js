@@ -24,6 +24,7 @@ module.exports = app => {
 
 
 
+
     app.post("/atualizarTaxa", (req, res) => {
 
         const { fkEmpresa, taxaAlerta, taxaCritica } = req.body;
@@ -81,66 +82,68 @@ module.exports = app => {
         dashboard.restaurarTaxaRam(alterar, res);
     });
 
+    app.post("/listarTaxaMaquina", (req, res) => {
 
+        const dados = { idMaquina } = req.body;
 
+        dashboard.listarTaxaMaquina(dados, res);
+    });
 
-    // ============================================================
+    app.post("/executarComandosInovacao", (req, res) => {
 
-    // app.post("/pesquisarColaboradores", (req, res) => {
+        const dados = { idMaquina, comando, fkMaquina, fkUser, status } = req.body;
 
-    //     const dados = req.body;
-    //     dashboard.pesquisarColaboradores(dados, res);
-    // });
+        dashboard.executarComandosInovacao(dados, res);
+    });
 
-    // app.post("/listarColaboradoresSemanal", (req, res) => {
+    app.post("/validarComandosInovacao", (req, res) => {
 
-    //     const idUsuario = req.body;
-    //     dashboard.listarColaboradoresSemanal(idUsuario, res);
-    // });
+        const { id } = req.body;
 
-    // app.post("/colaboradorBusca", (req, res) => {
+        dashboard.validarComandosInovacao(id, res);
+    });
 
-    //     const id = req.body;
+    app.post("/listarNotificacao", (req, res) => {
 
-    //     dashboard.buscaPorId(id, res);
-    // });
+        const dados = { idEmpresa, idAviso } = req.body;
+        dashboard.listarAviso(dados, res);
+    });
 
-    // app.post("/avaliarColab", (req, res) => {
+    app.post("/listarAvisoKPI", (req, res) => {
 
-    //     const dados = req.body;
+        const dados = { idEmpresa } = req.body;
+        dashboard.listarAvisoKPI(dados, res);
+    });
 
-    //     dashboard.avaliarColab(dados, res);
-    // });
+    app.post("/listarDadosCPU", (req, res) => {
 
-    // app.post("/contarColab", (req, res) => {
+        const dados = { idMaquina } = req.body;
+        dashboard.listarCPU(dados, res);
+    });
 
-    //     const id = req.body;
+    app.post("/listarDadosRAM", (req, res) => {
 
-    //     dashboard.contarColab(id, res);
-    // });
+        const dados = { idMaquina } = req.body;
+        dashboard.listarRAM(dados, res);
+    });
 
-    // app.post("/contarLider", (req, res) => {
+    app.post("/listarDadosDisco", (req, res) => {
 
-    //     const id = req.body;
+        const dados = { idMaquina } = req.body;
+        dashboard.listarDisco(dados, res);
+    });
 
-    //     dashboard.contarLider(id, res);
-    // });
+    app.post("/listarDadosRede", (req, res) => {
 
-    // app.post("/desempenhoColab", (req, res) => {
+        const dados = { idMaquina } = req.body;
+        dashboard.listarRede(dados, res);
+    });
 
-    //     const id = req.body;
+    app.post("/listarTaxaComponente", (req, res) => {
 
-    //     console.log(id)
-
-    //     dashboard.desempenhoColab(id, res);
-    // });
-
-    // app.post("/calcularDesempenho", (req, res) => {
-
-    //     const id = req.body;
-
-    //     dashboard.calcularDesempenho(id, res);
-    // });
+        const dados = { idEmpresa } = req.body;
+        dashboard.listarTaxaComponente(dados, res);
+    });
 
 }
 
