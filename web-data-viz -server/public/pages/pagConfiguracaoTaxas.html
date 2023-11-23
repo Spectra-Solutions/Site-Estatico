@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/pagConfiguracaoTaxas.css">
+    <link rel="shortcut icon" type="imagex/png" href="img/icone.png">
+    <title>Spectra | Dashboard</title>
+
+    <!-- toast - alerta -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+
+</head>
+
+<body>
+    <!-- ------------------------ HEADER ------------------------ -->
+    <div id="header-nav" class="header">
+
+        <div class="containerHeader">
+
+            <div class="logoNav">
+                <a href="/monitoramentoGeral"><img src="img/LOGO_SPECTRA2 font-white.svg" alt="" id="imgLogo"></a>
+
+            </div>
+            <nav id="navTopo">
+                <div id="nomeEmpresa" class="nomeEmpresa">
+                    <p id="nomeEmp"></p>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- ------------------------ HEADER ------------------------ -->
+
+
+
+    <!-- ------------------------ BODY ------------------------ -->
+    <div class="conteudoTotal">
+        <div id="sideBar" class="sideBar">
+            <div class="sideContainer">
+                <div class="sideBox">
+                    <img src="img/icon-usuario.svg" alt="" class="iconUsuario">
+
+                    <div class="dadosUsuario">
+                        <div id="nomeUsuario" class="nomeUsuario">
+                            <p id="nomeUser"></p>
+                        </div>
+                        <div id="tipoAcesso" class="tipoAcesso">
+                            <p id="tipoUser"></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="configuracoes">
+                    <a href="/configuracaoTaxas" style="text-decoration: none;">
+
+                        <div class="configurarMaquina">
+                            <img src="img/icon-config.svg" class="iconConfig">
+                            <div id="configurarMaquina">Configurar Máquinas</div>
+                        </div>
+
+                    </a>
+
+                    <a href="/cadastroFuncionario" style="text-decoration: none;">
+                        <div class="cadastrarUsuario">
+                            <img src="img/icon-usuario2.svg" class="iconUsuario2">
+                            <div id="cadastrarUsuario">Cadastrar Usuário</div>
+                        </div>
+                    </a>
+
+                    <a href="/monitoramentoGeral" style="text-decoration: none;">
+                        <div class="home">
+                            <img src="img/casa.svg" class="iconUsuario3">
+                            <div id="home">Home</div>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+            <div id="sair" class="sair">
+                <a onclick="limparSessao()">
+                    <img src="img/sair.svg" alt="" class="iconSair">
+                </a>
+                <div>Sair</div>
+            </div>
+
+        </div>
+
+        <!-- ------------------------ BODY ------------------------ -->
+
+
+        <!-- ---------------------------- CONTEUDO ---------------------------  -->
+        <div class="conteudo">
+
+            <div class="caixaTitulo">
+                <div class="titulo">
+                    <span>Controle de taxa de componentes</span>
+                    <img src="img/retangulo-azul.png" alt="" width="15%" height="10%">
+                </div>
+                <div class="escrita">
+                    <span>Escolha a % de uso do componente para receber avisos </span>
+                </div>
+            </div>
+
+            <!-- ------------------------------------------------------------------------  -->
+            <div class="caixaTotal">
+                <div class="componentes">
+                    <div class="caixaComponentes">
+                        <div class="imgIcone">
+                            <img src="img/icone-cpu.svg" alt="" width="50%">
+                        </div>
+                        <form action="/atualizarTaxa" id="formTaxa" method="POST">
+                            <div class="caixaEspecificando">
+                                <div class="caixaTituloComponente">
+                                    <span>Taxa em porcentagem CPU</span>
+                                </div>
+                                <div class="caixaPorcentagens">
+                                    <div class="taxaAlerta">
+                                        <div class="tituloAlerta">
+                                            Taxa Alerta (%)
+                                        </div>
+
+                                        <input type="text" id="inputTaxaAlertaCPU" placeholder="xx.x">
+                                    </div>
+                                    <div class="taxaCritica">
+                                        <div class="tituloCritico">
+                                            Taxa Crítico (%)
+                                        </div>
+
+                                        <input type="text" id="inputTaxaCriticaCPU" placeholder="xx.x">
+                                    </div>
+                                </div>
+                                <div class="btParaSalvar">
+                                    <div class="espacar">
+                                        <button id="atualizarTaxaCpu">Salvar</button>
+                                        <button id="restaurarCPU">Restore</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="caixaComponentes">
+                        <div class="imgIcone">
+                            <img src="img/icone-disco.svg" alt="" width="50%">
+                        </div>
+                        <form action="/atualizarTaxaDisco" id="formTaxaDisco" method="POST">
+                            <div class="caixaEspecificando">
+                                <div class="caixaTituloComponente">
+                                    <span>Taxa em porcentagem DISCO</span>
+                                </div>
+                                <div class="caixaPorcentagens">
+                                    <div class="taxaAlerta">
+                                        <div class="tituloAlerta">
+                                            Taxa Alerta (%)
+                                        </div>
+
+                                        <input type="text" id="inputTaxaAlertaDISCO" placeholder="xx.x">
+                                    </div>
+                                    <div class="taxaCritica">
+                                        <div class="tituloCritico">
+                                            Taxa Crítico (%)
+                                        </div>
+
+                                        <input type="text" id="inputTaxaCriticaDISCO" placeholder="xx.x">
+                                    </div>
+                                </div>
+                                <div class="btParaSalvar">
+                                    <div class="espacar">
+                                        <button id="atualizarTaxaDisco">Salvar</button>
+                                        <button id="restaurarDisco">Restore</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="caixaComponentes">
+                        <div class="imgIcone">
+                            <img src="img/icone-ram.svg" alt="" width="50%">
+                        </div>
+                        <form action="/atualizarTaxaRAM" id="formTaxaRAM" method="POST">
+                            <div class="caixaEspecificando">
+                                <div class="caixaTituloComponente">
+                                    <span>Taxa em porcentagem RAM</span>
+                                </div>
+                                <div class="caixaPorcentagens">
+                                    <div class="taxaAlerta">
+                                        <div class="tituloAlerta">
+                                            Taxa Alerta (%)
+                                        </div>
+
+                                        <input type="text" id="inputTaxaAlertaRAM" placeholder="xx.x"> 
+                                    </div>
+                                    <div class="taxaCritica">
+                                        <div class="tituloCritico">
+                                            Taxa Crítico (%)
+                                        </div>
+
+                                        <input type="text" id="inputTaxaCriticaRAM" placeholder="xx.x">
+                                    </div>
+                                </div>
+                                <div class="btParaSalvar">
+                                    <div class="espacar">
+                                        <button id="atualizarTaxaRam">Salvar</button>
+                                        <button id="restaurarRam">Restore</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="caixaAlertas">
+                    <div class="caixas">
+                        <div class="centralizador">
+                            <div class="TituloCaixa">
+                                <span>Taxa Alerta</span>
+                                <div class="caixaDemonstracao1"></div>
+                            </div>
+                            <div class="ConteudoCaixa">
+                                <span>
+                                    Recomendado para taxas de uso dos componentes antes de ser um status crítico
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="caixas">
+                        <div class="centralizador">
+                            <div class="TituloCaixa">
+                                <span>Taxa Crítica</span>
+                                <div class="caixaDemonstracao2"></div>
+                            </div>
+                            <div class="ConteudoCaixa">
+                                <span>
+                                    Recomendado para taxa máxima de uso dos componentes
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+</body>
+
+</html>
+
+<script src="js/pagConfiguracaoTaxas.js"></script>
+<script src="js/loginDash.js"></script>
+<script>
+    const fkEmpresa = sessionStorage.ID_EMPRESA;
+    // console.log(fkEmpresa)
+    // // atualizarTaxa(fkEmpresa)
+    // atualizarTaxaDisco(fkEmpresa)
+    // // atualizarTaxaRAM(fkEmpresa)
+    // restaurarTaxaCpu(fkEmpresa)
+</script>
