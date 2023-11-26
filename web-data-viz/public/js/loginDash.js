@@ -9,6 +9,7 @@ function validarSessao(body) {
     sessionStorage.NOME_EMPRESA = body.valores.NomeEmpresa;
     sessionStorage.FK_FUNCAO = body.valores.fkFuncao;
     sessionStorage.TIPO_FUNCAO = body.valores.tipoFuncao;
+    sessionStorage.URL_SLACK = body.valores.url;
 }
 
 function valoresUsuario() {

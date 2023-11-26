@@ -14,6 +14,7 @@
 
     <!-- toast - alerta -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
@@ -55,7 +56,7 @@
                 <div class="configuracoes">
                     <a href="/configuracaoTaxas" style="text-decoration: none;">
 
-                        <div class="configurarMaquina">
+                        <div class="configurarMaquina" id="div_configurarMaquina">
                             <img src="img/icon-config.svg" class="iconConfig">
                             <div id="configurarMaquina">Configurar Máquinas</div>
                         </div>
@@ -63,11 +64,18 @@
                     </a>
 
                     <a href="/cadastroFuncionario" style="text-decoration: none;">
-                        <div class="cadastrarUsuario">
+                        <div class="cadastrarUsuario" id="div_cadastrarUsuario">
                             <img src="img/icon-usuario2.svg" class="iconUsuario2">
                             <div id="cadastrarUsuario">Cadastrar Usuário</div>
                         </div>
                     </a>
+
+                    <span style="text-decoration: none;" onclick="configurarSlack()" id="span_configurarSlack">
+                        <div class="home">
+                            <img src="img/slack.svg" class="iconUsuario3">
+                            <div id="home">Slack</div>
+                        </div>
+                    </span>
 
                     <a href="/monitoramentoGeral" style="text-decoration: none;">
                         <div class="home">
@@ -319,13 +327,22 @@
 
 </html>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+<script src="../js/funcSlack.js"></script>
 <script src="js/chart.js"></script>
 <script src="js/loginDash.js"></script>
 <script src="js/pagMonitoramentoMaquina.js"></script>
 
+
 <script>
     valoresUsuario()
+
+    if (sessionStorage.TIPO_FUNCAO == 'Usuario comum') {
+
+        document.getElementById("div_configurarMaquina").style.display = "none";
+        document.getElementById("div_cadastrarUsuario").style.display = "none";
+        document.getElementById("span_configurarSlack").style.display = "none";
+    }
+
     atualizarDadosMaquina()
     atualizarTaxaComponente()
 </script>

@@ -39,7 +39,7 @@ class dashboard {
             sql,
             [
                 dados.comando,
-                dados.status,
+                1,
                 dados.fkMaquina,
                 dados.fkUser
             ],
@@ -49,7 +49,7 @@ class dashboard {
                 } else {
 
                     const sql = `SELECT idComando from Comando WHERE nomeComando = (${dados.comando}) AND 
-                    stattus = false AND fkMaquina = (${dados.fkMaquina}) AND AND fkFuncionario = (${dados.fkUser})`;
+                    stattus = 1 AND fkMaquina = (${dados.fkMaquina}) AND AND fkFuncionario = (${dados.fkUser})`;
 
                     conexao.query(sql, (erro, result) => {
                         if (erro) {
@@ -167,7 +167,7 @@ class dashboard {
 
         console.log(alterar)
         const sql = `update TaxaAviso set porcentagemCritico = (?), porcentagemAlerta = (?) where fkComponente = 1 and fkEmpresa = (?)`;
-        conexao.query(sql,[valorCritico, valorAlerta, fk], (erro, result) => {
+        conexao.query(sql, [valorCritico, valorAlerta, fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
             } else {
@@ -192,7 +192,7 @@ class dashboard {
 
         console.log(alterar)
         const sql = `update TaxaAviso set porcentagemCritico = (?), porcentagemAlerta = (?) where fkComponente = 3 and fkEmpresa = (?)`;
-        conexao.query(sql,[valorCritico, valorAlerta, fk], (erro, result) => {
+        conexao.query(sql, [valorCritico, valorAlerta, fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
             } else {
@@ -217,7 +217,7 @@ class dashboard {
 
         console.log(alterar)
         const sql = `update TaxaAviso set porcentagemCritico = (?), porcentagemAlerta = (?) where fkComponente = 2 and fkEmpresa = (?)`;
-        conexao.query(sql,[valorCritico, valorAlerta, fk], (erro, result) => {
+        conexao.query(sql, [valorCritico, valorAlerta, fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
             } else {
@@ -233,7 +233,7 @@ class dashboard {
         const fk = alterar.fkEmpresa
 
         const sql = `update TaxaAviso set porcentagemCritico = 80.0, porcentagemAlerta = 60.0 where fkComponente = 1 and fkEmpresa = (?)`;
-        conexao.query(sql,[fk], (erro, result) => {
+        conexao.query(sql, [fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
             } else {
@@ -241,13 +241,13 @@ class dashboard {
             }
         });
     }
-    
+
     restaurarTaxaDisco(alterar, res) {
 
         const fk = alterar.fkEmpresa
 
         const sql = `update TaxaAviso set porcentagemCritico = 80.0, porcentagemAlerta = 60.0 where fkComponente = 3 and fkEmpresa = (?)`;
-        conexao.query(sql,[fk], (erro, result) => {
+        conexao.query(sql, [fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
             } else {
@@ -261,7 +261,7 @@ class dashboard {
         const fk = alterar.fkEmpresa
 
         const sql = `update TaxaAviso set porcentagemCritico = 80.0, porcentagemAlerta = 60.0 where fkComponente = 2 and fkEmpresa = (?)`;
-        conexao.query(sql,[fk], (erro, result) => {
+        conexao.query(sql, [fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
             } else {
@@ -332,7 +332,7 @@ class dashboard {
 
     listarRAM(dados, res) {
 
-        const sql = `SELECT ra.consumoAtual, ra.armazenamentoTotal, ra.armazenamentoDisponivel, rt.fkTipoAViso, rt.RegistroAviso 
+        const sql = `SELECT ra.consumoAtual, ra.armazenamentoTotal, ra.armazenamentoDisponivel, rt.fkTipoAViso, rt.RegistroAviso, ra.fkComponente
                         FROM RegistroComponente as ra
                             JOIN Componente as c 
                                 ON c.idComponente = ra.fkComponente

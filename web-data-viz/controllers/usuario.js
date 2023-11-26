@@ -18,7 +18,7 @@ class usuario {
         } else {
             const sql = `
             SELECT func.idFuncionario, func.NomeFunc, func.EmailFunc, func.SenhaFunc, func.fkEmpresa, 
-		    func.fkFuncao, emp.IdEmpresa, emp.NomeEmpresa, funca.idFuncao, funca.tipoFuncao
+		    func.fkFuncao, emp.url, emp.IdEmpresa, emp.NomeEmpresa, funca.idFuncao, funca.tipoFuncao
                 FROM Funcionario as func
                 JOIN Empresa as emp
                     ON func.fkEmpresa = emp.IdEmpresa
@@ -44,78 +44,6 @@ class usuario {
         }
 
     }
-
-    // apagarusuario(dados, res) {
-    //     console.log(dados.id);
-
-    //     const sql = `DELETE FROM desempenhoSemanal
-    //             WHERE fkColaboradorDesempenho IN (
-    //                 SELECT idColaborador
-    //                 FROM colaborador
-    //                 WHERE fkusuario = ${dados.id}
-    //             );`;
-
-    //     conexao.query(sql, (erro) => {
-    //         if (erro) {
-    //             res.status(400).json({ erro: 'Ocorreu um erro ao excluir os dados.' });
-    //         } else {
-    //             const sql2 = `DELETE FROM lideranca
-    //                       WHERE fkColaborador IN (
-    //                           SELECT idColaborador
-    //                           FROM colaborador
-    //                           WHERE fkusuario = ${dados.id}
-    //                       );`;
-    //             conexao.query(sql2, (erro) => {
-    //                 if (erro) {
-    //                     res.status(400).json({ erro: 'Ocorreu um erro ao excluir os dados.' });
-    //                 } else {
-    //                     const sql3 = `DELETE FROM colaborador
-    //                               WHERE fkusuario = ${dados.id};`;
-    //                     conexao.query(sql3, (erro) => {
-    //                         if (erro) {
-    //                             res.status(400).json({ erro: 'Ocorreu um erro ao excluir os dados.' });
-    //                         } else {
-    //                             const sql4 = `DELETE FROM usuario
-    //                                       WHERE idusuario = ${dados.id};`;
-    //                             conexao.query(sql4, (erro) => {
-    //                                 if (erro) {
-    //                                     res.status(400).json({ erro: 'Ocorreu um erro ao excluir os dados.' });
-    //                                 } else {
-    //                                     res.status(200).end();
-    //                                 }
-    //                             });
-    //                         }
-    //                     });
-    //                 }
-    //             });
-    //         }
-    //     });
-    // }
-
-
-    // alterarUsuario(usuario, res) {
-    //     console.log(usuario);
-
-    //     if (
-    //         usuario.nome == "" ||
-    //         usuario.sobrenome == "" ||
-    //         usuario.email == "" ||
-    //         usuario.senha == "" ||
-    //         usuario.foto == ""
-    //     ) {
-    //         res.status(422).json({ message: "Preencha todos os campos!" });
-    //     } else {
-    //         const sql = `UPDATE usuario SET nome = ?, sobrenome = ?, email = ?, senha = ?, foto = ? WHERE idUsuario = (?)`;
-
-    //         conexao.query(sql, [usuario.nome, usuario.sobrenome, usuario.email, usuario.senha, usuario.foto, usuario.idUser], (erro) => {
-    //             if (erro) {
-    //                 res.status(400).json({ message: "Algo aconteceu!" });
-    //             } else {
-    //                 res.status(200).json({ message: "Seus dados foram atualizados! Faça login novamente" });
-    //             }
-    //         });
-    //     }
-    // }
 
     cadastrarEmpresa(empresa, res) {
 
@@ -235,7 +163,29 @@ class usuario {
                                                                             if (erro) {
                                                                                 res.status(400).json(erro);
                                                                             } else {
-                                                                                res.status(200).json({ message: "Cadastrado com sucesso, faça seu login!" });
+
+                                                                                // cadastro na tebal
+                                                                                const idFuncionario = result[0].idFuncionario;
+
+                                                                                const sql = `
+                                                                                    INSERT INTO TaxaAviso(porcentagemCritico, porcentagemAlerta, 
+                                                                                    fkComponente, fkEmpresa) VALUES
+                                                                                        (80, 60, 1, ${idEmpresa}),
+                                                                                        (75, 60, 2, ${idEmpresa}),
+                                                                                        (80, 60, 3, ${idEmpresa});
+                                                                                `;
+
+                                                                                conexao.query(
+                                                                                    sql,
+                                                                                    (erro, results) => {
+                                                                                        if (erro) {
+                                                                                            res.status(400).json(erro);
+                                                                                        } else {
+                                                                                            res.status(200).json({ message: "Cadastrado com sucesso, faça seu login!" });
+                                                                                        }
+                                                                                    }
+                                                                                );
+
                                                                             }
                                                                         }
                                                                     );

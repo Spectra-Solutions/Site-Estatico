@@ -4,6 +4,7 @@ const routesUser = require('./routes/usuarioRoute');
 const routesPages = require('./routes/pagesRoutes');
 const routesDash = require('./routes/dashboardRoutes');
 const routesProcessos = require("./routes/processosRoutes");
+const routesSlack = require("./routes/slackRoutes");
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -35,6 +36,7 @@ conexao.connect(erro => {
         routesPages(app);
         routesDash(app);
         routesProcessos(app);
+        routesSlack(app);
 
         app.listen(port, () => {
             console.log(`Servidor conectado na porta ${port}`);
