@@ -53,15 +53,15 @@
                 <div class="configuracoes">
                     <a href="/configuracaoTaxas" style="text-decoration: none;">
 
-                        <div class="configurarMaquina">
-                            <img src="img/icon-config.svg" class="iconConfig">
+                        <div class="configurarMaquina" id="div_configurarMaquina">
+                            <img src="img/icon-config.svg" class="iconConfig" id="img_configurarMaquina">
                             <div id="configurarMaquina">Configurar Máquinas</div>
                         </div>
 
                     </a>
 
                     <a href="/cadastroFuncionario" style="text-decoration: none;">
-                        <div class="cadastrarUsuario">
+                        <div class="cadastrarUsuario" id="div_cadastrarUsuario">
                             <img src="img/icon-usuario2.svg" class="iconUsuario2">
                             <div id="cadastrarUsuario">Cadastrar Usuário</div>
                         </div>
@@ -221,6 +221,11 @@
 
 <script>
     valoresUsuario()
+
+    if (sessionStorage.TIPO_FUNCAO == 'Padrão'){
+        document.getElementById("div_configurarMaquina").style.display = "none";
+        document.getElementById("div_cadastrarUsuario").style.display = "none";
+    }
 
     const idEmpresa = sessionStorage.ID_EMPRESA;
     buscarMaquina(idEmpresa)
