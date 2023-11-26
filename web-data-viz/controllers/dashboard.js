@@ -150,6 +150,79 @@ class dashboard {
     }
 
 
+    // ====================== alterar taxas ======================
+    puxarTaxaCpu(alterar, res) {
+        const fk = alterar.fkEmpresA
+        console.log(fk)
+
+        const sql = `SELECT porcentagemCritico, porcentagemAlerta FROM TaxaAviso WHERE fkComponente = 1 AND fkEmpresa = (?)`;
+        conexao.query(sql, [fk], (erro, result) => {
+            if (erro) {
+                res.status(500).json({ erro: "Erro interno no servidor" });
+            } else {
+                res.status(200).json(result[0]);
+            }
+        });
+    }
+
+    puxarTaxaDisco(alterar, res) {
+        const fk = alterar.fkEmpresA
+        console.log(fk)
+
+        const sql = `SELECT porcentagemCritico, porcentagemAlerta FROM TaxaAviso WHERE fkComponente = 3 AND fkEmpresa = (?)`;
+        conexao.query(sql, [fk], (erro, result) => {
+            if (erro) {
+                res.status(500).json({ erro: "Erro interno no servidor" });
+            } else {
+                res.status(200).json(result[0]);
+            }
+        });
+    }
+
+    puxarTaxaRam(alterar, res) {
+        const fk = alterar.fkEmpresA
+        console.log(fk)
+
+        const sql = `SELECT porcentagemCritico, porcentagemAlerta FROM TaxaAviso WHERE fkComponente = 2 AND fkEmpresa = (?)`;
+        conexao.query(sql, [fk], (erro, result) => {
+            if (erro) {
+                res.status(500).json({ erro: "Erro interno no servidor" });
+            } else {
+                res.status(200).json(result[0]);
+            }
+        });
+    }
+    
+
+    // const queryPromises = [1, 2, 3].map(fkComponente => {
+    //     return new Promise((resolve, reject) => {
+    //         const sql = `
+    //             SELECT porcentagemCritico, porcentagemAlerta 
+    //             FROM TaxaAviso 
+    //             WHERE fkComponente = ? AND fkEmpresa = ?`;
+
+    //         conexao.query(sql, [fkComponente, fkEmpresa], (erro, result) => {
+    //             if (erro) {
+    //                 reject(erro);
+    //             } else {
+    //                 resolve(result);
+    //             }
+    //         });
+    //     });
+    // });
+
+    // Promise.all(queryPromises)
+    //     .then(results => {
+    //         res.status(200).json(results);
+    //     })
+    //     .catch(erro => {
+    //         res.status(400).json(erro);
+    //     });
+
+
+
+
+
     // ====================== alterar taxas ====================== 
     atualizarTaxa(alterar, res) {
 
@@ -167,7 +240,7 @@ class dashboard {
 
         console.log(alterar)
         const sql = `update TaxaAviso set porcentagemCritico = (?), porcentagemAlerta = (?) where fkComponente = 1 and fkEmpresa = (?)`;
-        conexao.query(sql,[valorCritico, valorAlerta, fk], (erro, result) => {
+        conexao.query(sql, [valorCritico, valorAlerta, fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
             } else {
@@ -192,7 +265,7 @@ class dashboard {
 
         console.log(alterar)
         const sql = `update TaxaAviso set porcentagemCritico = (?), porcentagemAlerta = (?) where fkComponente = 3 and fkEmpresa = (?)`;
-        conexao.query(sql,[valorCritico, valorAlerta, fk], (erro, result) => {
+        conexao.query(sql, [valorCritico, valorAlerta, fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
             } else {
@@ -217,7 +290,7 @@ class dashboard {
 
         console.log(alterar)
         const sql = `update TaxaAviso set porcentagemCritico = (?), porcentagemAlerta = (?) where fkComponente = 2 and fkEmpresa = (?)`;
-        conexao.query(sql,[valorCritico, valorAlerta, fk], (erro, result) => {
+        conexao.query(sql, [valorCritico, valorAlerta, fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
             } else {
@@ -233,7 +306,7 @@ class dashboard {
         const fk = alterar.fkEmpresa
 
         const sql = `update TaxaAviso set porcentagemCritico = 80.0, porcentagemAlerta = 60.0 where fkComponente = 1 and fkEmpresa = (?)`;
-        conexao.query(sql,[fk], (erro, result) => {
+        conexao.query(sql, [fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
             } else {
@@ -241,13 +314,13 @@ class dashboard {
             }
         });
     }
-    
+
     restaurarTaxaDisco(alterar, res) {
 
         const fk = alterar.fkEmpresa
 
         const sql = `update TaxaAviso set porcentagemCritico = 80.0, porcentagemAlerta = 60.0 where fkComponente = 3 and fkEmpresa = (?)`;
-        conexao.query(sql,[fk], (erro, result) => {
+        conexao.query(sql, [fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
             } else {
@@ -260,8 +333,8 @@ class dashboard {
 
         const fk = alterar.fkEmpresa
 
-        const sql = `update TaxaAviso set porcentagemCritico = 80.0, porcentagemAlerta = 60.0 where fkComponente = 2 and fkEmpresa = (?)`;
-        conexao.query(sql,[fk], (erro, result) => {
+        const sql = `update TaxaAviso set porcentagemCritico = 75.0, porcentagemAlerta = 60.0 where fkComponente = 2 and fkEmpresa = (?)`;
+        conexao.query(sql, [fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
             } else {
@@ -269,6 +342,7 @@ class dashboard {
             }
         });
     }
+
 
     listarCPU(dados, res) {
 

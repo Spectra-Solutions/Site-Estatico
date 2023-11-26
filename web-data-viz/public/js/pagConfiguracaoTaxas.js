@@ -19,6 +19,89 @@ const Toast = Swal.mixin({
 
 // ----------------------- CPU -------------------------------- 
 
+function puxarTaxaCpu(fkEmpresa) {
+    const fkEmpresA = fkEmpresa;
+
+
+    fetch("/puxarTaxaCpu", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ fkEmpresA }),
+    })
+        .then((res) => res.json())
+        .then((taxas) => {
+
+            console.log("taxas recebidas:", taxas);
+
+
+            formTaxa.inputTaxaAlertaCPU.value = taxas.porcentagemAlerta;
+            formTaxa.inputTaxaCriticaCPU.value = taxas.porcentagemCritico;
+            
+
+        })
+        .catch((error) => {
+            console.error("Erro ao recuperar taxas para edição:", error);
+        });
+}
+
+function puxarTaxaDisco(fkEmpresa) {
+    const fkEmpresA = fkEmpresa;
+
+
+    fetch("/puxarTaxaDisco", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ fkEmpresA }),
+    })
+        .then((res) => res.json())
+        .then((taxas) => {
+
+            console.log("taxas recebidas:", taxas);
+
+
+            formTaxaDisco.inputTaxaAlertaDISCO.value = taxas.porcentagemAlerta;
+            formTaxaDisco.inputTaxaCriticaDISCO.value = taxas.porcentagemCritico;
+            
+
+        })
+        .catch((error) => { 
+            console.error("Erro ao recuperar taxas para edição:", error);
+        });
+}
+
+function puxarTaxaRam(fkEmpresa) {
+    const fkEmpresA = fkEmpresa;
+
+
+    fetch("/puxarTaxaRam", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ fkEmpresA }),
+    })
+        .then((res) => res.json())
+        .then((taxas) => {
+
+            console.log("taxas recebidas:", taxas);
+
+
+            formTaxaRAM.inputTaxaAlertaRAM.value = taxas.porcentagemAlerta;
+            formTaxaRAM.inputTaxaCriticaRAM.value = taxas.porcentagemCritico;
+            
+
+        })
+        .catch((error) => { 
+            console.error("Erro ao recuperar taxas para edição:", error);
+        });
+}
+
+
+
 const form = document.getElementById("formTaxa");
 form.addEventListener("submit", (event) => {
 
@@ -28,7 +111,7 @@ form.addEventListener("submit", (event) => {
 
     if (botaoClicado.id == "restaurarCPU") {
         restaurarTaxaCpu()
-    }else if (botaoClicado.id == "atualizarTaxaCpu") {
+    } else if (botaoClicado.id == "atualizarTaxaCpu") {
         alterarCpu()
     }
 });
@@ -156,7 +239,7 @@ formDisco.addEventListener("submit", (event) => {
 
     if (botaoClicado.id == "restaurarDisco") {
         restaurarTaxaDisco()
-    }else if (botaoClicado.id == "atualizarTaxaDisco") {
+    } else if (botaoClicado.id == "atualizarTaxaDisco") {
         alterarDisco()
     }
 });
@@ -283,13 +366,13 @@ formRam.addEventListener("submit", (event) => {
 
     if (botaoClicado.id == "restaurarRam") {
         restaurarTaxaRam()
-    }else if (botaoClicado.id == "atualizarTaxaRam") {
+    } else if (botaoClicado.id == "atualizarTaxaRam") {
         alterarRam()
     }
 
 });
 
-function alterarRam(){
+function alterarRam() {
     const fkEmpresA = { id: fkEmpresa };
 
     const data = {
