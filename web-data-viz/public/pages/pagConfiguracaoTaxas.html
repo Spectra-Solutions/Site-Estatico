@@ -264,10 +264,16 @@
 <script src="js/loginDash.js"></script>
 <script>
     const fkEmpresa = sessionStorage.ID_EMPRESA;
+
+    puxarTaxaCpu(fkEmpresa);
+    puxarTaxaDisco(fkEmpresa);
+    puxarTaxaRam(fkEmpresa);
+
     if (sessionStorage.TIPO_FUNCAO == 'Usuario comum') {
 
         document.getElementById("div_configurarMaquina").style.display = "none";
         document.getElementById("div_cadastrarUsuario").style.display = "none";
         document.getElementById("span_configurarSlack").style.display = "none";
     }
+
 </script>
