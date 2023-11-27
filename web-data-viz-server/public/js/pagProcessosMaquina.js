@@ -38,7 +38,8 @@ function obterProcessos() {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
 }
-function atualizarTabela(resposta, idMaquina) {
+function atualizarTabela(resposta) {
+    
     table_processos.innerHTML = `<tr>
                     <th class="nomeProcesso">Nome Processo</th>
                     <th class="status">Status</th>
@@ -47,8 +48,8 @@ function atualizarTabela(resposta, idMaquina) {
                     <th class="dtHora">Data e Hora</th>
                 </tr> `;
 
-    for (var i = 0; i < resposta.length; i++) {
-        var registro = resposta[i];
+    for (var i = 0; i < resposta.recordset.length; i++) {
+        var registro = resposta.recordset[i];
 
         table_processos.innerHTML += `
                 <tr>
@@ -81,15 +82,15 @@ function infoMaquina(idMaquina) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
                 var nomeMaq = document.getElementById("nomeMaq");
-                nomeMaq.innerHTML = resposta[0].nome || 'N/A';
+                nomeMaq.innerHTML = resposta.recordset[0].nome || 'N/A';
 
                 var sistMaq = document.getElementById("sistMaq");
-                sistMaq.innerHTML = resposta[0].sistemaOperacional || 'N/A';
+                sistMaq.innerHTML = resposta.recordset[0].sistemaOperacional || 'N/A';
 
-                sessionStorage.SO_MAQ = resposta[0].sistemaOperacional;
+                sessionStorage.SO_MAQ = resposta.recordset[0].sistemaOperacional;
 
                 var secaoMaq = document.getElementById("secaoMaq");
-                secaoMaq.innerHTML = resposta[0].secao || 'N/A';
+                secaoMaq.innerHTML = resposta.recordset[0].secao || 'N/A';
 
             });
         } else {
