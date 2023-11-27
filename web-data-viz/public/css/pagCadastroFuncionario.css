@@ -595,6 +595,7 @@ select {
     width: 100%;
     flex-direction: row;
     gap: 20px;
+    justify-content: center;
 
 }
 
@@ -633,5 +634,8 @@ button,
 }
 
 form {
+    align-items: center;
+    display: flex;
+    justify-content: center;
     width: 100%;
 }
