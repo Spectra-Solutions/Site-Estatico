@@ -144,7 +144,7 @@
 
                                                     <div class="inputs">
                                                         <div id="div_input_senha" class="input">
-                                                            <input id="input_senha" name="senha">
+                                                            <input id="input_senha" name="senha" type="password">
                                                         </div>
                                                     </div>
 
@@ -159,7 +159,7 @@
                                                         </div>
 
                                                         <select name="nivelAviso" id="select_nivel_de_aviso">
-                                                            <option value="">Escolher...</option>
+                                                            <option value="" selected>Escolher...</option>
                                                             <option value="critico">Crítico</option>
                                                             <option value="alerta">Alerta</option>
                                                             <option value="criticoAlerta">Crítico e Alerta</option>
@@ -170,62 +170,65 @@
                                                         </div>
 
                                                         <select name="nivelAcesso" id="select_nivel_de_acesso">
-                                                            <option value="">Escolher...</option>
+                                                            <option value="" selected>Escolher...</option>
                                                             <option value="adm">ADM</option>
-                                                            <option value="funcionario">Funcionario</option>
+                                                            <option value="funcionario">Funcionário</option>
                                                         </select>
                                                     </div>
                                                 </div>
 
                                             </div>
-
-                                            <div id="botoes" class="botoes">
-                                                <!-- <button onclick="pesquisar()" class="bt_pesquisar">PESQUISAR</button> -->
-                                                <button class="bt_salvar">SALVAR</button>
-                                                <!-- <button onclick="excluir()" class="bt_excluir">EXCLUIR</button> -->
-                                            </div>
-                                        </div>
                                     </form>
+                                    <div id="botoes" class="botoes">
+                                        <button class="bt_salvar">SALVAR</button>
 
+                                        <span class="bt_voltar" id="span_btn" onclick="voltarDaEdicao()">VOLTAR</span>
+                                    </div>
                                 </div>
+
+
+
+
                             </div>
                         </div>
+                    </div>
 
 
 
-                        <div id = "caixaVisualizarUsuario" class="caixaVisualizarUsuario">
-                            <div class="tituloCaixa">
-                                <div class="ConsultarUsuario">Consulte um usuário</div>
+                    <div id="caixaVisualizarUsuario" class="caixaVisualizarUsuario">
+                        <div class="tituloCaixa">
+                            <div class="ConsultarUsuario">Consulte um usuário</div>
+                        </div>
+                        <div class="conteudoUsuarios">
+                            <div class="pesquisarNome">
+                                <div class="tituloInput">
+                                    Nome:
+                                </div>
+                                <div class="inputIcon">
+                                    <input id="input_nome" type="text" class="inp_nome">
+                                    <img src="img/icon-pesquisar.svg" alt="" style="cursor: pointer;"
+                                        onclick="puxarNome()">
+                                </div>
                             </div>
-                            <div class="conteudoUsuarios">
-                                <div class="pesquisarNome">
-                                    <div class="tituloInput">
-                                        Nome:
-                                    </div>
-                                    <div class="inputIcon">
-                                        <input id="input_nome" type="text" class="inp_nome">
-                                        <img src="img/icon-pesquisar.svg" alt="" style="cursor: pointer;" onclick="puxarNome()">
-                                    </div>
-                                </div>
-                                <div class="caixaPesquisaWrapper">
-                                    <div id="id_caixa_pesquisa" class="caixaPesquisa">
-                                    
-
-                                    </div>
+                            <div class="caixaPesquisaWrapper">
+                                <div id="id_caixa_pesquisa" class="caixaPesquisa">
 
 
                                 </div>
+
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
 
 
 
 
-            <!-- ------------------------ BODY ------------------------ -->
+        <!-- ------------------------ BODY ------------------------ -->
 
 </body>
 
@@ -233,7 +236,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
 <script src="../js/funcSlack.js"></script>
-<script src="js/cadastroFuncionario.js"></script>
+<script src="js/pagCadastroFuncionario.js"></script>
 <script src="js/loginDash.js"></script>
 
 <script>
