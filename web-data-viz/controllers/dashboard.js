@@ -107,7 +107,7 @@ class dashboard {
         console.log(dados.idAviso);
         console.log(dados.idEmpresa);
 
-        const sql = `SELECT registroAviso, dtHora, m.nome, e.NomeEmpresa FROM registroAvisos
+        const sql = `SELECT registroAviso, dtHora, m.nome, e.NomeEmpresa,  m.idMaquina FROM registroAvisos
                         JOIN Componente as c
                             ON fkComponente = c.idComponente
                                 JOIN Maquina as m
@@ -192,7 +192,7 @@ class dashboard {
             }
         });
     }
-    
+
     // ====================== alterar taxas ====================== 
     atualizarTaxa(alterar, res) {
 

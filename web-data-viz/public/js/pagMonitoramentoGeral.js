@@ -224,9 +224,9 @@ function listarNotificacao(listaNotificacao, tipoAviso) {
                             <div class="horarioNotif">${formatoBrasileiro}</div>
                         </div>
                         <div class="verMaquina">
-                            <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
+                            <div class="legendaMaq" onclick="buscarMaquinaPorId(${notificacao.idMaquina})">Ver Máquina</div>
                             <div class="icon">
-                                <img src="img/icon-olho.svg" alt="" onclick="visaoMaquina()">
+                                <img src="img/icon-olho.svg" alt="" onclick="buscarMaquinaPorId(${notificacao.idMaquina})">
                             </div>
                         </div>
                     </div>
