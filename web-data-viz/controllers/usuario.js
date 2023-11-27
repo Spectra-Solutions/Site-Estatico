@@ -204,7 +204,7 @@ class usuario {
                                                       sql,
                                                       [
                                                         idFuncionario,
-                                                        1
+                                                        3
                                                       ],
                                                       (erro, results) => {
                                                         if (erro) {
@@ -431,12 +431,15 @@ class usuario {
     }
   }
 
-  atualizarUsuarios(id, res) {
+  atualizarUsuarios(dados, res) {
 
-    const sql = `select NomeFunc, idFuncionario from Funcionario where fkEmpresa = ${id} order by NomeFunc;`;
+    console.log(dados.idEmpresa);
+    console.log(dados.idFunc);
+    const sql = `select NomeFunc, idFuncionario from Funcionario where fkEmpresa = ${dados.idEmpresa} and idFuncionario <> ${dados.idFunc} order by NomeFunc;`;
 
     conexao.query(sql, (erro, result) => {
       if (erro) {
+        console.log(erro);
         res.status(400).json(erro);
       } else {
         res.status(200).json(result);

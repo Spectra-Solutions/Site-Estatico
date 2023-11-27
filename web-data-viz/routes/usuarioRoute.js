@@ -40,7 +40,7 @@ module.exports = app => {
 
     app.post("/cadastrarFuncionario", (req, res) => {
 
-        const { nomeFuncionario, emailFuncionario, senha, idEmpresa, nivelAviso, nivelAcesso, idFuncionario, modoEdicao} = req.body;
+        const { nomeFuncionario, emailFuncionario, senha, idEmpresa, nivelAviso, nivelAcesso, idFuncionario, modoEdicao } = req.body;
 
         const funcionario = {
             nomeFuncionario, emailFuncionario, senha, idEmpresa, nivelAviso, nivelAcesso, idFuncionario, modoEdicao
@@ -51,9 +51,9 @@ module.exports = app => {
 
     app.post("/atualizarUsuarios", (req, res) => {
 
-        const { id } = req.body;
+        const dados = { idEmpresa, idFunc } = req.body;
 
-        usuario.atualizarUsuarios(id, res);
+        usuario.atualizarUsuarios(dados, res);
     });
 
 

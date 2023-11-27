@@ -108,17 +108,17 @@ form.addEventListener("submit", (event) => {
 
 });
 
-
-
-
 function atualizarUsuarios() {
 
-  const id = { id: sessionStorage.ID_EMPRESA }
+  const dados = {
+    idEmpresa: sessionStorage.ID_EMPRESA,
+    idFunc: sessionStorage.ID_FUNC
+  }
 
   fetch("/atualizarUsuarios", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(id),
+    body: JSON.stringify(dados),
   })
     .then((res) => {
       return res.json();

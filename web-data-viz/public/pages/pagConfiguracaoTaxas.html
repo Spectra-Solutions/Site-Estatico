@@ -34,7 +34,6 @@
     <!-- ------------------------ HEADER ------------------------ -->
 
 
-
     <!-- ------------------------ BODY ------------------------ -->
     <div class="conteudoTotal">
         <div id="sideBar" class="sideBar">
@@ -50,7 +49,6 @@
                             <p id="tipoUser"></p>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="configuracoes">
@@ -259,12 +257,13 @@
 
 </html>
 
+<script src="../js/loginDash.js"></script>
 <script src="../js/funcSlack.js"></script>
 <script src="js/pagConfiguracaoTaxas.js"></script>
-<script src="js/loginDash.js"></script>
 <script>
     const fkEmpresa = sessionStorage.ID_EMPRESA;
 
+    valoresUsuario()
     puxarTaxaCpu(fkEmpresa);
     puxarTaxaDisco(fkEmpresa);
     puxarTaxaRam(fkEmpresa);

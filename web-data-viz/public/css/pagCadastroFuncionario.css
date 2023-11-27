@@ -444,7 +444,6 @@ button {
     width: 70%;
     height: 6vh;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -623,7 +622,7 @@ button,
 
 .bt_voltar,
 #span_btn {
-    background-color: #052767;
+    background: rgb(34, 42, 58);
     color: #ffffff;
     font-weight: 700;
 }

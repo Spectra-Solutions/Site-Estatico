@@ -1,21 +1,3 @@
-// configuracao alerta
-// ALERTA
-const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    customClass: {
-        popup: 'swal2-show-custom-shadow'
-    },
-    didOpen: (toast) => {
-        const popup = Swal.getPopup();
-        popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-})
 
 // ----------------------- CPU -------------------------------- 
 
@@ -38,7 +20,7 @@ function puxarTaxaCpu(fkEmpresa) {
 
             formTaxa.inputTaxaAlertaCPU.value = taxas.porcentagemAlerta;
             formTaxa.inputTaxaCriticaCPU.value = taxas.porcentagemCritico;
-            
+
 
         })
         .catch((error) => {
@@ -65,10 +47,10 @@ function puxarTaxaDisco(fkEmpresa) {
 
             formTaxaDisco.inputTaxaAlertaDISCO.value = taxas.porcentagemAlerta;
             formTaxaDisco.inputTaxaCriticaDISCO.value = taxas.porcentagemCritico;
-            
+
 
         })
-        .catch((error) => { 
+        .catch((error) => {
             console.error("Erro ao recuperar taxas para edição:", error);
         });
 }
@@ -92,10 +74,10 @@ function puxarTaxaRam(fkEmpresa) {
 
             formTaxaRAM.inputTaxaAlertaRAM.value = taxas.porcentagemAlerta;
             formTaxaRAM.inputTaxaCriticaRAM.value = taxas.porcentagemCritico;
-            
+
 
         })
-        .catch((error) => { 
+        .catch((error) => {
             console.error("Erro ao recuperar taxas para edição:", error);
         });
 }
@@ -165,7 +147,9 @@ function alterarCpu() {
         })
         .then((body) => {
 
+            puxarTaxaCpu(fkEmpresa)
             Toast.fire(body.configAlerta);
+
 
         })
         .catch((err) => {
@@ -218,6 +202,7 @@ function restaurarTaxaCpu() {
         })
         .then((body) => {
 
+            puxarTaxaCpu(fkEmpresa)
             Toast.fire(body.configAlerta);
 
         })
@@ -293,6 +278,7 @@ function alterarDisco() {
         })
         .then((body) => {
 
+            puxarTaxaDisco(fkEmpresa)
             Toast.fire(body.configAlerta);
 
         })
@@ -345,6 +331,7 @@ function restaurarTaxaDisco() {
         })
         .then((body) => {
 
+            puxarTaxaDisco(fkEmpresa)
             Toast.fire(body.configAlerta);
 
         })
@@ -421,6 +408,7 @@ function alterarRam() {
         })
         .then((body) => {
 
+            puxarTaxaRam(fkEmpresa)
             Toast.fire(body.configAlerta);
 
         })
@@ -473,6 +461,7 @@ function restaurarTaxaRam() {
         })
         .then((body) => {
 
+            puxarTaxaRam(fkEmpresa)
             Toast.fire(body.configAlerta);
 
         })

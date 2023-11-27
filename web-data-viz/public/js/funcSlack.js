@@ -22,7 +22,7 @@ async function configurarSlack() {
     const { value: formValues } = await Swal.fire({
         title: 'Configurar Slack',
         html: `
-        <form id="myForm">
+        <form id="myForm" style="flex-direction:column">
             <span>Informe sua URL do Slack!</span>
             <input id="swalinput1" class="swal2-input" value="${sessionStorage.URL_SLACK}"> 
             <p>Esse link será usado para a emissão de alertas dos componentes!</p>
