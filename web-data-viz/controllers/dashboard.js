@@ -150,6 +150,49 @@ class dashboard {
     }
 
 
+    // ====================== alterar taxas ======================
+    puxarTaxaCpu(alterar, res) {
+        const fk = alterar.fkEmpresA
+        console.log(fk)
+
+        const sql = `SELECT porcentagemCritico, porcentagemAlerta FROM TaxaAviso WHERE fkComponente = 1 AND fkEmpresa = (?)`;
+        conexao.query(sql, [fk], (erro, result) => {
+            if (erro) {
+                res.status(500).json({ erro: "Erro interno no servidor" });
+            } else {
+                res.status(200).json(result[0]);
+            }
+        });
+    }
+
+    puxarTaxaDisco(alterar, res) {
+        const fk = alterar.fkEmpresA
+        console.log(fk)
+
+        const sql = `SELECT porcentagemCritico, porcentagemAlerta FROM TaxaAviso WHERE fkComponente = 3 AND fkEmpresa = (?)`;
+        conexao.query(sql, [fk], (erro, result) => {
+            if (erro) {
+                res.status(500).json({ erro: "Erro interno no servidor" });
+            } else {
+                res.status(200).json(result[0]);
+            }
+        });
+    }
+
+    puxarTaxaRam(alterar, res) {
+        const fk = alterar.fkEmpresA
+        console.log(fk)
+
+        const sql = `SELECT porcentagemCritico, porcentagemAlerta FROM TaxaAviso WHERE fkComponente = 2 AND fkEmpresa = (?)`;
+        conexao.query(sql, [fk], (erro, result) => {
+            if (erro) {
+                res.status(500).json({ erro: "Erro interno no servidor" });
+            } else {
+                res.status(200).json(result[0]);
+            }
+        });
+    }
+    
     // ====================== alterar taxas ====================== 
     atualizarTaxa(alterar, res) {
 
@@ -259,8 +302,7 @@ class dashboard {
     restaurarTaxaRam(alterar, res) {
 
         const fk = alterar.fkEmpresa
-
-        const sql = `update TaxaAviso set porcentagemCritico = 80.0, porcentagemAlerta = 60.0 where fkComponente = 2 and fkEmpresa = (?)`;
+        const sql = `update TaxaAviso set porcentagemCritico = 75.0, porcentagemAlerta = 60.0 where fkComponente = 2 and fkEmpresa = (?)`;
         conexao.query(sql, [fk], (erro, result) => {
             if (erro) {
                 res.status(400).json(erro);
@@ -269,6 +311,7 @@ class dashboard {
             }
         });
     }
+
 
     listarCPU(dados, res) {
 

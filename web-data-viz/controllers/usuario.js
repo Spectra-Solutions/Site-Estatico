@@ -121,79 +121,110 @@ class usuario {
 
                                                 // cadastro do representante
                                                 const idEmpresa = result[0].IdEmpresa;
-
-                                                // empresa pode ser cadastrado
-                                                const sql =
-                                                    "INSERT INTO Funcionario(NomeFunc, EmailFunc, SenhaFunc, fkEmpresa, fkFuncao) VALUES (?, ?, ?, ?, ?)";
-
+                                                const sqlC =
+                                                    `INSERT INTO TaxaAviso(porcentagemCritico, porcentagemAlerta, fkComponente, fkEmpresa) VALUES(?, ?, ?, ?)`
                                                 conexao.query(
-                                                    sql,
+                                                    sqlC,
                                                     [
-                                                        empresa.nomeRepresentante,
-                                                        empresa.emailRepresentante,
-                                                        empresa.senha,
-                                                        idEmpresa,
-                                                        1
+                                                        80,
+                                                        60,
+                                                        1,
+                                                        idEmpresa
+
                                                     ],
                                                     (erro, results) => {
                                                         if (erro) {
                                                             res.status(400).json(erro);
                                                         } else {
+                                                            const idEmpresa = result[0].IdEmpresa;
+                                                            const sqlR =
+                                                                `INSERT INTO TaxaAviso(porcentagemCritico, porcentagemAlerta, fkComponente, fkEmpresa) VALUES(?, ?, ?, ?)`
+                                                            conexao.query(
+                                                                sqlR,
+                                                                [
+                                                                    75,
+                                                                    60,
+                                                                    2,
+                                                                    idEmpresa
 
-                                                            const sql = `SELECT idFuncionario FROM Funcionario WHERE EmailFunc = (?)`;
+                                                                ],
+                                                                (erro, results) => {
+                                                                    if (erro) {
+                                                                        res.status(400).json(erro);
+                                                                    } else {
+                                                                        const idEmpresa = result[0].IdEmpresa;
+                                                                        const sqlD =
+                                                                            `INSERT INTO TaxaAviso(porcentagemCritico, porcentagemAlerta, fkComponente, fkEmpresa) VALUES(?, ?, ?, ?)`
+                                                                        conexao.query(
+                                                                            sqlD,
+                                                                            [
+                                                                                80,
+                                                                                60,
+                                                                                3,
+                                                                                idEmpresa
 
-                                                            conexao.query(sql, [empresa.emailRepresentante], (erro, result) => {
-                                                                if (erro) {
-                                                                    res.status(400).json(erro);
-                                                                } else {
+                                                                            ],
+                                                                            (erro, results) => {
+                                                                                if (erro) {
+                                                                                    res.status(400).json(erro);
+                                                                                } else {
+                                                                                    const idEmpresa = result[0].IdEmpresa;
+                                                                                    // empresa pode ser cadastrado
+                                                                                    const sql =
+                                                                                        "INSERT INTO Funcionario(NomeFunc, EmailFunc, SenhaFunc, fkEmpresa, fkFuncao) VALUES (?, ?, ?, ?, ?)";
 
-                                                                    // cadastro na tebal
-                                                                    const idFuncionario = result[0].idFuncionario;
+                                                                                    conexao.query(
+                                                                                        sql,
+                                                                                        [
+                                                                                            empresa.nomeRepresentante,
+                                                                                            empresa.emailRepresentante,
+                                                                                            empresa.senha,
+                                                                                            idEmpresa,
+                                                                                            1
+                                                                                        ],
+                                                                                        (erro, results) => {
+                                                                                            if (erro) {
+                                                                                                res.status(400).json(erro);
+                                                                                            } else {
 
-                                                                    const sql =
-                                                                        "INSERT INTO Chamado(fkFuncionario, FKTipoAviso) VALUES (?, ?)";
+                                                                                                const sql = `SELECT idFuncionario FROM Funcionario WHERE EmailFunc = (?)`;
 
-                                                                    conexao.query(
-                                                                        sql,
-                                                                        [
-                                                                            idFuncionario,
-                                                                            1
-                                                                        ],
-                                                                        (erro, results) => {
-                                                                            if (erro) {
-                                                                                res.status(400).json(erro);
-                                                                            } else {
+                                                                                                conexao.query(sql, [empresa.emailRepresentante], (erro, result) => {
+                                                                                                    if (erro) {
+                                                                                                        res.status(400).json(erro);
+                                                                                                    } else {
 
-                                                                                // cadastro na tebal
-                                                                                const idFuncionario = result[0].idFuncionario;
+                                                                                                        // cadastro na tebal
+                                                                                                        const idFuncionario = result[0].idFuncionario;
 
-                                                                                const sql = `
-                                                                                    INSERT INTO TaxaAviso(porcentagemCritico, porcentagemAlerta, 
-                                                                                    fkComponente, fkEmpresa) VALUES
-                                                                                        (80, 60, 1, ${idEmpresa}),
-                                                                                        (75, 60, 2, ${idEmpresa}),
-                                                                                        (80, 60, 3, ${idEmpresa});
-                                                                                `;
+                                                                                                        const sql =
+                                                                                                            "INSERT INTO Chamado(fkFuncionario, FKTipoAviso) VALUES (?, ?)";
 
-                                                                                conexao.query(
-                                                                                    sql,
-                                                                                    (erro, results) => {
-                                                                                        if (erro) {
-                                                                                            res.status(400).json(erro);
-                                                                                        } else {
-                                                                                            res.status(200).json({ message: "Cadastrado com sucesso, faça seu login!" });
+                                                                                                        conexao.query(
+                                                                                                            sql,
+                                                                                                            [
+                                                                                                                idFuncionario,
+                                                                                                                1
+                                                                                                            ],
+                                                                                                            (erro, results) => {
+                                                                                                                if (erro) {
+                                                                                                                    res.status(400).json(erro);
+                                                                                                                } else {
+                                                                                                                    res.status(200).json({ message: "Cadastrado com sucesso, faça seu login!" });
+                                                                                                                }
+                                                                                                            }
+                                                                                                        );
+                                                                                                    }
+                                                                                                });
+                                                                                            }
                                                                                         }
-                                                                                    }
-                                                                                );
-
-                                                                            }
-                                                                        }
-                                                                    );
-                                                                }
-                                                            });
+                                                                                    );
+                                                                                }
+                                                                            });
+                                                                    }
+                                                                });
                                                         }
-                                                    }
-                                                );
+                                                    });
                                             }
                                         });
 
@@ -210,8 +241,6 @@ class usuario {
             });
         }
     }
-
-
 
     cadastrarFuncionario(funcionario, res) {
       var idFuncionarioAtual = funcionario.idFuncionario
@@ -477,6 +506,11 @@ class usuario {
   }
 
 
+
 }
 
 module.exports = new usuario();
+
+
+
+

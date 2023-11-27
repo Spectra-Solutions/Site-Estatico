@@ -13,10 +13,9 @@ function buscarUltimosProcessos(req, res) {
 
     // Query SQL com placeholders
     const instrucaoSql = `
-        SELECT * FROM Processo
+        SELECT TOP 20 * FROM Processo
         WHERE fkMaquinaProcesso = ${idMaquina}
-        ORDER BY idProcesso DESC
-        LIMIT ${limite_linhas};
+        ORDER BY idProcesso DESC;
     `;
 
     // Conectar ao banco de dados

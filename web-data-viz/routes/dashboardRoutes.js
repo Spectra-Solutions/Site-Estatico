@@ -22,6 +22,36 @@ module.exports = app => {
         dashboard.listarInformacoesMaquina(id, res);
     });
 
+    app.post("/puxarTaxaCpu", (req, res) => {
+
+        const { fkEmpresA } = req.body;
+
+        const alterar = {fkEmpresA}
+
+        dashboard.puxarTaxaCpu(alterar, res);
+        
+    });
+    
+    app.post("/puxarTaxaDisco", (req, res) => {
+
+        const { fkEmpresA } = req.body;
+
+        const alterar = {fkEmpresA}
+
+        dashboard.puxarTaxaDisco(alterar, res);
+        
+    });
+
+    app.post("/puxarTaxaRam", (req, res) => {
+
+        const { fkEmpresA } = req.body;
+
+        const alterar = {fkEmpresA}
+
+        dashboard.puxarTaxaRam(alterar, res);
+        
+    });
+
 
 
 
