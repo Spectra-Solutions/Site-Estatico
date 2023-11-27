@@ -77,7 +77,7 @@ function exibirAlertaReiniciar() {
 
                 var comandoReinicar = "";
 
-                if (sessionStorage.SO_MAQ == "Linux") {
+                if (sessionStorage.SO_MAQ == "Linux" || sessionStorage.SO_MAQ == "Ubuntu") {
                     comandoReinicar = "sudo shutdown -r now";
                 } else if (sessionStorage.SO_MAQ == "Windows") {
                     comandoReinicar = "shutdown /r /f /t 0";
