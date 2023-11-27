@@ -10,14 +10,6 @@ function updateChartData(chartData, chart, fetchDataEndpoint) {
         .then((data) => {
 
             // Adicionar o novo dado ao array de consumo
-            console.log(data[0]);
-            if (data[0].fkComponente == 2) {
-
-                const consumoAtual = data[0].consumoAtual;
-                const consumoFormatado = (consumoAtual / data[0].armazenamentoTotal) * 100;
-                chartData.push(consumoFormatado);
-
-            }
             const consumoAtual = data[0].consumoAtual;
             chartData.push(consumoAtual);
 
