@@ -1,21 +1,3 @@
-// configuracao alerta
-// ALERTA
-const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    customClass: {
-        popup: 'swal2-show-custom-shadow'
-    },
-    didOpen: (toast) => {
-        const popup = Swal.getPopup();
-        popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-})
 
 
 function exibirAlertaDesligar() {
@@ -68,51 +50,6 @@ function exibirAlertaDesligar() {
                     })
                     .then((body) => {
 
-                        if (gravouComando) {
-
-                            fetch('/validarComandosInovacao', {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify(dados)
-                            })
-                                .then((res) => {
-
-                                    if (res.status === 200) {
-
-                                        executouComando = true;
-
-                                        var body = res.json();
-
-                                        return body;
-                                    }
-                                })
-                                .then((body) => {
-
-                                    if (executouComando) {
-                                        Swal.fire(
-                                            'Desligada!',
-                                            'A máquina foi desligada com sucesso.',
-                                            'success'
-                                        )
-                                    } else {
-                                        Swal.fire(
-                                            'Opa!',
-                                            'Erro ao executar o comando.',
-                                            'warning'
-                                        )
-                                    }
-                                })
-                                .catch((err) => {
-                                    console.log("On the catch");
-                                    console.error('Erro inesperado: ', err);
-                                });
-                        } else {
-                            Swal.fire(
-                                'Opa!',
-                                'Erro ao gravar o comando.',
-                                'warning'
-                            )
-                        }
                     })
                     .catch((err) => {
                         console.log("On the catch");
@@ -174,55 +111,7 @@ function exibirAlertaReiniciar() {
                     })
                     .then((body) => {
 
-                        if (gravouComando) {
 
-                            var id = body;
-                            console.log("COMANDO EXECUTADO: " + id)
-
-                            fetch('/validarComandosInovacao', {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify(dados)
-                            })
-                                .then((res) => { return res.json(); })
-                                .then((idComando) => {
-
-                                    if (res.status === 200) {
-
-                                        executouComando = true;
-
-                                        var body = idComando.json();
-
-                                        return body;
-                                    }
-                                })
-                                .then((body) => {
-
-                                    if (executouComando) {
-                                        Swal.fire(
-                                            'Desligada!',
-                                            'A máquina foi desligada com sucesso.',
-                                            'success'
-                                        )
-                                    } else {
-                                        Swal.fire(
-                                            'Opa!',
-                                            'Erro ao executar o comando.',
-                                            'warning'
-                                        )
-                                    }
-                                })
-                                .catch((err) => {
-                                    console.log("On the catch");
-                                    console.error('Erro inesperado: ', err);
-                                });
-                        } else {
-                            Swal.fire(
-                                'Opa!',
-                                'Erro ao gravar o comando.',
-                                'warning'
-                            )
-                        }
                     })
                     .catch((err) => {
                         console.log("On the catch");

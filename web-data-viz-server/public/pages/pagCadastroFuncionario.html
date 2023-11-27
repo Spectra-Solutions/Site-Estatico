@@ -50,7 +50,7 @@
                 <div class="configuracoes">
                     <a href="/configuracaoTaxas" style="text-decoration: none;">
 
-                        <div class="configurarMaquina">
+                        <div class="configurarMaquina" id="div_configurarMaquina">
                             <img src="img/icon-config.svg" class="iconConfig">
                             <div id="configurarMaquina">Configurar Máquinas</div>
                         </div>
@@ -58,11 +58,18 @@
                     </a>
 
                     <a href="/cadastroFuncionario" style="text-decoration: none;">
-                        <div class="cadastrarUsuario">
+                        <div class="cadastrarUsuario" id="div_cadastrarUsuario">
                             <img src="img/icon-usuario2.svg" class="iconUsuario2">
                             <div id="cadastrarUsuario">Cadastrar Usuário</div>
                         </div>
                     </a>
+
+                    <span style="text-decoration: none;" onclick="configurarSlack()" id="span_configurarSlack">
+                        <div class="home">
+                            <img src="img/slack.svg" class="iconUsuario3">
+                            <div id="home">Slack</div>
+                        </div>
+                    </span>
 
                     <a href="/monitoramentoGeral" style="text-decoration: none;">
                         <div class="home">
@@ -70,6 +77,7 @@
                             <div id="home">Home</div>
                         </div>
                     </a>
+
                 </div>
 
             </div>
@@ -102,82 +110,82 @@
                                 </div>
 
                                 <div class="centralizadora">
-                                
-                                <form action="/cadastrarFuncionario" id="formCadastroFuncionario" method="POST">
-                                    
-                                    <div class="cadastroFuncionario">
 
-                                        <div class="linha1">
-                                            <span>NOME</span>
-                                            <div class="inputs">
-                                                <div id="div_input_nome_funcionario" class="input">
-                                                    <input id="input_nome_funcionario" name="nomeFuncionario">
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <form action="/cadastrarFuncionario" id="formCadastroFuncionario" method="POST">
 
-                                        <div class="colunas">
+                                        <div class="cadastroFuncionario">
 
-                                            <div class="coluna1">
-
-                                                <div class="labels">
-                                                    <span>EMAIL</span>
-                                                </div>
-
+                                            <div class="linha1">
+                                                <span>NOME</span>
                                                 <div class="inputs">
-                                                    <div id="div_input_email" class="input">
-                                                        <input id="input_email" name="emailFuncionario">
+                                                    <div id="div_input_nome_funcionario" class="input">
+                                                        <input id="input_nome_funcionario" name="nomeFuncionario">
                                                     </div>
                                                 </div>
-
-                                                <div class="labels">
-                                                    <span>SENHA</span>
-                                                </div>
-
-                                                <div class="inputs">
-                                                    <div id="div_input_senha" class="input">
-                                                        <input id="input_senha" name="senha">
-                                                    </div>
-                                                </div>
-
                                             </div>
 
+                                            <div class="colunas">
 
-                                            <div class="gap">
-                                                <div class="coluna2">
+                                                <div class="coluna1">
 
                                                     <div class="labels">
-                                                        <span>NÍVEL DE AVISO</span>
+                                                        <span>EMAIL</span>
                                                     </div>
 
-                                                    <select name="nivelAviso" id="select_nivel_de_aviso">
-                                                        <option value="">Escolher...</option>
-                                                        <option value="">Crítico</option>
-                                                        <option value="">Alerta</option>
-                                                        <option value="">Crítico e Alerta</option>
-                                                    </select>
+                                                    <div class="inputs">
+                                                        <div id="div_input_email" class="input">
+                                                            <input id="input_email" name="emailFuncionario">
+                                                        </div>
+                                                    </div>
 
                                                     <div class="labels">
-                                                        <span>NÍVEL DE ACESSO</span>
+                                                        <span>SENHA</span>
                                                     </div>
 
-                                                    <select name="nivelAcesso" id="select_nivel_de_acesso">
-                                                        <option value="">Escolher...</option>
-                                                        <option value="">ADM</option>
-                                                        <option value="">Funcionario</option>
-                                                    </select>
+                                                    <div class="inputs">
+                                                        <div id="div_input_senha" class="input">
+                                                            <input id="input_senha" name="senha">
+                                                        </div>
+                                                    </div>
+
                                                 </div>
+
+
+                                                <div class="gap">
+                                                    <div class="coluna2">
+
+                                                        <div class="labels">
+                                                            <span>NÍVEL DE AVISO</span>
+                                                        </div>
+
+                                                        <select name="nivelAviso" id="select_nivel_de_aviso">
+                                                            <option value="">Escolher...</option>
+                                                            <option value="">Crítico</option>
+                                                            <option value="">Alerta</option>
+                                                            <option value="">Crítico e Alerta</option>
+                                                        </select>
+
+                                                        <div class="labels">
+                                                            <span>NÍVEL DE ACESSO</span>
+                                                        </div>
+
+                                                        <select name="nivelAcesso" id="select_nivel_de_acesso">
+                                                            <option value="">Escolher...</option>
+                                                            <option value="">ADM</option>
+                                                            <option value="">Funcionario</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                             </div>
 
+                                            <div class="botoes">
+                                                <!-- <button onclick="pesquisar()" class="bt_pesquisar">PESQUISAR</button> -->
+                                                <button onclick="salvar()" class="bt_salvar">SALVAR</button>
+                                                <!-- <button onclick="excluir()" class="bt_excluir">EXCLUIR</button> -->
+                                            </div>
                                         </div>
-
-                                        <div class="botoes">
-                                            <!-- <button onclick="pesquisar()" class="bt_pesquisar">PESQUISAR</button> -->
-                                            <button onclick="salvar()" class="bt_salvar">SALVAR</button>
-                                            <!-- <button onclick="excluir()" class="bt_excluir">EXCLUIR</button> -->
-                                        </div>
-                                    </div>
-                                </form>
+                                    </form>
 
                                 </div>
                             </div>
@@ -210,31 +218,39 @@
                                                 <img src="img/excluir.svg" alt="" onclick="exibirAlertaExcluir()">
                                             </div>
                                         </div>
-                                        
-                                        </div>
-
 
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
 
 
 
-                <!-- ------------------------ BODY ------------------------ -->
+            <!-- ------------------------ BODY ------------------------ -->
 
 </body>
 
 </html>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+<script src="../js/funcSlack.js"></script>
 <script src="js/cadastroFuncionario.js"></script>
 <script src="js/loginDash.js"></script>
 
 <script>
     valoresUsuario()
+
+    if (sessionStorage.TIPO_FUNCAO == 'Usuario comum') {
+
+        document.getElementById("div_configurarMaquina").style.display = "none";
+        document.getElementById("div_cadastrarUsuario").style.display = "none";
+        document.getElementById("span_configurarSlack").style.display = "none";
+    }
 </script>

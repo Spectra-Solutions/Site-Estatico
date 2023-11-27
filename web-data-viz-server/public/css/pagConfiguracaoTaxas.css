@@ -234,7 +234,9 @@
     height: 26vh;
 }
 
-form{
+#formTaxa,
+#formTaxaDisco,
+#formTaxaRAM {
     border-radius: 5px;
     background: #ECECEC;
     width: 70%;
@@ -288,7 +290,9 @@ form{
     cursor: pointer;
 }
 
-#restaurarCPU, #restaurarDisco,#restaurarRam {
+#restaurarCPU,
+#restaurarDisco,
+#restaurarRam {
     background: rgb(34, 42, 58);
 }
 

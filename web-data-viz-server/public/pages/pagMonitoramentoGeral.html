@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="css/pagMonitoramentoGeral.css">
     <link rel="shortcut icon" type="imagex/png" href="img/icone.png">
 
+    <!-- toast - alerta -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+
     <title>Spectra | Dashboard</title>
 </head>
 
@@ -54,7 +58,7 @@
                     <a href="/configuracaoTaxas" style="text-decoration: none;">
 
                         <div class="configurarMaquina" id="div_configurarMaquina">
-                            <img src="img/icon-config.svg" class="iconConfig" id="img_configurarMaquina">
+                            <img src="img/icon-config.svg" class="iconConfig">
                             <div id="configurarMaquina">Configurar Máquinas</div>
                         </div>
 
@@ -66,6 +70,13 @@
                             <div id="cadastrarUsuario">Cadastrar Usuário</div>
                         </div>
                     </a>
+
+                    <span style="text-decoration: none;" onclick="configurarSlack()" id="span_configurarSlack">
+                        <div class="home">
+                            <img src="img/slack.svg" class="iconUsuario3">
+                            <div id="home">Slack</div>
+                        </div>
+                    </span>
 
                     <a href="/monitoramentoGeral" style="text-decoration: none;">
                         <div class="home">
@@ -218,14 +229,17 @@
 
 <script src="js/pagMonitoramentoGeral.js"></script>
 <script src="js/loginDash.js"></script>
+<script src="js/funcSlack.js"></script>
 
 <script>
-    valoresUsuario()
+    if (sessionStorage.TIPO_FUNCAO == 'Usuario comum') {
 
-    if (sessionStorage.TIPO_FUNCAO == 'Padrão'){
         document.getElementById("div_configurarMaquina").style.display = "none";
         document.getElementById("div_cadastrarUsuario").style.display = "none";
+        document.getElementById("span_configurarSlack").style.display = "none";
     }
+
+    valoresUsuario()
 
     const idEmpresa = sessionStorage.ID_EMPRESA;
     buscarMaquina(idEmpresa)

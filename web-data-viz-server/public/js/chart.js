@@ -10,6 +10,14 @@ function updateChartData(chartData, chart, fetchDataEndpoint) {
         .then((data) => {
 
             // Adicionar o novo dado ao array de consumo
+            console.log(data[0]);
+            if (data[0].fkComponente == 2) {
+
+                const consumoAtual = data[0].consumoAtual;
+                const consumoFormatado = (consumoAtual / data[0].armazenamentoTotal) * 100;
+                chartData.push(consumoFormatado);
+
+            }
             const consumoAtual = data[0].consumoAtual;
             chartData.push(consumoAtual);
 
@@ -216,8 +224,10 @@ function atualizarDadosRAM() {
                 total.innerHTML = listaDadosRAM[0].armazenamentoTotal + "GB";
 
                 const porcentagemDisponivel = (memoriaDisponivel / memoriaTotal);
-                disponivelPorcent.innerHTML = "(" + porcentagemDisponivel.toFixed(0) + "%)";
+                console.log("PORCENTAGEM " + porcentagemDisponivel);
+                disponivelPorcent.innerHTML = "(" + porcentagemDisponivel.toFixed(2) + "%)";
 
+                console.log(listaDadosRAM[0].fkTipoAViso);
                 trocarCorAviso(listaDadosRAM[0].fkTipoAViso, '.boxRAM');
             } else {
                 disponivel.innerHTML = 'N/A';
@@ -290,6 +300,7 @@ function atualizarDadosDisco() {
 
                 divListaDisco.innerHTML = listaDisco;
 
+                console.log("ID TIPO AVISO DISCO: " + listaDadosDisco[0].fkTipoAViso);
                 trocarCorAviso(listaDadosDisco[0].fkTipoAViso, '.boxDisco');
 
             } else {

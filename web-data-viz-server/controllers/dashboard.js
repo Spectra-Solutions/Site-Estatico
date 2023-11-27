@@ -11,9 +11,10 @@ class dashboard {
 
     listarMaquinas(idEmpresa, res) {
         const sql = `
-            SELECT idMaquina, nome 
-            FROM Maquina 
-            WHERE fkEmpresaMaquina = ${idEmpresa};
+        SELECT idMaquina, nome FROM Maquina 
+        JOIN Empresa
+            ON fkEmpresaMaquina = IdEmpresa
+                WHERE idEmpresa = ${Number(idEmpresa)};
         `;
     
         conexao
@@ -51,7 +52,7 @@ class dashboard {
                     SELECT idComando 
                     FROM Comando 
                     WHERE nomeComando = '${dados.comando}' 
-                        AND stattus = ${0} 
+                        AND stattus = ${1} 
                         AND fkMaquina = ${dados.fkMaquina} 
                         AND fkFuncionario = ${dados.fkUser}
                 `;
@@ -97,7 +98,7 @@ class dashboard {
 
     listarTaxaMaquina(dados, res) {
 
-        const sql = `SELECT DISTINCT TOP 4 ra.fkTipoAviso, m.idMaquina,
+        const sql = `SELECT DISTINCT ra.fkTipoAviso, m.idMaquina,
                         CASE WHEN rc.fkMaquina IS NOT NULL THEN 1 ELSE 0 END AS possuiRegistroComponente
                             FROM Maquina AS m
                                 LEFT JOIN registroComponente AS rc ON m.idMaquina = rc.fkMaquina
@@ -402,7 +403,7 @@ class dashboard {
         // Query SQL com placeholders
         const sql = `
             UPDATE TaxaAviso 
-            SET porcentagemCritico = 75.0, porcentagemAlerta = 60.0 
+            SET porcentagemCritico = 80.0, porcentagemAlerta = 60.0 
             WHERE fkComponente = 2 AND fkEmpresa = ${fk}
         `;
     
