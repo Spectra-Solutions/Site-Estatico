@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectra | Login</title>
+    <link rel="shortcut icon" type="imagex/png" href="img/icone.png">
+    <link rel="stylesheet" href="css/pagLogin.css">
+
+    <!-- toast - alerta -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+</head>
+
+<body>
+
+    <!-------------------------- HEADER ---------------------------->
+    <div id="header-nav" class="header">
+
+        <div class="containerHeader">
+
+            <div class="logoNav">
+                <a href="/home"><img src="img/LOGO_SPECTRA2 1.svg" alt="" id="imgLogo"></a>
+
+            </div>
+
+            <nav id="navTopo">
+                <ul class="lista_nav" id="lista_nav1">
+                    <a href="/home">
+                        <li>Home</li>
+                    </a>
+                    <a href="/duvidas">
+                        <li>Dúvidas</li>
+                    </a>
+                    <a href="/cadastro">
+                        <li>Fazer parte</li>
+                    </a>
+                    <li onclick="jira()">Suporte</li>
+                    <a href="/login"><button class="bt_login">Login</button></a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-------------------------- BODY ---------------------------->
+
+    <div class="conteudo">
+        <div class="containerCorpo">
+
+
+            <div class="box">
+                <div class="login">
+
+                    <h3>Bem vindo</h3>
+
+                    <img src="img/LOGO_SPECTRA3 font-black.svg" alt="" height="30px">
+
+                    <form action="/autenticarUser" method="POST" id="formLogar">
+                        <div class="inputs">
+                            <div id="div_input_email" class="input">
+                                <img src="img/login-usuario.svg" alt="">
+                                <input id="input_email" type="email" placeholder="Usuário" name="emailUser">
+                            </div>
+
+                            <div id="div_input_senha" class="input">
+                                <img src="img/login-senha.svg" alt="">
+                                <input id="input_senha" type="password" placeholder="Senha" minlength="8" maxlength="8"
+                                    name="senhaUser">
+                            </div>
+
+                        </div>
+
+                        <button class="bt_login_corpo">
+                            Login
+                        </button>
+                        <div class="mensagem_conta">
+                            Ainda não tem uma conta? <a href="/cadastro">Faça agora!</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+</body>
+
+</html>
+<script src="js/pagLogin.js"></script>
+<script src="js/loginDash.js"></script>

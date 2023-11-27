@@ -1,0 +1,40 @@
+Para criar funcões nesta API, você irá precisar dos arquivos:
+
+1 - Página HTML
+    se encontra na pasta pages
+
+2 - ARQUIVO JS
+    se encontra na pasta js
+
+3 - Controller
+    se encontra na pasta controllers
+
+4 - Routes
+    se encontra na pasta Routes
+
+===================
+
+Como é o fluxo de criação de funções?
+
+Antes de iniciar, saiba qual é a página que você precisa editar e qual o seu js correspondente
+
+Logo após, você terá que criar uma estrtura do fetch para cada função com a rota necessária que é criada na Routes
+No fetch, veja a estrtura das outras páginas js (cadastroEmpresa e login)
+
+Depois, você precisa criar a ROTA para essa atividade na pasta Routes
+- entenda qual o arquivo que você irá editar, já que temos duas com a sua utilização
+
+* dashboardRoutes - apenas para funções da DASHBOARD, nada de tabelas de funcionario
+* usuarioRoutes - apenas para funções de funcionario e usuario, como editar, cadastrar, excluir..
+
+Depois de criar a rota (lá tem o exemplo), crie o método na controller, sendo:
+- entenda qual o arquivo que você irá editar, já que temos duas com a sua utilização
+
+* dashboard - apenas para funções da DASHBOARD, nada de tabelas de funcionario
+* usuario - apenas para funções de funcionario e usuario, como editar, cadastrar, excluir..
+
+* ATENÇÃO: Você irá ver que em algumas páginas existe outros métodos comentados! veja se algum te serve e edite!
+* ATENÇÃO: No arquivo controller dashboard, tem métodos de colaborador, eles devem ser apagados de lá e enviados caso você 
+utilize, para a controller usuario!
+
+

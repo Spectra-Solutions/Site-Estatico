@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categorias</title>
+  <link rel="stylesheet" href="css/pagDuvidas.css" />
+  <link rel="shortcut icon" type="imagex/png" href="img/icone.png">
+</head>
+
+<body>
+  <!-------------------------- HEADER ---------------------------->
+  <div id="header-nav" class="header">
+
+    <div class="containerHeader">
+
+      <div class="logoNav">
+        <a href="/home"><img src="img/LOGO_SPECTRA2 1.svg" alt="" id="imgLogo"></a>
+      </div>
+
+      <nav id="navTopo">
+        <ul class="lista_nav" id="lista_nav1">
+          <li><a href="/home">Home</a></li>
+          <li><a href="/duvidas">Dúvidas</a></li>
+          <li><a href="/cadastro">Fazer Parte</a></li>
+          <li onclick="jira()">Suporte</li>
+          <button class="bt_login"><a href="/login">Login</a></button>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+  <!-------------------------- HEADER ---------------------------->
+
+  <!-------------------------- BODY ---------------------------->
+  <div class="corpo">
+    <div class="background_imagem">
+      <div class="box_background_imagem">
+        <h1>
+          Descubra se o nosso monitoramento de servidores pode te ajudar!
+        </h1>
+        <img src="img/LOGO_SPECTRA2 font-white.svg" alt="" height="40px" />
+      </div>
+    </div>
+
+    <div class="conteudo" id="redirecionar">
+      <h2>Problemas comuns com falha de desempenho de servidores</h2>
+      <img src="img/retangulo-verde.png" alt="" />
+    </div>
+
+    <div class="texto_conteudo">
+      <p class="texto_p">
+        Quando se trata do fluxo de dados que empresas ETL devem processar, é
+        necessário utilizar servidores capazes de lidar com essa atividade. Se
+        o servidor não estiver preparado para receber milhões de solicitações
+        simultâneas de acesso dos usuários, é natural que a lentidão se
+        instale. Na verdade, em alguns casos ocorrem quedas do servidor e até
+        mesmo o superaquecimento.
+      </p>
+    </div>
+
+    <div class="texto_conteudo2">
+      <p class="texto_p2">
+        Marque os problemas abaixo que você está enfrentando em sua empresa:
+      </p>
+    </div>
+
+    <div class="centralizadora">
+      <div class="checkboxes">
+        <div class="checkbox">
+          <div>
+            <input type="checkbox" id="checkLentidao" value="Lentidão" name="check" />
+            Lentidão
+          </div>
+
+          <div>
+            <input type="checkbox" id="checkAtraso" value="Atraso De Respostas" name="check" />
+            Atraso de respostas
+          </div>
+
+          <div>
+            <input type="checkbox" id="checkDowtime" value="Downtime" name="check" />
+            Downtime
+          </div>
+        </div>
+        <div class="checkbox">
+          <div>
+            <input type="checkbox" id="checkPerda" value="Perda De Dados" name="check" />
+            Perda de Dados
+          </div>
+
+          <div>
+            <input type="checkbox" id="checkArmazenamento" value="Armazenamento Insuficiente" name="check" />
+            Armazenamento insuficiente
+          </div>
+
+          <div>
+            <input type="checkbox" id="checkRede" value="Rede Instável" name="check" />
+            Rede instável
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button onclick="bt_solucao()" class="bt_solucao">
+      Ver solução Spectra
+    </button>
+
+    <div id="id_box_solucao" class="box_solucao" style="display: none">
+      <div id="mensagem_solucao" class="mensagem_solucao">
+        <p id="problemas">Para o(s) problema(s):</p>
+        <div id="problemas_cliente"></div>
+
+        <p class="resposta" id="solucao">
+          Nossa solução pode te ajudar a partir do monitoramento de:
+        </p>
+
+        <div id="componentes_monitorados"></div>
+        <div id="solucoes_spectra"></div>
+
+        <p class="resposta" id="outros">Além disso também monitoramos:</p>
+
+        <div id="componentes_nao_monitorados" class="componentes_nao_monitorados"></div>
+      </div>
+    </div>
+
+    <button id="bt_faca_parte" class="bt_faca_parte">
+      <a href="/cadastro">Se interessou? Faça parte!</a>
+    </button>
+  </div>
+
+  <!-------------------------- BODY ---------------------------->
+
+  <!-- ------------------------ btSubir -------------------------------------------  -->
+
+  <div class="divDoBotao">
+    <div class="containerBt">
+      <div class="btSubir" onclick="subir()">
+        <img src="img/seta-branca 1.svg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- -------------------------------------------------------------------------------- -->
+
+  <!-------------------------- FOOTER ---------------------------->
+
+  <div class="conteudoFooter">
+    <div class="elementos">
+      <div class="infoFooter">
+        <ul class="lista_nav">
+          <li class="nav_item_footer"><a href="/home">Home</a></li>
+          <li class="nav_item_footer"><a href="/duvidas" onclick="rolagemAnimada()">Dúvidas</a></li>
+          <li class="nav_item_footer"><a href="/cadastro">Fazer Parte</a></li>
+          <li class="nav_item_footer" onclick="jira()">Suporte</li>
+          <li class="nav_item_footer"><a href="/login">Login</a></li>
+        </ul>
+      </div>
+      <div class="linha"></div>
+      <div class="logoFinal">
+        <img src="img/LOGO_SPECTRA2 font-white.svg" alt="" id="logoFooter" />
+        <span>Copyright © 2023 Spectra</span>
+      </div>
+      <a href="login.html"></a>
+    </div>
+  </div>
+
+  <!-------------------------- FOOTER ---------------------------->
+</body>
+
+</html>
+
+<script src="js/pagDuvidas.html">
+</script>

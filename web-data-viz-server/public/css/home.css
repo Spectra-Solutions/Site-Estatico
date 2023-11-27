@@ -1,0 +1,1210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    background-color: #e9e9e9;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* -------------------- header -------------------- */
+
+.header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+}
+
+
+.containerHeader {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#imgLogo {
+    width: 30%;
+    height: 10vh;
+}
+
+
+.lista_nav {
+    padding: 2vh;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+#lista_nav1 {
+    margin-top: 0;
+}
+
+.lista_nav li {
+    margin-right: 5em;
+    font-size: 1.1vmax;
+    color: #ffff;
+}
+
+a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+.bt_login {
+    background-color: #01C38E;
+    border: none;
+    border-radius: 10px;
+    color: #ffff;
+    height: 30px;
+    width: 70px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.header {
+    width: 100%;
+    height: 10%;
+    margin: 0;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.colorirFundo {
+    background-color: #052767e5;
+}
+
+/* ------------------ conteudo -----------------------  */
+
+.banner {
+    width: 100%;
+
+
+}
+
+.banner img {
+    width: 100%;
+
+}
+
+.total-container {
+    margin-left: 10vh;
+
+}
+
+
+.informacoes-01 {
+    display: flex;
+    margin-top: -70vh;
+    width: 80%;
+    position: absolute;
+}
+
+.informacoes-02 {
+    width: 80%;
+    position: absolute;
+    display: none;
+}
+
+.parte1 {
+    width: 100%;
+}
+
+.escrita1 {
+
+    width: 40%;
+    margin: none;
+}
+
+.escrita1 span {
+
+    font-size: 2em;
+    color: #ffffff;
+}
+
+.escrita2 {
+    width: 40%;
+    margin: none;
+
+}
+
+.escrita2 span {
+    font-size: 1em;
+    color: #ffffff;
+}
+
+.titulo_baner {
+    font-size: 64px;
+    font-weight: 600;
+    color: #ffff;
+}
+
+.bt_saber {
+    background-color: #01C38E;
+    border: none;
+    border-radius: 10px;
+    color: #ffff;
+    width: 20vh;
+    font-size: 15px;
+    height: 33px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+/* ------------------------------- vantagens ---------------------------- */
+
+.pontosGarantidos {
+    margin-top: 10vh;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.flex {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.suporte {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    text-align: center;
+}
+
+.imgSuporte img {
+    height: 100px;
+}
+
+.tituloSuporte span {
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.conteudoSuporte {
+    width: 60%;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.conteudoSuporte span {
+    font-size: 1.1em;
+}
+
+
+.otimizacao {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    text-align: center;
+}
+
+.imgOtimizacao img {
+    height: 100px;
+}
+
+.tituloOtimizacao span {
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.conteudoOtimizacao {
+    width: 70%;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.conteudoOtimizacao span {
+    font-size: 1.1em;
+}
+
+.falhas {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    text-align: center;
+}
+
+.imgFalhas img {
+    height: 100px;
+}
+
+.tituloFalhas span {
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.conteudoFalhas {
+    width: 60%;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.conteudoFalhas span {
+    font-size: 1.1em;
+}
+
+
+/* -------------------- soluçao ------------------  */
+
+#imgLogo2 {
+    width: 100%;
+    height: 25px;
+}
+
+#conteudoSolucao {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+.containerSolucao {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nomeSolucao span {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.explicacaoSolucao {
+    font-size: 1.1em;
+    width: 40%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+
+.dashSolucao {
+    display: flex;
+    margin-top: 5%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.divsMoni {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.imgDashSolucao {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.imgDashSolucao img {
+    width: 80vh;
+}
+
+.monitoramentos {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.monitoramentos span {
+    font-size: 1.1em;
+    margin-top: 2%;
+}
+
+.img_check {
+    width: 11.3%;
+    margin-right: 2%;
+}
+
+
+/* -------------------------fazer parte---------------------------------  */
+
+.fzerParte {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-image: url(../img/fundoVerde.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+    height: 50vh;
+    text-align: center;
+}
+
+.textoParte span {
+    color: #ffff;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.btFzrParte button {
+    margin-top: 25%;
+    border-radius: 5px;
+    border: none;
+    font-size: medium;
+    color: #ffff;
+    background-color: #052767;
+    font-weight: 550;
+    height: 30px;
+    width: 120%;
+    cursor: pointer;
+}
+
+/* ---------------------------pilares---------------------------------------------  */
+
+.conteudoQuemSomos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+.TituloQuemSomos span {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.conteudoQS {
+    font-size: 1.1em;
+}
+
+.pilares {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3vh;
+    width: 100%;
+}
+
+.imgPilar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.imgPilar img {
+    width: 30%;
+}
+
+.pilar1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.tituloPilar1 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.conteudoPilar1 {
+    width: 60%;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 1.1em;
+}
+
+.pilar2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.tituloPilar2 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.conteudoPilar2 {
+    width: 60%;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 1.1em;
+}
+
+.pilar3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.tituloPilar3 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.conteudoPilar3 {
+    width: 60%;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 1.1em;
+}
+
+/* -------------------- fotos gp -----------------------------  */
+
+.conteudoFotos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10vh;
+}
+
+
+.tituloFotos {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.primeirasFotos {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2vh;
+}
+
+.bruno {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.evy {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.naufel {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.ftPerfil img {
+    width: 50%;
+}
+
+.nomePerfil {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.demaisFotos {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2vh;
+}
+
+.santi {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.murilo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+/* --------------------------- botao subir -------------------------------------  */
+
+.divDoBotao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerBt {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btSubir {
+    width: 40px;
+    background-color: #01C38E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 8%;
+    padding: 10px;
+}
+
+.btSubir img {
+    width: 30px;
+}
+
+
+/* --------------------------- footer -------------------------------------  */
+
+.conteudoFooter {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/fundoFooter.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.elementos {
+    margin-top: 18%;
+    width: 70%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.linha {
+    width: 100%;
+    border-top: 2px solid #ffff;
+    margin-top: 3%;
+}
+
+.logoFinal {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    color: #ffff;
+    align-items: center;
+}
+
+.logoFinal img {
+    width: 80%;
+}
+
+.logoFinal span {
+    margin-top: 5%;
+}
+
+
+
+
+/* ------------------ responsividade -----------------------  */
+@media (min-width:100px) {
+
+    /*header*/
+    .logoNav {
+        margin-top: 0.2vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lista_nav1 {
+        margin-top: -5vh;
+    }
+
+    .containerHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    /*titulo*/
+    .informacoes-01 {
+        display: none;
+    }
+
+    .informacoes-02 {
+        display: flex;
+    }
+
+
+    .escrita1 {
+
+        width: 60%;
+        margin: none;
+    }
+
+    .escrita1 span {
+
+        font-size: 1.5em;
+        color: #202020;
+    }
+
+    .escrita2 {
+        width: 60%;
+        margin: none;
+
+    }
+
+    .escrita2 span {
+        font-size: 1em;
+        color: #202020;
+    }
+
+    /*vantagens*/
+
+    .pontosGarantidos {
+        margin-top: 40vh;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+    .flex {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .otimizacao,
+    .falhas,
+    .suporte {
+        margin-top: 5vh;
+        width: 50%;
+    }
+
+    .conteudoFalhas,
+    .conteudoOtimizacao,
+    .conteudoSuporte {
+        width: 100%;
+        display: flex;
+    }
+
+    .conteudoFalhas span,
+    .conteudoOtimizacao span,
+    .conteudoSuporte span {
+        width: 100%;
+    }
+
+    /*produto*/
+    .explicacaoSolucao {
+        font-size: 1.1em;
+        width: 90%;
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    .dashSolucao {
+        display: flex;
+        margin-top: 5%;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    .imgDashSolucao img {
+        width: 50vh;
+    }
+
+    .monitoramentos {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2vh;
+
+    }
+
+    .divsMoni {
+        width: 35%;
+    }
+
+    .img_check {
+        width: 8%;
+        margin-right: 2%;
+    }
+
+    .monitoramentos span {
+        width: 100%;
+    }
+
+    /*quem somos - pilares*/
+    .conteudoQS {
+        width: 70%;
+        text-align: center;
+    }
+
+    .pilares {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 3vh;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .conteudoPilar1,
+    .conteudoPilar2,
+    .conteudoPilar3 {
+        width: 80%;
+
+    }
+
+    .pilar1,
+    .pilar2,
+    .pilar3 {
+        margin-top: 5vh;
+        width: 90%;
+    }
+
+    /*quem somos - time*/
+    .primeirasFotos {
+        flex-direction: column;
+    }
+
+    .demaisFotos {
+
+        flex-direction: column;
+    }
+
+    /*footer*/
+    .lista_nav li {
+
+        font-size: 0.5em;
+    }
+
+}
+
+@media (min-width:600px) {
+
+    /*header*/
+    .logoNav {
+        margin-top: 0.2vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    #lista_nav1 {
+        margin-top: -5vh;
+    }
+
+    .containerHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    /*titulo*/
+    .informacoes-01 {
+        display: none;
+    }
+
+    .informacoes-02 {
+        display: flex;
+    }
+
+
+    .escrita1 {
+
+        width: 60%;
+        margin: none;
+    }
+
+    .escrita1 span {
+
+        font-size: 1.5em;
+        color: #202020;
+    }
+
+    .escrita2 {
+        width: 60%;
+        margin: none;
+
+    }
+
+    .escrita2 span {
+        font-size: 1em;
+        color: #202020;
+    }
+
+    /*vantagens*/
+
+    .pontosGarantidos {
+        margin-top: 40vh;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+    .flex {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .otimizacao,
+    .falhas,
+    .suporte {
+        margin-top: 5vh;
+        width: 50%;
+    }
+
+    .conteudoFalhas,
+    .conteudoOtimizacao,
+    .conteudoSuporte {
+        width: 100%;
+        display: flex;
+    }
+
+    .conteudoFalhas span,
+    .conteudoOtimizacao span,
+    .conteudoSuporte span {
+        width: 100%;
+    }
+
+    /*produto*/
+    .explicacaoSolucao {
+        font-size: 1.1em;
+        width: 90%;
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    .dashSolucao {
+        display: flex;
+        margin-top: 5%;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    .imgDashSolucao img {
+        width: 50vh;
+    }
+
+    .monitoramentos {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2vh;
+
+    }
+
+    .divsMoni {
+        width: 30%;
+    }
+
+    .img_check {
+        width: 8%;
+        margin-right: 2%;
+    }
+
+    .monitoramentos span {
+        width: 100%;
+    }
+
+    /*quem somos - pilares*/
+    .conteudoQS {
+        width: 70%;
+        text-align: center;
+    }
+
+    .pilares {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 3vh;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .conteudoPilar1,
+    .conteudoPilar2,
+    .conteudoPilar3 {
+        width: 80%;
+
+    }
+
+    .pilar1,
+    .pilar2,
+    .pilar3 {
+        margin-top: 5vh;
+        width: 90%;
+    }
+
+    /*quem somos - time*/
+    .primeirasFotos {
+        flex-direction: column;
+    }
+
+    .demaisFotos {
+
+        flex-direction: column;
+    }
+
+    /*footer*/
+    .lista_nav li {
+
+        font-size: 0.5em;
+    }
+}
+
+@media (min-width:768px) {
+
+    /*titulo*/
+
+    .informacoes-01 {
+        display: none;
+    }
+
+    .informacoes-02 {
+        display: flex;
+    }
+
+    /*header*/
+    .header {
+        width: 100%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        flex-direction: row;
+    }
+
+
+    .containerHeader {
+        width: 90%;
+        height: 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    #imgLogo {
+        width: 30%;
+        height: 10vh;
+    }
+
+
+    .lista_nav {
+        padding: 2vh;
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        text-decoration: none;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .lista_nav li {
+        margin-right: 5em;
+        font-size: 1.1vmax;
+        color: #ffff;
+    }
+
+    #lista_nav1 {
+        margin-top: 0;
+    }
+
+    .divsMoni {
+        width: 25%;
+    }
+}
+
+@media (min-width:992px) {
+
+    #lista_nav1 {
+        margin-top: 0;
+    }
+
+    /*titulo*/
+
+    .informacoes-01 {
+        display: flex;
+        padding-top: 5rem;
+    }
+
+    .informacoes-02 {
+        display: none;
+    }
+
+    .escrita1 {
+
+        width: 40%;
+        margin: none;
+    }
+
+    .escrita1 span {
+
+        font-size: 1.5em;
+        color: #ffffff;
+    }
+
+    .escrita2 {
+        width: 40%;
+        margin: none;
+
+    }
+
+    .escrita2 span {
+        font-size: 1em;
+        color: #ffffff;
+    }
+
+    /*vantagens*/
+
+    .pontosGarantidos {
+        margin-top: 10vh;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+    .flex {
+
+        flex-direction: row;
+    }
+
+    /*produto*/
+    .explicacaoSolucao {
+
+        width: 80%;
+    }
+
+    .dashSolucao {
+
+        flex-direction: row;
+    }
+
+    .imgDashSolucao img {
+        width: 60vh;
+    }
+
+    .monitoramentos {
+        width: 20%;
+    }
+
+    .divsMoni {
+        width: 80%;
+    }
+
+    /*quem somos - pilares*/
+
+
+    .pilares {
+        flex-direction: row;
+    }
+
+    /*quem somos - time*/
+    .primeirasFotos {
+        flex-direction: row;
+        width: 80%;
+    }
+
+    .demaisFotos {
+
+        flex-direction: row;
+        width: 60%;
+    }
+
+}
+
+@media (min-width:1200px) {
+
+    #lista_nav1 {
+        margin-top: 0;
+    }
+
+
+    .logoNav {
+        width: 30%;
+        height: 10vh;
+    }
+
+
+    /*titulo*/
+
+    .informacoes-01 {
+        display: flex;
+        padding-top: 3rem;
+    }
+
+}

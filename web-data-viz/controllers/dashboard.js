@@ -39,7 +39,7 @@ class dashboard {
             sql,
             [
                 dados.comando,
-                dados.status,
+                1,
                 dados.fkMaquina,
                 dados.fkUser
             ],
@@ -49,7 +49,7 @@ class dashboard {
                 } else {
 
                     const sql = `SELECT idComando from Comando WHERE nomeComando = (${dados.comando}) AND 
-                    stattus = false AND fkMaquina = (${dados.fkMaquina}) AND AND fkFuncionario = (${dados.fkUser})`;
+                    stattus = 1 AND fkMaquina = (${dados.fkMaquina}) AND AND fkFuncionario = (${dados.fkUser})`;
 
                     conexao.query(sql, (erro, result) => {
                         if (erro) {
@@ -193,36 +193,6 @@ class dashboard {
         });
     }
     
-
-    // const queryPromises = [1, 2, 3].map(fkComponente => {
-    //     return new Promise((resolve, reject) => {
-    //         const sql = `
-    //             SELECT porcentagemCritico, porcentagemAlerta 
-    //             FROM TaxaAviso 
-    //             WHERE fkComponente = ? AND fkEmpresa = ?`;
-
-    //         conexao.query(sql, [fkComponente, fkEmpresa], (erro, result) => {
-    //             if (erro) {
-    //                 reject(erro);
-    //             } else {
-    //                 resolve(result);
-    //             }
-    //         });
-    //     });
-    // });
-
-    // Promise.all(queryPromises)
-    //     .then(results => {
-    //         res.status(200).json(results);
-    //     })
-    //     .catch(erro => {
-    //         res.status(400).json(erro);
-    //     });
-
-
-
-
-
     // ====================== alterar taxas ====================== 
     atualizarTaxa(alterar, res) {
 
@@ -332,7 +302,6 @@ class dashboard {
     restaurarTaxaRam(alterar, res) {
 
         const fk = alterar.fkEmpresa
-
         const sql = `update TaxaAviso set porcentagemCritico = 75.0, porcentagemAlerta = 60.0 where fkComponente = 2 and fkEmpresa = (?)`;
         conexao.query(sql, [fk], (erro, result) => {
             if (erro) {
@@ -406,7 +375,7 @@ class dashboard {
 
     listarRAM(dados, res) {
 
-        const sql = `SELECT ra.consumoAtual, ra.armazenamentoTotal, ra.armazenamentoDisponivel, rt.fkTipoAViso, rt.RegistroAviso 
+        const sql = `SELECT ra.consumoAtual, ra.armazenamentoTotal, ra.armazenamentoDisponivel, rt.fkTipoAViso, rt.RegistroAviso, ra.fkComponente
                         FROM RegistroComponente as ra
                             JOIN Componente as c 
                                 ON c.idComponente = ra.fkComponente
