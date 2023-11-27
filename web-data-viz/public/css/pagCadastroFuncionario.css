@@ -618,7 +618,12 @@ button {
 }
 
 .bt_voltar {
-    background-color: #fff947;
+    background-color: #052767;
     color: #202020;
     font-weight: 700;
+}
+
+
+form{
+    width: 100%;
 }
