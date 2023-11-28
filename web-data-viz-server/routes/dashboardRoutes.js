@@ -29,14 +29,14 @@ module.exports = app => {
 
         const { fkEmpresa, taxaAlerta, taxaCritica } = req.body;
 
-        const alterar = {fkEmpresa, taxaAlerta, taxaCritica}
+        const alterar = { fkEmpresa, taxaAlerta, taxaCritica }
 
         dashboard.atualizarTaxa(alterar, res);
     });
 
     app.post("/atualizarTaxaTotal", (req, res) => {
 
-        const {id} = req.body;
+        const { id } = req.body;
 
         dashboard.atualizarTaxaTotal(id, res);
     });
@@ -46,7 +46,7 @@ module.exports = app => {
 
         const { fkEmpresa, taxaAlerta, taxaCritica } = req.body;
 
-        const alterar = {fkEmpresa, taxaAlerta, taxaCritica}
+        const alterar = { fkEmpresa, taxaAlerta, taxaCritica }
 
         dashboard.atualizarTaxaDisco(alterar, res);
     });
@@ -56,7 +56,7 @@ module.exports = app => {
 
         const { fkEmpresa, taxaAlerta, taxaCritica } = req.body;
 
-        const alterar = {fkEmpresa, taxaAlerta, taxaCritica}
+        const alterar = { fkEmpresa, taxaAlerta, taxaCritica }
 
         dashboard.atualizarTaxaRAM(alterar, res);
     });
@@ -66,16 +66,16 @@ module.exports = app => {
 
         const { fkEmpresa } = req.body;
 
-        const alterar = {fkEmpresa}
+        const alterar = { fkEmpresa }
 
         dashboard.restaurarTaxaCpu(alterar, res);
     });
-  
+
     app.post("/restaurarTaxaDisco", (req, res) => {
 
         const { fkEmpresa } = req.body;
 
-        const alterar = {fkEmpresa}
+        const alterar = { fkEmpresa }
 
         dashboard.restaurarTaxaDisco(alterar, res);
     });
@@ -84,10 +84,41 @@ module.exports = app => {
 
         const { fkEmpresa } = req.body;
 
-        const alterar = {fkEmpresa}
+        const alterar = { fkEmpresa }
 
         dashboard.restaurarTaxaRam(alterar, res);
     });
+
+    app.post("/puxarTaxaCpu", (req, res) => {
+
+        const { fkEmpresA } = req.body;
+
+        const alterar = { fkEmpresA }
+
+        dashboard.puxarTaxaCpu(alterar, res);
+
+    });
+
+    app.post("/puxarTaxaDisco", (req, res) => {
+
+        const { fkEmpresA } = req.body;
+
+        const alterar = { fkEmpresA }
+
+        dashboard.puxarTaxaDisco(alterar, res);
+
+    });
+
+    app.post("/puxarTaxaRam", (req, res) => {
+
+        const { fkEmpresA } = req.body;
+
+        const alterar = { fkEmpresA }
+
+        dashboard.puxarTaxaRam(alterar, res);
+
+    });
+
 
     app.post("/listarTaxaMaquina", (req, res) => {
 
