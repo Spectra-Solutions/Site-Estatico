@@ -51,8 +51,9 @@ class usuario {
   }
 
   cadastrarEmpresa(empresa, res) {
-    const senhaUser = empresa.senha
-    const senhaConfUser = empresa.confSenha
+    const senhaUser = empresa.senha;
+    const senhaConfUser = empresa.confSenha;
+    let idEmpresa; // Declare a variável aqui para garantir o escopo adequado.
 
     if (
       !empresa.nomeEmpresa ||
@@ -63,328 +64,220 @@ class usuario {
       !empresa.confSenha ||
       !empresa.nomeRepresentante
     ) {
-      res.status(422).json({ message: 'Preencha todos os campos!' })
-    } else if (
-      empresa.emailRepresentante.indexOf('@') === -1 ||
-      empresa.emailRepresentante.indexOf('.') === -1
-    ) {
-      res
-        .status(400)
-        .json({ message: 'Email inválido, é necessário possuir @ e .' })
-    } else if (senhaUser.length !== 8 || senhaConfUser.length !== 8) {
-      res
-        .status(400)
-        .json({ message: 'Senha inválida, é necessário possuir 8 caracteres' })
-    } else if (senhaUser !== senhaConfUser) {
-      res.status(400).json({ message: 'Senhas não coincidem!' })
-    } else {
-      const sqlCheckCNPJ = `SELECT CNPJ FROM Empresa WHERE CNPJ = '${empresa.cnpj}'`
-
-      conexao.query(sqlCheckCNPJ, (erro, result) => {
-        if (erro) {
-          res.status(400).json(erro)
-        } else if (result[0]) {
-          res.status(203).json({ message: 'CNPJ já em uso!' })
-        } else {
-          const sqlCheckEmail = `SELECT EmailFunc FROM Funcionario WHERE EmailFunc = '${empresa.emailRepresentante}'`
-
-          conexao.query(sqlCheckEmail, (erro, result) => {
-            if (erro) {
-              res.status(400).json(erro)
-            } else if (result[0]) {
-              res.status(203).json({ message: 'Email já em uso!' })
-            } else {
-              // Empresa pode ser cadastrada
-              const sqlInsertEmpresa = `INSERT INTO Empresa(NomeEmpresa, RazaoSocial, CNPJ) VALUES ('${empresa.nomeEmpresa}', '${empresa.razaoSocial}', '${empresa.cnpj}')`
-
-              conexao.query(sqlInsertEmpresa, (erro, resultados) => {
-                if (erro) {
-                  console.error('Erro na consulta SQL:', erro)
-                  res.status(400).json(erro)
-                } else {
-                  const sqlGetIdEmpresa = `SELECT IdEmpresa FROM Empresa WHERE CNPJ = '${empresa.cnpj}'`
-
-                  conexao.query(sqlGetIdEmpresa, (erro, result) => {
-                    if (erro) {
-                      res.status(400).json(erro)
-                    } else {
-
-                      // cadastro do representante
-                      const idEmpresa = result.recordset[0].IdEmpresa;
-                      const sqlC =
-                        `INSERT INTO TaxaAviso(porcentagemCritico, porcentagemAlerta, fkComponente, fkEmpresa) 
-                          VALUES(${80}, ${60}, ${1}, ${idEmpresa})`
-                      conexao.query(
-                        sqlC,
-                        [
-                          80,
-                          60,
-                          1,
-                          idEmpresa
-
-                        ],
-                        (erro, results) => {
-                          if (erro) {
-                            res.status(400).json(erro);
-                          } else {
-                            const idEmpresa = result.recordset[0].IdEmpresa;
-                            const sqlR =
-                              `INSERT INTO TaxaAviso(porcentagemCritico, porcentagemAlerta, fkComponente, fkEmpresa) VALUES
-                              (75, 60, 2, ${idEmpresa})`
-                            conexao.query(
-                              sqlR,
-                              (erro, results) => {
-                                if (erro) {
-                                  res.status(400).json(erro);
-                                } else {
-                                  const idEmpresa = result.recordset[0].IdEmpresa;
-                                  const sqlD =
-                                    `INSERT INTO TaxaAviso(porcentagemCritico, porcentagemAlerta, fkComponente, fkEmpresa) 
-                                    VALUES(80, 60, 3, ${idEmpresa})`
-                                  conexao.query(
-                                    sqlD,
-                                    (erro, results) => {
-                                      if (erro) {
-                                        res.status(400).json(erro);
-                                      } else {
-                                        const idEmpresa = result.recordset[0].IdEmpresa;
-                                        // empresa pode ser cadastrado
-                                        const sql =
-                                          `INSERT INTO Funcionario(NomeFunc, EmailFunc, SenhaFunc, fkEmpresa, fkFuncao) 
-                                          VALUES (${empresa.nomeRepresentante}, ${empresa.emailRepresentante}, ${empresa.senha}, ${idEmpresa},
-                                             1`;
-
-                                        conexao.query(
-                                          sql,
-                                          (erro, results) => {
-                                            if (erro) {
-                                              res.status(400).json(erro);
-                                            } else {
-
-                                              const sql = `SELECT idFuncionario FROM Funcionario WHERE EmailFunc = ${empresa.emailRepresentante}`;
-
-                                              conexao.query(sql, (erro, result) => {
-                                                if (erro) {
-                                                  res.status(400).json(erro);
-                                                } else {
-
-                                                  // cadastro na tebal
-                                                  const idFuncionario = result.recordset[0].idFuncionario;
-
-                                                  const sql =
-                                                    `INSERT INTO Chamado(fkFuncionario, FKTipoAviso) VALUES (${idFuncionario}, 3)`;
-
-                                                  conexao.query(
-                                                    sql,
-                                                    (erro, results) => {
-                                                      if (erro) {
-                                                        res.status(400).json(erro);
-                                                      } else {
-                                                        res.status(200).json({ message: "Cadastrado com sucesso, faça seu login!" });
-                                                      }
-                                                    }
-                                                  );
-                                                }
-                                              });
-                                            }
-                                          }
-                                        );
-                                      }
-                                    });
-                                }
-                              });
-                          }
-                        });
-                    }
-                  });
-
-                }
-
-              }
-              );
-
-            }
-
-
-          });
-        }
-      });
+      return res.status(422).json({ message: 'Preencha todos os campos!' });
     }
+
+    if (empresa.emailRepresentante.indexOf('@') === -1 || empresa.emailRepresentante.indexOf('.') === -1) {
+      return res.status(400).json({ message: 'Email inválido, é necessário possuir @ e .' });
+    }
+
+    if (senhaUser.length !== 8 || senhaConfUser.length !== 8 || senhaUser !== senhaConfUser) {
+      return res.status(400).json({ message: 'Senha inválida, é necessário possuir 8 caracteres e as senhas devem coincidir.' });
+    }
+
+    const sqlCheckCNPJ = `SELECT CNPJ FROM Empresa WHERE CNPJ = '${empresa.cnpj}'`;
+
+    conexao
+      .connect()
+      .then(() => conexao.query(sqlCheckCNPJ))
+      .then((result) => {
+        if (result.recordset && result.recordset.length > 0) {
+          throw new Error('CNPJ já em uso!');
+        }
+
+        // Cadastro da empresa
+        const sqlInsertEmpresa = `INSERT INTO Empresa(NomeEmpresa, RazaoSocial, CNPJ) VALUES ('${empresa.nomeEmpresa}', '${empresa.razaoSocial}', '${empresa.cnpj}')`;
+        return conexao.query(sqlInsertEmpresa);
+      })
+      .then(() => {
+        // Obter o ID da empresa recém-cadastrada
+        const sqlGetIdEmpresa = `SELECT IdEmpresa FROM Empresa WHERE CNPJ = '${empresa.cnpj}'`;
+        return conexao.query(sqlGetIdEmpresa);
+      })
+      .then((result) => {
+        if (result.recordset && result.recordset.length > 0) {
+          idEmpresa = result.recordset[0].IdEmpresa;
+
+          // Cadastro das taxas de aviso
+          const sqlC = `INSERT INTO TaxaAviso(porcentagemCritico, porcentagemAlerta, fkComponente, fkEmpresa) VALUES(${80}, ${60}, ${1}, ${idEmpresa})`;
+          const sqlR = `INSERT INTO TaxaAviso(porcentagemCritico, porcentagemAlerta, fkComponente, fkEmpresa) VALUES(75, 60, 2, ${idEmpresa})`;
+          const sqlD = `INSERT INTO TaxaAviso(porcentagemCritico, porcentagemAlerta, fkComponente, fkEmpresa) VALUES(80, 60, 3, ${idEmpresa})`;
+
+          return Promise.all([
+            conexao.query(sqlC),
+            conexao.query(sqlR),
+            conexao.query(sqlD),
+          ]);
+        } else {
+          throw new Error('Erro ao cadastrar a empresa.');
+        }
+      })
+      .then(() => {
+        // Cadastro do representante
+        const sqlFuncionario = `INSERT INTO Funcionario(NomeFunc, EmailFunc, SenhaFunc, fkEmpresa, fkFuncao) VALUES ('${empresa.nomeRepresentante}', '${empresa.emailRepresentante}', '${empresa.senha}', ${idEmpresa}, 1)`;
+        return conexao.query(sqlFuncionario);
+      })
+      .then(() => {
+        // Obter o ID do representante recém-cadastrado
+        const sqlGetIdFuncionario = `SELECT idFuncionario FROM Funcionario WHERE EmailFunc = '${empresa.emailRepresentante}'`;
+        return conexao.query(sqlGetIdFuncionario);
+      })
+      .then((result) => {
+        if (result.recordset && result.recordset.length > 0) {
+          const idFuncionario = result.recordset[0].idFuncionario;
+
+          // Cadastro na tabela Chamado
+          const sqlChamado = `INSERT INTO Chamado(fkFuncionario, FKTipoAviso) VALUES (${idFuncionario}, 3)`;
+          return conexao.query(sqlChamado);
+        } else {
+          throw new Error('Erro ao obter o ID do funcionário.');
+        }
+      })
+      .then(() => {
+        return res.status(200).json({ message: 'Cadastrado com sucesso, faça seu login!' });
+      })
+      .catch((erro) => {
+        console.error('Erro na operação:', erro);
+        return res.status(500).json({ message: erro.message || 'Erro na operação no banco de dados.' });
+      })
+      .finally(() => {
+        conexao.close();
+      });
   }
 
+
   cadastrarFuncionario(funcionario, res) {
-    var idFuncionarioAtual = funcionario.idFuncionario
+    var idFuncionarioAtual = funcionario.idFuncionario;
     var modoEdicao = funcionario.modoEdicao;
+    var novoIdFuncionario;
 
     console.log('MODO EDICAO' + modoEdicao);
 
-    if (modoEdicao == "true") {
+    conexao
+      .connect()
+      .then(() => {
+        if (modoEdicao == "true") {
+          console.log("atualizar");
 
-      console.log("atualizar");
-      if (
-        [funcionario.nomeFuncionario] == "" ||
-        [funcionario.emailFuncionario] == "" ||
-        [funcionario.senha] == "" ||
-        [funcionario.idEmpresa] == "" ||
-        [funcionario.nivelAviso] == "" ||
-        [funcionario.nivelAcesso] == ""
-      ) {
-        res.status(422).json({ message: "Preencha todos os campos!" });
-      } else if (
-        funcionario["emailFuncionario"].indexOf["@"] == -1 ||
-        funcionario["emailFuncionario"].indexOf["."] == -1
-      ) {
-        res
-          .status(400)
-          .json({ message: "Email inválido, é necessário possuir @ e ." });
-      } else if (funcionario.senha.length != 8) {
-        res.status(400).json({
-          message: "Senha inválida, é necessário possuir 8 caracteres",
-        });
-      } else {
-        if (funcionario.nivelAcesso == "adm") {
+          if (
+            !funcionario.nomeFuncionario ||
+            !funcionario.emailFuncionario ||
+            !funcionario.senha ||
+            !funcionario.idEmpresa ||
+            !funcionario.nivelAviso ||
+            !funcionario.nivelAcesso
+          ) {
+            res.status(422).json({ message: "Preencha todos os campos!" });
+            throw new Error("Campos obrigatórios não preenchidos.");
+          }
+
+          if (funcionario.emailFuncionario.indexOf("@") === -1 || funcionario.emailFuncionario.indexOf(".") === -1) {
+            res.status(400).json({ message: "Email inválido, é necessário possuir @ e ." });
+            throw new Error("Email inválido.");
+          }
+
+          if (funcionario.senha.length !== 8) {
+            res.status(400).json({ message: "Senha inválida, é necessário possuir 8 caracteres" });
+            throw new Error("Senha inválida.");
+          }
+
+          if (funcionario.nivelAcesso === "adm") {
+            funcionario.nivelAcesso = 1;
+          } else {
+            funcionario.nivelAcesso = 2;
+          }
+
+          if (funcionario.nivelAviso == "critico") {
+            funcionario.nivelAviso = 1;
+          } else if (funcionario.nivelAviso == "alerta") {
+            funcionario.nivelAviso = 2;
+          } else {
+            funcionario.nivelAviso = 3;
+          }
+
+          const sqlUpdate = `update Funcionario set NomeFunc = '${funcionario.nomeFuncionario}', EmailFunc = '${funcionario.emailFuncionario}', SenhaFunc = '${funcionario.senha}', fkEmpresa = ${funcionario.idEmpresa}, fkFuncao = ${funcionario.nivelAcesso} where idFuncionario = ${idFuncionarioAtual}`;
+
+          return conexao.query(sqlUpdate);
+        } else {
+          console.log("criação");
+
+          if (
+            !funcionario.nomeFuncionario ||
+            !funcionario.emailFuncionario ||
+            !funcionario.senha ||
+            !funcionario.idEmpresa ||
+            !funcionario.nivelAviso ||
+            !funcionario.nivelAcesso
+          ) {
+            res.status(422).json({ message: "Preencha todos os campos!" });
+            throw new Error("Campos obrigatórios não preenchidos.");
+          }
+
+          if (funcionario.emailFuncionario.indexOf("@") === -1 || funcionario.emailFuncionario.indexOf(".") === -1) {
+            res.status(400).json({ message: "Email inválido, é necessário possuir @ e ." });
+            throw new Error("Email inválido.");
+          }
+
+          if (funcionario.senha.length !== 8) {
+            res.status(400).json({ message: "Senha inválida, é necessário possuir 8 caracteres" });
+            throw new Error("Senha inválida.");
+          }
+
+          const sqlSelect = `SELECT EmailFunc FROM Funcionario WHERE EmailFunc = '${funcionario.emailFuncionario}'`;
+
+          return conexao.query(sqlSelect);
+        }
+      })
+      .then((result) => {
+        if (result && result.recordset && result.recordset.length > 0) {
+          res.status(203).json({ message: 'Email já em uso!' });
+        }
+
+        if (funcionario.nivelAcesso === "adm") {
           funcionario.nivelAcesso = 1;
         } else {
           funcionario.nivelAcesso = 2;
         }
 
-        console.log("To antes do const ", funcionario.nomeFuncionario);
+        if (funcionario.nivelAviso == "critico") {
+          funcionario.nivelAviso = 1;
+        } else if (funcionario.nivelAviso == "alerta") {
+          funcionario.nivelAviso = 2;
+        } else {
+          funcionario.nivelAviso = 3;
+        }
 
-        const sql = `update Funcionario set NomeFunc = ${funcionario.nomeFuncionario}, EmailFunc = ${funcionario.emailFuncionario},
-         SenhaFunc = ${funcionario.senha}, fkEmpresa = ${funcionario.idEmpresa}, 
-        fkFuncao = ${funcionario.nivelAcesso} where idFuncionario = ${idFuncionarioAtual}`;
+        if (modoEdicao === "true") {
+          const sqlUpdateChamado = `update Chamado set FkTipoAviso = ${funcionario.nivelAviso} where fkFuncionario = ${idFuncionarioAtual}`;
 
-        conexao.query(
-          sql,
-          (erro, result) => {
-            if (erro) {
-              console.log(erro);
-              res.status(400).json(erro);
-            } else if (result.recordset) {
-              console.log("To DEPOIS do const ", funcionario.nomeFuncionario);
-              const sql =
-                `update Chamado set FkTipoAviso = ${funcionario.nivelAviso} where fkFuncionario = ${idFuncionarioAtual}`;
+          return conexao.query(sqlUpdateChamado);
+        } else {
+          const sqlInsertFuncionario = `INSERT INTO Funcionario(NomeFunc, EmailFunc, SenhaFunc, fkEmpresa, fkFuncao) VALUES ('${funcionario.nomeFuncionario}', '${funcionario.emailFuncionario}', '${funcionario.senha}', ${funcionario.idEmpresa}, ${funcionario.nivelAcesso}) SELECT SCOPE_IDENTITY() AS idFuncionario;`;
 
-              if (funcionario.nivelAviso == "critico") {
-                funcionario.nivelAviso = 1;
-              } else if (funcionario.nivelAviso == "alerta") {
-                funcionario.nivelAviso = 2;
-              } else {
-                funcionario.nivelAviso = 3;
-              }
+          // Inserir na tabela Funcionario e obter o idFuncionario
+          return conexao.query(sqlInsertFuncionario);
+        }
+      })
+      .then((result) => {
+        // Capturar o idFuncionario recém-inserido
+        novoIdFuncionario = result.recordset[0].idFuncionario;
 
-              conexao.query(
-                sql,
-                (erro, result) => {
-                  if (erro) {
-                    res.status(400).json(erro);
-                  } else {
-                    res.status(200).json({
-                      message: "Funcionário atualizado com sucesso!",
-                    });
-                  }
-                }
-              );
-            }
-          }
-        );
-      }
-    } else {
-      console.log("criação");
-      if (
-        [funcionario.nomeFuncionario] == "" ||
-        [funcionario.emailFuncionario] == "" ||
-        [funcionario.senha] == "" ||
-        [funcionario.idEmpresa] == "" ||
-        [funcionario.nivelAviso] == "" ||
-        [funcionario.nivelAcesso] == ""
-      ) {
-        res.status(422).json({ message: "Preencha todos os campos!" });
-      } else if (
-        funcionario["emailFuncionario"].indexOf["@"] == -1 ||
-        funcionario["emailFuncionario"].indexOf["."] == -1
-      ) {
-        res
-          .status(400)
-          .json({ message: "Email inválido, é necessário possuir @ e ." });
-      } else if (funcionario.senha.length != 8) {
-        res.status(400).json({
-          message: "Senha inválida, é necessário possuir 8 caracteres",
-        });
-      } else {
-        const sql = `SELECT EmailFunc FROM Funcionario WHERE EmailFunc = ${funcionario.emailFuncionario}`;
-        conexao.query(sql, (erro, result) => {
-          if (erro) {
-            res.status(400).json(erro);
-          } else if (result.recordset[0]) {
-            // se achou já cadastrado
-            res.status(203).json({ message: "Email já em uso!" });
-          } else {
-            if (funcionario.nivelAcesso == "adm") {
-              funcionario.nivelAcesso = 1;
-            } else {
-              funcionario.nivelAcesso = 2;
-            }
+        // Inserir na tabela Chamado usando o novoIdFuncionario
+        const sqlInsertChamado = `INSERT INTO Chamado(fkFuncionario, FKTipoAviso) VALUES (${novoIdFuncionario}, ${funcionario.nivelAviso})`;
 
-            const sql = `INSERT INTO Funcionario(NomeFunc, EmailFunc, SenhaFunc, fkEmpresa, fkFuncao) 
-            VALUES (${funcionario.nomeFuncionario}, ${funcionario.emailFuncionario},
-               ${funcionario.senha}, ${funcionario.idEmpresa}, ${funcionario.nivelAcesso});`;
-
-            conexao.query(
-              sql,
-              (erro, result) => {
-                if (erro) {
-                  console.log(erro);
-                  res.status(400).json(erro);
-                } else {
-
-                  const sql = `SELECT idFuncionario FROM Funcionario WHERE EmailFunc = ${funcionario.emailFuncionario}`;
-
-                  conexao.query(
-                    sql,
-                    (erro, result) => {
-                      if (erro) {
-
-                        res.status(400).json(erro);
-                      } else {
-                        console.log(result.recordset);
-                        var idFunc = result.recordset[0].idFuncionario;
-
-                        const sql =
-                          `INSERT INTO Chamado(fkFuncionario, FKTipoAviso) VALUES (${idFunc}, ${funcionario.nivelAviso})`;
-
-                        if (funcionario.nivelAviso == "critico") {
-                          funcionario.nivelAviso = 1;
-                        } else if (funcionario.nivelAviso == "alerta") {
-                          funcionario.nivelAviso = 2;
-                        } else {
-                          funcionario.nivelAviso = 3;
-                        }
-
-                        conexao.query(
-                          sql,
-                          (erro, results) => {
-                            if (erro) {
-                              console.log(erro);
-                              res.status(400).json(erro);
-                            } else {
-                              res.status(200).json({
-                                message:
-                                  "Funcionário cadastrado com sucesso!",
-                              });
-                            }
-                          }
-                        );
-                      }
-                    }
-                  );
-                }
-              }
-            );
-          }
-        });
-      }
-    }
+        return conexao.query(sqlInsertChamado);
+      })
+      .then(() => {
+        res.status(200).json({ message: 'Operação concluída com sucesso!' });
+      })
+      .catch((erro) => {
+        console.error('Erro na operação:', erro);
+        res.status(400).json({ message: 'Erro na operação no banco de dados.' });
+      })
+      .finally(() => {
+        // Feche a conexão após todas as operações serem concluídas ou em caso de erro
+        conexao.close();
+      });
   }
 
   atualizarUsuarios(dados, res) {
@@ -393,14 +286,23 @@ class usuario {
     console.log(dados.idFunc);
     const sql = `select NomeFunc, idFuncionario from Funcionario where fkEmpresa = ${dados.idEmpresa} and idFuncionario <> ${dados.idFunc} order by NomeFunc;`;
 
-    conexao.query(sql, (erro, result) => {
-      if (erro) {
-        console.log(erro);
-        res.status(400).json(erro);
-      } else {
+    conexao
+      .connect()
+      .then(() => conexao.query(sql))
+      .then((result) => {
+        console.log(result.recordset);
         res.status(200).json(result.recordset);
-      }
-    });
+      })
+      .catch((erro) => {
+        console.error('Erro na operação:', erro);
+        res.status(500).json({ message: 'Erro na operação no banco de dados.' });
+      })
+      .finally(() => {
+        // Feche a conexão após todas as operações serem concluídas ou em caso de erro
+        conexao.close();
+      });
+
+
   }
 
   deletarUsuario(idFuncionario1, res) {
@@ -438,16 +340,21 @@ class usuario {
             JOIN TipoAviso as tp ON cham.FKTipoAviso = tp.idTipoAviso 
               WHERE func.idFuncionario = ${idFuncionario};`;
 
-    conexao.query(sql, (erro, result) => {
-      if (erro) {
-        return res.status(400).json(erro);
-      } else if (result.recordset.length === 0) {
-        return res.status(404).json({ error: "Funcionário não encontrado" });
-      } else {
-        // Retorna os dados do funcionário encontrado
+    conexao
+      .connect()
+      .then(() => conexao.query(sql))
+      .then((result) => {
+        console.log(result.recordset[0]);
         res.status(200).json(result.recordset[0]);
-      }
-    });
+      })
+      .catch((erro) => {
+        console.error('Erro na operação:', erro);
+        res.status(500).json({ message: 'Erro na operação no banco de dados.' });
+      })
+      .finally(() => {
+        // Feche a conexão após todas as operações serem concluídas ou em caso de erro
+        conexao.close();
+      });
   }
 
   puxarNomeFuncionario(digitado, res) {
