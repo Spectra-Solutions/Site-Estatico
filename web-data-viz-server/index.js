@@ -23,7 +23,7 @@ app.use(express.static('public')); // static para arquivos como css e img
 
 const router = express.Router(); // rotas 
 
-const port = 3000;
+const port = 80;
 
 conexao.connect(erro => {
     if (erro) {

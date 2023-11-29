@@ -444,7 +444,6 @@ button {
     width: 70%;
     height: 6vh;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -593,7 +592,10 @@ select {
     margin-top: 5%;
     display: flex;
     width: 100%;
-    justify-content: end;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+
 }
 
 .final {
@@ -602,7 +604,8 @@ select {
     justify-content: space-around;
 }
 
-button {
+button,
+#span_btn {
     color: white;
     border-radius: 7px;
     border: none;
@@ -617,8 +620,21 @@ button {
     font-weight: 700;
 }
 
-.bt_voltar {
-    background-color: #fff947;
-    color: #202020;
+.bt_voltar,
+#span_btn {
+    background: rgb(34, 42, 58);
+    color: #ffffff;
     font-weight: 700;
+}
+
+#span_btn {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
