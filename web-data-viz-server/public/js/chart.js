@@ -10,14 +10,6 @@ function updateChartData(chartData, chart, fetchDataEndpoint) {
         .then((data) => {
 
             // Adicionar o novo dado ao array de consumo
-            console.log(data[0]);
-            if (data[0].fkComponente == 2) {
-
-                const consumoAtual = data[0].consumoAtual;
-                const consumoFormatado = (consumoAtual / data[0].armazenamentoTotal) * 100;
-                chartData.push(consumoFormatado);
-
-            }
             const consumoAtual = data[0].consumoAtual;
             chartData.push(consumoAtual);
 
@@ -143,16 +135,16 @@ function atualizarDadosRede() {
     })
         .then((res) => res.json())
         .then((listaDadosRede) => {
-
             var latencia = document.getElementById("div_mbps");
-            latencia.innerHTML = listaDadosRede.latencia || '0';
+            latencia.innerHTML = listaDadosRede.latencia || '20';
 
             var divDown = document.getElementById("div_download");
-            divDown.innerHTML = listaDadosRede.consumoDownload || ('0.00' + " kbps");
+            divDown.innerHTML = listaDadosRede.consumoDownload || ('0.00');
+            divDown.innerHTML +=  " kbps";
 
             var divUplo = document.getElementById("div_upload");
             divUplo.innerHTML = listaDadosRede.consumoUpload || ('0.00' + " kbps");
-
+            divUplo.innerHTML +=  " kbps";
         })
         .catch(error => {
             console.error('Erro ao buscar dados do servidor:', error);
@@ -204,6 +196,8 @@ function atualizarDadosRAM() {
         .then((res) => res.json())
         .then((listaDadosRAM) => {
 
+            console.log("DADOS RAMMMMM " + listaDadosRAM);
+
             var disponivel = document.getElementById("div_armazenamento_disponivel_ram");
             var total = document.getElementById("div_armazenamento_total_ram");
             var disponivelPorcent = document.getElementById("div_armazenamento_disponivel_ram_porcentagem");
@@ -218,7 +212,7 @@ function atualizarDadosRAM() {
                 if (listaDadosRAM[0].armazenamentoDisponivel.length >= 3) {
                     disponivel.innerHTML = memoriaDisponivelFormatado + "MB";
                 } else {
-                    disponivel.innerHTML = disponivelMB + "GB";
+                    disponivel.innerHTML = memoriaDisponivel + "GB";
                 }
 
                 total.innerHTML = listaDadosRAM[0].armazenamentoTotal + "GB";

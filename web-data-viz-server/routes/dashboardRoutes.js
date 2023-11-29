@@ -22,9 +22,6 @@ module.exports = app => {
         dashboard.listarInformacoesMaquina(id, res);
     });
 
-
-
-
     app.post("/atualizarTaxa", (req, res) => {
 
         const { fkEmpresa, taxaAlerta, taxaCritica } = req.body;
