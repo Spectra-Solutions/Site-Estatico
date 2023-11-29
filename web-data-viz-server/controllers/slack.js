@@ -13,8 +13,9 @@ class slack {
                 res.status(500).json({ message: 'Erro de conexão com o banco de dados.' });
                 return;
             }
-    
-            const sql = `UPDATE Empresa SET url = "${dados.formValues.urlSlack}" WHERE idEmpresa = ${dados.formValues.fkEmpresa}`;
+            console.log("SLACK DADOS:" + dados.formValues.urlSlack);
+            console.log("SLACK DADOS:" + dados.formValues.fkEmpresa);
+            const sql = `UPDATE Empresa SET url = '${dados.formValues.urlSlack}' WHERE idEmpresa = ${dados.formValues.fkEmpresa}`;
     
             conexao.query(sql, (erro, result) => {
                 if (erro) {
@@ -24,7 +25,7 @@ class slack {
                     res.status(200).json(result);
                 }
     
-                conexao.close();  // Feche a conexão após as operações serem concluídas
+                // conexao.close();  // Feche a conexão após as operações serem concluídas
             });
         });
     }

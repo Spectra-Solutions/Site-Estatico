@@ -129,7 +129,7 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 35px;
+    gap: 20px;
 }
 
 .input {
@@ -163,6 +163,7 @@ input {
 }
 
 .bt_login_corpo {
+    margin-top: 2vh;
     background-color: #01C38E;
     border: none;
     border-radius: 6px;

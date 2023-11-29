@@ -264,6 +264,12 @@
 <script src="js/loginDash.js"></script>
 <script>
     const fkEmpresa = sessionStorage.ID_EMPRESA;
+
+    valoresUsuario()
+    puxarTaxaCpu(fkEmpresa);
+    puxarTaxaDisco(fkEmpresa);
+    puxarTaxaRam(fkEmpresa);
+    
     if (sessionStorage.TIPO_FUNCAO == 'Usuario comum') {
 
         document.getElementById("div_configurarMaquina").style.display = "none";
