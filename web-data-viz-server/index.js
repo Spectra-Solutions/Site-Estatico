@@ -6,6 +6,7 @@ const routesDash = require('./routes/dashboardRoutes');
 const routesProcessos = require("./routes/processosRoutes");
 const routesSlack = require("./routes/slackRoutes");
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
@@ -20,6 +21,24 @@ app.use(session({
 
 
 app.use(express.static('public')); // static para arquivos como css e img
+app.use(cors());
+
+const fs = require('fs');
+const path = require('path');
+
+app.get('/download', (req, res) => {
+    const filePath = path.join(__dirname, 'TUTORIAL.txt');
+
+    // Configura os cabeçalhos para a resposta
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Disposition', 'attachment; filename=TUTORIAL.txt');
+
+    console.log('Enviando arquivo:', filePath);
+
+    // Cria uma leitura de fluxo do arquivo e a canaliza para a resposta
+    const fileStream = fs.createReadStream(filePath);
+    fileStream.pipe(res);
+});
 
 const router = express.Router(); // rotas 
 
