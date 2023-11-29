@@ -72,6 +72,7 @@ function voltarP() {
           formCadastroFuncionario.reset();
   
           cadastroEfetuado = true;
+          sessionStorage.MODO_EDICAO = "false";
   
           return res.json().then((body) => {
             var configAlerta = {
@@ -98,7 +99,6 @@ function voltarP() {
   
       .then((body) => {
         Toast.fire(body.configAlerta);
-        sessionStorage.MODO_EDICAO = "false";
   
         atualizarUsuarios();
       })
@@ -197,7 +197,7 @@ function voltarP() {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Exluir",
+      confirmButtonText: "Excluir",
       cancelButtonText: "Cancelar",
     }).then((result) => {
   

@@ -16,11 +16,12 @@ class dashboard {
             ON fkEmpresaMaquina = IdEmpresa
                 WHERE idEmpresa = ${Number(idEmpresa)};
         `;
-
-        conexao
+    
+        const conexaoMaquina = require("../bd/connection"); // Importe uma nova instância de conexão
+        conexaoMaquina
             .connect()
             .then(() => {
-                return conexao.query(sql);
+                return conexaoMaquina.query(sql);
             })
             .then((result) => {
                 res.status(200).json(result.recordset);
@@ -28,9 +29,9 @@ class dashboard {
             .catch((erro) => {
                 res.status(400).json(erro);
             })
-            .finally(() => {
-                conexao.close();
-            });
+            // .finally(() => {
+            //     conexaoMaquina.close();
+            // });
     }
 
     executarComandosInovacao(dados, res) {
@@ -40,12 +41,14 @@ class dashboard {
 
         const inserirComandoSql = `
             INSERT INTO Comando(nomeComando, stattus, fkMaquina, fkFuncionario) 
-            VALUES ('${dados.comando}', ${dados.status}, ${dados.fkMaquina}, ${dados.fkUser})
+            VALUES ('${dados.comando}', ${1}, ${dados.fkMaquina}, ${dados.fkUser})
         `;
+        
+        const conexaoInovacao = require("../bd/connection"); // Importe uma nova instância de conexão
 
-        conexao.connect()
+        conexaoInovacao.connect()
             .then(() => {
-                return conexao.query(inserirComandoSql);
+                return conexaoInovacao.query(inserirComandoSql);
             })
             .then((results) => {
                 const selectComandoSql = `
@@ -60,14 +63,16 @@ class dashboard {
                 return conexao.query(selectComandoSql);
             })
             .then((result) => {
-                res.status(200).json(result);
+                res.status(200);
             })
             .catch((erro) => {
+                console.log(inserirComandoSql);
+                console.log(erro);
                 res.status(400).json(erro);
             })
-            .finally(() => {
-                conexao.close();
-            });
+            // .finally(() => {
+            //     conexaoInovacao.close();
+            // });
     }
 
 
@@ -94,6 +99,21 @@ class dashboard {
             .finally(() => {
                 conexao.close();
             });
+        const conexaoinfoMaqu = require("../bd/connection"); // Importe uma nova instância de conexão
+        conexaoinfoMaqu.connect()
+        .then(() => {
+        return conexaoinfoMaqu.query(sql);
+        })
+        .then((result) => {
+            console.log();
+            res.status(200).json(result.recordset);
+        })
+        .catch((erro) => {
+            res.status(400).json(erro);
+        })
+        // .finally(() => {
+        //     conexaoinfoMaqu.close();
+        // });                                
     }
 
     listarTaxaMaquina(dados, res) {
@@ -119,6 +139,20 @@ class dashboard {
             .finally(() => {
                 conexao.close();
             });
+        const conexaoTaxaMaquina = require("../bd/connection"); // Importe uma nova instância de conexão
+        conexaoTaxaMaquina.connect()
+        .then(() => {
+        return conexaoTaxaMaquina.query(sql);
+        })
+        .then((result) => {
+            res.status(200).json(result.recordset);
+        })
+        .catch((erro) => {
+            res.status(400).json(erro);
+        })
+        // .finally(() => {
+        //     conexaoTaxaMaquina.close();
+        // }); 
     }
 
     listarAviso(dados, res) {
@@ -126,7 +160,7 @@ class dashboard {
         console.log(dados.idAviso);
         console.log(dados.idEmpresa);
 
-        const sql = `SELECT registroAviso, dtHora, m.nome, e.NomeEmpresa FROM registroAvisos
+        const sql = `SELECT registroAviso, dtHora, m.nome, e.NomeEmpresa, m.idMaquina FROM registroAvisos
                         JOIN Componente as c
                             ON fkComponente = c.idComponente
                                 JOIN Maquina as m
@@ -149,6 +183,22 @@ class dashboard {
             .finally(() => {
                 conexao.close();
             });
+      
+const conexaoAviso = require("../bd/connection"); // Importe uma nova instância de conexão
+         conexaoAviso.connect()
+         .then(() => {
+         return conexaoAviso.query(sql);
+         })
+         .then((result) => {
+            console.log(result.recordset);
+             res.status(200).json(result.recordset);
+         })
+         .catch((erro) => {
+             res.status(400).json(erro);
+         })
+        //  .finally(() => {
+        //      conexaoAviso.close();
+        //  }); 
     }
 
     listarAvisoKPI(dados, res) {
@@ -177,6 +227,20 @@ class dashboard {
             .finally(() => {
                 conexao.close();
             });
+     const conexaoKPI = require("../bd/connection"); // Importe uma nova instância de conexão
+              conexaoKPI.connect()
+        .then(() => {
+        return conexaoKPI.query(sql);
+        })
+        .then((result) => {
+            res.status(200).json(result.recordset);
+        })
+        .catch((erro) => {
+            res.status(400).json(erro);
+        })
+        // .finally(() => {
+        //     conexaoKPI.close();
+        // }); 
     }
 
 
@@ -213,10 +277,10 @@ class dashboard {
                 // Enviar resposta de erro
                 res.status(400).json(erro);
             })
-            .finally(() => {
-                // Fechar conexão
-                conexao.close();
-            });
+            // .finally(() => {
+            //     // Fechar conexão
+            //     conexao.close();
+            // });
     }
 
 
@@ -252,10 +316,10 @@ class dashboard {
                 // Enviar resposta de erro
                 res.status(400).json(erro);
             })
-            .finally(() => {
-                // Fechar conexão
-                conexao.close();
-            });
+            // .finally(() => {
+            //     // Fechar conexão
+            //     conexao.close();
+            // });
     }
 
     atualizarTaxaTotal(id, res) {
@@ -291,10 +355,10 @@ class dashboard {
                 console.log(sql);
                 res.status(400).json(erro);
             })
-            .finally(() => {
-                // Fechar conexão
-                conexao.close();
-            });
+            // .finally(() => {
+            //     // Fechar conexão
+            //     conexao.close();
+            // });
     }
 
 
@@ -330,10 +394,10 @@ class dashboard {
                 // Enviar resposta de erro
                 res.status(400).json(erro);
             })
-            .finally(() => {
-                // Fechar conexão
-                conexao.close();
-            });
+            // .finally(() => {
+            //     // Fechar conexão
+            //     conexao.close();
+            // });
     }
 
     restaurarTaxaCpu(alterar, res) {
@@ -360,10 +424,10 @@ class dashboard {
                 // Enviar resposta de erro
                 res.status(400).json(erro);
             })
-            .finally(() => {
-                // Fechar conexão
-                conexao.close();
-            });
+            // .finally(() => {
+            //     // Fechar conexão
+            //     conexao.close();
+            // });
     }
 
     restaurarTaxaDisco(alterar, res) {
@@ -390,10 +454,10 @@ class dashboard {
                 // Enviar resposta de erro
                 res.status(400).json(erro);
             })
-            .finally(() => {
-                // Fechar conexão
-                conexao.close();
-            });
+            // .finally(() => {
+            //     // Fechar conexão
+            //     conexao.close();
+            // });
     }
 
 
@@ -406,7 +470,6 @@ class dashboard {
             SET porcentagemCritico = 80.0, porcentagemAlerta = 60.0 
             WHERE fkComponente = 2 AND fkEmpresa = ${fk}
         `;
-
         // Conectar ao banco de dados
         conexao.connect()
             .then(() => {
@@ -421,10 +484,10 @@ class dashboard {
                 // Enviar resposta de erro
                 res.status(400).json(erro);
             })
-            .finally(() => {
-                // Fechar conexão
-                conexao.close();
-            });
+            // .finally(() => {
+            //     // Fechar conexão
+            //     conexao.close();
+            // });
     }
 
     puxarTaxaCpu(alterar, res) {
@@ -449,7 +512,7 @@ class dashboard {
             })
             .finally(() => {
                 // Feche a conexão após todas as operações serem concluídas ou em caso de erro
-                conexao.close();
+             //   conexao.close();
             });
     }
 
@@ -473,7 +536,7 @@ class dashboard {
             })
             .finally(() => {
                 // Feche a conexão após todas as operações serem concluídas ou em caso de erro
-                conexao.close();
+             //   conexao.close();
             });
     }
 
@@ -497,12 +560,11 @@ class dashboard {
             })
             .finally(() => {
                 // Feche a conexão após todas as operações serem concluídas ou em caso de erro
-                conexao.close();
+               // conexao.close();
             });
     }
 
     listarCPU(dados, res) {
-
         const sql = `SELECT TOP 1 ra.especificacao, ra.consumoAtual, m.tempoAtividade, rt.fkTipoAViso, rt.idRegistroAviso FROM RegistroComponente as ra
                         JOIN Componente as c
                             ON idComponente = fkComponente
@@ -518,6 +580,25 @@ class dashboard {
         conexao.connect()
             .then(() => {
                 return conexao.query(sql);
+        const sql = `
+            SELECT TOP 1 ra.especificacao, ra.consumoAtual, m.tempoAtividade, rt.fkTipoAViso, rt.idRegistroAviso FROM RegistroComponente as ra
+            JOIN Componente as c
+            ON idComponente = fkComponente
+            JOIN Maquina as m
+            ON fkMaquina = m.idMaquina
+            JOIN RegistroAvisos as rt
+            ON rt.fkComponente = ra.fkComponente
+            WHERE fkMaquina = ${dados.idMaquina} AND idComponente = 1
+            ORDER BY idRegistroComponente DESC,
+            idRegistroAviso DESC;
+        `;
+    
+        const conexaoCPU = require("../bd/connection"); // Importe uma nova instância de conexão
+    
+        conexaoCPU
+            .connect()
+            .then(() => {
+                return conexaoCPU.query(sql);
             })
             .then((result) => {
                 res.status(200).json(result.recordset);
@@ -525,10 +606,11 @@ class dashboard {
             .catch((erro) => {
                 res.status(400).json(erro);
             })
-            .finally(() => {
-                conexao.close();
-            });
+            // .finally(() => {
+            //     conexaoCPU.close(); // Feche a nova conexão
+            // });
     }
+    
 
     listarTaxaComponente(dados, res) {
 
@@ -549,33 +631,9 @@ class dashboard {
                 res.status(400).json(erro);
             })
             .finally(() => {
-                conexao.close();
+             //   conexao.close();
             });
-    }
-
-    listarRede(dados, res) {
-
-        const sql = `SELECT TOP 1 latencia, consumoDownload, consumoUpload FROM RegistroComponente
-                        JOIN Componente
-                            ON idComponente = fkComponente
-                                WHERE fkMaquina = ${dados.idMaquina} AND idComponente = 4
-                                    ORDER BY idRegistroComponente DESC
-					                    ;`;
-
-        conexao.connect()
-            .then(() => {
-                return conexao.query(sql);
-            })
-            .then((result) => {
-                res.status(200).json(result.recordset);
-            })
-            .catch((erro) => {
-                res.status(400).json(erro);
-            })
-            .finally(() => {
-                conexao.close();
-            });
-    }
+        }
 
 
     listarRAM(dados, res) {
@@ -590,9 +648,72 @@ class dashboard {
                                                     ORDER BY idRegistroComponente DESC,
                                                         idRegistroAviso desc;`;
 
-        conexao.connect()
+         const conexaoComp = require("../bd/connection"); // Importe uma nova instância de conexão
+        conexaoComp.connect()
+        .then(() => {
+        return conexaoComp.query(sql);
+        })
+        .then((result) => {
+            res.status(200).json(result.recordset);
+        })
+        .catch((erro) => {
+            res.status(400).json(erro);
+        })
+        // .finally(() => {  
+        //     conexaoComp.close();
+        // }); 
+    }
+
+    listarRAM(dados, res) {
+        const sql = `
+            SELECT TOP 1 ra.consumoAtual, ra.armazenamentoTotal, ra.armazenamentoDisponivel, rt.fkTipoAViso, rt.RegistroAviso 
+            FROM RegistroComponente as ra
+            JOIN Componente as c 
+            ON c.idComponente = ra.fkComponente
+            JOIN RegistroAvisos as rt
+            ON rt.fkComponente = ra.fkComponente
+            WHERE fkMaquina = ${dados.idMaquina} AND idComponente = 2
+            ORDER BY idRegistroComponente DESC,
+            idRegistroAviso desc;
+        `;
+    
+        const conexaoRam = require("../bd/connection"); // Importe uma nova instância de conexão
+    
+        conexaoRam
+            .connect()
             .then(() => {
-                return conexao.query(sql);
+                return conexaoRam.query(sql);
+            })
+            .then((result) => {
+                res.status(200).json(result.recordset);
+            })
+            .catch((erro) => {
+                res.status(400).json(erro);
+            })
+            // .finally(() => {
+            //     conexaoRam.close(); // Feche a nova conexão
+            // });
+    }
+    
+
+        const sql = `
+            SELECT TOP 1 ra.consumoAtual, ra.armazenamentoTotal, ra.armazenamentoDisponivel, rt.fkTipoAViso, rt.RegistroAviso 
+            FROM RegistroComponente as ra
+            JOIN Componente as c 
+            ON c.idComponente = ra.fkComponente
+            JOIN RegistroAvisos as rt
+            ON rt.fkComponente = ra.fkComponente
+            WHERE fkMaquina = ${dados.idMaquina} AND idComponente = 3
+            ORDER BY idRegistroComponente DESC,
+            idRegistroAviso desc;
+        `;
+    
+        const conexaoDisco = require("../bd/connection"); // Importe uma nova instância de conexão
+    
+        conexaoDisco
+            .connect()
+            .then(() => {
+                return conexaoDisco.query(sql);
             })
             .then((result) => {
                 res.status(200).json(result.recordset);
@@ -603,34 +724,38 @@ class dashboard {
             .finally(() => {
                 conexao.close();
             });
+            // .finally(() => {
+            //     conexaoDisco.close(); // Feche a nova conexão
+            // });
     }
-
-    listarDisco(dados, res) {
-
-        const sql = `SELECT ra.consumoAtual, ra.armazenamentoTotal, ra.armazenamentoDisponivel, rt.fkTipoAViso, rt.RegistroAviso 
-                        FROM RegistroComponente as ra
-                            JOIN Componente as c 
-                                ON c.idComponente = ra.fkComponente
-                                    JOIN RegistroAvisos as rt
-                                            ON rt.fkComponente = ra.fkComponente
-                                                WHERE fkMaquina = ${dados.idMaquina} AND idComponente = 3
-                                                    ORDER BY idRegistroComponente DESC,
-                                                        idRegistroAviso desc LIMIT 1;`;
-
-        conexao.connect()
+    
+    listarRede(dados, res) {
+        const sql = `
+            SELECT TOP 1 latencia, consumoDownload, consumoUpload FROM RegistroComponente
+            JOIN Componente
+            ON idComponente = fkComponente
+            WHERE fkMaquina = ${dados.idMaquina} AND idComponente = 4
+            ORDER BY idRegistroComponente DESC;
+        `;
+    
+        const conexaoRede = require("../bd/connection"); // Importe uma nova instância de conexão
+    
+        conexaoRede
+            .connect()
             .then(() => {
-                return conexao.query(sql);
+                return conexaoRede.query(sql);
             })
             .then((result) => {
-                res.status(200).json(result.recordset);
+                res.status(200).json(result.recordset[0]);
             })
             .catch((erro) => {
                 res.status(400).json(erro);
             })
-            .finally(() => {
-                conexao.close();
-            });
+            // .finally(() => {
+            //     conexaoRede.close(); // Feche a nova conexão
+            // });
     }
+    
 
 
 }

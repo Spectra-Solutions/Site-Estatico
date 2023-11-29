@@ -42,7 +42,7 @@ function listarMaquinas(listaMaquinas) {
                 var maquina = listaMaquinas[contIndex];
                 // var status = getStatusMaquina(); 
 
-                listaTexto += `<div class="quadrados" id="nula" title= "${maquina.nome}" style="cursor: pointer;" onclick="buscarMaquinaPorId(${maquina.idMaquina})"></div>`;
+                listaTexto += `<div class="quadrados" id="normal" title= "${maquina.nome}" style="cursor: pointer;" onclick="buscarMaquinaPorId(${maquina.idMaquina})"></div>`;
 
                 listarTaxaMaquina(maquina.idMaquina, maquina.nome)
 
@@ -220,13 +220,13 @@ function listarNotificacao(listaNotificacao, tipoAviso) {
                     <div class="boxNotificacoes">
                         <div class="infosNotificacao">
                             <div class="bolaAviso" id="${tipoAviso}"></div>
-                            <div class="escritaInformacoes">${notificacao.nome} - ${notificacao.registroAviso}</div>
+                            <div class="escritaInformacoes">${notificacao.registroAviso}</div>
                             <div class="horarioNotif">${formatoBrasileiro}</div>
                         </div>
                         <div class="verMaquina">
-                            <div class="legendaMaq" onclick="visaoMaquina()">Ver Máquina</div>
+                            <div class="legendaMaq" onclick="buscarMaquinaPorId(${notificacao.idMaquina})">Ver Máquina</div>
                             <div class="icon">
-                                <img src="img/icon-olho.svg" alt="" onclick="visaoMaquina()">
+                                <img src="img/icon-olho.svg" alt="" onclick="buscarMaquinaPorId(${notificacao.idMaquina})">
                             </div>
                         </div>
                     </div>

@@ -44,9 +44,9 @@ class usuario {
         .catch(erro => {
           res.status(400).json(erro)
         })
-        .finally(() => {
-          conexao.close() // Fechando a conexão após a consulta ou em caso de erro
-        })
+        // .finally(() => {
+        //   conexao.close() // Fechando a conexão após a consulta ou em caso de erro
+        // })
     }
   }
 
@@ -145,98 +145,92 @@ class usuario {
       });
   }
 
-
-  cadastrarFuncionario(funcionario, res) {
+ cadastrarFuncionario(funcionario, res) {
     var idFuncionarioAtual = funcionario.idFuncionario;
     var modoEdicao = funcionario.modoEdicao;
     var novoIdFuncionario;
 
     console.log('MODO EDICAO' + modoEdicao);
 
+
     conexao
-      .connect()
-      .then(() => {
-        if (modoEdicao == "true") {
-          console.log("atualizar");
+        .connect()
+        .then(() => {
+            if (modoEdicao == "true") {
+                console.log("atualizar");
 
-          if (
-            !funcionario.nomeFuncionario ||
-            !funcionario.emailFuncionario ||
-            !funcionario.senha ||
-            !funcionario.idEmpresa ||
-            !funcionario.nivelAviso ||
-            !funcionario.nivelAcesso
-          ) {
-            res.status(422).json({ message: "Preencha todos os campos!" });
-            throw new Error("Campos obrigatórios não preenchidos.");
-          }
+                if (
+                    !funcionario.nomeFuncionario ||
+                    !funcionario.emailFuncionario ||
+                    !funcionario.senha ||
+                    !funcionario.idEmpresa ||
+                    !funcionario.nivelAviso ||
+                    !funcionario.nivelAcesso
+                ) {
+                    res.status(422).json({ message: "Preencha todos os campos!" });
+                }
 
-          if (funcionario.emailFuncionario.indexOf("@") === -1 || funcionario.emailFuncionario.indexOf(".") === -1) {
-            res.status(400).json({ message: "Email inválido, é necessário possuir @ e ." });
-            throw new Error("Email inválido.");
-          }
+                else if (funcionario.emailFuncionario.indexOf("@") === -1 || funcionario.emailFuncionario.indexOf(".") === -1) {
+                    res.status(400).json({ message: "Email inválido, é necessário possuir @ e ." });
+                }
 
-          if (funcionario.senha.length !== 8) {
-            res.status(400).json({ message: "Senha inválida, é necessário possuir 8 caracteres" });
-            throw new Error("Senha inválida.");
-          }
+                else if (funcionario.senha.length !== 8) {
+                    res.status(400).json({ message: "Senha inválida, é necessário possuir 8 caracteres" });
+                }
 
+                if (funcionario.nivelAcesso === "adm") {
+                    funcionario.nivelAcesso = 1;
+                } else {
+                    funcionario.nivelAcesso = 2;
+                }
+
+                if (funcionario.nivelAviso == "critico") {
+                  funcionario.nivelAviso = 1;
+                } else if (funcionario.nivelAviso == "alerta") {
+                  funcionario.nivelAviso = 2;
+                } else {
+                  funcionario.nivelAviso = 3;
+                }
+
+                const sqlUpdate = `update Funcionario set NomeFunc = '${funcionario.nomeFuncionario}', EmailFunc = '${funcionario.emailFuncionario}', SenhaFunc = '${funcionario.senha}', fkEmpresa = ${funcionario.idEmpresa}, fkFuncao = ${funcionario.nivelAcesso} where idFuncionario = ${idFuncionarioAtual}`;
+
+                return conexao.query(sqlUpdate);
+            } else {
+                console.log("criação");
+
+                if (
+                    !funcionario.nomeFuncionario ||
+                    !funcionario.emailFuncionario ||
+                    !funcionario.senha ||
+                    !funcionario.idEmpresa ||
+                    !funcionario.nivelAviso ||
+                    !funcionario.nivelAcesso
+                ) {
+                    res.status(422).json({ message: "Preencha todos os campos!" });
+                }
+
+                else if (funcionario.emailFuncionario.indexOf("@") === -1 || funcionario.emailFuncionario.indexOf(".") === -1) {
+                    res.status(400).json({ message: "Email inválido, é necessário possuir @ e ." });
+                }
+
+                else if (funcionario.senha.length !== 8) {
+                    res.status(400).json({ message: "Senha inválida, é necessário possuir 8 caracteres" });
+                }
+
+                const sqlSelect = `SELECT EmailFunc FROM Funcionario WHERE EmailFunc = '${funcionario.emailFuncionario}'`;
+
+                return conexao.query(sqlSelect);
+            }
+        })
+        .then((result) => {
+          if (result && result.recordset && result.recordset.length > 0) {
+            res.status(203).json({ message: 'Email já em uso!' });
+        }
+        else{
           if (funcionario.nivelAcesso === "adm") {
             funcionario.nivelAcesso = 1;
-          } else {
+        } else {
             funcionario.nivelAcesso = 2;
-          }
-
-          if (funcionario.nivelAviso == "critico") {
-            funcionario.nivelAviso = 1;
-          } else if (funcionario.nivelAviso == "alerta") {
-            funcionario.nivelAviso = 2;
-          } else {
-            funcionario.nivelAviso = 3;
-          }
-
-          const sqlUpdate = `update Funcionario set NomeFunc = '${funcionario.nomeFuncionario}', EmailFunc = '${funcionario.emailFuncionario}', SenhaFunc = '${funcionario.senha}', fkEmpresa = ${funcionario.idEmpresa}, fkFuncao = ${funcionario.nivelAcesso} where idFuncionario = ${idFuncionarioAtual}`;
-
-          return conexao.query(sqlUpdate);
-        } else {
-          console.log("criação");
-
-          if (
-            !funcionario.nomeFuncionario ||
-            !funcionario.emailFuncionario ||
-            !funcionario.senha ||
-            !funcionario.idEmpresa ||
-            !funcionario.nivelAviso ||
-            !funcionario.nivelAcesso
-          ) {
-            res.status(422).json({ message: "Preencha todos os campos!" });
-            throw new Error("Campos obrigatórios não preenchidos.");
-          }
-
-          if (funcionario.emailFuncionario.indexOf("@") === -1 || funcionario.emailFuncionario.indexOf(".") === -1) {
-            res.status(400).json({ message: "Email inválido, é necessário possuir @ e ." });
-            throw new Error("Email inválido.");
-          }
-
-          if (funcionario.senha.length !== 8) {
-            res.status(400).json({ message: "Senha inválida, é necessário possuir 8 caracteres" });
-            throw new Error("Senha inválida.");
-          }
-
-          const sqlSelect = `SELECT EmailFunc FROM Funcionario WHERE EmailFunc = '${funcionario.emailFuncionario}'`;
-
-          return conexao.query(sqlSelect);
-        }
-      })
-      .then((result) => {
-        if (result && result.recordset && result.recordset.length > 0) {
-          res.status(203).json({ message: 'Email já em uso!' });
-        }
-
-        if (funcionario.nivelAcesso === "adm") {
-          funcionario.nivelAcesso = 1;
-        } else {
-          funcionario.nivelAcesso = 2;
         }
 
         if (funcionario.nivelAviso == "critico") {
@@ -249,36 +243,43 @@ class usuario {
 
         if (modoEdicao === "true") {
           const sqlUpdateChamado = `update Chamado set FkTipoAviso = ${funcionario.nivelAviso} where fkFuncionario = ${idFuncionarioAtual}`;
-
+  
           return conexao.query(sqlUpdateChamado);
-        } else {
+      } else {
           const sqlInsertFuncionario = `INSERT INTO Funcionario(NomeFunc, EmailFunc, SenhaFunc, fkEmpresa, fkFuncao) VALUES ('${funcionario.nomeFuncionario}', '${funcionario.emailFuncionario}', '${funcionario.senha}', ${funcionario.idEmpresa}, ${funcionario.nivelAcesso}) SELECT SCOPE_IDENTITY() AS idFuncionario;`;
-
+  
           // Inserir na tabela Funcionario e obter o idFuncionario
           return conexao.query(sqlInsertFuncionario);
+      }
         }
-      })
-      .then((result) => {
-        // Capturar o idFuncionario recém-inserido
-        novoIdFuncionario = result.recordset[0].idFuncionario;
-
-        // Inserir na tabela Chamado usando o novoIdFuncionario
-        const sqlInsertChamado = `INSERT INTO Chamado(fkFuncionario, FKTipoAviso) VALUES (${novoIdFuncionario}, ${funcionario.nivelAviso})`;
-
-        return conexao.query(sqlInsertChamado);
+            
+        })
+        .then((result) => {
+          if (modoEdicao !== "true") {
+              // Capturar o idFuncionario recém-inserido
+              novoIdFuncionario = result.recordset[0].idFuncionario;
+      
+              // Inserir na tabela Chamado usando o novoIdFuncionario
+              const sqlInsertChamado = `INSERT INTO Chamado(fkFuncionario, FKTipoAviso) VALUES (${novoIdFuncionario}, ${funcionario.nivelAviso})`;
+      
+              return conexao.query(sqlInsertChamado);
+          }
       })
       .then(() => {
+
         res.status(200).json({ message: 'Operação concluída com sucesso!' });
       })
       .catch((erro) => {
-        console.error('Erro na operação:', erro);
-        res.status(400).json({ message: 'Erro na operação no banco de dados.' });
+          console.error('Erro na operação:', erro);
+          
       })
-      .finally(() => {
-        // Feche a conexão após todas as operações serem concluídas ou em caso de erro
-        conexao.close();
-      });
-  }
+      // .finally(() => {
+      //     // Feche a conexão após todas as operações serem concluídas ou em caso de erro
+      //     conexao.close();
+       
+          
+      // });
+}
 
   atualizarUsuarios(dados, res) {
 
@@ -287,51 +288,63 @@ class usuario {
     const sql = `select NomeFunc, idFuncionario from Funcionario where fkEmpresa = ${dados.idEmpresa} and idFuncionario <> ${dados.idFunc} order by NomeFunc;`;
 
     conexao
-      .connect()
-      .then(() => conexao.query(sql))
-      .then((result) => {
-        console.log(result.recordset);
-        res.status(200).json(result.recordset);
-      })
-      .catch((erro) => {
-        console.error('Erro na operação:', erro);
-        res.status(500).json({ message: 'Erro na operação no banco de dados.' });
-      })
-      .finally(() => {
-        // Feche a conexão após todas as operações serem concluídas ou em caso de erro
-        conexao.close();
-      });
-
-
+        .connect()
+        .then(() => {
+            return conexao.query(sql);
+        })
+        .then((result) => {
+            res.status(200).json(result.recordset);
+        })
+        .catch((erro) => {
+            console.error('Erro na operação:', erro);
+            res.status(500).json({ message: 'Erro na operação no banco de dados.' });
+        })
+        // .finally(() => {
+        //     // Feche a conexão após todas as operações serem concluídas ou em caso de erro
+        //     conexao.close();
+        // });
   }
 
   deletarUsuario(idFuncionario1, res) {
     console.log("ansdnaosn", JSON.stringify(idFuncionario1));
 
-    const idDelete = idFuncionario1.id;
-    const sql = `delete from Chamado where fkFuncionario = ${idDelete};`;
+    conexao.connect((erroConexao) => {
+        if (erroConexao) {
+            console.error(erroConexao);
+            res.status(500).json({ message: 'Erro de conexão com o banco de dados.' });
+            return;
+        }
 
-    conexao.query(sql, (erro, result) => {
-      if (erro) {
-        console.log(erro);
-        res.status(400).json(erro);
-      } else {
-        const sql = `delete from funcionario where idFuncionario = ${idDelete};`;
+        const idDelete = idFuncionario1.id;
+        const sqlChamado = `delete from Chamado where fkFuncionario = ${idDelete}`;
+        const sqlFuncionario = `delete from Funcionario where idFuncionario = ${idDelete}`;
 
-        conexao.query(sql, (erro, result) => {
-          if (erro) {
-            console.log(erro);
-            res.status(400).json(erro);
-          } else {
-            res.status(200).json(result);
-          }
+        conexao.query(sqlChamado, (erroChamado, resultChamado) => {
+            if (erroChamado) {
+                console.error(erroChamado);
+                res.status(400).json(erroChamado);
+                return;
+            }
+
+            conexao.query(sqlFuncionario, (erroFuncionario, resultFuncionario) => {
+                if (erroFuncionario) {
+                    console.error(erroFuncionario);
+                    res.status(400).json(erroFuncionario);
+                } else {
+                    res.status(200).json(resultFuncionario);
+                }
+
+                // conexao.close();  // Feche a conexão após as operações serem concluídas
+            });
         });
-      }
     });
-  }
 
-  editarFuncionario(idFuncionario, res) {
-    const sql = `SELECT func.idFuncionario, func.NomeFunc, func.EmailFunc, func.SenhaFunc, func.fkEmpresa,
+}
+
+
+
+editarFuncionario(idFuncionario, res) {
+  const sql = `SELECT func.idFuncionario, func.NomeFunc, func.EmailFunc, func.SenhaFunc, func.fkEmpresa,
   func.fkFuncao, emp.IdEmpresa, emp.NomeEmpresa, funca.tipoFuncao, tp.nomeAviso
     FROM Funcionario as func
       JOIN Empresa as emp ON func.fkEmpresa = emp.IdEmpresa
@@ -341,38 +354,46 @@ class usuario {
               WHERE func.idFuncionario = ${idFuncionario};`;
 
     conexao
+        .connect()
+        .then(() => {
+            return conexao.query(sql);
+        })
+        .then((result) => {
+          console.log(result.recordset);
+            res.status(200).json(result.recordset[0]);
+        })
+        .catch((erro) => {
+            console.error('Erro na operação:', erro);
+            res.status(500).json({ message: 'Erro na operação no banco de dados.' });
+        })
+        // .finally(() => {
+        //     // Feche a conexão após todas as operações serem concluídas ou em caso de erro
+        //     // conexao.close();
+        // });
+}
+
+puxarNomeFuncionario(digitado, res) {
+  const sql = `SELECT NomeFunc, idFuncionario FROM funcionario WHERE NomeFunc LIKE '%${digitado}%';`;
+
+  conexao
       .connect()
       .then(() => conexao.query(sql))
       .then((result) => {
-        console.log(result.recordset[0]);
-        res.status(200).json(result.recordset[0]);
+          const funcionarios = result.recordset;
+          if (funcionarios.length === 0) {
+              res.status(404).json({ error: "Funcionário não encontrado" });
+          } else {
+              res.status(200).json(funcionarios);
+          }
       })
       .catch((erro) => {
-        console.error('Erro na operação:', erro);
-        res.status(500).json({ message: 'Erro na operação no banco de dados.' });
+          console.error('Erro na operação:', erro);
+          res.status(400).json({ message: 'Erro na operação no banco de dados.' });
       })
-      .finally(() => {
-        // Feche a conexão após todas as operações serem concluídas ou em caso de erro
-        conexao.close();
-      });
-  }
+      // .finally(() => conexao.close());
+}
 
-  puxarNomeFuncionario(digitado, res) {
-    console.log(digitado);
-    const sql = `SELECT NomeFunc, idFuncionario FROM funcionario where NomeFunc LIKE '%${digitado}%'`;
 
-    conexao.query(sql, (erro, result) => {
-      if (erro) {
-        return res.status(400).json(erro);
-      } else if (result.recordset.length === 0) {
-        return res.status(404).json({ error: "Funcionário não encontrado" });
-      } else {
-        // Retorna os dados do funcionário encontrado
-        console.log("Dados do funcionário:", result.recordset.NomeFunc);
-        res.status(200).json(result.recordset);
-      }
-    });
-  }
 }
 
 module.exports = new usuario()

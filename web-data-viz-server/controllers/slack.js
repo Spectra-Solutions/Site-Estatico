@@ -7,17 +7,26 @@ class slack {
 
     configurarSlack(dados, res) {
 
-        const sql = `UPDATE Empresa SET url = "${dados.formValues.urlSlack}" WHERE idEmpresa = ${dados.formValues.fkEmpresa}`;
-
-        conexao.query(sql, (erro, result) => {
-            if (erro) {
-                console.log(erro);
-                res.status(400).json(erro);
-            } else {
-                res.status(200).json(result);
+        conexao.connect((erroConexao) => {
+            if (erroConexao) {
+                console.error(erroConexao);
+                res.status(500).json({ message: 'Erro de conexão com o banco de dados.' });
+                return;
             }
-        }
-        );
+    
+            const sql = `UPDATE Empresa SET url = "${dados.formValues.urlSlack}" WHERE idEmpresa = ${dados.formValues.fkEmpresa}`;
+    
+            conexao.query(sql, (erro, result) => {
+                if (erro) {
+                    console.log(erro);
+                    res.status(400).json(erro);
+                } else {
+                    res.status(200).json(result);
+                }
+    
+                conexao.close();  // Feche a conexão após as operações serem concluídas
+            });
+        });
     }
 }
 
