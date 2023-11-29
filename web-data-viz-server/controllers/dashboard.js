@@ -38,7 +38,7 @@ class dashboard {
         const horaFormatada = dtHora.format('YYYY-MM-DD HH:mm:ss');
         console.log(horaFormatada);
         console.log(dados);
-    
+
         const inserirComandoSql = `
             INSERT INTO Comando(nomeComando, stattus, fkMaquina, fkFuncionario) 
             VALUES ('${dados.comando}', ${1}, ${dados.fkMaquina}, ${dados.fkUser})
@@ -51,7 +51,16 @@ class dashboard {
                 return conexaoInovacao.query(inserirComandoSql);
             })
             .then((results) => {
-                
+                const selectComandoSql = `
+                    SELECT idComando 
+                    FROM Comando 
+                    WHERE nomeComando = '${dados.comando}' 
+                        AND stattus = ${1} 
+                        AND fkMaquina = ${dados.fkMaquina} 
+                        AND fkFuncionario = ${dados.fkUser}
+                `;
+
+                return conexao.query(selectComandoSql);
             })
             .then((result) => {
                 res.status(200);
@@ -65,7 +74,7 @@ class dashboard {
             //     conexaoInovacao.close();
             // });
     }
-    
+
 
     listarInformacoesMaquina(idMaquina, res) {
 
@@ -77,6 +86,19 @@ class dashboard {
                                     LEFT JOIN registroComponente AS rc ON m.idMaquina = rc.fkMaquina
                                         WHERE m.idMaquina = ${idMaquina};`;
 
+        conexao.connect()
+            .then(() => {
+                return conexao.query(sql);
+            })
+            .then((result) => {
+                res.status(200).json(result.recordset);
+            })
+            .catch((erro) => {
+                res.status(400).json(erro);
+            })
+            .finally(() => {
+                conexao.close();
+            });
         const conexaoinfoMaqu = require("../bd/connection"); // Importe uma nova instância de conexão
         conexaoinfoMaqu.connect()
         .then(() => {
@@ -103,6 +125,20 @@ class dashboard {
                                     LEFT JOIN registroAvisos AS ra ON rc.fkComponente = ra.fkComponente
                                         LEFT JOIN Empresa AS e ON m.fkEmpresaMaquina = e.IdEmpresa
                                             WHERE m.idMaquina = ${dados.idMaquina} OR m.idMaquina IS NULL;`;
+
+        conexao.connect()
+            .then(() => {
+                return conexao.query(sql);
+            })
+            .then((result) => {
+                res.status(200).json(result.recordset);
+            })
+            .catch((erro) => {
+                res.status(400).json(erro);
+            })
+            .finally(() => {
+                conexao.close();
+            });
         const conexaoTaxaMaquina = require("../bd/connection"); // Importe uma nova instância de conexão
         conexaoTaxaMaquina.connect()
         .then(() => {
@@ -133,6 +169,21 @@ class dashboard {
                                             ON m.fkEmpresaMaquina = e.IdEmpresa
                                                 WHERE fkTipoAviso = ${dados.idAviso}
                                                     AND e.idEmpresa = ${dados.idEmpresa};`;
+
+        conexao.connect()
+            .then(() => {
+                return conexao.query(sql);
+            })
+            .then((result) => {
+                res.status(200).json(result.recordset);
+            })
+            .catch((erro) => {
+                res.status(400).json(erro);
+            })
+            .finally(() => {
+                conexao.close();
+            });
+      
 const conexaoAviso = require("../bd/connection"); // Importe uma nova instância de conexão
          conexaoAviso.connect()
          .then(() => {
@@ -163,7 +214,20 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
                                         JOIN Empresa as e
                                             ON m.fkEmpresaMaquina = e.IdEmpresa
                                                 WHERE e.idEmpresa = ${dados.idEmpresa}`;
-                                                const conexaoKPI = require("../bd/connection"); // Importe uma nova instância de conexão
+        conexao.connect()
+            .then(() => {
+                return conexao.query(sql);
+            })
+            .then((result) => {
+                res.status(200).json(result.recordset);
+            })
+            .catch((erro) => {
+                res.status(400).json(erro);
+            })
+            .finally(() => {
+                conexao.close();
+            });
+     const conexaoKPI = require("../bd/connection"); // Importe uma nova instância de conexão
               conexaoKPI.connect()
         .then(() => {
         return conexaoKPI.query(sql);
@@ -185,20 +249,20 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
         const fk = alterar.fkEmpresa;
         let valorAlerta = alterar.taxaAlerta;
         let valorCritico = alterar.taxaCritica;
-    
+
         // Verificar se os valores são vazios ou nulos e atribuir 0.0
         valorAlerta = valorAlerta || 0.0;
         valorCritico = valorCritico || 0.0;
-    
+
         console.log(alterar);
-    
+
         // Query SQL com placeholders
         const sql = `
             UPDATE TaxaAviso 
             SET porcentagemCritico = ${valorCritico}, porcentagemAlerta = ${valorAlerta} 
             WHERE fkComponente = 1 AND fkEmpresa = ${fk}
         `;
-    
+
         // Conectar ao banco de dados
         conexao.connect()
             .then(() => {
@@ -218,26 +282,26 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
             //     conexao.close();
             // });
     }
-    
+
 
     atualizarTaxaDisco(alterar, res) {
         const fk = alterar.fkEmpresa;
         let valorAlerta = alterar.taxaAlerta;
         let valorCritico = alterar.taxaCritica;
-    
+
         // Verificar se os valores são vazios ou nulos e atribuir 0.0
         valorAlerta = valorAlerta || 0.0;
         valorCritico = valorCritico || 0.0;
-    
+
         console.log(alterar);
-    
+
         // Query SQL com placeholders
         const sql = `
             UPDATE TaxaAviso 
             SET porcentagemCritico = ${valorCritico}, porcentagemAlerta = ${valorAlerta} 
             WHERE fkComponente = 3 AND fkEmpresa = ${fk}
         `;
-    
+
         // Conectar ao banco de dados
         conexao.connect()
             .then(() => {
@@ -259,7 +323,7 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
     }
 
     atualizarTaxaTotal(id, res) {
-        console.log("IDDDD" +id.fkEmpresa);
+        console.log("IDDDD" + id.fkEmpresa);
         // Query SQL com placeholders
         const sql = `
         IF NOT EXISTS (
@@ -274,7 +338,7 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
                 (80, 60, 3, ${id.fkEmpresa});
         END;
         `;
-    
+
         // Conectar ao banco de dados
         conexao.connect()
             .then(() => {
@@ -296,26 +360,26 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
             //     conexao.close();
             // });
     }
-    
+
 
     atualizarTaxaRAM(alterar, res) {
         const fk = alterar.fkEmpresa;
         let valorAlerta = alterar.taxaAlerta;
         let valorCritico = alterar.taxaCritica;
-    
+
         // Verificar se os valores são vazios ou nulos e atribuir 0.0
         valorAlerta = valorAlerta || 0.0;
         valorCritico = valorCritico || 0.0;
-    
+
         console.log(alterar);
-    
+
         // Query SQL com placeholders
         const sql = `
             UPDATE TaxaAviso 
             SET porcentagemCritico = ${valorCritico}, porcentagemAlerta = ${valorAlerta} 
             WHERE fkComponente = 2 AND fkEmpresa = ${fk}
         `;
-    
+
         // Conectar ao banco de dados
         conexao.connect()
             .then(() => {
@@ -338,14 +402,14 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
 
     restaurarTaxaCpu(alterar, res) {
         const fk = alterar.fkEmpresa;
-    
+
         // Query SQL com placeholders
         const sql = `
             UPDATE TaxaAviso 
             SET porcentagemCritico = 80.0, porcentagemAlerta = 60.0 
             WHERE fkComponente = 1 AND fkEmpresa = ${fk}
         `;
-    
+
         // Conectar ao banco de dados
         conexao.connect()
             .then(() => {
@@ -365,17 +429,17 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
             //     conexao.close();
             // });
     }
-    
+
     restaurarTaxaDisco(alterar, res) {
         const fk = alterar.fkEmpresa;
-    
+
         // Query SQL com placeholders
         const sql = `
             UPDATE TaxaAviso 
             SET porcentagemCritico = 80.0, porcentagemAlerta = 60.0 
             WHERE fkComponente = 3 AND fkEmpresa = ${fk}
         `;
-    
+
         // Conectar ao banco de dados
         conexao.connect()
             .then(() => {
@@ -395,18 +459,17 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
             //     conexao.close();
             // });
     }
-    
+
 
     restaurarTaxaRam(alterar, res) {
         const fk = alterar.fkEmpresa;
-    
+
         // Query SQL com placeholders
         const sql = `
             UPDATE TaxaAviso 
             SET porcentagemCritico = 80.0, porcentagemAlerta = 60.0 
             WHERE fkComponente = 2 AND fkEmpresa = ${fk}
         `;
-        
         // Conectar ao banco de dados
         conexao.connect()
             .then(() => {
@@ -426,9 +489,97 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
             //     conexao.close();
             // });
     }
-    
+
+    puxarTaxaCpu(alterar, res) {
+        const fk = alterar.fkEmpresA
+        console.log(fk)
+
+        const sql = `SELECT porcentagemCritico, porcentagemAlerta FROM TaxaAviso WHERE fkComponente = 1 AND fkEmpresa = ${fk}`;
+
+
+        conexao
+            .connect()
+            .then(() => {
+                return conexao.query(sql);
+            })
+            .then((result) => {
+                console.log(result.recordset);
+                res.status(200).json(result.recordset[0]);
+            })
+            .catch((erro) => {
+                console.error('Erro na operação:', erro);
+                res.status(500).json({ message: 'Erro na operação no banco de dados.' });
+            })
+            .finally(() => {
+                // Feche a conexão após todas as operações serem concluídas ou em caso de erro
+             //   conexao.close();
+            });
+    }
+
+    puxarTaxaDisco(alterar, res) {
+        const fk = alterar.fkEmpresA
+        console.log(fk)
+
+        const sql = `SELECT porcentagemCritico, porcentagemAlerta FROM TaxaAviso WHERE fkComponente = 3 AND fkEmpresa = ${fk}`;
+        conexao
+            .connect()
+            .then(() => {
+                return conexao.query(sql);
+            })
+            .then((result) => {
+                console.log(result.recordset);
+                res.status(200).json(result.recordset[0]);
+            })
+            .catch((erro) => {
+                console.error('Erro na operação:', erro);
+                res.status(500).json({ message: 'Erro na operação no banco de dados.' });
+            })
+            .finally(() => {
+                // Feche a conexão após todas as operações serem concluídas ou em caso de erro
+             //   conexao.close();
+            });
+    }
+
+    puxarTaxaRam(alterar, res) {
+        const fk = alterar.fkEmpresA
+        console.log(fk)
+
+        const sql = `SELECT porcentagemCritico, porcentagemAlerta FROM TaxaAviso WHERE fkComponente = 2 AND fkEmpresa = ${fk}`;
+        conexao
+            .connect()
+            .then(() => {
+                return conexao.query(sql);
+            })
+            .then((result) => {
+                console.log(result.recordset);
+                res.status(200).json(result.recordset[0]);
+            })
+            .catch((erro) => {
+                console.error('Erro na operação:', erro);
+                res.status(500).json({ message: 'Erro na operação no banco de dados.' });
+            })
+            .finally(() => {
+                // Feche a conexão após todas as operações serem concluídas ou em caso de erro
+               // conexao.close();
+            });
+    }
 
     listarCPU(dados, res) {
+        const sql = `SELECT TOP 1 ra.especificacao, ra.consumoAtual, m.tempoAtividade, rt.fkTipoAViso, rt.idRegistroAviso FROM RegistroComponente as ra
+                        JOIN Componente as c
+                            ON idComponente = fkComponente
+                                JOIN Maquina as m
+                                    ON fkMaquina = m.idMaquina
+										JOIN RegistroAvisos as rt
+											ON rt.fkComponente = ra.fkComponente
+												WHERE fkMaquina = ${dados.idMaquina} AND idComponente = 1
+													ORDER BY idRegistroComponente DESC,
+																idRegistroAviso DESC
+																	;`;
+
+        conexao.connect()
+            .then(() => {
+                return conexao.query(sql);
         const sql = `
             SELECT TOP 1 ra.especificacao, ra.consumoAtual, m.tempoAtividade, rt.fkTipoAViso, rt.idRegistroAviso FROM RegistroComponente as ra
             JOIN Componente as c
@@ -468,7 +619,36 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
                             JOIN Componente as c
                                 ON ta.fkComponente = c.idComponente
                                     WHERE ta.fkEmpresa = ${dados.idEmpresa};`;
-                                    const conexaoComp = require("../bd/connection"); // Importe uma nova instância de conexão
+
+        conexao.connect()
+            .then(() => {
+                return conexao.query(sql);
+            })
+            .then((result) => {
+                res.status(200).json(result.recordset);
+            })
+            .catch((erro) => {
+                res.status(400).json(erro);
+            })
+            .finally(() => {
+             //   conexao.close();
+            });
+        }
+
+
+    listarRAM(dados, res) {
+
+        const sql = `SELECT TOP 1 ra.consumoAtual, ra.armazenamentoTotal, ra.armazenamentoDisponivel, rt.fkTipoAViso, rt.RegistroAviso 
+                        FROM RegistroComponente as ra
+                            JOIN Componente as c 
+                                ON c.idComponente = ra.fkComponente
+                                    JOIN RegistroAvisos as rt
+                                            ON rt.fkComponente = ra.fkComponente
+                                                WHERE fkMaquina = ${dados.idMaquina} AND idComponente = 2
+                                                    ORDER BY idRegistroComponente DESC,
+                                                        idRegistroAviso desc;`;
+
+         const conexaoComp = require("../bd/connection"); // Importe uma nova instância de conexão
         conexaoComp.connect()
         .then(() => {
         return conexaoComp.query(sql);
@@ -515,7 +695,7 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
             // });
     }
     
-    listarDisco(dados, res) {
+
         const sql = `
             SELECT TOP 1 ra.consumoAtual, ra.armazenamentoTotal, ra.armazenamentoDisponivel, rt.fkTipoAViso, rt.RegistroAviso 
             FROM RegistroComponente as ra
@@ -541,6 +721,9 @@ const conexaoAviso = require("../bd/connection"); // Importe uma nova instância
             .catch((erro) => {
                 res.status(400).json(erro);
             })
+            .finally(() => {
+                conexao.close();
+            });
             // .finally(() => {
             //     conexaoDisco.close(); // Feche a nova conexão
             // });

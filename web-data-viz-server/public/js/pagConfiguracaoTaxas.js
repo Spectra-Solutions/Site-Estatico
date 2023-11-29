@@ -1,23 +1,88 @@
-// configuracao alerta
-// ALERTA
-const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    customClass: {
-        popup: 'swal2-show-custom-shadow'
-    },
-    didOpen: (toast) => {
-        const popup = Swal.getPopup();
-        popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-})
 
 // ----------------------- CPU -------------------------------- 
+
+function puxarTaxaCpu(fkEmpresa) {
+    const fkEmpresA = fkEmpresa;
+
+
+    fetch("/puxarTaxaCpu", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ fkEmpresA }),
+    })
+        .then((res) => res.json())
+        .then((taxas) => {
+
+            console.log("taxas recebidas:", taxas);
+
+
+            formTaxa.inputTaxaAlertaCPU.value = taxas.porcentagemAlerta;
+            formTaxa.inputTaxaCriticaCPU.value = taxas.porcentagemCritico;
+
+
+        })
+        .catch((error) => {
+            console.error("Erro ao recuperar taxas para edição:", error);
+        });
+}
+
+function puxarTaxaDisco(fkEmpresa) {
+    const fkEmpresA = fkEmpresa;
+
+
+    fetch("/puxarTaxaDisco", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ fkEmpresA }),
+    })
+        .then((res) => res.json())
+        .then((taxas) => {
+
+            console.log("taxas recebidas:", taxas);
+
+
+            formTaxaDisco.inputTaxaAlertaDISCO.value = taxas.porcentagemAlerta;
+            formTaxaDisco.inputTaxaCriticaDISCO.value = taxas.porcentagemCritico;
+
+
+        })
+        .catch((error) => {
+            console.error("Erro ao recuperar taxas para edição:", error);
+        });
+}
+
+function puxarTaxaRam(fkEmpresa) {
+    const fkEmpresA = fkEmpresa;
+
+
+    fetch("/puxarTaxaRam", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ fkEmpresA }),
+    })
+        .then((res) => res.json())
+        .then((taxas) => {
+
+            console.log("taxas recebidas:", taxas);
+
+
+            formTaxaRAM.inputTaxaAlertaRAM.value = taxas.porcentagemAlerta;
+            formTaxaRAM.inputTaxaCriticaRAM.value = taxas.porcentagemCritico;
+
+
+        })
+        .catch((error) => {
+            console.error("Erro ao recuperar taxas para edição:", error);
+        });
+}
+
+
 
 const form = document.getElementById("formTaxa");
 form.addEventListener("submit", (event) => {
@@ -28,7 +93,7 @@ form.addEventListener("submit", (event) => {
 
     if (botaoClicado.id == "restaurarCPU") {
         restaurarTaxaCpu()
-    }else if (botaoClicado.id == "atualizarTaxaCpu") {
+    } else if (botaoClicado.id == "atualizarTaxaCpu") {
         alterarCpu()
     }
 });
@@ -82,7 +147,9 @@ function alterarCpu() {
         })
         .then((body) => {
 
+            puxarTaxaCpu(fkEmpresa)
             Toast.fire(body.configAlerta);
+
 
         })
         .catch((err) => {
@@ -135,57 +202,7 @@ function restaurarTaxaCpu() {
         })
         .then((body) => {
 
-            Toast.fire(body.configAlerta);
-
-        })
-        .catch((err) => {
-            console.error("Erro inesperado: ", err);
-        });
-}
-
-function atualizarTaxaTotal(fkEmpresa) {
-
-    const data = {
-        id: fkEmpresa,
-    };
-
-    fetch("/atualizarTaxaTotal", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
-        .then((res) => {
-            if (res.status === 200) {
-                return res.json().then((body) => {
-
-                    var configAlerta = {
-                        icon: 'success',
-                        title: body.message,
-                        iconColor: '#3C8AFF'
-                    };
-                    body.configAlerta = configAlerta;
-                    return body;
-
-                });
-
-            } else if (res.status === 422 || res.status == 400 || res.status == 203) {
-
-                return res.json().then((body) => {
-
-                    var configAlerta = {
-                        icon: 'warning',
-                        title: body.message,
-                        iconColor: '#3C8AFF'
-                    };
-                    body.configAlerta = configAlerta;
-                    return body;
-                });
-            }
-        })
-        .then((body) => {
-
+            puxarTaxaCpu(fkEmpresa)
             Toast.fire(body.configAlerta);
 
         })
@@ -207,7 +224,7 @@ formDisco.addEventListener("submit", (event) => {
 
     if (botaoClicado.id == "restaurarDisco") {
         restaurarTaxaDisco()
-    }else if (botaoClicado.id == "atualizarTaxaDisco") {
+    } else if (botaoClicado.id == "atualizarTaxaDisco") {
         alterarDisco()
     }
 });
@@ -261,6 +278,7 @@ function alterarDisco() {
         })
         .then((body) => {
 
+            puxarTaxaDisco(fkEmpresa)
             Toast.fire(body.configAlerta);
 
         })
@@ -313,6 +331,7 @@ function restaurarTaxaDisco() {
         })
         .then((body) => {
 
+            puxarTaxaDisco(fkEmpresa)
             Toast.fire(body.configAlerta);
 
         })
@@ -334,13 +353,13 @@ formRam.addEventListener("submit", (event) => {
 
     if (botaoClicado.id == "restaurarRam") {
         restaurarTaxaRam()
-    }else if (botaoClicado.id == "atualizarTaxaRam") {
+    } else if (botaoClicado.id == "atualizarTaxaRam") {
         alterarRam()
     }
 
 });
 
-function alterarRam(){
+function alterarRam() {
     const fkEmpresA = { id: fkEmpresa };
 
     const data = {
@@ -389,6 +408,7 @@ function alterarRam(){
         })
         .then((body) => {
 
+            puxarTaxaRam(fkEmpresa)
             Toast.fire(body.configAlerta);
 
         })
@@ -441,6 +461,7 @@ function restaurarTaxaRam() {
         })
         .then((body) => {
 
+            puxarTaxaRam(fkEmpresa)
             Toast.fire(body.configAlerta);
 
         })

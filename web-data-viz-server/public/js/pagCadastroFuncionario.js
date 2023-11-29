@@ -99,8 +99,6 @@ function voltarP() {
   
       .then((body) => {
         Toast.fire(body.configAlerta);
-        
-        
   
         atualizarUsuarios();
       })
