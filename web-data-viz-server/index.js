@@ -27,12 +27,12 @@ const fs = require('fs');
 const path = require('path');
 
 app.get('/download', (req, res) => {
-    const filePath = path.join(__dirname, 'TUTORIAL.txt');
+    const filePath = path.join(__dirname, 'Instalador-spectra-sqlServer.sh');
 
     // Configura os cabeçalhos para a resposta
-    res.setHeader('Content-Type', 'text/plain');
-    res.setHeader('Content-Disposition', 'attachment; filename=TUTORIAL.txt');
-
+    res.setHeader('Content-Type', 'application/x-sh');
+    res.setHeader('Content-Disposition', 'attachment; filename=Instalador-spectra-sqlServer.sh');
+    
     console.log('Enviando arquivo:', filePath);
 
     // Cria uma leitura de fluxo do arquivo e a canaliza para a resposta

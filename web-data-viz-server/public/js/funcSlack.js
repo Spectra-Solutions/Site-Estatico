@@ -17,7 +17,11 @@ const Toast = Swal.mixin({
     }
 })
 
+sessionStorage.URL_SLACK = "Insira a URL";
+
 async function configurarSlack() {
+        
+    
 
     const { value: formValues } = await Swal.fire({
         title: 'Configurar Slack',
@@ -49,7 +53,11 @@ var alterado_dados = false;
 
 function atualizarDados(formValues) {
 
+    console.log('aqui' + formValues.urlSlack);
+
+
     sessionStorage.URL_SLACK = formValues.urlSlack;
+    
 
     if (formValues.urlSlack != "" && formValues.fkEmpresa != "") {
 

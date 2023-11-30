@@ -16,7 +16,7 @@ function exibirAlertaDesligar() {
 
                 var comandoDesligar = "";
 
-                if (sessionStorage.SO_MAQ == "Linux") {
+                if (sessionStorage.SO_MAQ == "Linux" || sessionStorage.SO_MAQ == "Ubuntu") {
                     comandoDesligar = "sudo shutdown -h now";
                 } else if (sessionStorage.SO_MAQ == "Windows") {
                     comandoDesligar = "shutdown /s /f /t 0";

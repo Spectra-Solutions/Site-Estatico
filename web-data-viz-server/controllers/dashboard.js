@@ -143,7 +143,7 @@ class dashboard {
                                         JOIN Empresa as e
                                             ON m.fkEmpresaMaquina = e.IdEmpresa
                                                 WHERE fkTipoAviso = ${dados.idAviso}
-                                                    AND e.idEmpresa = ${dados.idEmpresa};`;
+                                                    AND e.idEmpresa = ${dados.idEmpresa} ORDER BY dtHora DESC;`;
       
         const conexaoAviso = require("../bd/connection"); // Importe uma nova instância de conexão
          conexaoAviso.connect()

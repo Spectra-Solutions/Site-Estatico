@@ -196,20 +196,22 @@ function atualizarDadosRAM() {
         .then((res) => res.json())
         .then((listaDadosRAM) => {
 
-            console.log("DADOS RAMMMMM " + listaDadosRAM);
+
 
             var disponivel = document.getElementById("div_armazenamento_disponivel_ram");
             var total = document.getElementById("div_armazenamento_total_ram");
             var disponivelPorcent = document.getElementById("div_armazenamento_disponivel_ram_porcentagem");
 
-            const memoriaTotal = listaDadosRAM[0].armazenamentoTotal;
-            const memoriaDisponivel = listaDadosRAM[0].armazenamentoDisponivel;
+            var memoriaTotal = listaDadosRAM[0].armazenamentoTotal;
+            var memoriaDisponivel = listaDadosRAM[0].armazenamentoDisponivel;
             var memoriaDisponivelFormatado = listaDadosRAM[0].armazenamentoDisponivel;
 
             // Verificar se o array consumoCPUArray está vazio
             if (listaDadosRAM.length > 0) {
-
-                if (listaDadosRAM[0].armazenamentoDisponivel.length >= 3) {
+                
+                let numeroDeCaracteres = memoriaDisponivel.toString().length;
+                console.log(numeroDeCaracteres);
+                if (numeroDeCaracteres >= 4) {
                     disponivel.innerHTML = memoriaDisponivelFormatado + "MB";
                 } else {
                     disponivel.innerHTML = memoriaDisponivel + "GB";
@@ -218,7 +220,6 @@ function atualizarDadosRAM() {
                 total.innerHTML = listaDadosRAM[0].armazenamentoTotal + "GB";
 
                 const porcentagemDisponivel = (memoriaDisponivel / memoriaTotal);
-                console.log("PORCENTAGEM " + porcentagemDisponivel);
                 disponivelPorcent.innerHTML = "(" + porcentagemDisponivel.toFixed(2) + "%)";
 
                 console.log(listaDadosRAM[0].fkTipoAViso);
@@ -246,6 +247,8 @@ function atualizarDadosDisco() {
         .then((res) => res.json())
         .then((listaDadosDisco) => {
 
+            console.log("DADOS DISCOOO " + JSON.stringify(listaDadosDisco));
+
             var divListaDisco = document.getElementById("divListaDisco");
 
             var memoriaTotal = listaDadosDisco[0].armazenamentoTotal;
@@ -260,8 +263,13 @@ function atualizarDadosDisco() {
 
                 for (var i = 0; i < listaDadosDisco.length; i++) {
 
+                    let numeroDeCaracteres = memoriaTotal.toString().length;
+                    let numeroDeCaracteres2 = memoriaDisponivel.toString().length;
+
                     var unidade = '';
-                    if ((listaDadosDisco[0].armazenamentoTotal.length < 3) || (listaDadosDisco[0].armazenamentoDisponivel.length < 3)) {
+                    console.log("i" + numeroDeCaracteres);
+                    console.log("x" + numeroDeCaracteres2);
+                    if ((numeroDeCaracteres < 4) || (numeroDeCaracteres2 < 4)) {
                         unidade = "TB";
                     } else {
                         unidade = "GB";
@@ -286,9 +294,7 @@ function atualizarDadosDisco() {
                                     <span>Armazenamento total:</span>
                                     <div id="div_armazenamento_total_disco" class="estilizar">${memoriaTotal + unidade}</div>
                                 </div>
-
-                            </div>
-                    
+                            </div>                    
                     `;
                 }
 
